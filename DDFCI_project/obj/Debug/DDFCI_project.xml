@@ -1,0 +1,61 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+DDFCI_project
+</name>
+</assembly>
+<members>
+<member name="T:DDFCI_project.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:DDFCI_project.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:DDFCI_project.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:DDFCI_project.BD.connexionBD">
+ <summary>
+ Etablie la connexion à la base de données
+ </summary>
+</member>
+<member name="M:DDFCI_project.BD.connexionUser(System.String,System.String)">
+ <summary>
+ Vérifie que l'utilisateur courant fait bien parti du personnel ayant les droits d'accès
+ </summary>
+ <param name="login">Nom d'utilisateur</param>
+ <param name="mdp">Mot de passe</param>
+</member>
+<member name="M:DDFCI_project.BD.deconnexion">
+ <summary>
+ Déconnexion à la base de données
+ </summary>
+</member>
+<member name="P:DDFCI_project.BD.Connect_bd">
+ <summary>
+ Renvoie vrai si la connexion entre l'application et la base de données est établie, faux sinon.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:DDFCI_project.BD.Connect_user">
+ <summary>
+ Renvoie vrai si l'utilisateur est connecté, faux sinon
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:DDFCI_project.Formation.base">
+ <summary>
+ contient les informations de connexion à la base de données
+ </summary>
+ <returns></returns>
+</member>
+</members>
+</doc>

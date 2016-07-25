@@ -1,0 +1,12 @@
+c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\DDFCI_project.exe.config
+c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\DDFCI_project.exe
+c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\DDFCI_project.pdb
+c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\DDFCI_project.xml
+c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.vbprojResolveAssemblyReference.cache
+c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Resources.resources
+c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.vbproj.GenerateResource.Cache
+c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.exe
+c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.xml
+c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.pdb
+C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Connexion.resources
+C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Formation.resources
