@@ -5,11 +5,13 @@ Public Class BD
     Private msg As String
     Private bool_bd As Boolean 'Teste la connexion entre l'application et la BDD
     Private bool_user As Boolean 'Teste la connexion de l'utilisateur
+    Private user As String 'Nom d'utilisateur
 
     Sub New(ByVal str As String)
         connect = New SqlConnection(str)
         bool_bd = False
         bool_user = False
+        username = ""
     End Sub
 
     ''' <summary>
@@ -40,6 +42,7 @@ Public Class BD
             If MonReader.Read() Then
                 msg = "Bienvenue " & MonReader("Login").ToString
                 bool_user = True
+                user = login
             Else
                 msg = "Erreur de connexion!!!"
                 bool_user = False
@@ -96,6 +99,19 @@ Public Class BD
         End Set
         Get
             Return bool_user
+        End Get
+    End Property
+
+    ''' <summary>
+    ''' Modifie/Renvoie le nom de l'utilisateur connecté à la base de données
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property username As String
+        Set(value As String)
+            user = value
+        End Set
+        Get
+            Return user
         End Get
     End Property
 

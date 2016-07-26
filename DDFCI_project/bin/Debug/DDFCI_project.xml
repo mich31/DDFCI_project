@@ -51,11 +51,24 @@ DDFCI_project
  </summary>
  <returns></returns>
 </member>
+<member name="P:DDFCI_project.BD.username">
+ <summary>
+ Modifie/Renvoie le nom de l'utilisateur connecté à la base de données
+ </summary>
+ <returns></returns>
+</member>
 <member name="P:DDFCI_project.Formation.base">
  <summary>
  contient les informations de connexion à la base de données
  </summary>
  <returns></returns>
+</member>
+<member name="M:DDFCI_project.Formation.QuitterToolStripMenuItem_Click(System.Object,System.EventArgs)">
+ <summary>
+ Effectue la déconnexion à la base de données et ferme le programme
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
 </member>
 </members>
 </doc>
