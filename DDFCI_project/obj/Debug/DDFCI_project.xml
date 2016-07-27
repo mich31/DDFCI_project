@@ -70,5 +70,19 @@ DDFCI_project
  <param name="sender"></param>
  <param name="e"></param>
 </member>
+<member name="M:DDFCI_project.Formation.LinkLabel1_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+ <summary>
+ Ouvre le service de messagerie pour l'envoi d'un mail
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:DDFCI_project.Formation.DataGridView1_CellContentDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+ <summary>
+ Lorsqu'on double clique sur une céllule
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 </members>
 </doc>
