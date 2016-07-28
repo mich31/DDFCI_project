@@ -21,6 +21,8 @@ Public Class Formation
         Me.TV_Menu.TopNode = Me.TV_Menu.Nodes.Add(bdd.username)
         CreerArborescence()
         GenereListeIntervenant()
+
+        RemplirDG_Stagiaire()
     End Sub
 
     Sub GenereListeIntervenant()
@@ -58,7 +60,7 @@ Public Class Formation
         End Try
     End Sub
 
-    Sub RemplirDataGrid()
+    Sub RemplirDG_Intervenant()
         Dim index As Integer
         index = ListeIntervenants.SelectedIndex
         Dim Req As String = ""
@@ -70,11 +72,44 @@ Public Class Formation
         Nom = Ligne("NomP").ToString
         Prenom = Ligne("PrenomP").ToString
 
-        Me.DataGridView1.DataSource = MonDataSet.Tables("profils_intervenant")
+        Me.DG_Intervenant.DataSource = MonDataSet.Tables("profils_intervenant")
+    End Sub
+
+    Sub RemplirDG_Stagiaire()
+        Dim Req As String = "select * from profils_stagiaires"
+        Dim cmd As New SqlCommand(Req, bdd.connect)
+        Dim MonAdaptateur As New SqlDataAdapter(cmd)
+
+        Try
+            MonAdaptateur.Fill(MonDataSet, "profils_stagiaires")
+            Me.DG_Stagiaire.DataSource = MonDataSet.Tables("profils_stagiaires")
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
+    Sub Ajout_Stagiaire(ByRef St As Stagiaire)
+        Dim Req As String = "exec AjoutStagiaire @_Civ = '" & St.civ &
+            "',@_Nom = '" & St.nom & "',@_NomJeuneFille = '" & St.nomJF & "',@_Prenom='" &
+            St.prenom & "',@_Nationalite = '" & St.nationalite & "',@_Adresse = '" &
+            St.adresse & "',@_CP = '" & St.cp & "',@_Ville = '" & St.ville & "',@_Pays ='" &
+            St.pays & "',@_NumTel = '" & St.telephone & "',@_Mail = '" & St.mail & "'"
+        Dim cmd As New SqlCommand(Req, bdd.connect)
+
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
     End Sub
 
 #Region "Arborescence Formations"
 
+    ''' <summary>
+    ''' Crée l'arborescence des formations et sessions de formations sur lesquelles l'utilisateur travaille
+    ''' </summary>
     Sub CreerArborescence()
         Dim Req As String = "select distinct NomF from travaille_sur_formation where Login='" & bdd.username & "'"
         Dim cmd As New SqlCommand(Req, bdd.connect)
@@ -93,6 +128,11 @@ Public Class Formation
         cmd.Dispose()
     End Sub
 
+    ''' <summary>
+    ''' Crée l'arborescence des sessions de formations par utilisateur
+    ''' </summary>
+    ''' <param name="NomFormation"></param>
+    ''' <param name="NodeActuel"></param>
     Sub CreerArborescenceFormation(ByVal NomFormation As String, ByVal NodeActuel As TreeNode)
         Dim Node As TreeNode = NodeActuel.Nodes(NomFormation)
         Dim Req As String = "select * from travaille_sur_formation where Login='" & bdd.username & "' and NomF='" & NomFormation & "'"
@@ -135,17 +175,21 @@ Public Class Formation
     Private Sub ListeIntervenants_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListeIntervenants.SelectedIndexChanged
         RemplirFichePersonelleIntervenant()
         Dim Intervenant As New IntervenantSelected(MonDataSet.Tables("profils_intervenant"), Me.ListeIntervenants.SelectedIndex, bdd)
-        Me.DataGridView1.DataSource = Intervenant.data_table
+        Me.DG_Intervenant.DataSource = Intervenant.data_table
         'RemplirDataGrid()
     End Sub
 
 
     ''' <summary>
-    ''' Lorsqu'on double clique sur une céllule
+    ''' Lorsqu'on double clique sur une céllule de la grille
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
+    Private Sub DG_Intervenant_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Intervenant.CellContentDoubleClick
 
+    End Sub
+
+    Private Sub BT_Ajout_Stagiaire_Click(sender As Object, e As EventArgs) Handles BT_Ajout_Stagiaire.Click
+        AjouterStagiaire.Show()
     End Sub
 End Class

@@ -34,7 +34,7 @@ Partial Class Formation
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabIntervenants = New System.Windows.Forms.TabPage()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DG_Intervenant = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LinkEmailIntervenant = New System.Windows.Forms.LinkLabel()
         Me.TB_Telephone = New System.Windows.Forms.TextBox()
@@ -48,14 +48,18 @@ Partial Class Formation
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ListeIntervenants = New System.Windows.Forms.ListBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.DG_Stagiaire = New System.Windows.Forms.DataGridView()
+        Me.BT_Ajout_Stagiaire = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabIntervenants.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DG_Intervenant, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        CType(Me.DG_Stagiaire, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -152,7 +156,7 @@ Partial Class Formation
         'TabIntervenants
         '
         Me.TabIntervenants.BackColor = System.Drawing.SystemColors.Control
-        Me.TabIntervenants.Controls.Add(Me.DataGridView1)
+        Me.TabIntervenants.Controls.Add(Me.DG_Intervenant)
         Me.TabIntervenants.Controls.Add(Me.GroupBox1)
         Me.TabIntervenants.Controls.Add(Me.ListeIntervenants)
         Me.TabIntervenants.Location = New System.Drawing.Point(4, 22)
@@ -162,14 +166,14 @@ Partial Class Formation
         Me.TabIntervenants.TabIndex = 2
         Me.TabIntervenants.Text = "Intervenants"
         '
-        'DataGridView1
+        'DG_Intervenant
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(190, 271)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(535, 209)
-        Me.DataGridView1.TabIndex = 2
+        Me.DG_Intervenant.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Intervenant.Location = New System.Drawing.Point(190, 271)
+        Me.DG_Intervenant.Name = "DG_Intervenant"
+        Me.DG_Intervenant.ReadOnly = True
+        Me.DG_Intervenant.Size = New System.Drawing.Size(535, 209)
+        Me.DG_Intervenant.TabIndex = 2
         '
         'GroupBox1
         '
@@ -287,13 +291,32 @@ Partial Class Formation
         '
         'TabPage4
         '
+        Me.TabPage4.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage4.Controls.Add(Me.DG_Stagiaire)
+        Me.TabPage4.Controls.Add(Me.BT_Ajout_Stagiaire)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage4.Size = New System.Drawing.Size(803, 735)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Stagiaires"
-        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'DG_Stagiaire
+        '
+        Me.DG_Stagiaire.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Stagiaire.Location = New System.Drawing.Point(138, 160)
+        Me.DG_Stagiaire.Name = "DG_Stagiaire"
+        Me.DG_Stagiaire.Size = New System.Drawing.Size(563, 328)
+        Me.DG_Stagiaire.TabIndex = 1
+        '
+        'BT_Ajout_Stagiaire
+        '
+        Me.BT_Ajout_Stagiaire.Location = New System.Drawing.Point(38, 53)
+        Me.BT_Ajout_Stagiaire.Name = "BT_Ajout_Stagiaire"
+        Me.BT_Ajout_Stagiaire.Size = New System.Drawing.Size(85, 31)
+        Me.BT_Ajout_Stagiaire.TabIndex = 0
+        Me.BT_Ajout_Stagiaire.Text = "Ajouter"
+        Me.BT_Ajout_Stagiaire.UseVisualStyleBackColor = True
         '
         'TabPage5
         '
@@ -333,9 +356,11 @@ Partial Class Formation
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabIntervenants.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DG_Intervenant, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        CType(Me.DG_Stagiaire, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -368,5 +393,7 @@ Partial Class Formation
     Friend WithEvents TB_Nom As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents LinkEmailIntervenant As LinkLabel
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DG_Intervenant As DataGridView
+    Friend WithEvents BT_Ajout_Stagiaire As Button
+    Friend WithEvents DG_Stagiaire As DataGridView
 End Class

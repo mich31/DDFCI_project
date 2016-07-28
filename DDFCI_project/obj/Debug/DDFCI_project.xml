@@ -63,6 +63,18 @@ DDFCI_project
  </summary>
  <returns></returns>
 </member>
+<member name="M:DDFCI_project.Formation.CreerArborescence">
+ <summary>
+ Crée l'arborescence des formations et sessions de formations sur lesquelles l'utilisateur travaille
+ </summary>
+</member>
+<member name="M:DDFCI_project.Formation.CreerArborescenceFormation(System.String,System.Windows.Forms.TreeNode)">
+ <summary>
+ Crée l'arborescence des sessions de formations par utilisateur
+ </summary>
+ <param name="NomFormation"></param>
+ <param name="NodeActuel"></param>
+</member>
 <member name="M:DDFCI_project.Formation.QuitterToolStripMenuItem_Click(System.Object,System.EventArgs)">
  <summary>
  Effectue la déconnexion à la base de données et ferme le programme
@@ -77,9 +89,9 @@ DDFCI_project
  <param name="sender"></param>
  <param name="e"></param>
 </member>
-<member name="M:DDFCI_project.Formation.DataGridView1_CellContentDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+<member name="M:DDFCI_project.Formation.DG_Intervenant_CellContentDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
  <summary>
- Lorsqu'on double clique sur une céllule
+ Lorsqu'on double clique sur une céllule de la grille
  </summary>
  <param name="sender"></param>
  <param name="e"></param>

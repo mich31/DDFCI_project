@@ -10,3 +10,4 @@ c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_
 c:\users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.pdb
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Connexion.resources
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Formation.resources
+C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.AjouterStagiaire.resources
