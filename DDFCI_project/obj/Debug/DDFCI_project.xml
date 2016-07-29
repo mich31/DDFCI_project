@@ -63,6 +63,24 @@ DDFCI_project
  </summary>
  <returns></returns>
 </member>
+<member name="P:DDFCI_project.Formation.dataset">
+ <summary>
+ Retourne un dataset
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:DDFCI_project.Formation.Formation">
+ <summary>
+ Retourne le nom de la formation sélectionné
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:DDFCI_project.Formation.Session">
+ <summary>
+ Retourne le nom de la session de formation sélectionné
+ </summary>
+ <returns></returns>
+</member>
 <member name="M:DDFCI_project.Formation.CreerArborescence">
  <summary>
  Crée l'arborescence des formations et sessions de formations sur lesquelles l'utilisateur travaille
@@ -75,13 +93,6 @@ DDFCI_project
  <param name="NomFormation"></param>
  <param name="NodeActuel"></param>
 </member>
-<member name="M:DDFCI_project.Formation.QuitterToolStripMenuItem_Click(System.Object,System.EventArgs)">
- <summary>
- Effectue la déconnexion à la base de données et ferme le programme
- </summary>
- <param name="sender"></param>
- <param name="e"></param>
-</member>
 <member name="M:DDFCI_project.Formation.LinkLabel1_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
  <summary>
  Ouvre le service de messagerie pour l'envoi d'un mail
@@ -89,9 +100,9 @@ DDFCI_project
  <param name="sender"></param>
  <param name="e"></param>
 </member>
-<member name="M:DDFCI_project.Formation.DG_Intervenant_CellContentDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+<member name="M:DDFCI_project.Formation.QuitterToolStripMenuItem_Click(System.Object,System.EventArgs)">
  <summary>
- Lorsqu'on double clique sur une céllule de la grille
+ Effectue la déconnexion à la base de données et ferme le programme
  </summary>
  <param name="sender"></param>
  <param name="e"></param>
