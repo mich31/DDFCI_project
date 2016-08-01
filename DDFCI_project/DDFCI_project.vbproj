@@ -114,8 +114,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Onglet_document.vb" />
     <Compile Include="SessionFormation.vb" />
+=======
+>>>>>>> parent of 36a3838... Travail sur les fiches intervenant et stagiaire
     <Compile Include="Stagiaire.vb" />
   </ItemGroup>
   <ItemGroup>
