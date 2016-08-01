@@ -52,6 +52,10 @@ Partial Class Formation
         Me.BT_Ajout_Stagiaire = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CB_DSE = New System.Windows.Forms.ComboBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -60,6 +64,8 @@ Partial Class Formation
         Me.GroupBox1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         CType(Me.DG_Stagiaire, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage5.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -320,13 +326,14 @@ Partial Class Formation
         '
         'TabPage5
         '
+        Me.TabPage5.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage5.Controls.Add(Me.GroupBox2)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage5.Size = New System.Drawing.Size(803, 735)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Documents"
-        Me.TabPage5.UseVisualStyleBackColor = True
         '
         'TabPage6
         '
@@ -337,6 +344,45 @@ Partial Class Formation
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Temps de travail"
         Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.CB_DSE)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Location = New System.Drawing.Point(53, 47)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(629, 248)
+        Me.GroupBox2.TabIndex = 0
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Intervenant(s)"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(22, 58)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(115, 13)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Dossier d'engagement:"
+        '
+        'CB_DSE
+        '
+        Me.CB_DSE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_DSE.FormattingEnabled = True
+        Me.CB_DSE.Location = New System.Drawing.Point(154, 55)
+        Me.CB_DSE.Name = "CB_DSE"
+        Me.CB_DSE.Size = New System.Drawing.Size(149, 21)
+        Me.CB_DSE.TabIndex = 1
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(336, 53)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(53, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Générer"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Formation
         '
@@ -361,6 +407,9 @@ Partial Class Formation
         Me.GroupBox1.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         CType(Me.DG_Stagiaire, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage5.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -396,4 +445,8 @@ Partial Class Formation
     Friend WithEvents DG_Intervenant As DataGridView
     Friend WithEvents BT_Ajout_Stagiaire As Button
     Friend WithEvents DG_Stagiaire As DataGridView
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents CB_DSE As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Button1 As Button
 End Class

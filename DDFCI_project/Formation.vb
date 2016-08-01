@@ -5,7 +5,9 @@ Public Class Formation
     Private MonDataSet As New DataSet
     Private NomFormation As String
     Private SessionFormation As String
-    Private TableSF As DataTable
+    Private TableSF As DataTable 'Table contenant la liste des intervenants
+
+
 
 #Region "Propriétés"
 
@@ -121,6 +123,7 @@ Public Class Formation
 #Region "Onglet Intervenant"
 
     Sub GenereListeIntervenant(ByRef SF As SessionFormation)
+        ListeIntervenants.Items.Clear()
         TableSF = SF.Liste_intervenants
         For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
             ListeIntervenants.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
@@ -219,6 +222,20 @@ Public Class Formation
 
 #End Region
 
+#Region "Onglet Documents"
+
+    Sub RemplirControlsDoc(ByRef SF As SessionFormation)
+        RemplirCB_Intervenants(SF)
+    End Sub
+
+    Sub RemplirCB_Intervenants(ByRef SF As SessionFormation)
+        CB_DSE.Items.Clear()
+        For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
+            CB_DSE.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
+        Next
+    End Sub
+
+#End Region
 
     ''' <summary>
     ''' Effectue la déconnexion à la base de données et ferme le programme
@@ -233,7 +250,7 @@ Public Class Formation
 
 
     Private Sub TV_Menu_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TV_Menu.AfterSelect
-        ListeIntervenants.Items.Clear()
+        'ListeIntervenants.Items.Clear()
         'Si le noeud sélectionné est une session de formation
         If Me.TV_Menu.SelectedNode.Level = 2 Then
             NomFormation = Me.TV_Menu.SelectedNode.Parent.Text
@@ -248,5 +265,13 @@ Public Class Formation
         Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
         GenereListeIntervenant(SF)
         RemplirDG_Stagiaire(SF)
+        RemplirControlsDoc(SF)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If Me.CB_DSE.SelectedIndex >= 0 Then
+            Dim FicheEngagement As New Document(TableSF, Me.CB_DSE.SelectedIndex, bdd)
+            FicheEngagement.GenereDossierEngagement()
+        End If
     End Sub
 End Class
