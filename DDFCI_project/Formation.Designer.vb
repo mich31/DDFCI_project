@@ -145,13 +145,13 @@ Partial Class Formation
         '
         'TabPage2
         '
+        Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(803, 735)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Planning"
-        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'TabIntervenants
         '
@@ -342,7 +342,7 @@ Partial Class Formation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1234, 942)
+        Me.ClientSize = New System.Drawing.Size(1234, 741)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.TV_Menu)
         Me.Controls.Add(Me.ToolStrip1)
