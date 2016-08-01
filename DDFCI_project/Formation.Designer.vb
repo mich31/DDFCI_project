@@ -199,10 +199,10 @@ Partial Class Formation
         Me.LinkEmailIntervenant.AutoSize = True
         Me.LinkEmailIntervenant.Location = New System.Drawing.Point(120, 130)
         Me.LinkEmailIntervenant.Name = "LinkEmailIntervenant"
-        Me.LinkEmailIntervenant.Size = New System.Drawing.Size(89, 13)
+        Me.LinkEmailIntervenant.Size = New System.Drawing.Size(106, 13)
         Me.LinkEmailIntervenant.TabIndex = 9
         Me.LinkEmailIntervenant.TabStop = True
-        Me.LinkEmailIntervenant.Text = "Email Intervenant"
+        Me.LinkEmailIntervenant.Text = "LinkEmailIntervenant"
         '
         'TB_Telephone
         '
