@@ -3,6 +3,16 @@
 Public Class Formation
     Private bdd As BD
     Private MonDataSet As New DataSet
+<<<<<<< HEAD
+    Private NomFormation As String
+    Private SessionFormation As String
+    Private TableSF As DataTable 'Table contenant la liste des intervenants
+
+
+
+#Region "Propriétés"
+=======
+>>>>>>> origin/master
 
     ''' <summary>
     ''' contient les informations de connexion à la base de données
@@ -42,6 +52,21 @@ Public Class Formation
         cmd.Dispose()
     End Sub
 
+<<<<<<< HEAD
+#End Region
+
+#Region "Onglet Intervenant"
+
+    Sub GenereListeIntervenant(ByRef SF As SessionFormation)
+        ListeIntervenants.Items.Clear()
+        TableSF = SF.Liste_intervenants
+        For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
+            ListeIntervenants.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
+        Next
+    End Sub
+
+=======
+>>>>>>> origin/master
     Sub RemplirFichePersonelleIntervenant()
         Try
             'Dim MonView As New DataView(MonDataSet.Tables("profils_intervenant"))
@@ -150,6 +175,22 @@ Public Class Formation
         cmd.Dispose()
     End Sub
 
+<<<<<<< HEAD
+#Region "Onglet Documents"
+
+    Sub RemplirControlsDoc(ByRef SF As SessionFormation)
+        RemplirCB_Intervenants(SF)
+    End Sub
+
+    Sub RemplirCB_Intervenants(ByRef SF As SessionFormation)
+        CB_DSE.Items.Clear()
+        For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
+            CB_DSE.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
+        Next
+    End Sub
+
+=======
+>>>>>>> origin/master
 #End Region
 
     ''' <summary>
@@ -172,6 +213,32 @@ Public Class Formation
         System.Diagnostics.Process.Start("mailto:" & Me.LinkEmailIntervenant.Text)
     End Sub
 
+<<<<<<< HEAD
+    Private Sub TV_Menu_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TV_Menu.AfterSelect
+        'ListeIntervenants.Items.Clear()
+        'Si le noeud sélectionné est une session de formation
+        If Me.TV_Menu.SelectedNode.Level = 2 Then
+            NomFormation = Me.TV_Menu.SelectedNode.Parent.Text
+            SessionFormation = Me.TV_Menu.SelectedNode.Text
+            MAJ_infos()
+        ElseIf Me.TV_Menu.SelectedNode.Level = 1 Then 'Si le noeud sélectionné est une formation
+            NomFormation = Me.TV_Menu.SelectedNode.Text
+        End If
+    End Sub
+
+    Private Sub MAJ_infos()
+        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
+        GenereListeIntervenant(SF)
+        RemplirDG_Stagiaire(SF)
+        RemplirControlsDoc(SF)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If Me.CB_DSE.SelectedIndex >= 0 Then
+            Dim FicheEngagement As New Document(TableSF, Me.CB_DSE.SelectedIndex, bdd)
+            FicheEngagement.GenereDossierEngagement()
+        End If
+=======
     Private Sub ListeIntervenants_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListeIntervenants.SelectedIndexChanged
         RemplirFichePersonelleIntervenant()
         Dim Intervenant As New IntervenantSelected(MonDataSet.Tables("profils_intervenant"), Me.ListeIntervenants.SelectedIndex, bdd)
@@ -191,5 +258,6 @@ Public Class Formation
 
     Private Sub BT_Ajout_Stagiaire_Click(sender As Object, e As EventArgs) Handles BT_Ajout_Stagiaire.Click
         AjouterStagiaire.Show()
+>>>>>>> origin/master
     End Sub
 End Class
