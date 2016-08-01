@@ -22,6 +22,7 @@ Partial Class Formation
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -52,6 +53,9 @@ Partial Class Formation
         Me.BT_Ajout_Stagiaire = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CB_DSE = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -60,6 +64,11 @@ Partial Class Formation
         Me.GroupBox1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         CType(Me.DG_Stagiaire, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage5.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.Formation_ContinueDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FormationContinueDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProfilsintervenantBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -320,13 +329,14 @@ Partial Class Formation
         '
         'TabPage5
         '
+        Me.TabPage5.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage5.Controls.Add(Me.GroupBox2)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage5.Size = New System.Drawing.Size(803, 735)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Documents"
-        Me.TabPage5.UseVisualStyleBackColor = True
         '
         'TabPage6
         '
@@ -337,6 +347,57 @@ Partial Class Formation
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Temps de travail"
         Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.CB_DSE)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Location = New System.Drawing.Point(86, 59)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(620, 280)
+        Me.GroupBox2.TabIndex = 0
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Intervenant(s)"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(19, 38)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(115, 13)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Dossier d'engagement:"
+        '
+        'CB_DSE
+        '
+        Me.CB_DSE.DataSource = Me.ProfilsintervenantBindingSource
+        Me.CB_DSE.DisplayMember = "NomP"
+        Me.CB_DSE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_DSE.FormattingEnabled = True
+        Me.CB_DSE.Location = New System.Drawing.Point(167, 35)
+        Me.CB_DSE.Name = "CB_DSE"
+        Me.CB_DSE.Size = New System.Drawing.Size(136, 21)
+        Me.CB_DSE.TabIndex = 1
+        Me.CB_DSE.ValueMember = "idPersonne"
+        '
+        'Formation_ContinueDataSet
+        '
+        Me.Formation_ContinueDataSet.DataSetName = "Formation_ContinueDataSet"
+        Me.Formation_ContinueDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'FormationContinueDataSetBindingSource
+        '
+        Me.FormationContinueDataSetBindingSource.DataSource = Me.Formation_ContinueDataSet
+        Me.FormationContinueDataSetBindingSource.Position = 0
+        '
+        'ProfilsintervenantBindingSource
+        '
+        Me.ProfilsintervenantBindingSource.DataMember = "profils_intervenant"
+        Me.ProfilsintervenantBindingSource.DataSource = Me.Formation_ContinueDataSet
+        '
+        'Profils_intervenantTableAdapter
+        '
+        Me.Profils_intervenantTableAdapter.ClearBeforeFill = True
         '
         'Formation
         '
@@ -361,6 +422,12 @@ Partial Class Formation
         Me.GroupBox1.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         CType(Me.DG_Stagiaire, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage5.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        CType(Me.Formation_ContinueDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FormationContinueDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProfilsintervenantBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -396,4 +463,11 @@ Partial Class Formation
     Friend WithEvents DG_Intervenant As DataGridView
     Friend WithEvents BT_Ajout_Stagiaire As Button
     Friend WithEvents DG_Stagiaire As DataGridView
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents CB_DSE As ComboBox
+    Friend WithEvents FormationContinueDataSetBindingSource As BindingSource
+    Friend WithEvents Formation_ContinueDataSet As Formation_ContinueDataSet
+    Friend WithEvents ProfilsintervenantBindingSource As BindingSource
+    Friend WithEvents Profils_intervenantTableAdapter As Formation_ContinueDataSetTableAdapters.profils_intervenantTableAdapter
 End Class

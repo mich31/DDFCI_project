@@ -93,6 +93,11 @@
     <Compile Include="Formation.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formation_ContinueDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formation_ContinueDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="IntervenantSelected.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -109,6 +114,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Onglet_document.vb" />
     <Compile Include="SessionFormation.vb" />
     <Compile Include="Stagiaire.vb" />
   </ItemGroup>
@@ -130,6 +136,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Formation_ContinueDataSet.xsc">
+      <DependentUpon>Formation_ContinueDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Formation_ContinueDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Formation_ContinueDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Formation_ContinueDataSet.xss">
+      <DependentUpon>Formation_ContinueDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
