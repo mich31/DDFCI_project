@@ -70,6 +70,9 @@ Public Class Document
             oDoc.Bookmarks.Item("Pays").Range.Text = Ligne("PaysP").ToString
             oDoc.Bookmarks.Item("NumTel").Range.Text = Ligne("NumTelP").ToString
             oDoc.Bookmarks.Item("Mail").Range.Text = Ligne("MailP").ToString
+
+            oDoc.Bookmarks.Item("NomIntervenant").Range.Text = Ligne("NomP").ToString.ToUpper & " " & Ligne("PrenomP").ToString
+            oDoc.Bookmarks.Item("DécisionDirecteur").Range.Text = Ligne("CiviliteP").ToString & "  " & Ligne("NomP").ToString.ToUpper & " " & Ligne("PrenomP").ToString & "  "
         Next
 
         For Each Ligne As DataRow In MonDataSet.Tables("fiche_pro_intervenant").Rows()
@@ -77,7 +80,30 @@ Public Class Document
             oDoc.Bookmarks.Item("NomEntreprise").Range.Text = Ligne("NomE").ToString
             oDoc.Bookmarks.Item("Anciennete").Range.Text = Ligne("Anciennete").ToString
             oDoc.Bookmarks.Item("AdresseEntreprise").Range.Text = Ligne("AdresseE").ToString
-            oDoc.Bookmarks.Item("FaitA").Range.Text = "Vaulx en velin"
         Next
+
+        oDoc.Bookmarks.Item("FaitA").Range.Text = "Vaulx en velin"
+        oDoc.Bookmarks.Item("Année").Range.Text = DateTime.Now.Year.ToString
+        oDoc.Bookmarks.Item("Date").Range.Text = DateTime.Now.Date.ToString("d")
+    End Sub
+
+    Sub GenereFicheServicefait()
+
+        'Crée une instance de Word
+        Dim oWord As New Word.Application
+        Dim oDoc As New Word.Document
+        'Ouvrir un document
+        oDoc = oWord.Documents.Open("C:\Users\michel.edjoa\Documents\Outils de gestion\Formation Continue\INTERVENANTS\Test\Fiche service fait.docx")
+        'Rendre le document visible
+        oWord.Visible = True
+
+        oDoc.Bookmarks.Item("Année").Range.Text = DateTime.Now.Year.ToString
+        oDoc.Bookmarks.Item("AnnéeCivile").Range.Text = DateTime.Now.Year.ToString
+        oDoc.Bookmarks.Item("DateValidation").Range.Text = DateTime.Now.Date.ToString("d")
+
+        For Each Ligne As DataRow In MonDataSet.Tables("fiche_perso_intervenant").Rows()
+            oDoc.Bookmarks.Item("NomIntervenant").Range.Text = Ligne("NomP").ToString.ToUpper & " " & Ligne("PrenomP").ToString
+        Next
+
     End Sub
 End Class

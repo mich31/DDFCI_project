@@ -51,11 +51,19 @@ Partial Class Formation
         Me.DG_Stagiaire = New System.Windows.Forms.DataGridView()
         Me.BT_Ajout_Stagiaire = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.CB_DSE = New System.Windows.Forms.ComboBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.CB_convoc = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.CB_FSF = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.CB_DSE = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.BT_FichePerso = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -183,6 +191,7 @@ Partial Class Formation
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.BT_FichePerso)
         Me.GroupBox1.Controls.Add(Me.LinkEmailIntervenant)
         Me.GroupBox1.Controls.Add(Me.TB_Telephone)
         Me.GroupBox1.Controls.Add(Me.TB_DateNaissance)
@@ -195,7 +204,7 @@ Partial Class Formation
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(233, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(302, 166)
+        Me.GroupBox1.Size = New System.Drawing.Size(302, 191)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Fiche Personnelle"
@@ -327,6 +336,7 @@ Partial Class Formation
         'TabPage5
         '
         Me.TabPage5.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage5.Controls.Add(Me.GroupBox3)
         Me.TabPage5.Controls.Add(Me.GroupBox2)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
@@ -334,6 +344,114 @@ Partial Class Formation
         Me.TabPage5.Size = New System.Drawing.Size(803, 735)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Documents"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Location = New System.Drawing.Point(56, 345)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(626, 305)
+        Me.GroupBox3.TabIndex = 1
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Stagiaire(s)"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Button3)
+        Me.GroupBox2.Controls.Add(Me.CB_convoc)
+        Me.GroupBox2.Controls.Add(Me.Label8)
+        Me.GroupBox2.Controls.Add(Me.Button2)
+        Me.GroupBox2.Controls.Add(Me.CB_FSF)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.Button1)
+        Me.GroupBox2.Controls.Add(Me.CB_DSE)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Location = New System.Drawing.Point(53, 47)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(629, 272)
+        Me.GroupBox2.TabIndex = 0
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Intervenant(s)"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(336, 142)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(53, 23)
+        Me.Button3.TabIndex = 8
+        Me.Button3.Text = "Générer"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'CB_convoc
+        '
+        Me.CB_convoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_convoc.FormattingEnabled = True
+        Me.CB_convoc.Location = New System.Drawing.Point(154, 144)
+        Me.CB_convoc.Name = "CB_convoc"
+        Me.CB_convoc.Size = New System.Drawing.Size(149, 21)
+        Me.CB_convoc.TabIndex = 7
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(67, 147)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(70, 13)
+        Me.Label8.TabIndex = 6
+        Me.Label8.Text = "Convocation:"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(336, 97)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(53, 23)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "Générer"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'CB_FSF
+        '
+        Me.CB_FSF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_FSF.FormattingEnabled = True
+        Me.CB_FSF.Location = New System.Drawing.Point(154, 97)
+        Me.CB_FSF.Name = "CB_FSF"
+        Me.CB_FSF.Size = New System.Drawing.Size(149, 21)
+        Me.CB_FSF.TabIndex = 4
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(47, 100)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(90, 13)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "Fiche service fait:"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(336, 55)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(53, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Générer"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'CB_DSE
+        '
+        Me.CB_DSE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_DSE.FormattingEnabled = True
+        Me.CB_DSE.Location = New System.Drawing.Point(154, 55)
+        Me.CB_DSE.Name = "CB_DSE"
+        Me.CB_DSE.Size = New System.Drawing.Size(149, 21)
+        Me.CB_DSE.TabIndex = 1
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(22, 58)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(115, 13)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Dossier d'engagement:"
         '
         'TabPage6
         '
@@ -345,44 +463,15 @@ Partial Class Formation
         Me.TabPage6.Text = "Temps de travail"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
-        'GroupBox2
+        'BT_FichePerso
         '
-        Me.GroupBox2.Controls.Add(Me.Button1)
-        Me.GroupBox2.Controls.Add(Me.CB_DSE)
-        Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Location = New System.Drawing.Point(53, 47)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(629, 248)
-        Me.GroupBox2.TabIndex = 0
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Intervenant(s)"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(22, 58)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(115, 13)
-        Me.Label6.TabIndex = 0
-        Me.Label6.Text = "Dossier d'engagement:"
-        '
-        'CB_DSE
-        '
-        Me.CB_DSE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CB_DSE.FormattingEnabled = True
-        Me.CB_DSE.Location = New System.Drawing.Point(154, 55)
-        Me.CB_DSE.Name = "CB_DSE"
-        Me.CB_DSE.Size = New System.Drawing.Size(149, 21)
-        Me.CB_DSE.TabIndex = 1
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(336, 53)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(53, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Générer"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BT_FichePerso.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BT_FichePerso.Location = New System.Drawing.Point(146, 159)
+        Me.BT_FichePerso.Name = "BT_FichePerso"
+        Me.BT_FichePerso.Size = New System.Drawing.Size(30, 26)
+        Me.BT_FichePerso.TabIndex = 10
+        Me.BT_FichePerso.Text = "V"
+        Me.BT_FichePerso.UseVisualStyleBackColor = True
         '
         'Formation
         '
@@ -449,4 +538,12 @@ Partial Class Formation
     Friend WithEvents CB_DSE As ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents CB_FSF As ComboBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents CB_convoc As ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents BT_FichePerso As Button
 End Class

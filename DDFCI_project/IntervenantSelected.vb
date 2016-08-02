@@ -2,8 +2,6 @@
 
 Public Class IntervenantSelected
     Private bdd As BD
-    Private DataTableIntervenant As DataTable
-    'Private MonDataTableIntervention As DataTable
     Private MonDataSet As New DataSet
     Private index As Integer
     Private Nom As String
@@ -22,7 +20,6 @@ Public Class IntervenantSelected
     Sub New(ByRef DT As DataTable, ByVal i As Integer, ByRef base As BD)
         Dim Ligne As DataRow
 
-        DataTableIntervenant = DT
         index = i
         bdd = base
 

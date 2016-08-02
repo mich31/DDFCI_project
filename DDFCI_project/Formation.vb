@@ -63,6 +63,14 @@ Public Class Formation
         End Get
     End Property
 
+    Property TableIntervenant As DataTable
+        Set(value As DataTable)
+
+        End Set
+        Get
+            Return TableSF
+        End Get
+    End Property
 #End Region
 
 
@@ -186,17 +194,6 @@ Public Class Formation
 #Region "Onglet Stagiaire"
 
     Sub RemplirDG_Stagiaire(ByRef SF As SessionFormation)
-        'Dim Req As String = "select * from profils_stagiaires"
-        'Dim cmd As New SqlCommand(Req, bdd.connect)
-        'Dim MonAdaptateur As New SqlDataAdapter(cmd)
-
-        'Try
-        '    MonAdaptateur.Fill(MonDataSet, "profils_stagiaires")
-        '    Me.DG_Stagiaire.DataSource = MonDataSet.Tables("profils_stagiaires")
-        'Catch ex As Exception
-        '    Console.WriteLine(ex.Message)
-        'End Try
-        'cmd.Dispose()
         Me.DG_Stagiaire.DataSource = SF.Liste_stagiaires
     End Sub
 
@@ -232,6 +229,8 @@ Public Class Formation
         CB_DSE.Items.Clear()
         For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
             CB_DSE.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
+            CB_FSF.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
+            CB_convoc.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
         Next
     End Sub
 
@@ -250,7 +249,6 @@ Public Class Formation
 
 
     Private Sub TV_Menu_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TV_Menu.AfterSelect
-        'ListeIntervenants.Items.Clear()
         'Si le noeud sélectionné est une session de formation
         If Me.TV_Menu.SelectedNode.Level = 2 Then
             NomFormation = Me.TV_Menu.SelectedNode.Parent.Text
@@ -269,9 +267,22 @@ Public Class Formation
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If Me.CB_DSE.SelectedIndex >= 0 Then
-            Dim FicheEngagement As New Document(TableSF, Me.CB_DSE.SelectedIndex, bdd)
+        Dim index As Integer = Me.CB_DSE.SelectedIndex
+        If index >= 0 Then
+            Dim FicheEngagement As New Document(TableSF, index, bdd)
             FicheEngagement.GenereDossierEngagement()
         End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim index As Integer = Me.CB_FSF.SelectedIndex
+        If index >= 0 Then
+            Dim FSF As New Document(TableSF, index, bdd)
+            FSF.GenereFicheServicefait()
+        End If
+    End Sub
+
+    Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs) Handles BT_FichePerso.Click
+        FichePersoIntervenant.Show()
     End Sub
 End Class
