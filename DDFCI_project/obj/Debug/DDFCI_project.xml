@@ -6,22 +6,6 @@ DDFCI_project
 </name>
 </assembly>
 <members>
-<member name="T:DDFCI_project.My.Resources.Resources">
-<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member>
-<member name="P:DDFCI_project.My.Resources.Resources.ResourceManager">
-<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member>
-<member name="P:DDFCI_project.My.Resources.Resources.Culture">
-<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member>
 <member name="M:DDFCI_project.BD.connexionBD">
  <summary>
  Etablie la connexion à la base de données
@@ -106,6 +90,22 @@ DDFCI_project
  </summary>
  <param name="sender"></param>
  <param name="e"></param>
+</member>
+<member name="T:DDFCI_project.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:DDFCI_project.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:DDFCI_project.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
 </member>
 </members>
 </doc>
