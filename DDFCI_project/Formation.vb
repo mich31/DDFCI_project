@@ -6,7 +6,7 @@ Public Class Formation
     Private NomFormation As String
     Private SessionFormation As String
     Private TableSF As DataTable 'Table contenant la liste des intervenants
-
+    Public Ligne As DataRow
 
 
 #Region "Propriétés"
@@ -143,7 +143,7 @@ Public Class Formation
             'Dim MonView As New DataView(MonDataSet.Tables("profils_intervenant"))
             'MonView.Sort = "where NomP = '"
             Dim index As Integer
-            Dim Ligne As DataRow
+            'Dim Ligne As DataRow
             index = ListeIntervenants.SelectedIndex
             Ligne = TableSF.Rows().Item(index)
             Me.TB_Nom.Text = Ligne("NomP").ToString
@@ -227,6 +227,9 @@ Public Class Formation
 
     Sub RemplirCB_Intervenants(ByRef SF As SessionFormation)
         CB_DSE.Items.Clear()
+        CB_FSF.Items.Clear()
+        CB_convoc.Items.Clear()
+
         For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
             CB_DSE.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
             CB_FSF.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
@@ -283,6 +286,7 @@ Public Class Formation
     End Sub
 
     Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs) Handles BT_FichePerso.Click
-        FichePersoIntervenant.Show()
+        Dim FichePerso As New FichePersoIntervenant(bdd, Ligne)
+        FichePerso.Show()
     End Sub
 End Class
