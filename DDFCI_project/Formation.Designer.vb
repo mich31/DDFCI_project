@@ -27,6 +27,10 @@ Partial Class Formation
         Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CréerUnUtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupprimerUnUtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupprimerUnUtilisateurToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.TV_Menu = New System.Windows.Forms.TreeView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -49,6 +53,18 @@ Partial Class Formation
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Panel_Stagiaires_détails = New System.Windows.Forms.Panel()
+        Me.TabControl3 = New System.Windows.Forms.TabControl()
+        Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.ToolStrip7 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
+        Me.Panel_Stagiaires_Liste = New System.Windows.Forms.Panel()
+        Me.DG_Liste_Stagiaires = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ToolStrip6 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -62,41 +78,28 @@ Partial Class Formation
         Me.CB_DSE = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.Panel_Stagiaires_Liste = New System.Windows.Forms.Panel()
-        Me.Panel_Stagiaires_détails = New System.Windows.Forms.Panel()
-        Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
-        Me.ToolStrip6 = New System.Windows.Forms.ToolStrip()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.DG_Liste_Stagiaires = New System.Windows.Forms.DataGridView()
-        Me.ToolStrip7 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
-        Me.TabControl3 = New System.Windows.Forms.TabControl()
-        Me.TabPage10 = New System.Windows.Forms.TabPage()
-        Me.TabPage11 = New System.Windows.Forms.TabPage()
-        Me.UtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CréerUnUtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SupprimerUnUtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SupprimerUnUtilisateurToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DG_Liste_Interventions = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabIntervenants.SuspendLayout()
         Me.Panel_Intervenants_details.SuspendLayout()
         Me.TabControl2.SuspendLayout()
+        Me.TabPage8.SuspendLayout()
         Me.ToolStrip4.SuspendLayout()
         Me.Panel_Intervenants_liste.SuspendLayout()
         CType(Me.DG_Liste_Intervenants, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip2.SuspendLayout()
         Me.TabPage4.SuspendLayout()
+        Me.Panel_Stagiaires_détails.SuspendLayout()
+        Me.TabControl3.SuspendLayout()
+        Me.ToolStrip7.SuspendLayout()
+        Me.Panel_Stagiaires_Liste.SuspendLayout()
+        CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip5.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.Panel_Stagiaires_Liste.SuspendLayout()
-        Me.Panel_Stagiaires_détails.SuspendLayout()
-        Me.ToolStrip5.SuspendLayout()
-        CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ToolStrip7.SuspendLayout()
-        Me.TabControl3.SuspendLayout()
+        CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -132,6 +135,31 @@ Partial Class Formation
         Me.FormationToolStripMenuItem.Name = "FormationToolStripMenuItem"
         Me.FormationToolStripMenuItem.Size = New System.Drawing.Size(74, 20)
         Me.FormationToolStripMenuItem.Text = "Formation"
+        '
+        'UtilisateurToolStripMenuItem
+        '
+        Me.UtilisateurToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CréerUnUtilisateurToolStripMenuItem, Me.SupprimerUnUtilisateurToolStripMenuItem, Me.SupprimerUnUtilisateurToolStripMenuItem1})
+        Me.UtilisateurToolStripMenuItem.Name = "UtilisateurToolStripMenuItem"
+        Me.UtilisateurToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
+        Me.UtilisateurToolStripMenuItem.Text = "Utilisateur"
+        '
+        'CréerUnUtilisateurToolStripMenuItem
+        '
+        Me.CréerUnUtilisateurToolStripMenuItem.Name = "CréerUnUtilisateurToolStripMenuItem"
+        Me.CréerUnUtilisateurToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.CréerUnUtilisateurToolStripMenuItem.Text = "Créer un utilisateur"
+        '
+        'SupprimerUnUtilisateurToolStripMenuItem
+        '
+        Me.SupprimerUnUtilisateurToolStripMenuItem.Name = "SupprimerUnUtilisateurToolStripMenuItem"
+        Me.SupprimerUnUtilisateurToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.SupprimerUnUtilisateurToolStripMenuItem.Text = "Modifier mes informations"
+        '
+        'SupprimerUnUtilisateurToolStripMenuItem1
+        '
+        Me.SupprimerUnUtilisateurToolStripMenuItem1.Name = "SupprimerUnUtilisateurToolStripMenuItem1"
+        Me.SupprimerUnUtilisateurToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
+        Me.SupprimerUnUtilisateurToolStripMenuItem1.Text = "Supprimer un utilisateur"
         '
         'ToolStrip1
         '
@@ -245,13 +273,14 @@ Partial Class Formation
         '
         'TabPage8
         '
+        Me.TabPage8.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage8.Controls.Add(Me.DG_Liste_Interventions)
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage8.Size = New System.Drawing.Size(762, 769)
         Me.TabPage8.TabIndex = 2
         Me.TabPage8.Text = "Interventions(s)"
-        Me.TabPage8.UseVisualStyleBackColor = True
         '
         'TabPage9
         '
@@ -314,10 +343,9 @@ Partial Class Formation
         'DG_Liste_Intervenants
         '
         Me.DG_Liste_Intervenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Intervenants.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DG_Liste_Intervenants.Location = New System.Drawing.Point(0, 25)
+        Me.DG_Liste_Intervenants.Location = New System.Drawing.Point(0, 53)
         Me.DG_Liste_Intervenants.Name = "DG_Liste_Intervenants"
-        Me.DG_Liste_Intervenants.Size = New System.Drawing.Size(258, 804)
+        Me.DG_Liste_Intervenants.Size = New System.Drawing.Size(258, 776)
         Me.DG_Liste_Intervenants.TabIndex = 1
         '
         'ToolStrip2
@@ -348,6 +376,119 @@ Partial Class Formation
         Me.TabPage4.Size = New System.Drawing.Size(1037, 829)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Stagiaires"
+        '
+        'Panel_Stagiaires_détails
+        '
+        Me.Panel_Stagiaires_détails.Controls.Add(Me.TabControl3)
+        Me.Panel_Stagiaires_détails.Controls.Add(Me.ToolStrip7)
+        Me.Panel_Stagiaires_détails.Location = New System.Drawing.Point(263, 6)
+        Me.Panel_Stagiaires_détails.Name = "Panel_Stagiaires_détails"
+        Me.Panel_Stagiaires_détails.Size = New System.Drawing.Size(778, 820)
+        Me.Panel_Stagiaires_détails.TabIndex = 1
+        '
+        'TabControl3
+        '
+        Me.TabControl3.Controls.Add(Me.TabPage10)
+        Me.TabControl3.Controls.Add(Me.TabPage11)
+        Me.TabControl3.Location = New System.Drawing.Point(3, 29)
+        Me.TabControl3.Name = "TabControl3"
+        Me.TabControl3.SelectedIndex = 0
+        Me.TabControl3.Size = New System.Drawing.Size(775, 788)
+        Me.TabControl3.TabIndex = 1
+        '
+        'TabPage10
+        '
+        Me.TabPage10.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage10.Name = "TabPage10"
+        Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage10.Size = New System.Drawing.Size(767, 762)
+        Me.TabPage10.TabIndex = 0
+        Me.TabPage10.Text = "Informations"
+        Me.TabPage10.UseVisualStyleBackColor = True
+        '
+        'TabPage11
+        '
+        Me.TabPage11.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage11.Name = "TabPage11"
+        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage11.Size = New System.Drawing.Size(767, 762)
+        Me.TabPage11.TabIndex = 1
+        Me.TabPage11.Text = "Documents"
+        Me.TabPage11.UseVisualStyleBackColor = True
+        '
+        'ToolStrip7
+        '
+        Me.ToolStrip7.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.ToolStrip7.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel4})
+        Me.ToolStrip7.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip7.Name = "ToolStrip7"
+        Me.ToolStrip7.Size = New System.Drawing.Size(778, 25)
+        Me.ToolStrip7.TabIndex = 0
+        Me.ToolStrip7.Text = "ToolStrip7"
+        '
+        'ToolStripLabel4
+        '
+        Me.ToolStripLabel4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripLabel4.Name = "ToolStripLabel4"
+        Me.ToolStripLabel4.Size = New System.Drawing.Size(45, 22)
+        Me.ToolStripLabel4.Text = "Détails"
+        '
+        'Panel_Stagiaires_Liste
+        '
+        Me.Panel_Stagiaires_Liste.Controls.Add(Me.DG_Liste_Stagiaires)
+        Me.Panel_Stagiaires_Liste.Controls.Add(Me.Label1)
+        Me.Panel_Stagiaires_Liste.Controls.Add(Me.ToolStrip6)
+        Me.Panel_Stagiaires_Liste.Controls.Add(Me.ToolStrip5)
+        Me.Panel_Stagiaires_Liste.Location = New System.Drawing.Point(3, 3)
+        Me.Panel_Stagiaires_Liste.Name = "Panel_Stagiaires_Liste"
+        Me.Panel_Stagiaires_Liste.Size = New System.Drawing.Size(254, 823)
+        Me.Panel_Stagiaires_Liste.TabIndex = 0
+        '
+        'DG_Liste_Stagiaires
+        '
+        Me.DG_Liste_Stagiaires.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Liste_Stagiaires.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DG_Liste_Stagiaires.Location = New System.Drawing.Point(0, 50)
+        Me.DG_Liste_Stagiaires.Name = "DG_Liste_Stagiaires"
+        Me.DG_Liste_Stagiaires.Size = New System.Drawing.Size(254, 773)
+        Me.DG_Liste_Stagiaires.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Label1.Location = New System.Drawing.Point(84, 32)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(96, 13)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "0 enregistrement(s)"
+        '
+        'ToolStrip6
+        '
+        Me.ToolStrip6.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.ToolStrip6.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip6.Location = New System.Drawing.Point(0, 25)
+        Me.ToolStrip6.Name = "ToolStrip6"
+        Me.ToolStrip6.Size = New System.Drawing.Size(254, 25)
+        Me.ToolStrip6.TabIndex = 1
+        Me.ToolStrip6.Text = "ToolStrip6"
+        '
+        'ToolStrip5
+        '
+        Me.ToolStrip5.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.ToolStrip5.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel2})
+        Me.ToolStrip5.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip5.Name = "ToolStrip5"
+        Me.ToolStrip5.Size = New System.Drawing.Size(254, 25)
+        Me.ToolStrip5.TabIndex = 0
+        Me.ToolStrip5.Text = "ToolStrip5"
+        '
+        'ToolStripLabel2
+        '
+        Me.ToolStripLabel2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripLabel2.Name = "ToolStripLabel2"
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(118, 22)
+        Me.ToolStripLabel2.Text = "Liste des stagiaire(s)"
         '
         'TabPage5
         '
@@ -479,143 +620,13 @@ Partial Class Formation
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
-        'Panel_Stagiaires_Liste
+        'DG_Liste_Interventions
         '
-        Me.Panel_Stagiaires_Liste.Controls.Add(Me.DG_Liste_Stagiaires)
-        Me.Panel_Stagiaires_Liste.Controls.Add(Me.Label1)
-        Me.Panel_Stagiaires_Liste.Controls.Add(Me.ToolStrip6)
-        Me.Panel_Stagiaires_Liste.Controls.Add(Me.ToolStrip5)
-        Me.Panel_Stagiaires_Liste.Location = New System.Drawing.Point(3, 3)
-        Me.Panel_Stagiaires_Liste.Name = "Panel_Stagiaires_Liste"
-        Me.Panel_Stagiaires_Liste.Size = New System.Drawing.Size(254, 823)
-        Me.Panel_Stagiaires_Liste.TabIndex = 0
-        '
-        'Panel_Stagiaires_détails
-        '
-        Me.Panel_Stagiaires_détails.Controls.Add(Me.TabControl3)
-        Me.Panel_Stagiaires_détails.Controls.Add(Me.ToolStrip7)
-        Me.Panel_Stagiaires_détails.Location = New System.Drawing.Point(263, 6)
-        Me.Panel_Stagiaires_détails.Name = "Panel_Stagiaires_détails"
-        Me.Panel_Stagiaires_détails.Size = New System.Drawing.Size(778, 820)
-        Me.Panel_Stagiaires_détails.TabIndex = 1
-        '
-        'ToolStrip5
-        '
-        Me.ToolStrip5.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.ToolStrip5.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel2})
-        Me.ToolStrip5.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip5.Name = "ToolStrip5"
-        Me.ToolStrip5.Size = New System.Drawing.Size(254, 25)
-        Me.ToolStrip5.TabIndex = 0
-        Me.ToolStrip5.Text = "ToolStrip5"
-        '
-        'ToolStripLabel2
-        '
-        Me.ToolStripLabel2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripLabel2.Name = "ToolStripLabel2"
-        Me.ToolStripLabel2.Size = New System.Drawing.Size(118, 22)
-        Me.ToolStripLabel2.Text = "Liste des stagiaire(s)"
-        '
-        'ToolStrip6
-        '
-        Me.ToolStrip6.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.ToolStrip6.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip6.Location = New System.Drawing.Point(0, 25)
-        Me.ToolStrip6.Name = "ToolStrip6"
-        Me.ToolStrip6.Size = New System.Drawing.Size(254, 25)
-        Me.ToolStrip6.TabIndex = 1
-        Me.ToolStrip6.Text = "ToolStrip6"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.Label1.Location = New System.Drawing.Point(84, 32)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(96, 13)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "0 enregistrement(s)"
-        '
-        'DG_Liste_Stagiaires
-        '
-        Me.DG_Liste_Stagiaires.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Stagiaires.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DG_Liste_Stagiaires.Location = New System.Drawing.Point(0, 50)
-        Me.DG_Liste_Stagiaires.Name = "DG_Liste_Stagiaires"
-        Me.DG_Liste_Stagiaires.Size = New System.Drawing.Size(254, 773)
-        Me.DG_Liste_Stagiaires.TabIndex = 3
-        '
-        'ToolStrip7
-        '
-        Me.ToolStrip7.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.ToolStrip7.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel4})
-        Me.ToolStrip7.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip7.Name = "ToolStrip7"
-        Me.ToolStrip7.Size = New System.Drawing.Size(778, 25)
-        Me.ToolStrip7.TabIndex = 0
-        Me.ToolStrip7.Text = "ToolStrip7"
-        '
-        'ToolStripLabel4
-        '
-        Me.ToolStripLabel4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripLabel4.Name = "ToolStripLabel4"
-        Me.ToolStripLabel4.Size = New System.Drawing.Size(45, 22)
-        Me.ToolStripLabel4.Text = "Détails"
-        '
-        'TabControl3
-        '
-        Me.TabControl3.Controls.Add(Me.TabPage10)
-        Me.TabControl3.Controls.Add(Me.TabPage11)
-        Me.TabControl3.Location = New System.Drawing.Point(3, 29)
-        Me.TabControl3.Name = "TabControl3"
-        Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(775, 788)
-        Me.TabControl3.TabIndex = 1
-        '
-        'TabPage10
-        '
-        Me.TabPage10.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage10.Name = "TabPage10"
-        Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(767, 762)
-        Me.TabPage10.TabIndex = 0
-        Me.TabPage10.Text = "Informations"
-        Me.TabPage10.UseVisualStyleBackColor = True
-        '
-        'TabPage11
-        '
-        Me.TabPage11.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(767, 762)
-        Me.TabPage11.TabIndex = 1
-        Me.TabPage11.Text = "Documents"
-        Me.TabPage11.UseVisualStyleBackColor = True
-        '
-        'UtilisateurToolStripMenuItem
-        '
-        Me.UtilisateurToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CréerUnUtilisateurToolStripMenuItem, Me.SupprimerUnUtilisateurToolStripMenuItem, Me.SupprimerUnUtilisateurToolStripMenuItem1})
-        Me.UtilisateurToolStripMenuItem.Name = "UtilisateurToolStripMenuItem"
-        Me.UtilisateurToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
-        Me.UtilisateurToolStripMenuItem.Text = "Utilisateur"
-        '
-        'CréerUnUtilisateurToolStripMenuItem
-        '
-        Me.CréerUnUtilisateurToolStripMenuItem.Name = "CréerUnUtilisateurToolStripMenuItem"
-        Me.CréerUnUtilisateurToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.CréerUnUtilisateurToolStripMenuItem.Text = "Créer un utilisateur"
-        '
-        'SupprimerUnUtilisateurToolStripMenuItem
-        '
-        Me.SupprimerUnUtilisateurToolStripMenuItem.Name = "SupprimerUnUtilisateurToolStripMenuItem"
-        Me.SupprimerUnUtilisateurToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.SupprimerUnUtilisateurToolStripMenuItem.Text = "Modifier mes informations"
-        '
-        'SupprimerUnUtilisateurToolStripMenuItem1
-        '
-        Me.SupprimerUnUtilisateurToolStripMenuItem1.Name = "SupprimerUnUtilisateurToolStripMenuItem1"
-        Me.SupprimerUnUtilisateurToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
-        Me.SupprimerUnUtilisateurToolStripMenuItem1.Text = "Supprimer un utilisateur"
+        Me.DG_Liste_Interventions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Liste_Interventions.Location = New System.Drawing.Point(80, 221)
+        Me.DG_Liste_Interventions.Name = "DG_Liste_Interventions"
+        Me.DG_Liste_Interventions.Size = New System.Drawing.Size(643, 303)
+        Me.DG_Liste_Interventions.TabIndex = 0
         '
         'Formation
         '
@@ -638,6 +649,7 @@ Partial Class Formation
         Me.Panel_Intervenants_details.ResumeLayout(False)
         Me.Panel_Intervenants_details.PerformLayout()
         Me.TabControl2.ResumeLayout(False)
+        Me.TabPage8.ResumeLayout(False)
         Me.ToolStrip4.ResumeLayout(False)
         Me.ToolStrip4.PerformLayout()
         Me.Panel_Intervenants_liste.ResumeLayout(False)
@@ -646,19 +658,20 @@ Partial Class Formation
         Me.ToolStrip2.ResumeLayout(False)
         Me.ToolStrip2.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
+        Me.Panel_Stagiaires_détails.ResumeLayout(False)
+        Me.Panel_Stagiaires_détails.PerformLayout()
+        Me.TabControl3.ResumeLayout(False)
+        Me.ToolStrip7.ResumeLayout(False)
+        Me.ToolStrip7.PerformLayout()
+        Me.Panel_Stagiaires_Liste.ResumeLayout(False)
+        Me.Panel_Stagiaires_Liste.PerformLayout()
+        CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip5.ResumeLayout(False)
+        Me.ToolStrip5.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.Panel_Stagiaires_Liste.ResumeLayout(False)
-        Me.Panel_Stagiaires_Liste.PerformLayout()
-        Me.Panel_Stagiaires_détails.ResumeLayout(False)
-        Me.Panel_Stagiaires_détails.PerformLayout()
-        Me.ToolStrip5.ResumeLayout(False)
-        Me.ToolStrip5.PerformLayout()
-        CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ToolStrip7.ResumeLayout(False)
-        Me.ToolStrip7.PerformLayout()
-        Me.TabControl3.ResumeLayout(False)
+        CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -720,4 +733,5 @@ Partial Class Formation
     Friend WithEvents CréerUnUtilisateurToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SupprimerUnUtilisateurToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SupprimerUnUtilisateurToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents DG_Liste_Interventions As DataGridView
 End Class

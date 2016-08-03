@@ -7,6 +7,7 @@ Public Class Formation
     Private SessionFormation As String
     Private TableSF As DataTable 'Table contenant la liste des intervenants
 
+    Private o_Intervenant As Onglet_intervenant
 
 
 #Region "Propriétés"
@@ -130,13 +131,6 @@ Public Class Formation
 
 #Region "Onglet Intervenant"
 
-    'Sub GenereListeIntervenant(ByRef SF As SessionFormation)
-    '    ListeIntervenants.Items.Clear()
-    '    TableSF = SF.Liste_intervenants
-    '    For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
-    '        ListeIntervenants.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
-    '    Next
-    'End Sub
 
     'Sub RemplirFichePersonelleIntervenant()
     '    Try
@@ -156,20 +150,35 @@ Public Class Formation
     '    End Try
     'End Sub
 
-    'Sub RemplirDG_Intervenant()
-    '    Dim index As Integer
-    '    index = ListeIntervenants.SelectedIndex
-    '    Dim Req As String = ""
-    '    Dim cmd As New SqlCommand(Req, bdd.connect)
-    '    Dim MonAdaptateur As New SqlDataAdapter(cmd)
-    '    Dim Nom, Prenom As String
-    '    Dim Ligne As DataRow
-    '    Ligne = MonDataSet.Tables("profils_intervenant").Rows().Item(index)
-    '    Nom = Ligne("NomP").ToString
-    '    Prenom = Ligne("PrenomP").ToString
+    Sub Remplir_DG_Liste_Intervenants()
+        Me.DG_Liste_Intervenants.DataSource = o_Intervenant.Intervenants
+        Me.DG_Liste_Intervenants.Columns("NomP").HeaderText = "Nom"
+        Me.DG_Liste_Intervenants.Columns("PrenomP").HeaderText = "Prénom"
 
-    '    Me.DG_Intervenant.DataSource = MonDataSet.Tables("profils_intervenant")
-    'End Sub
+        For Each col As DataGridViewColumn In Me.DG_Liste_Intervenants.Columns
+            If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" Then
+                col.Visible = False
+            End If
+        Next
+    End Sub
+
+    Sub Remplir_DG_Liste_Interventions()
+        Me.DG_Liste_Interventions.DataSource = o_Intervenant.Interventions
+        Me.DG_Liste_Interventions.Columns("NomF").HeaderText = "Formation"
+        Me.DG_Liste_Interventions.Columns("TypeIntervention").HeaderText = "Type d'intervention"
+        'Date
+        Me.DG_Liste_Interventions.Columns("NbHeure").HeaderText = "Nb d'heures"
+        'Salle
+        Me.DG_Liste_Interventions.Columns("HeureDebut").HeaderText = "Début"
+        Me.DG_Liste_Interventions.Columns("HeureFin").HeaderText = "Fin"
+
+        For Each col As DataGridViewColumn In Me.DG_Liste_Interventions.Columns
+            If col.HeaderText IsNot "Formation" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
+                col.Visible = False
+            End If
+        Next
+
+    End Sub
 
     '''' <summary>
     '''' Ouvre le service de messagerie pour l'envoi d'un mail
@@ -177,7 +186,7 @@ Public Class Formation
     '''' <param name="sender"></param>
     '''' <param name="e"></param>
     'Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
-    '    System.Diagnostics.Process.Start("mailto:" & Me.LinkEmailIntervenant.Text)
+    '    System.Diagnostics.Process.Start("mailto: " & Me.LinkEmailIntervenant.Text)
     'End Sub
 
     'Private Sub ListeIntervenants_SelectedIndexChanged(sender As Object, e As EventArgs)
@@ -195,6 +204,8 @@ Public Class Formation
 
     Sub RemplirDG_Stagiaire(ByRef SF As SessionFormation)
         'Me.DG_Stagiaire.DataSource = SF.Liste_stagiaires
+        'Dim MonView As New DataView
+        'MonView.FindRows("NomP")
     End Sub
 
     Sub Ajout_Stagiaire(ByRef St As Stagiaire)
@@ -260,6 +271,10 @@ Public Class Formation
         Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
         'GenereListeIntervenant(SF)
         'RemplirDG_Stagiaire(SF)
+        Dim Inter = New Onglet_intervenant(bdd, SF)
+        o_Intervenant = Inter
+        Remplir_DG_Liste_Intervenants()
+        Remplir_DG_Liste_Interventions()
         RemplirControlsDoc(SF)
     End Sub
 
