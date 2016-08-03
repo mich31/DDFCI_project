@@ -18,7 +18,7 @@ Public Class Connexion
                     TB_ecran.Text = "Mauvais nom d'utilisateur ou mot de passe"
                 End If
             Else
-                TB_ecran.Text = "Problème de connexion à la base de données"
+                TB_ecran.Text = "Problème de connexion à la base de données" & vbCrLf & bdd.Message
             End If
         Else 'Si elle est connectée
             If bdd.Connect_user = False Then 'Si l'utilisateur n'est pas connecté

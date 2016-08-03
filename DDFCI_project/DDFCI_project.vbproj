@@ -82,6 +82,12 @@
     <Compile Include="AjouterStagiaire.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ajout_Utilisateur.Designer.vb">
+      <DependentUpon>Ajout_Utilisateur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ajout_Utilisateur.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BD.vb" />
     <Compile Include="Connexion.vb">
       <SubType>Form</SubType>
@@ -121,10 +127,14 @@
     <Compile Include="Document.vb" />
     <Compile Include="SessionFormation.vb" />
     <Compile Include="Stagiaire.vb" />
+    <Compile Include="Utilisateur.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AjouterStagiaire.resx">
       <DependentUpon>AjouterStagiaire.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ajout_Utilisateur.resx">
+      <DependentUpon>Ajout_Utilisateur.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.vb</DependentUpon>

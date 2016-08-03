@@ -130,63 +130,63 @@ Public Class Formation
 
 #Region "Onglet Intervenant"
 
-    Sub GenereListeIntervenant(ByRef SF As SessionFormation)
-        ListeIntervenants.Items.Clear()
-        TableSF = SF.Liste_intervenants
-        For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
-            ListeIntervenants.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
-        Next
-    End Sub
+    'Sub GenereListeIntervenant(ByRef SF As SessionFormation)
+    '    ListeIntervenants.Items.Clear()
+    '    TableSF = SF.Liste_intervenants
+    '    For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
+    '        ListeIntervenants.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
+    '    Next
+    'End Sub
 
-    Sub RemplirFichePersonelleIntervenant()
-        Try
-            'Dim MonView As New DataView(MonDataSet.Tables("profils_intervenant"))
-            'MonView.Sort = "where NomP = '"
-            Dim index As Integer
-            Dim Ligne As DataRow
-            index = ListeIntervenants.SelectedIndex
-            Ligne = TableSF.Rows().Item(index)
-            Me.TB_Nom.Text = Ligne("NomP").ToString
-            Me.TB_Prenom.Text = Ligne("PrenomP").ToString
-            Me.TB_DateNaissance.Text = Ligne("DateNaissanceI").ToString
-            Me.TB_Telephone.Text = Ligne("NumTelP").ToString
-            Me.LinkEmailIntervenant.Text = Ligne("MailP").ToString
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
-    End Sub
+    'Sub RemplirFichePersonelleIntervenant()
+    '    Try
+    '        'Dim MonView As New DataView(MonDataSet.Tables("profils_intervenant"))
+    '        'MonView.Sort = "where NomP = '"
+    '        Dim index As Integer
+    '        Dim Ligne As DataRow
+    '        index = ListeIntervenants.SelectedIndex
+    '        Ligne = TableSF.Rows().Item(index)
+    '        Me.TB_Nom.Text = Ligne("NomP").ToString
+    '        Me.TB_Prenom.Text = Ligne("PrenomP").ToString
+    '        Me.TB_DateNaissance.Text = Ligne("DateNaissanceI").ToString
+    '        Me.TB_Telephone.Text = Ligne("NumTelP").ToString
+    '        Me.LinkEmailIntervenant.Text = Ligne("MailP").ToString
+    '    Catch ex As Exception
+    '        Console.WriteLine(ex.Message)
+    '    End Try
+    'End Sub
 
-    Sub RemplirDG_Intervenant()
-        Dim index As Integer
-        index = ListeIntervenants.SelectedIndex
-        Dim Req As String = ""
-        Dim cmd As New SqlCommand(Req, bdd.connect)
-        Dim MonAdaptateur As New SqlDataAdapter(cmd)
-        Dim Nom, Prenom As String
-        Dim Ligne As DataRow
-        Ligne = MonDataSet.Tables("profils_intervenant").Rows().Item(index)
-        Nom = Ligne("NomP").ToString
-        Prenom = Ligne("PrenomP").ToString
+    'Sub RemplirDG_Intervenant()
+    '    Dim index As Integer
+    '    index = ListeIntervenants.SelectedIndex
+    '    Dim Req As String = ""
+    '    Dim cmd As New SqlCommand(Req, bdd.connect)
+    '    Dim MonAdaptateur As New SqlDataAdapter(cmd)
+    '    Dim Nom, Prenom As String
+    '    Dim Ligne As DataRow
+    '    Ligne = MonDataSet.Tables("profils_intervenant").Rows().Item(index)
+    '    Nom = Ligne("NomP").ToString
+    '    Prenom = Ligne("PrenomP").ToString
 
-        Me.DG_Intervenant.DataSource = MonDataSet.Tables("profils_intervenant")
-    End Sub
+    '    Me.DG_Intervenant.DataSource = MonDataSet.Tables("profils_intervenant")
+    'End Sub
 
-    ''' <summary>
-    ''' Ouvre le service de messagerie pour l'envoi d'un mail
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkEmailIntervenant.LinkClicked
-        System.Diagnostics.Process.Start("mailto:" & Me.LinkEmailIntervenant.Text)
-    End Sub
+    '''' <summary>
+    '''' Ouvre le service de messagerie pour l'envoi d'un mail
+    '''' </summary>
+    '''' <param name="sender"></param>
+    '''' <param name="e"></param>
+    'Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+    '    System.Diagnostics.Process.Start("mailto:" & Me.LinkEmailIntervenant.Text)
+    'End Sub
 
-    Private Sub ListeIntervenants_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListeIntervenants.SelectedIndexChanged
-        If Me.ListeIntervenants.SelectedIndex >= 0 Then
-            RemplirFichePersonelleIntervenant()
-            Dim Intervenant As New IntervenantSelected(TableSF, Me.ListeIntervenants.SelectedIndex, bdd)
-            Me.DG_Intervenant.DataSource = Intervenant.data_table
-        End If
-    End Sub
+    'Private Sub ListeIntervenants_SelectedIndexChanged(sender As Object, e As EventArgs)
+    '    If Me.ListeIntervenants.SelectedIndex >= 0 Then
+    '        RemplirFichePersonelleIntervenant()
+    '        Dim Intervenant As New IntervenantSelected(TableSF, Me.ListeIntervenants.SelectedIndex, bdd)
+    '        Me.DG_Intervenant.DataSource = Intervenant.data_table
+    '    End If
+    'End Sub
 
 
 #End Region
@@ -194,7 +194,7 @@ Public Class Formation
 #Region "Onglet Stagiaire"
 
     Sub RemplirDG_Stagiaire(ByRef SF As SessionFormation)
-        Me.DG_Stagiaire.DataSource = SF.Liste_stagiaires
+        'Me.DG_Stagiaire.DataSource = SF.Liste_stagiaires
     End Sub
 
     Sub Ajout_Stagiaire(ByRef St As Stagiaire)
@@ -213,9 +213,6 @@ Public Class Formation
         cmd.Dispose()
     End Sub
 
-    Private Sub BT_Ajout_Stagiaire_Click(sender As Object, e As EventArgs) Handles BT_Ajout_Stagiaire.Click
-        AjouterStagiaire.Show()
-    End Sub
 
 #End Region
 
@@ -261,8 +258,8 @@ Public Class Formation
 
     Private Sub MAJ_infos()
         Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
-        GenereListeIntervenant(SF)
-        RemplirDG_Stagiaire(SF)
+        'GenereListeIntervenant(SF)
+        'RemplirDG_Stagiaire(SF)
         RemplirControlsDoc(SF)
     End Sub
 
@@ -282,7 +279,12 @@ Public Class Formation
         End If
     End Sub
 
-    Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs) Handles BT_FichePerso.Click
+    Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs)
         FichePersoIntervenant.Show()
+    End Sub
+
+    Private Sub CréerUnUtilisateurToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CréerUnUtilisateurToolStripMenuItem.Click
+        Dim aj As New Ajout_Utilisateur(bdd)
+        aj.Show()
     End Sub
 End Class
