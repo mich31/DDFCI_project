@@ -29,3 +29,5 @@ C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_projec
 C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Resources.resources
 C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.vbproj.GenerateResource.Cache
 C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Ajout_Utilisateur.resources
+C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
+C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll

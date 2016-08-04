@@ -153,6 +153,7 @@ Public Class Formation
 
     Sub Remplir_DG_Liste_Intervenants()
         Me.DG_Liste_Intervenants.DataSource = o_Intervenant.Intervenants
+        Dim nb As Integer = Me.DG_Liste_Intervenants.RowCount
 
         Me.DG_Liste_Intervenants.Columns("NomP").HeaderText = "Nom"
         Me.DG_Liste_Intervenants.Columns("PrenomP").HeaderText = "Prénom"
@@ -162,6 +163,8 @@ Public Class Formation
                 col.Visible = False
             End If
         Next
+
+        Me.LBL_Intervenant_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
     End Sub
 
     Sub Remplir_DG_Liste_Interventions()
@@ -206,6 +209,18 @@ Public Class Formation
 
     Sub Remplir_DG_Liste_Stagiaires()
         Me.DG_Liste_Stagiaires.DataSource = o_Stagiaire.Stagiaires
+        Dim nb As Integer = Me.DG_Liste_Stagiaires.RowCount
+
+        Me.DG_Liste_Stagiaires.Columns("NomP").HeaderText = "Nom"
+        Me.DG_Liste_Stagiaires.Columns("PrenomP").HeaderText = "Prénom"
+
+        For Each col As DataGridViewColumn In Me.DG_Liste_Stagiaires.Columns
+            If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" Then
+                col.Visible = False
+            End If
+        Next
+
+        Me.LBL_Stagiaire_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
     End Sub
 
     Sub Ajout_Stagiaire(ByRef St As Stagiaire)
@@ -227,19 +242,19 @@ Public Class Formation
 
 #End Region
 
-#Region "Onglet Documents"
+#Region "Documents"
 
     Sub RemplirControlsDoc(ByRef SF As SessionFormation)
         RemplirCB_Intervenants(SF)
     End Sub
 
     Sub RemplirCB_Intervenants(ByRef SF As SessionFormation)
-        CB_DSE.Items.Clear()
-        For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
-            CB_DSE.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
-            CB_FSF.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
-            CB_convoc.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
-        Next
+        'CB_I_DSE.Items.Clear()
+        'For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
+        '    CB_I_DSE.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
+        '    CB_FSF.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
+        '    CB_convoc.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
+        'Next
     End Sub
 
 #End Region
@@ -269,33 +284,42 @@ Public Class Formation
 
     Private Sub MAJ_infos()
         Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
-        'GenereListeIntervenant(SF)
-        'RemplirDG_Stagiaire(SF)
+
         Dim Inter = New Onglet_intervenant(bdd, SF)
         Dim Stagiaire = New Onglet_stagiaire(bdd, SF)
         o_Intervenant = Inter
         o_Stagiaire = Stagiaire
+
+        Me.RTB_I_Formation.Text = NomFormation
+        Me.RTB_S_Formation.Text = NomFormation
+        Me.TB_I_Session.Text = SessionFormation
+        Me.TB_S_Session.Text = SessionFormation
+        Me.TB_I_NB_Intervenants.Text = o_Intervenant.Intervenants.Rows.Count
+        Me.TB_S_NB_Intervenants.Text = o_Intervenant.Intervenants.Rows.Count
+        Me.TB_I_NB_Stagiaires.Text = o_Stagiaire.Stagiaires.Rows.Count
+        Me.TB_S_NB_Stagiaires.Text = o_Stagiaire.Stagiaires.Rows.Count
+
         Remplir_DG_Liste_Intervenants()
         Remplir_DG_Liste_Interventions()
         Remplir_DG_Liste_Stagiaires()
-        RemplirControlsDoc(SF)
+        'RemplirControlsDoc(SF)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim index As Integer = Me.CB_DSE.SelectedIndex
-        If index >= 0 Then
-            Dim FicheEngagement As New Document(TableSF, index, bdd)
-            FicheEngagement.GenereDossierEngagement()
-        End If
-    End Sub
+    'Private Sub Button1_Click(sender As Object, e As EventArgs)
+    '    Dim index As Integer = Me.CB_DSE.SelectedIndex
+    '    If index >= 0 Then
+    '        Dim FicheEngagement As New Document(TableSF, index, bdd)
+    '        FicheEngagement.GenereDossierEngagement()
+    '    End If
+    'End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim index As Integer = Me.CB_FSF.SelectedIndex
-        If index >= 0 Then
-            Dim FSF As New Document(TableSF, index, bdd)
-            FSF.GenereFicheServicefait()
-        End If
-    End Sub
+    'Private Sub Button2_Click(sender As Object, e As EventArgs)
+    '    Dim index As Integer = Me.CB_FSF.SelectedIndex
+    '    If index >= 0 Then
+    '        Dim FSF As New Document(TableSF, index, bdd)
+    '        FSF.GenereFicheServicefait()
+    '    End If
+    'End Sub
 
     Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs)
         FichePersoIntervenant.Show()
@@ -304,5 +328,9 @@ Public Class Formation
     Private Sub CréerUnUtilisateurToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CréerUnUtilisateurToolStripMenuItem.Click
         Dim aj As New Ajout_Utilisateur(bdd)
         aj.Show()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
     End Sub
 End Class

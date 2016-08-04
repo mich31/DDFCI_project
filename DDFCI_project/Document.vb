@@ -8,16 +8,18 @@ Public Class Document
 
     Private MonDataSet As New DataSet
 
-    Sub New(ByRef DT As DataTable, ByVal i As Integer, ByRef base As BD)
-        Dim Ligne As DataRow
-        index = i
-        bdd = base
+    'Sub New(ByRef DT As DataTable, ByVal i As Integer, ByRef base As BD)
+    '    Dim Ligne As DataRow
+    '    index = i
+    '    bdd = base
 
-        Ligne = DT.Rows().Item(i)
-        id = Ligne("idPersonne").ToString
-        GenereInfosPerso()
-        GenereInfosPro()
-    End Sub
+    '    Ligne = DT.Rows().Item(i)
+    '    id = Ligne("idPersonne").ToString
+    '    GenereInfosPerso()
+    '    GenereInfosPro()
+    'End Sub
+
+
 
     Sub GenereInfosPerso()
         Dim Req As String = "select*from profils_intervenant where idPersonne='" & id & "'"
