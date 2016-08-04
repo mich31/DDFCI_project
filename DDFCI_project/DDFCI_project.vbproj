@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="Document.vb" />
     <Compile Include="Onglet_intervenant.vb" />
+    <Compile Include="Onglet_stagiaire.vb" />
     <Compile Include="SessionFormation.vb" />
     <Compile Include="Stagiaire.vb" />
     <Compile Include="Utilisateur.vb" />

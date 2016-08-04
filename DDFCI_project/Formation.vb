@@ -8,6 +8,7 @@ Public Class Formation
     Private TableSF As DataTable 'Table contenant la liste des intervenants
 
     Private o_Intervenant As Onglet_intervenant
+    Private o_Stagiaire As Onglet_stagiaire
 
 
 #Region "Propriétés"
@@ -152,6 +153,7 @@ Public Class Formation
 
     Sub Remplir_DG_Liste_Intervenants()
         Me.DG_Liste_Intervenants.DataSource = o_Intervenant.Intervenants
+
         Me.DG_Liste_Intervenants.Columns("NomP").HeaderText = "Nom"
         Me.DG_Liste_Intervenants.Columns("PrenomP").HeaderText = "Prénom"
 
@@ -202,10 +204,8 @@ Public Class Formation
 
 #Region "Onglet Stagiaire"
 
-    Sub RemplirDG_Stagiaire(ByRef SF As SessionFormation)
-        'Me.DG_Stagiaire.DataSource = SF.Liste_stagiaires
-        'Dim MonView As New DataView
-        'MonView.FindRows("NomP")
+    Sub Remplir_DG_Liste_Stagiaires()
+        Me.DG_Liste_Stagiaires.DataSource = o_Stagiaire.Stagiaires
     End Sub
 
     Sub Ajout_Stagiaire(ByRef St As Stagiaire)
@@ -272,9 +272,12 @@ Public Class Formation
         'GenereListeIntervenant(SF)
         'RemplirDG_Stagiaire(SF)
         Dim Inter = New Onglet_intervenant(bdd, SF)
+        Dim Stagiaire = New Onglet_stagiaire(bdd, SF)
         o_Intervenant = Inter
+        o_Stagiaire = Stagiaire
         Remplir_DG_Liste_Intervenants()
         Remplir_DG_Liste_Interventions()
+        Remplir_DG_Liste_Stagiaires()
         RemplirControlsDoc(SF)
     End Sub
 

@@ -21,7 +21,6 @@ Public Class Onglet_intervenant
         Try
             MonAdaptateur.Fill(MonDataSet, "liste_intervenants")
         Catch ex As Exception
-            MsgBox("Init")
             Console.WriteLine(ex.Message)
         End Try
         cmd.Dispose()

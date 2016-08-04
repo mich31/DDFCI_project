@@ -43,6 +43,7 @@ Partial Class Formation
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.DG_Liste_Interventions = New System.Windows.Forms.DataGridView()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
@@ -78,14 +79,25 @@ Partial Class Formation
         Me.CB_DSE = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.DG_Liste_Interventions = New System.Windows.Forms.DataGridView()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabIntervenants.SuspendLayout()
         Me.Panel_Intervenants_details.SuspendLayout()
         Me.TabControl2.SuspendLayout()
+        Me.TabPage7.SuspendLayout()
         Me.TabPage8.SuspendLayout()
+        CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip4.SuspendLayout()
         Me.Panel_Intervenants_liste.SuspendLayout()
         CType(Me.DG_Liste_Intervenants, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,7 +111,7 @@ Partial Class Formation
         Me.ToolStrip5.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -253,23 +265,24 @@ Partial Class Formation
         '
         'TabPage3
         '
+        Me.TabPage3.BackColor = System.Drawing.SystemColors.ControlLight
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage3.Size = New System.Drawing.Size(762, 769)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Informations"
-        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'TabPage7
         '
+        Me.TabPage7.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage7.Controls.Add(Me.GroupBox1)
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage7.Size = New System.Drawing.Size(762, 769)
         Me.TabPage7.TabIndex = 1
         Me.TabPage7.Text = "Documents"
-        Me.TabPage7.UseVisualStyleBackColor = True
         '
         'TabPage8
         '
@@ -281,6 +294,14 @@ Partial Class Formation
         Me.TabPage8.Size = New System.Drawing.Size(762, 769)
         Me.TabPage8.TabIndex = 2
         Me.TabPage8.Text = "Interventions(s)"
+        '
+        'DG_Liste_Interventions
+        '
+        Me.DG_Liste_Interventions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Liste_Interventions.Location = New System.Drawing.Point(80, 221)
+        Me.DG_Liste_Interventions.Name = "DG_Liste_Interventions"
+        Me.DG_Liste_Interventions.Size = New System.Drawing.Size(598, 303)
+        Me.DG_Liste_Interventions.TabIndex = 0
         '
         'TabPage9
         '
@@ -398,13 +419,13 @@ Partial Class Formation
         '
         'TabPage10
         '
+        Me.TabPage10.BackColor = System.Drawing.SystemColors.ControlLight
         Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage10.Size = New System.Drawing.Size(767, 762)
         Me.TabPage10.TabIndex = 0
         Me.TabPage10.Text = "Informations"
-        Me.TabPage10.UseVisualStyleBackColor = True
         '
         'TabPage11
         '
@@ -620,13 +641,104 @@ Partial Class Formation
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
-        'DG_Liste_Interventions
+        'GroupBox1
         '
-        Me.DG_Liste_Interventions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Interventions.Location = New System.Drawing.Point(80, 221)
-        Me.DG_Liste_Interventions.Name = "DG_Liste_Interventions"
-        Me.DG_Liste_Interventions.Size = New System.Drawing.Size(643, 303)
-        Me.DG_Liste_Interventions.TabIndex = 0
+        Me.GroupBox1.Controls.Add(Me.Button6)
+        Me.GroupBox1.Controls.Add(Me.Button5)
+        Me.GroupBox1.Controls.Add(Me.Button4)
+        Me.GroupBox1.Controls.Add(Me.ComboBox3)
+        Me.GroupBox1.Controls.Add(Me.ComboBox2)
+        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Location = New System.Drawing.Point(90, 67)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(607, 270)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Intervenants"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(53, 64)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(115, 13)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Dossier d'engagement:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(105, 123)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(63, 13)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Service fait:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(98, 187)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(70, 13)
+        Me.Label4.TabIndex = 2
+        Me.Label4.Text = "Convocation:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(184, 61)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(135, 21)
+        Me.ComboBox1.TabIndex = 3
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(184, 120)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(135, 21)
+        Me.ComboBox2.TabIndex = 4
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Location = New System.Drawing.Point(184, 184)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(135, 21)
+        Me.ComboBox3.TabIndex = 5
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(362, 59)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 6
+        Me.Button4.Text = "Générer"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(362, 118)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 7
+        Me.Button5.Text = "Générer"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(362, 182)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.TabIndex = 8
+        Me.Button6.Text = "Générer"
+        Me.Button6.UseVisualStyleBackColor = True
         '
         'Formation
         '
@@ -649,7 +761,9 @@ Partial Class Formation
         Me.Panel_Intervenants_details.ResumeLayout(False)
         Me.Panel_Intervenants_details.PerformLayout()
         Me.TabControl2.ResumeLayout(False)
+        Me.TabPage7.ResumeLayout(False)
         Me.TabPage8.ResumeLayout(False)
+        CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip4.ResumeLayout(False)
         Me.ToolStrip4.PerformLayout()
         Me.Panel_Intervenants_liste.ResumeLayout(False)
@@ -671,7 +785,8 @@ Partial Class Formation
         Me.TabPage5.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -734,4 +849,14 @@ Partial Class Formation
     Friend WithEvents SupprimerUnUtilisateurToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SupprimerUnUtilisateurToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents DG_Liste_Interventions As DataGridView
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button4 As Button
 End Class
