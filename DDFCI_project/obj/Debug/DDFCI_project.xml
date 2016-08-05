@@ -93,6 +93,13 @@ DDFCI_project
  <param name="NomFormation"></param>
  <param name="NodeActuel"></param>
 </member>
+<member name="M:DDFCI_project.Formation.LinkLabel_Mail_Intervenant_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+ <summary>
+ Ouvre le service de messagerie pour l'envoi d'un mail
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="M:DDFCI_project.Formation.QuitterToolStripMenuItem_Click(System.Object,System.EventArgs)">
  <summary>
  Effectue la déconnexion à la base de données et ferme le programme

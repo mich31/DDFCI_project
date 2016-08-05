@@ -157,9 +157,10 @@ Public Class Formation
 
         Me.DG_Liste_Intervenants.Columns("NomP").HeaderText = "Nom"
         Me.DG_Liste_Intervenants.Columns("PrenomP").HeaderText = "Prénom"
+        Me.DG_Liste_Intervenants.Columns("CiviliteP").HeaderText = "Civ"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Intervenants.Columns
-            If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" Then
+            If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civ." Then
                 col.Visible = False
             End If
         Next
@@ -185,23 +186,48 @@ Public Class Formation
 
     End Sub
 
-    '''' <summary>
-    '''' Ouvre le service de messagerie pour l'envoi d'un mail
-    '''' </summary>
-    '''' <param name="sender"></param>
-    '''' <param name="e"></param>
-    'Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
-    '    System.Diagnostics.Process.Start("mailto: " & Me.LinkEmailIntervenant.Text)
-    'End Sub
+    Sub Init_champs_Information()
+        Me.CB_I_Civilite.Text = ""
+    End Sub
 
-    'Private Sub ListeIntervenants_SelectedIndexChanged(sender As Object, e As EventArgs)
-    '    If Me.ListeIntervenants.SelectedIndex >= 0 Then
-    '        RemplirFichePersonelleIntervenant()
-    '        Dim Intervenant As New IntervenantSelected(TableSF, Me.ListeIntervenants.SelectedIndex, bdd)
-    '        Me.DG_Intervenant.DataSource = Intervenant.data_table
-    '    End If
-    'End Sub
+    Sub Remplir_Onglet_Information(ByVal DG As DataGridView, ByVal index As Integer)
+        Me.CB_I_Civilite.Text = DG.Rows(index).Cells("CiviliteP").Value
+        Me.TB_I_Nom.Text = DG.Rows(index).Cells("NomP").Value
+        Me.TB_I_Prenom.Text = DG.Rows(index).Cells("PrenomP").Value
+        Me.RTB_I_Adresse.Text = DG.Rows(index).Cells("AdresseP").Value & ", " & DG.Rows(index).Cells("CP").Value & " " & DG.Rows(index).Cells("VilleP").Value
+        Me.TB_I_Pays.Text = DG.Rows(index).Cells("PaysP").Value
+        Me.TB_I_Telephone.Text = DG.Rows(index).Cells("NumTelP").Value
 
+        Me.DTP_I_DateN.Value = DG.Rows(index).Cells("DateNaissanceI").Value
+        Me.TB_I_LieuN.Text = DG.Rows(index).Cells("LieuNaissanceI").Value
+        Me.TB_I_PaysN.Text = DG.Rows(index).Cells("PaysNaissanceI").Value
+        Me.TB_I_NumSS.Text = DG.Rows(index).Cells("NumSSI").Value
+
+        Me.CB_I_TypeIntervenant.Text = DG.Rows(index).Cells("TypeIntervenant").Value
+
+
+
+        Me.RTB_I_Fonction.Text = DG.Rows(index).Cells("NumTelP").Value
+    End Sub
+
+    ''' <summary>
+    ''' Ouvre le service de messagerie pour l'envoi d'un mail
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub LinkLabel_Mail_Intervenant_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel_Mail_Intervenant.LinkClicked
+        System.Diagnostics.Process.Start("mailto: " & Me.LinkLabel_Mail_Intervenant.Text)
+    End Sub
+
+    Private Sub DG_Liste_Intervenants_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Liste_Intervenants.CellContentClick
+        Init_champs_Information()
+        Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
+    End Sub
+
+    Private Sub DG_Liste_Intervenants_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Intervenants.RowHeaderMouseClick
+        Init_champs_Information()
+        Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
+    End Sub
 
 #End Region
 
@@ -333,4 +359,5 @@ Public Class Formation
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
     End Sub
+
 End Class

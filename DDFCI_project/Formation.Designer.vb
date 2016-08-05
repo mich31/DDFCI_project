@@ -37,9 +37,14 @@ Partial Class Formation
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
         Me.TabIntervenants = New System.Windows.Forms.TabPage()
         Me.Panel_Intervenants_details = New System.Windows.Forms.Panel()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TB_I_NB_Stagiaires = New System.Windows.Forms.TextBox()
+        Me.TB_I_NB_Intervenants = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -56,6 +61,31 @@ Partial Class Formation
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TB_I_NumSS = New System.Windows.Forms.TextBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.TB_I_PaysN = New System.Windows.Forms.TextBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.TB_I_LieuN = New System.Windows.Forms.TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.DTP_I_DateN = New System.Windows.Forms.DateTimePicker()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.LinkLabel_Mail_Intervenant = New System.Windows.Forms.LinkLabel()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.TB_I_Telephone = New System.Windows.Forms.TextBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TB_I_Pays = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.RTB_I_Adresse = New System.Windows.Forms.RichTextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.TB_I_Prenom = New System.Windows.Forms.TextBox()
+        Me.TB_I_Nom = New System.Windows.Forms.TextBox()
+        Me.CB_I_Civilite = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button6 = New System.Windows.Forms.Button()
@@ -82,6 +112,25 @@ Partial Class Formation
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Panel_Stagiaires_détails = New System.Windows.Forms.Panel()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TB_S_NB_Stagiaires = New System.Windows.Forms.TextBox()
+        Me.TB_S_NB_Intervenants = New System.Windows.Forms.TextBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.CB_S_AF = New System.Windows.Forms.ComboBox()
+        Me.CB_S_CP = New System.Windows.Forms.ComboBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.TB_S_Session = New System.Windows.Forms.TextBox()
+        Me.RTB_S_Formation = New System.Windows.Forms.RichTextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
@@ -95,30 +144,14 @@ Partial Class Formation
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.TB_I_NB_Intervenants = New System.Windows.Forms.TextBox()
-        Me.TB_I_NB_Stagiaires = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.TB_S_Session = New System.Windows.Forms.TextBox()
-        Me.RTB_S_Formation = New System.Windows.Forms.RichTextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.CB_S_AF = New System.Windows.Forms.ComboBox()
-        Me.CB_S_CP = New System.Windows.Forms.ComboBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TB_S_NB_Stagiaires = New System.Windows.Forms.TextBox()
-        Me.TB_S_NB_Intervenants = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.RTB_I_Fonction = New System.Windows.Forms.RichTextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.CB_I_TypeIntervenant = New System.Windows.Forms.ComboBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.RTB_I_Entreprise = New System.Windows.Forms.RichTextBox()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.DTP_I_Anciennete = New System.Windows.Forms.DateTimePicker()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -129,6 +162,10 @@ Partial Class Formation
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.TabControl2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TabPage8.SuspendLayout()
@@ -142,14 +179,14 @@ Partial Class Formation
         Me.ToolStrip2.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.Panel_Stagiaires_détails.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
         Me.TabControl3.SuspendLayout()
         Me.ToolStrip7.SuspendLayout()
         Me.Panel_Stagiaires_Liste.SuspendLayout()
         CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip5.SuspendLayout()
-        Me.GroupBox7.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -269,6 +306,12 @@ Partial Class Formation
         Me.TabPage2.Text = "Planning"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'MonthCalendar1
+        '
+        Me.MonthCalendar1.Location = New System.Drawing.Point(353, 55)
+        Me.MonthCalendar1.Name = "MonthCalendar1"
+        Me.MonthCalendar1.TabIndex = 0
+        '
         'TabIntervenants
         '
         Me.TabIntervenants.BackColor = System.Drawing.SystemColors.Control
@@ -309,6 +352,38 @@ Partial Class Formation
         Me.GroupBox6.TabIndex = 4
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Indicateurs"
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Enabled = False
+        Me.TextBox5.Location = New System.Drawing.Point(131, 29)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox5.TabIndex = 7
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Enabled = False
+        Me.TextBox4.Location = New System.Drawing.Point(131, 56)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox4.TabIndex = 6
+        '
+        'TB_I_NB_Stagiaires
+        '
+        Me.TB_I_NB_Stagiaires.Enabled = False
+        Me.TB_I_NB_Stagiaires.Location = New System.Drawing.Point(131, 108)
+        Me.TB_I_NB_Stagiaires.Name = "TB_I_NB_Stagiaires"
+        Me.TB_I_NB_Stagiaires.Size = New System.Drawing.Size(100, 20)
+        Me.TB_I_NB_Stagiaires.TabIndex = 5
+        '
+        'TB_I_NB_Intervenants
+        '
+        Me.TB_I_NB_Intervenants.Enabled = False
+        Me.TB_I_NB_Intervenants.Location = New System.Drawing.Point(131, 82)
+        Me.TB_I_NB_Intervenants.Name = "TB_I_NB_Intervenants"
+        Me.TB_I_NB_Intervenants.Size = New System.Drawing.Size(100, 20)
+        Me.TB_I_NB_Intervenants.TabIndex = 4
         '
         'Label14
         '
@@ -457,13 +532,266 @@ Partial Class Formation
         '
         'TabPage3
         '
-        Me.TabPage3.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.TabPage3.BackColor = System.Drawing.SystemColors.Menu
+        Me.TabPage3.Controls.Add(Me.GroupBox10)
+        Me.TabPage3.Controls.Add(Me.GroupBox3)
+        Me.TabPage3.Controls.Add(Me.GroupBox2)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage3.Size = New System.Drawing.Size(762, 603)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Informations"
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.BackColor = System.Drawing.SystemColors.Menu
+        Me.GroupBox10.Controls.Add(Me.DTP_I_Anciennete)
+        Me.GroupBox10.Controls.Add(Me.Label34)
+        Me.GroupBox10.Controls.Add(Me.RTB_I_Entreprise)
+        Me.GroupBox10.Controls.Add(Me.Label33)
+        Me.GroupBox10.Controls.Add(Me.CB_I_TypeIntervenant)
+        Me.GroupBox10.Controls.Add(Me.Label32)
+        Me.GroupBox10.Controls.Add(Me.RTB_I_Fonction)
+        Me.GroupBox10.Controls.Add(Me.Label31)
+        Me.GroupBox10.Location = New System.Drawing.Point(517, 99)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(209, 273)
+        Me.GroupBox10.TabIndex = 2
+        Me.GroupBox10.TabStop = False
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.BackColor = System.Drawing.SystemColors.Menu
+        Me.GroupBox3.Controls.Add(Me.TB_I_NumSS)
+        Me.GroupBox3.Controls.Add(Me.Label30)
+        Me.GroupBox3.Controls.Add(Me.TB_I_PaysN)
+        Me.GroupBox3.Controls.Add(Me.Label29)
+        Me.GroupBox3.Controls.Add(Me.TB_I_LieuN)
+        Me.GroupBox3.Controls.Add(Me.Label28)
+        Me.GroupBox3.Controls.Add(Me.DTP_I_DateN)
+        Me.GroupBox3.Controls.Add(Me.Label27)
+        Me.GroupBox3.Location = New System.Drawing.Point(276, 99)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(200, 273)
+        Me.GroupBox3.TabIndex = 1
+        Me.GroupBox3.TabStop = False
+        '
+        'TB_I_NumSS
+        '
+        Me.TB_I_NumSS.Enabled = False
+        Me.TB_I_NumSS.Location = New System.Drawing.Point(50, 220)
+        Me.TB_I_NumSS.Name = "TB_I_NumSS"
+        Me.TB_I_NumSS.Size = New System.Drawing.Size(100, 20)
+        Me.TB_I_NumSS.TabIndex = 6
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(55, 204)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(79, 13)
+        Me.Label30.TabIndex = 0
+        Me.Label30.Text = "Numero de SS:"
+        '
+        'TB_I_PaysN
+        '
+        Me.TB_I_PaysN.Enabled = False
+        Me.TB_I_PaysN.Location = New System.Drawing.Point(50, 167)
+        Me.TB_I_PaysN.Name = "TB_I_PaysN"
+        Me.TB_I_PaysN.Size = New System.Drawing.Size(103, 20)
+        Me.TB_I_PaysN.TabIndex = 5
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(52, 142)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(99, 13)
+        Me.Label29.TabIndex = 4
+        Me.Label29.Text = "Pays de naissance:"
+        '
+        'TB_I_LieuN
+        '
+        Me.TB_I_LieuN.Enabled = False
+        Me.TB_I_LieuN.Location = New System.Drawing.Point(50, 107)
+        Me.TB_I_LieuN.Name = "TB_I_LieuN"
+        Me.TB_I_LieuN.Size = New System.Drawing.Size(101, 20)
+        Me.TB_I_LieuN.TabIndex = 3
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(52, 82)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(96, 13)
+        Me.Label28.TabIndex = 2
+        Me.Label28.Text = "Lieu de naissance:"
+        '
+        'DTP_I_DateN
+        '
+        Me.DTP_I_DateN.Enabled = False
+        Me.DTP_I_DateN.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTP_I_DateN.Location = New System.Drawing.Point(50, 48)
+        Me.DTP_I_DateN.Name = "DTP_I_DateN"
+        Me.DTP_I_DateN.Size = New System.Drawing.Size(101, 20)
+        Me.DTP_I_DateN.TabIndex = 1
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(52, 23)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(99, 13)
+        Me.Label27.TabIndex = 0
+        Me.Label27.Text = "Date de naissance:"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.SystemColors.Menu
+        Me.GroupBox2.Controls.Add(Me.LinkLabel_Mail_Intervenant)
+        Me.GroupBox2.Controls.Add(Me.Label26)
+        Me.GroupBox2.Controls.Add(Me.TB_I_Telephone)
+        Me.GroupBox2.Controls.Add(Me.Label25)
+        Me.GroupBox2.Controls.Add(Me.TB_I_Pays)
+        Me.GroupBox2.Controls.Add(Me.Label24)
+        Me.GroupBox2.Controls.Add(Me.RTB_I_Adresse)
+        Me.GroupBox2.Controls.Add(Me.Label23)
+        Me.GroupBox2.Controls.Add(Me.TB_I_Prenom)
+        Me.GroupBox2.Controls.Add(Me.TB_I_Nom)
+        Me.GroupBox2.Controls.Add(Me.CB_I_Civilite)
+        Me.GroupBox2.Controls.Add(Me.Label8)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Location = New System.Drawing.Point(38, 99)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(200, 273)
+        Me.GroupBox2.TabIndex = 0
+        Me.GroupBox2.TabStop = False
+        '
+        'LinkLabel_Mail_Intervenant
+        '
+        Me.LinkLabel_Mail_Intervenant.AutoSize = True
+        Me.LinkLabel_Mail_Intervenant.Location = New System.Drawing.Point(65, 244)
+        Me.LinkLabel_Mail_Intervenant.Name = "LinkLabel_Mail_Intervenant"
+        Me.LinkLabel_Mail_Intervenant.Size = New System.Drawing.Size(59, 13)
+        Me.LinkLabel_Mail_Intervenant.TabIndex = 13
+        Me.LinkLabel_Mail_Intervenant.TabStop = True
+        Me.LinkLabel_Mail_Intervenant.Text = "LinkLabel1"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(13, 244)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(29, 13)
+        Me.Label26.TabIndex = 12
+        Me.Label26.Text = "Mail:"
+        '
+        'TB_I_Telephone
+        '
+        Me.TB_I_Telephone.Enabled = False
+        Me.TB_I_Telephone.Location = New System.Drawing.Point(68, 213)
+        Me.TB_I_Telephone.Name = "TB_I_Telephone"
+        Me.TB_I_Telephone.Size = New System.Drawing.Size(115, 20)
+        Me.TB_I_Telephone.TabIndex = 11
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(6, 214)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(61, 13)
+        Me.Label25.TabIndex = 10
+        Me.Label25.Text = "Téléphone:"
+        '
+        'TB_I_Pays
+        '
+        Me.TB_I_Pays.Enabled = False
+        Me.TB_I_Pays.Location = New System.Drawing.Point(68, 171)
+        Me.TB_I_Pays.Name = "TB_I_Pays"
+        Me.TB_I_Pays.Size = New System.Drawing.Size(115, 20)
+        Me.TB_I_Pays.TabIndex = 9
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(11, 174)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(33, 13)
+        Me.Label24.TabIndex = 8
+        Me.Label24.Text = "Pays:"
+        '
+        'RTB_I_Adresse
+        '
+        Me.RTB_I_Adresse.Enabled = False
+        Me.RTB_I_Adresse.Location = New System.Drawing.Point(62, 120)
+        Me.RTB_I_Adresse.Name = "RTB_I_Adresse"
+        Me.RTB_I_Adresse.Size = New System.Drawing.Size(121, 45)
+        Me.RTB_I_Adresse.TabIndex = 7
+        Me.RTB_I_Adresse.Text = ""
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(11, 123)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(48, 13)
+        Me.Label23.TabIndex = 6
+        Me.Label23.Text = "Adresse:"
+        '
+        'TB_I_Prenom
+        '
+        Me.TB_I_Prenom.Enabled = False
+        Me.TB_I_Prenom.Location = New System.Drawing.Point(68, 82)
+        Me.TB_I_Prenom.Name = "TB_I_Prenom"
+        Me.TB_I_Prenom.Size = New System.Drawing.Size(115, 20)
+        Me.TB_I_Prenom.TabIndex = 5
+        '
+        'TB_I_Nom
+        '
+        Me.TB_I_Nom.Enabled = False
+        Me.TB_I_Nom.Location = New System.Drawing.Point(68, 52)
+        Me.TB_I_Nom.Name = "TB_I_Nom"
+        Me.TB_I_Nom.Size = New System.Drawing.Size(115, 20)
+        Me.TB_I_Nom.TabIndex = 4
+        '
+        'CB_I_Civilite
+        '
+        Me.CB_I_Civilite.Enabled = False
+        Me.CB_I_Civilite.FormattingEnabled = True
+        Me.CB_I_Civilite.Items.AddRange(New Object() {"Mlle.", "Mme.", "Mr."})
+        Me.CB_I_Civilite.Location = New System.Drawing.Point(68, 23)
+        Me.CB_I_Civilite.Name = "CB_I_Civilite"
+        Me.CB_I_Civilite.Size = New System.Drawing.Size(115, 21)
+        Me.CB_I_Civilite.TabIndex = 3
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(10, 26)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(40, 13)
+        Me.Label8.TabIndex = 2
+        Me.Label8.Text = "Civilité:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(10, 87)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(46, 13)
+        Me.Label7.TabIndex = 1
+        Me.Label7.Text = "Prénom:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(10, 55)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(32, 13)
+        Me.Label6.TabIndex = 0
+        Me.Label6.Text = "Nom:"
         '
         'TabPage7
         '
@@ -601,7 +929,7 @@ Partial Class Formation
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(762, 606)
+        Me.TabPage9.Size = New System.Drawing.Size(762, 603)
         Me.TabPage9.TabIndex = 3
         Me.TabPage9.Text = "Paiement(s)"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -719,6 +1047,188 @@ Partial Class Formation
         Me.Panel_Stagiaires_détails.Size = New System.Drawing.Size(778, 820)
         Me.Panel_Stagiaires_détails.TabIndex = 1
         '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.TextBox2)
+        Me.GroupBox9.Controls.Add(Me.TextBox3)
+        Me.GroupBox9.Controls.Add(Me.TB_S_NB_Stagiaires)
+        Me.GroupBox9.Controls.Add(Me.TB_S_NB_Intervenants)
+        Me.GroupBox9.Controls.Add(Me.Label19)
+        Me.GroupBox9.Controls.Add(Me.Label20)
+        Me.GroupBox9.Controls.Add(Me.Label21)
+        Me.GroupBox9.Controls.Add(Me.Label22)
+        Me.GroupBox9.Location = New System.Drawing.Point(488, 38)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(258, 140)
+        Me.GroupBox9.TabIndex = 5
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Indicateurs"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Enabled = False
+        Me.TextBox2.Location = New System.Drawing.Point(131, 29)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox2.TabIndex = 7
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Enabled = False
+        Me.TextBox3.Location = New System.Drawing.Point(131, 56)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox3.TabIndex = 6
+        '
+        'TB_S_NB_Stagiaires
+        '
+        Me.TB_S_NB_Stagiaires.Enabled = False
+        Me.TB_S_NB_Stagiaires.Location = New System.Drawing.Point(131, 108)
+        Me.TB_S_NB_Stagiaires.Name = "TB_S_NB_Stagiaires"
+        Me.TB_S_NB_Stagiaires.Size = New System.Drawing.Size(100, 20)
+        Me.TB_S_NB_Stagiaires.TabIndex = 5
+        '
+        'TB_S_NB_Intervenants
+        '
+        Me.TB_S_NB_Intervenants.Enabled = False
+        Me.TB_S_NB_Intervenants.Location = New System.Drawing.Point(131, 82)
+        Me.TB_S_NB_Intervenants.Name = "TB_S_NB_Intervenants"
+        Me.TB_S_NB_Intervenants.Size = New System.Drawing.Size(100, 20)
+        Me.TB_S_NB_Intervenants.TabIndex = 4
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(6, 109)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(109, 13)
+        Me.Label19.TabIndex = 3
+        Me.Label19.Text = "Nombre de stagiaires:"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(6, 85)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(119, 13)
+        Me.Label20.TabIndex = 2
+        Me.Label20.Text = "Nombre  d'intervenants:"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(6, 58)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(24, 13)
+        Me.Label21.TabIndex = 1
+        Me.Label21.Text = "Fin:"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(6, 32)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(39, 13)
+        Me.Label22.TabIndex = 0
+        Me.Label22.Text = "Début:"
+        '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.CB_S_AF)
+        Me.GroupBox8.Controls.Add(Me.CB_S_CP)
+        Me.GroupBox8.Controls.Add(Me.Label17)
+        Me.GroupBox8.Controls.Add(Me.Label18)
+        Me.GroupBox8.Location = New System.Drawing.Point(277, 38)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(180, 122)
+        Me.GroupBox8.TabIndex = 4
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Gestion de la formation"
+        '
+        'CB_S_AF
+        '
+        Me.CB_S_AF.Enabled = False
+        Me.CB_S_AF.FormattingEnabled = True
+        Me.CB_S_AF.Location = New System.Drawing.Point(27, 85)
+        Me.CB_S_AF.Name = "CB_S_AF"
+        Me.CB_S_AF.Size = New System.Drawing.Size(121, 21)
+        Me.CB_S_AF.TabIndex = 3
+        '
+        'CB_S_CP
+        '
+        Me.CB_S_CP.Enabled = False
+        Me.CB_S_CP.FormattingEnabled = True
+        Me.CB_S_CP.Location = New System.Drawing.Point(27, 36)
+        Me.CB_S_CP.Name = "CB_S_CP"
+        Me.CB_S_CP.Size = New System.Drawing.Size(121, 21)
+        Me.CB_S_CP.TabIndex = 2
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(24, 69)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(125, 13)
+        Me.Label17.TabIndex = 1
+        Me.Label17.Text = "Assistant(e) de formation:"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(42, 19)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(91, 13)
+        Me.Label18.TabIndex = 0
+        Me.Label18.Text = "Chef(fe) de projet:"
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.TB_S_Session)
+        Me.GroupBox7.Controls.Add(Me.RTB_S_Formation)
+        Me.GroupBox7.Controls.Add(Me.Label15)
+        Me.GroupBox7.Controls.Add(Me.Label16)
+        Me.GroupBox7.Location = New System.Drawing.Point(7, 38)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(238, 140)
+        Me.GroupBox7.TabIndex = 3
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Formation"
+        '
+        'TB_S_Session
+        '
+        Me.TB_S_Session.Enabled = False
+        Me.TB_S_Session.Location = New System.Drawing.Point(59, 102)
+        Me.TB_S_Session.Name = "TB_S_Session"
+        Me.TB_S_Session.Size = New System.Drawing.Size(162, 20)
+        Me.TB_S_Session.TabIndex = 3
+        '
+        'RTB_S_Formation
+        '
+        Me.RTB_S_Formation.Enabled = False
+        Me.RTB_S_Formation.Location = New System.Drawing.Point(59, 19)
+        Me.RTB_S_Formation.Name = "RTB_S_Formation"
+        Me.RTB_S_Formation.Size = New System.Drawing.Size(162, 63)
+        Me.RTB_S_Formation.TabIndex = 2
+        Me.RTB_S_Formation.Text = ""
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(6, 105)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(47, 13)
+        Me.Label15.TabIndex = 1
+        Me.Label15.Text = "Session:"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(6, 32)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(32, 13)
+        Me.Label16.TabIndex = 0
+        Me.Label16.Text = "Nom:"
+        '
         'TabControl3
         '
         Me.TabControl3.Controls.Add(Me.TabPage10)
@@ -744,7 +1254,7 @@ Partial Class Formation
         Me.TabPage11.Location = New System.Drawing.Point(4, 22)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(767, 762)
+        Me.TabPage11.Size = New System.Drawing.Size(767, 591)
         Me.TabPage11.TabIndex = 1
         Me.TabPage11.Text = "Documents"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -843,225 +1353,77 @@ Partial Class Formation
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
-        'TB_I_NB_Intervenants
+        'Label31
         '
-        Me.TB_I_NB_Intervenants.Enabled = False
-        Me.TB_I_NB_Intervenants.Location = New System.Drawing.Point(131, 82)
-        Me.TB_I_NB_Intervenants.Name = "TB_I_NB_Intervenants"
-        Me.TB_I_NB_Intervenants.Size = New System.Drawing.Size(100, 20)
-        Me.TB_I_NB_Intervenants.TabIndex = 4
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(82, 82)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(51, 13)
+        Me.Label31.TabIndex = 0
+        Me.Label31.Text = "Fonction:"
         '
-        'TB_I_NB_Stagiaires
+        'RTB_I_Fonction
         '
-        Me.TB_I_NB_Stagiaires.Enabled = False
-        Me.TB_I_NB_Stagiaires.Location = New System.Drawing.Point(131, 108)
-        Me.TB_I_NB_Stagiaires.Name = "TB_I_NB_Stagiaires"
-        Me.TB_I_NB_Stagiaires.Size = New System.Drawing.Size(100, 20)
-        Me.TB_I_NB_Stagiaires.TabIndex = 5
+        Me.RTB_I_Fonction.Enabled = False
+        Me.RTB_I_Fonction.Location = New System.Drawing.Point(47, 104)
+        Me.RTB_I_Fonction.Name = "RTB_I_Fonction"
+        Me.RTB_I_Fonction.Size = New System.Drawing.Size(126, 41)
+        Me.RTB_I_Fonction.TabIndex = 1
+        Me.RTB_I_Fonction.Text = ""
         '
-        'TextBox4
+        'Label32
         '
-        Me.TextBox4.Enabled = False
-        Me.TextBox4.Location = New System.Drawing.Point(131, 56)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox4.TabIndex = 6
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(58, 26)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(98, 13)
+        Me.Label32.TabIndex = 2
+        Me.Label32.Text = "Type d'intervenant:"
         '
-        'TextBox5
+        'CB_I_TypeIntervenant
         '
-        Me.TextBox5.Enabled = False
-        Me.TextBox5.Location = New System.Drawing.Point(131, 29)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox5.TabIndex = 7
+        Me.CB_I_TypeIntervenant.Enabled = False
+        Me.CB_I_TypeIntervenant.FormattingEnabled = True
+        Me.CB_I_TypeIntervenant.Location = New System.Drawing.Point(47, 49)
+        Me.CB_I_TypeIntervenant.Name = "CB_I_TypeIntervenant"
+        Me.CB_I_TypeIntervenant.Size = New System.Drawing.Size(121, 21)
+        Me.CB_I_TypeIntervenant.TabIndex = 3
         '
-        'GroupBox7
+        'Label33
         '
-        Me.GroupBox7.Controls.Add(Me.TB_S_Session)
-        Me.GroupBox7.Controls.Add(Me.RTB_S_Formation)
-        Me.GroupBox7.Controls.Add(Me.Label15)
-        Me.GroupBox7.Controls.Add(Me.Label16)
-        Me.GroupBox7.Location = New System.Drawing.Point(7, 38)
-        Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(238, 140)
-        Me.GroupBox7.TabIndex = 3
-        Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "Formation"
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(82, 152)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(57, 13)
+        Me.Label33.TabIndex = 4
+        Me.Label33.Text = "Entreprise:"
         '
-        'TB_S_Session
+        'RTB_I_Entreprise
         '
-        Me.TB_S_Session.Enabled = False
-        Me.TB_S_Session.Location = New System.Drawing.Point(59, 102)
-        Me.TB_S_Session.Name = "TB_S_Session"
-        Me.TB_S_Session.Size = New System.Drawing.Size(162, 20)
-        Me.TB_S_Session.TabIndex = 3
+        Me.RTB_I_Entreprise.Enabled = False
+        Me.RTB_I_Entreprise.Location = New System.Drawing.Point(47, 174)
+        Me.RTB_I_Entreprise.Name = "RTB_I_Entreprise"
+        Me.RTB_I_Entreprise.Size = New System.Drawing.Size(126, 39)
+        Me.RTB_I_Entreprise.TabIndex = 5
+        Me.RTB_I_Entreprise.Text = ""
         '
-        'RTB_S_Formation
+        'Label34
         '
-        Me.RTB_S_Formation.Enabled = False
-        Me.RTB_S_Formation.Location = New System.Drawing.Point(59, 19)
-        Me.RTB_S_Formation.Name = "RTB_S_Formation"
-        Me.RTB_S_Formation.Size = New System.Drawing.Size(162, 63)
-        Me.RTB_S_Formation.TabIndex = 2
-        Me.RTB_S_Formation.Text = ""
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(76, 221)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(64, 13)
+        Me.Label34.TabIndex = 6
+        Me.Label34.Text = "Ancienneté:"
         '
-        'Label15
+        'DTP_I_Anciennete
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(6, 105)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(47, 13)
-        Me.Label15.TabIndex = 1
-        Me.Label15.Text = "Session:"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(6, 32)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(32, 13)
-        Me.Label16.TabIndex = 0
-        Me.Label16.Text = "Nom:"
-        '
-        'GroupBox8
-        '
-        Me.GroupBox8.Controls.Add(Me.CB_S_AF)
-        Me.GroupBox8.Controls.Add(Me.CB_S_CP)
-        Me.GroupBox8.Controls.Add(Me.Label17)
-        Me.GroupBox8.Controls.Add(Me.Label18)
-        Me.GroupBox8.Location = New System.Drawing.Point(277, 38)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(180, 122)
-        Me.GroupBox8.TabIndex = 4
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Gestion de la formation"
-        '
-        'CB_S_AF
-        '
-        Me.CB_S_AF.Enabled = False
-        Me.CB_S_AF.FormattingEnabled = True
-        Me.CB_S_AF.Location = New System.Drawing.Point(27, 85)
-        Me.CB_S_AF.Name = "CB_S_AF"
-        Me.CB_S_AF.Size = New System.Drawing.Size(121, 21)
-        Me.CB_S_AF.TabIndex = 3
-        '
-        'CB_S_CP
-        '
-        Me.CB_S_CP.Enabled = False
-        Me.CB_S_CP.FormattingEnabled = True
-        Me.CB_S_CP.Location = New System.Drawing.Point(27, 36)
-        Me.CB_S_CP.Name = "CB_S_CP"
-        Me.CB_S_CP.Size = New System.Drawing.Size(121, 21)
-        Me.CB_S_CP.TabIndex = 2
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(24, 69)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(125, 13)
-        Me.Label17.TabIndex = 1
-        Me.Label17.Text = "Assistant(e) de formation:"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(42, 19)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(91, 13)
-        Me.Label18.TabIndex = 0
-        Me.Label18.Text = "Chef(fe) de projet:"
-        '
-        'GroupBox9
-        '
-        Me.GroupBox9.Controls.Add(Me.TextBox2)
-        Me.GroupBox9.Controls.Add(Me.TextBox3)
-        Me.GroupBox9.Controls.Add(Me.TB_S_NB_Stagiaires)
-        Me.GroupBox9.Controls.Add(Me.TB_S_NB_Intervenants)
-        Me.GroupBox9.Controls.Add(Me.Label19)
-        Me.GroupBox9.Controls.Add(Me.Label20)
-        Me.GroupBox9.Controls.Add(Me.Label21)
-        Me.GroupBox9.Controls.Add(Me.Label22)
-        Me.GroupBox9.Location = New System.Drawing.Point(488, 38)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(258, 140)
-        Me.GroupBox9.TabIndex = 5
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Indicateurs"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Enabled = False
-        Me.TextBox2.Location = New System.Drawing.Point(131, 29)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 7
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Location = New System.Drawing.Point(131, 56)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 6
-        '
-        'TB_S_NB_Stagiaires
-        '
-        Me.TB_S_NB_Stagiaires.Enabled = False
-        Me.TB_S_NB_Stagiaires.Location = New System.Drawing.Point(131, 108)
-        Me.TB_S_NB_Stagiaires.Name = "TB_S_NB_Stagiaires"
-        Me.TB_S_NB_Stagiaires.Size = New System.Drawing.Size(100, 20)
-        Me.TB_S_NB_Stagiaires.TabIndex = 5
-        '
-        'TB_S_NB_Intervenants
-        '
-        Me.TB_S_NB_Intervenants.Enabled = False
-        Me.TB_S_NB_Intervenants.Location = New System.Drawing.Point(131, 82)
-        Me.TB_S_NB_Intervenants.Name = "TB_S_NB_Intervenants"
-        Me.TB_S_NB_Intervenants.Size = New System.Drawing.Size(100, 20)
-        Me.TB_S_NB_Intervenants.TabIndex = 4
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(6, 109)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(109, 13)
-        Me.Label19.TabIndex = 3
-        Me.Label19.Text = "Nombre de stagiaires:"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(6, 85)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(119, 13)
-        Me.Label20.TabIndex = 2
-        Me.Label20.Text = "Nombre  d'intervenants:"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(6, 58)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(24, 13)
-        Me.Label21.TabIndex = 1
-        Me.Label21.Text = "Fin:"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(6, 32)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(39, 13)
-        Me.Label22.TabIndex = 0
-        Me.Label22.Text = "Début:"
-        '
-        'MonthCalendar1
-        '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(353, 55)
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.TabIndex = 0
+        Me.DTP_I_Anciennete.Enabled = False
+        Me.DTP_I_Anciennete.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTP_I_Anciennete.Location = New System.Drawing.Point(47, 238)
+        Me.DTP_I_Anciennete.Name = "DTP_I_Anciennete"
+        Me.DTP_I_Anciennete.Size = New System.Drawing.Size(126, 20)
+        Me.DTP_I_Anciennete.TabIndex = 7
         '
         'Formation
         '
@@ -1091,6 +1453,13 @@ Partial Class Formation
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.TabControl2.ResumeLayout(False)
+        Me.TabPage3.ResumeLayout(False)
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -1109,6 +1478,12 @@ Partial Class Formation
         Me.TabPage4.ResumeLayout(False)
         Me.Panel_Stagiaires_détails.ResumeLayout(False)
         Me.Panel_Stagiaires_détails.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
         Me.TabControl3.ResumeLayout(False)
         Me.ToolStrip7.ResumeLayout(False)
         Me.ToolStrip7.PerformLayout()
@@ -1117,12 +1492,6 @@ Partial Class Formation
         CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip5.ResumeLayout(False)
         Me.ToolStrip5.PerformLayout()
-        Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox7.PerformLayout()
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1225,4 +1594,37 @@ Partial Class Formation
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents MonthCalendar1 As MonthCalendar
+    Friend WithEvents GroupBox10 As GroupBox
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TB_I_Prenom As TextBox
+    Friend WithEvents TB_I_Nom As TextBox
+    Friend WithEvents CB_I_Civilite As ComboBox
+    Friend WithEvents RTB_I_Adresse As RichTextBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents TB_I_Pays As TextBox
+    Friend WithEvents Label24 As Label
+    Friend WithEvents TB_I_Telephone As TextBox
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents LinkLabel_Mail_Intervenant As LinkLabel
+    Friend WithEvents Label27 As Label
+    Friend WithEvents DTP_I_DateN As DateTimePicker
+    Friend WithEvents Label28 As Label
+    Friend WithEvents TB_I_PaysN As TextBox
+    Friend WithEvents Label29 As Label
+    Friend WithEvents TB_I_LieuN As TextBox
+    Friend WithEvents TB_I_NumSS As TextBox
+    Friend WithEvents Label30 As Label
+    Friend WithEvents RTB_I_Fonction As RichTextBox
+    Friend WithEvents Label31 As Label
+    Friend WithEvents CB_I_TypeIntervenant As ComboBox
+    Friend WithEvents Label32 As Label
+    Friend WithEvents RTB_I_Entreprise As RichTextBox
+    Friend WithEvents Label33 As Label
+    Friend WithEvents DTP_I_Anciennete As DateTimePicker
+    Friend WithEvents Label34 As Label
 End Class

@@ -41,6 +41,22 @@ Public Class Onglet_intervenant
         cmd.Dispose()
     End Sub
 
+    Sub GenereDonneesEntreprise(ByRef SF As SessionFormation)
+        Dim Req As String = "select*from emplois 
+        where idPersonne in 
+        (select idPersonne from liste_interventions where NomF = '" & SF.NomFormation & "' 
+        and AnneeSession = '" & SF.Session & "')"
+        Dim cmd As New SqlCommand(Req, bdd.connect)
+        Dim MonAdaptateur As New SqlDataAdapter(cmd)
+
+        Try
+            MonAdaptateur.Fill(MonDataSet, "donnees_entreprise")
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
 #Region "Propriétés"
 
     Property Intervenants As DataTable
@@ -58,6 +74,15 @@ Public Class Onglet_intervenant
         End Set
         Get
             Return MonDataSet.Tables("liste_interventions")
+        End Get
+    End Property
+
+    Property DonneesEntreprises As DataTable
+        Set(value As DataTable)
+
+        End Set
+        Get
+            Return MonDataSet.Tables("donnees_entreprise")
         End Get
     End Property
 
