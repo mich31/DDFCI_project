@@ -8,6 +8,7 @@ Public Class Onglet_intervenant
         bdd = base
         GenereListeInterventions(SF)
         GenereListeIntervenants(SF)
+        GenereDonneesEntreprise(SF)
     End Sub
 
     Sub GenereListeIntervenants(ByRef SF As SessionFormation)

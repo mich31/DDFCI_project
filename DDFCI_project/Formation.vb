@@ -7,8 +7,10 @@ Public Class Formation
     Private SessionFormation As String
     Private TableSF As DataTable 'Table contenant la liste des intervenants
 
+    Private utilisateur As Utilisateur
     Private o_Intervenant As Onglet_intervenant
     Private o_Stagiaire As Onglet_stagiaire
+    Private intervenant_select As Intervenant
 
 
 #Region "Propriétés"
@@ -79,8 +81,24 @@ Public Class Formation
     Private Sub Formation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.TV_Menu.TopNode = Me.TV_Menu.Nodes.Add(bdd.username)
         CreerArborescence()
+        CreerUtilisateur()
     End Sub
 
+    Sub CreerUtilisateur()
+        Dim Requete As String = "select*from Personnel where Login='" & bdd.username & "'"
+        Dim cmd As New SqlCommand(Requete, bdd.connect)
+
+        Try
+            Dim MonReader As SqlDataReader = cmd.ExecuteReader()
+            If MonReader.Read() Then
+                utilisateur = New Utilisateur(MonReader("Login").ToString, MonReader("Password").ToString, MonReader("Fonction").ToString, MonReader("Mail").ToString)
+            End If
+            cmd.Dispose()
+            MonReader.Close()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+    End Sub
 
 #Region "Arborescence Formations"
 
@@ -188,15 +206,32 @@ Public Class Formation
 
     Sub Init_champs_Information()
         Me.CB_I_Civilite.Text = ""
+        Me.TB_I_Nom.Text = ""
+        Me.TB_I_Prenom.Text = ""
+        Me.RTB_I_Adresse.Text = ""
+        Me.TB_I_Pays.Text = ""
+        Me.TB_I_Telephone.Text = ""
+        Me.LinkLabel_Mail_Intervenant.Text = ""
+        Me.DTP_I_DateN.Value = System.DateTime.Today
+        Me.TB_I_LieuN.Text = ""
+        Me.TB_I_PaysN.Text = ""
+        Me.TB_I_NumSS.Text = ""
+        Me.CB_I_TypeIntervenant.Text = ""
+        Me.RTB_I_Fonction.Text = ""
+        Me.RTB_I_Entreprise.Text = ""
+        Me.DTP_I_Anciennete.Value = System.DateTime.Today
     End Sub
 
     Sub Remplir_Onglet_Information(ByVal DG As DataGridView, ByVal index As Integer)
+        Dim id As String = DG.Rows(index).Cells("idPersonne").Value
+
         Me.CB_I_Civilite.Text = DG.Rows(index).Cells("CiviliteP").Value
         Me.TB_I_Nom.Text = DG.Rows(index).Cells("NomP").Value
         Me.TB_I_Prenom.Text = DG.Rows(index).Cells("PrenomP").Value
         Me.RTB_I_Adresse.Text = DG.Rows(index).Cells("AdresseP").Value & ", " & DG.Rows(index).Cells("CP").Value & " " & DG.Rows(index).Cells("VilleP").Value
         Me.TB_I_Pays.Text = DG.Rows(index).Cells("PaysP").Value
         Me.TB_I_Telephone.Text = DG.Rows(index).Cells("NumTelP").Value
+        Me.LinkLabel_Mail_Intervenant.Text = DG.Rows(index).Cells("MailP").Value
 
         Me.DTP_I_DateN.Value = DG.Rows(index).Cells("DateNaissanceI").Value
         Me.TB_I_LieuN.Text = DG.Rows(index).Cells("LieuNaissanceI").Value
@@ -205,9 +240,14 @@ Public Class Formation
 
         Me.CB_I_TypeIntervenant.Text = DG.Rows(index).Cells("TypeIntervenant").Value
 
+        For Each Ligne As DataRow In o_Intervenant.DonneesEntreprises.Rows()
+            If Ligne("idPersonne").ToString = id Then
+                Me.RTB_I_Fonction.Text = Ligne("Fonction").ToString
+                Me.RTB_I_Entreprise.Text = Ligne("NomE").ToString
+                Me.DTP_I_Anciennete.Value = Ligne("Anciennete").ToString
+            End If
+        Next
 
-
-        Me.RTB_I_Fonction.Text = DG.Rows(index).Cells("NumTelP").Value
     End Sub
 
     ''' <summary>
@@ -221,11 +261,13 @@ Public Class Formation
 
     Private Sub DG_Liste_Intervenants_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Liste_Intervenants.CellContentClick
         Init_champs_Information()
+        intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
         Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
 
     Private Sub DG_Liste_Intervenants_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Intervenants.RowHeaderMouseClick
         Init_champs_Information()
+        intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
         Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
 
@@ -331,21 +373,6 @@ Public Class Formation
         'RemplirControlsDoc(SF)
     End Sub
 
-    'Private Sub Button1_Click(sender As Object, e As EventArgs)
-    '    Dim index As Integer = Me.CB_DSE.SelectedIndex
-    '    If index >= 0 Then
-    '        Dim FicheEngagement As New Document(TableSF, index, bdd)
-    '        FicheEngagement.GenereDossierEngagement()
-    '    End If
-    'End Sub
-
-    'Private Sub Button2_Click(sender As Object, e As EventArgs)
-    '    Dim index As Integer = Me.CB_FSF.SelectedIndex
-    '    If index >= 0 Then
-    '        Dim FSF As New Document(TableSF, index, bdd)
-    '        FSF.GenereFicheServicefait()
-    '    End If
-    'End Sub
 
     Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs)
         FichePersoIntervenant.Show()
@@ -358,6 +385,23 @@ Public Class Formation
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
+        If index >= 0 Then
+            intervenant_select.GenereDossierEngagement()
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
+        If index >= 0 Then
+            intervenant_select.GenereFicheServicefait()
+        End If
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
+        If index >= 0 Then
+            intervenant_select.GenereConvocationIntervenant()
+        End If
     End Sub
 
 End Class

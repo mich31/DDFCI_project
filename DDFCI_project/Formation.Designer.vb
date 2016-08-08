@@ -62,6 +62,14 @@ Partial Class Formation
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.DTP_I_Anciennete = New System.Windows.Forms.DateTimePicker()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.RTB_I_Entreprise = New System.Windows.Forms.RichTextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.CB_I_TypeIntervenant = New System.Windows.Forms.ComboBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.RTB_I_Fonction = New System.Windows.Forms.RichTextBox()
+        Me.Label31 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TB_I_NumSS = New System.Windows.Forms.TextBox()
         Me.Label30 = New System.Windows.Forms.Label()
@@ -144,14 +152,6 @@ Partial Class Formation
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.RTB_I_Fonction = New System.Windows.Forms.RichTextBox()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.CB_I_TypeIntervenant = New System.Windows.Forms.ComboBox()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.RTB_I_Entreprise = New System.Windows.Forms.RichTextBox()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.DTP_I_Anciennete = New System.Windows.Forms.DateTimePicker()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -559,6 +559,78 @@ Partial Class Formation
         Me.GroupBox10.Size = New System.Drawing.Size(209, 273)
         Me.GroupBox10.TabIndex = 2
         Me.GroupBox10.TabStop = False
+        '
+        'DTP_I_Anciennete
+        '
+        Me.DTP_I_Anciennete.Enabled = False
+        Me.DTP_I_Anciennete.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTP_I_Anciennete.Location = New System.Drawing.Point(47, 238)
+        Me.DTP_I_Anciennete.Name = "DTP_I_Anciennete"
+        Me.DTP_I_Anciennete.Size = New System.Drawing.Size(126, 20)
+        Me.DTP_I_Anciennete.TabIndex = 7
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(76, 221)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(64, 13)
+        Me.Label34.TabIndex = 6
+        Me.Label34.Text = "Ancienneté:"
+        '
+        'RTB_I_Entreprise
+        '
+        Me.RTB_I_Entreprise.Enabled = False
+        Me.RTB_I_Entreprise.Location = New System.Drawing.Point(47, 174)
+        Me.RTB_I_Entreprise.Name = "RTB_I_Entreprise"
+        Me.RTB_I_Entreprise.Size = New System.Drawing.Size(126, 39)
+        Me.RTB_I_Entreprise.TabIndex = 5
+        Me.RTB_I_Entreprise.Text = ""
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(82, 152)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(57, 13)
+        Me.Label33.TabIndex = 4
+        Me.Label33.Text = "Entreprise:"
+        '
+        'CB_I_TypeIntervenant
+        '
+        Me.CB_I_TypeIntervenant.Enabled = False
+        Me.CB_I_TypeIntervenant.FormattingEnabled = True
+        Me.CB_I_TypeIntervenant.Location = New System.Drawing.Point(47, 49)
+        Me.CB_I_TypeIntervenant.Name = "CB_I_TypeIntervenant"
+        Me.CB_I_TypeIntervenant.Size = New System.Drawing.Size(121, 21)
+        Me.CB_I_TypeIntervenant.TabIndex = 3
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(58, 26)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(98, 13)
+        Me.Label32.TabIndex = 2
+        Me.Label32.Text = "Type d'intervenant:"
+        '
+        'RTB_I_Fonction
+        '
+        Me.RTB_I_Fonction.Enabled = False
+        Me.RTB_I_Fonction.Location = New System.Drawing.Point(47, 104)
+        Me.RTB_I_Fonction.Name = "RTB_I_Fonction"
+        Me.RTB_I_Fonction.Size = New System.Drawing.Size(126, 41)
+        Me.RTB_I_Fonction.TabIndex = 1
+        Me.RTB_I_Fonction.Text = ""
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(82, 82)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(51, 13)
+        Me.Label31.TabIndex = 0
+        Me.Label31.Text = "Fonction:"
         '
         'GroupBox3
         '
@@ -1251,13 +1323,13 @@ Partial Class Formation
         '
         'TabPage11
         '
+        Me.TabPage11.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage11.Location = New System.Drawing.Point(4, 22)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage11.Size = New System.Drawing.Size(767, 591)
         Me.TabPage11.TabIndex = 1
         Me.TabPage11.Text = "Documents"
-        Me.TabPage11.UseVisualStyleBackColor = True
         '
         'ToolStrip7
         '
@@ -1352,78 +1424,6 @@ Partial Class Formation
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(82, 82)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(51, 13)
-        Me.Label31.TabIndex = 0
-        Me.Label31.Text = "Fonction:"
-        '
-        'RTB_I_Fonction
-        '
-        Me.RTB_I_Fonction.Enabled = False
-        Me.RTB_I_Fonction.Location = New System.Drawing.Point(47, 104)
-        Me.RTB_I_Fonction.Name = "RTB_I_Fonction"
-        Me.RTB_I_Fonction.Size = New System.Drawing.Size(126, 41)
-        Me.RTB_I_Fonction.TabIndex = 1
-        Me.RTB_I_Fonction.Text = ""
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(58, 26)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(98, 13)
-        Me.Label32.TabIndex = 2
-        Me.Label32.Text = "Type d'intervenant:"
-        '
-        'CB_I_TypeIntervenant
-        '
-        Me.CB_I_TypeIntervenant.Enabled = False
-        Me.CB_I_TypeIntervenant.FormattingEnabled = True
-        Me.CB_I_TypeIntervenant.Location = New System.Drawing.Point(47, 49)
-        Me.CB_I_TypeIntervenant.Name = "CB_I_TypeIntervenant"
-        Me.CB_I_TypeIntervenant.Size = New System.Drawing.Size(121, 21)
-        Me.CB_I_TypeIntervenant.TabIndex = 3
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(82, 152)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(57, 13)
-        Me.Label33.TabIndex = 4
-        Me.Label33.Text = "Entreprise:"
-        '
-        'RTB_I_Entreprise
-        '
-        Me.RTB_I_Entreprise.Enabled = False
-        Me.RTB_I_Entreprise.Location = New System.Drawing.Point(47, 174)
-        Me.RTB_I_Entreprise.Name = "RTB_I_Entreprise"
-        Me.RTB_I_Entreprise.Size = New System.Drawing.Size(126, 39)
-        Me.RTB_I_Entreprise.TabIndex = 5
-        Me.RTB_I_Entreprise.Text = ""
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(76, 221)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(64, 13)
-        Me.Label34.TabIndex = 6
-        Me.Label34.Text = "Ancienneté:"
-        '
-        'DTP_I_Anciennete
-        '
-        Me.DTP_I_Anciennete.Enabled = False
-        Me.DTP_I_Anciennete.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTP_I_Anciennete.Location = New System.Drawing.Point(47, 238)
-        Me.DTP_I_Anciennete.Name = "DTP_I_Anciennete"
-        Me.DTP_I_Anciennete.Size = New System.Drawing.Size(126, 20)
-        Me.DTP_I_Anciennete.TabIndex = 7
         '
         'Formation
         '

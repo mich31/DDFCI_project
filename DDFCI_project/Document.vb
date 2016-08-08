@@ -6,46 +6,18 @@ Public Class Document
     Private index As Integer
     Private id As String
 
-    Private MonDataSet As New DataSet
+    Private infos_I_perso As DataRow
+    Private infos_I_pro As DataTable
 
-    'Sub New(ByRef DT As DataTable, ByVal i As Integer, ByRef base As BD)
-    '    Dim Ligne As DataRow
-    '    index = i
-    '    bdd = base
-
-    '    Ligne = DT.Rows().Item(i)
-    '    id = Ligne("idPersonne").ToString
-    '    GenereInfosPerso()
-    '    GenereInfosPro()
-    'End Sub
+    'Private MonDataSet As New DataSet
 
 
-
-    Sub GenereInfosPerso()
-        Dim Req As String = "select*from profils_intervenant where idPersonne='" & id & "'"
-        Dim cmd As New SqlCommand(Req, bdd.connect)
-        Dim MonAdaptateur As New SqlDataAdapter(cmd)
-
-        Try
-            MonAdaptateur.Fill(MonDataSet, "fiche_perso_intervenant")
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
-        cmd.Dispose()
+    Sub New(ByRef base As BD, ByRef donnees_perso As DataRow, ByRef donnees_pro As DataTable)
+        bdd = base
+        infos_I_perso = donnees_perso
+        infos_I_pro = donnees_pro
     End Sub
 
-    Sub GenereInfosPro()
-        Dim Req As String = "select*from emplois where idPersonne='" & id & "'"
-        Dim cmd As New SqlCommand(Req, bdd.connect)
-        Dim MonAdaptateur As New SqlDataAdapter(cmd)
-
-        Try
-            MonAdaptateur.Fill(MonDataSet, "fiche_pro_intervenant")
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
-        cmd.Dispose()
-    End Sub
 
     Sub GenereDossierEngagement()
         'Crée une instance de Word
@@ -56,28 +28,27 @@ Public Class Document
         'Rendre le document visible
         oWord.Visible = True
 
-        For Each Ligne As DataRow In MonDataSet.Tables("fiche_perso_intervenant").Rows()
-            oDoc.Bookmarks.Item("Civilité").Range.Text = Ligne("CiviliteP").ToString
-            oDoc.Bookmarks.Item("Nom").Range.Text = Ligne("NomP").ToString
-            oDoc.Bookmarks.Item("NomJeuneFille").Range.Text = Ligne("NomJeuneFille").ToString
-            oDoc.Bookmarks.Item("Prénom").Range.Text = Ligne("PrenomP").ToString
-            oDoc.Bookmarks.Item("DateNaissance").Range.Text = Ligne("DateNaissanceI").ToString
-            oDoc.Bookmarks.Item("LieuNaissance").Range.Text = Ligne("LieuNaissanceI").ToString
-            oDoc.Bookmarks.Item("PaysNaissance").Range.Text = Ligne("PaysNaissanceI").ToString
-            oDoc.Bookmarks.Item("NumSS").Range.Text = Ligne("NumSSI").ToString
-            oDoc.Bookmarks.Item("Nationalité").Range.Text = Ligne("NationaliteP").ToString
-            oDoc.Bookmarks.Item("Adresse").Range.Text = Ligne("AdresseP").ToString
-            oDoc.Bookmarks.Item("CP").Range.Text = Ligne("CP").ToString
-            oDoc.Bookmarks.Item("Ville").Range.Text = Ligne("VilleP").ToString
-            oDoc.Bookmarks.Item("Pays").Range.Text = Ligne("PaysP").ToString
-            oDoc.Bookmarks.Item("NumTel").Range.Text = Ligne("NumTelP").ToString
-            oDoc.Bookmarks.Item("Mail").Range.Text = Ligne("MailP").ToString
+        oDoc.Bookmarks.Item("Civilité").Range.Text = infos_I_perso("CiviliteP").ToString
+        oDoc.Bookmarks.Item("Nom").Range.Text = infos_I_perso("NomP").ToString
+        oDoc.Bookmarks.Item("NomJeuneFille").Range.Text = infos_I_perso("NomJeuneFille").ToString
+        oDoc.Bookmarks.Item("Prénom").Range.Text = infos_I_perso("PrenomP").ToString
+        oDoc.Bookmarks.Item("DateNaissance").Range.Text = infos_I_perso("DateNaissanceI").ToString
+        oDoc.Bookmarks.Item("LieuNaissance").Range.Text = infos_I_perso("LieuNaissanceI").ToString
+        oDoc.Bookmarks.Item("PaysNaissance").Range.Text = infos_I_perso("PaysNaissanceI").ToString
+        oDoc.Bookmarks.Item("NumSS").Range.Text = infos_I_perso("NumSSI").ToString
+        oDoc.Bookmarks.Item("Nationalité").Range.Text = infos_I_perso("NationaliteP").ToString
+        oDoc.Bookmarks.Item("Adresse").Range.Text = infos_I_perso("AdresseP").ToString
+        oDoc.Bookmarks.Item("CP").Range.Text = infos_I_perso("CP").ToString
+        oDoc.Bookmarks.Item("Ville").Range.Text = infos_I_perso("VilleP").ToString
+        oDoc.Bookmarks.Item("Pays").Range.Text = infos_I_perso("PaysP").ToString
+        oDoc.Bookmarks.Item("NumTel").Range.Text = infos_I_perso("NumTelP").ToString
+        oDoc.Bookmarks.Item("Mail").Range.Text = infos_I_perso("MailP").ToString
 
-            oDoc.Bookmarks.Item("NomIntervenant").Range.Text = Ligne("NomP").ToString.ToUpper & " " & Ligne("PrenomP").ToString
-            oDoc.Bookmarks.Item("DécisionDirecteur").Range.Text = Ligne("CiviliteP").ToString & "  " & Ligne("NomP").ToString.ToUpper & " " & Ligne("PrenomP").ToString & "  "
-        Next
+        oDoc.Bookmarks.Item("NomIntervenant").Range.Text = infos_I_perso("NomP").ToString.ToUpper & " " & infos_I_perso("PrenomP").ToString
+        oDoc.Bookmarks.Item("DécisionDirecteur").Range.Text = infos_I_perso("CiviliteP").ToString & "  " & infos_I_perso("NomP").ToString.ToUpper & " " & infos_I_perso("PrenomP").ToString & "  "
 
-        For Each Ligne As DataRow In MonDataSet.Tables("fiche_pro_intervenant").Rows()
+
+        For Each Ligne As DataRow In infos_I_pro.Rows()
             oDoc.Bookmarks.Item("Profession").Range.Text = Ligne("Fonction").ToString
             oDoc.Bookmarks.Item("NomEntreprise").Range.Text = Ligne("NomE").ToString
             oDoc.Bookmarks.Item("Anciennete").Range.Text = Ligne("Anciennete").ToString
@@ -103,9 +74,22 @@ Public Class Document
         oDoc.Bookmarks.Item("AnnéeCivile").Range.Text = DateTime.Now.Year.ToString
         oDoc.Bookmarks.Item("DateValidation").Range.Text = DateTime.Now.Date.ToString("d")
 
-        For Each Ligne As DataRow In MonDataSet.Tables("fiche_perso_intervenant").Rows()
-            oDoc.Bookmarks.Item("NomIntervenant").Range.Text = Ligne("NomP").ToString.ToUpper & " " & Ligne("PrenomP").ToString
-        Next
+        oDoc.Bookmarks.Item("NomIntervenant").Range.Text = infos_I_perso("NomP").ToString.ToUpper & " " & infos_I_perso("PrenomP").ToString
 
     End Sub
+
+    Sub GenereConvocationIntervenant()
+        'Crée une instance de Word
+        Dim oWord As New Word.Application
+        Dim oDoc As New Word.Document
+        'Ouvrir un document
+        oDoc = oWord.Documents.Open("C:\Users\michel.edjoa\Documents\Outils de gestion\Formation Continue\INTERVENANTS\Test\Convocation.doc")
+        'Rendre le document visible
+        oWord.Visible = True
+
+        oDoc.Bookmarks.Item("NomIntervenant").Range.Text = infos_I_perso("NomP").ToString.ToUpper & " " & infos_I_perso("PrenomP").ToString
+        oDoc.Bookmarks.Item("Date").Range.Text = DateTime.Now.Date.ToString("d")
+        'oDoc.Bookmarks.Item("NomFormation").Range.Text = 
+    End Sub
+
 End Class
