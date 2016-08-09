@@ -108,8 +108,8 @@ Partial Class Formation
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.DG_Liste_Interventions = New System.Windows.Forms.DataGridView()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DG_Liste_Interventions_nonpayees = New System.Windows.Forms.DataGridView()
+        Me.DG_Liste_Interventions_payees = New System.Windows.Forms.DataGridView()
         Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.Panel_Intervenants_liste = New System.Windows.Forms.Panel()
@@ -152,6 +152,8 @@ Partial Class Formation
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -171,8 +173,8 @@ Partial Class Formation
         Me.TabPage8.SuspendLayout()
         CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage9.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DG_Liste_Interventions_nonpayees, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DG_Liste_Interventions_payees, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip4.SuspendLayout()
         Me.Panel_Intervenants_liste.SuspendLayout()
         CType(Me.DG_Liste_Intervenants, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -331,9 +333,9 @@ Partial Class Formation
         Me.Panel_Intervenants_details.Controls.Add(Me.GroupBox4)
         Me.Panel_Intervenants_details.Controls.Add(Me.TabControl2)
         Me.Panel_Intervenants_details.Controls.Add(Me.ToolStrip4)
-        Me.Panel_Intervenants_details.Location = New System.Drawing.Point(264, 0)
+        Me.Panel_Intervenants_details.Location = New System.Drawing.Point(261, 0)
         Me.Panel_Intervenants_details.Name = "Panel_Intervenants_details"
-        Me.Panel_Intervenants_details.Size = New System.Drawing.Size(773, 829)
+        Me.Panel_Intervenants_details.Size = New System.Drawing.Size(776, 829)
         Me.Panel_Intervenants_details.TabIndex = 1
         '
         'GroupBox6
@@ -988,39 +990,50 @@ Partial Class Formation
         '
         'DG_Liste_Interventions
         '
+        Me.DG_Liste_Interventions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Interventions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Interventions.Location = New System.Drawing.Point(80, 221)
+        Me.DG_Liste_Interventions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.DG_Liste_Interventions.Location = New System.Drawing.Point(89, 167)
         Me.DG_Liste_Interventions.Name = "DG_Liste_Interventions"
+        Me.DG_Liste_Interventions.RowHeadersWidth = 31
         Me.DG_Liste_Interventions.Size = New System.Drawing.Size(547, 303)
         Me.DG_Liste_Interventions.TabIndex = 0
         '
         'TabPage9
         '
-        Me.TabPage9.Controls.Add(Me.DataGridView2)
-        Me.TabPage9.Controls.Add(Me.DataGridView1)
+        Me.TabPage9.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage9.Controls.Add(Me.Button2)
+        Me.TabPage9.Controls.Add(Me.Button1)
+        Me.TabPage9.Controls.Add(Me.DG_Liste_Interventions_nonpayees)
+        Me.TabPage9.Controls.Add(Me.DG_Liste_Interventions_payees)
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage9.Size = New System.Drawing.Size(762, 603)
         Me.TabPage9.TabIndex = 3
         Me.TabPage9.Text = "Paiement(s)"
-        Me.TabPage9.UseVisualStyleBackColor = True
         '
-        'DataGridView2
+        'DG_Liste_Interventions_nonpayees
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(95, 315)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(502, 228)
-        Me.DataGridView2.TabIndex = 1
+        Me.DG_Liste_Interventions_nonpayees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DG_Liste_Interventions_nonpayees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Liste_Interventions_nonpayees.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.DG_Liste_Interventions_nonpayees.Location = New System.Drawing.Point(95, 315)
+        Me.DG_Liste_Interventions_nonpayees.Name = "DG_Liste_Interventions_nonpayees"
+        Me.DG_Liste_Interventions_nonpayees.RowHeadersWidth = 31
+        Me.DG_Liste_Interventions_nonpayees.Size = New System.Drawing.Size(502, 228)
+        Me.DG_Liste_Interventions_nonpayees.TabIndex = 1
         '
-        'DataGridView1
+        'DG_Liste_Interventions_payees
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(95, 72)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(502, 194)
-        Me.DataGridView1.TabIndex = 0
+        Me.DG_Liste_Interventions_payees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DG_Liste_Interventions_payees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Liste_Interventions_payees.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.DG_Liste_Interventions_payees.Location = New System.Drawing.Point(95, 72)
+        Me.DG_Liste_Interventions_payees.Name = "DG_Liste_Interventions_payees"
+        Me.DG_Liste_Interventions_payees.RowHeadersWidth = 31
+        Me.DG_Liste_Interventions_payees.Size = New System.Drawing.Size(502, 194)
+        Me.DG_Liste_Interventions_payees.TabIndex = 0
         '
         'ToolStrip4
         '
@@ -1028,7 +1041,7 @@ Partial Class Formation
         Me.ToolStrip4.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel3})
         Me.ToolStrip4.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip4.Name = "ToolStrip4"
-        Me.ToolStrip4.Size = New System.Drawing.Size(773, 25)
+        Me.ToolStrip4.Size = New System.Drawing.Size(776, 25)
         Me.ToolStrip4.TabIndex = 0
         Me.ToolStrip4.Text = "ToolStrip4"
         '
@@ -1072,10 +1085,13 @@ Partial Class Formation
         '
         'DG_Liste_Intervenants
         '
+        Me.DG_Liste_Intervenants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Intervenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Liste_Intervenants.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DG_Liste_Intervenants.Location = New System.Drawing.Point(0, 53)
         Me.DG_Liste_Intervenants.Name = "DG_Liste_Intervenants"
-        Me.DG_Liste_Intervenants.Size = New System.Drawing.Size(258, 776)
+        Me.DG_Liste_Intervenants.RowHeadersWidth = 31
+        Me.DG_Liste_Intervenants.Size = New System.Drawing.Size(258, 535)
         Me.DG_Liste_Intervenants.TabIndex = 1
         '
         'ToolStrip2
@@ -1363,8 +1379,10 @@ Partial Class Formation
         '
         Me.DG_Liste_Stagiaires.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DG_Liste_Stagiaires.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DG_Liste_Stagiaires.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DG_Liste_Stagiaires.Location = New System.Drawing.Point(0, 50)
         Me.DG_Liste_Stagiaires.Name = "DG_Liste_Stagiaires"
+        Me.DG_Liste_Stagiaires.RowHeadersWidth = 31
         Me.DG_Liste_Stagiaires.Size = New System.Drawing.Size(254, 773)
         Me.DG_Liste_Stagiaires.TabIndex = 3
         '
@@ -1425,6 +1443,24 @@ Partial Class Formation
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(633, 100)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Modifier"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(633, 141)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Payé"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Formation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1466,8 +1502,8 @@ Partial Class Formation
         Me.TabPage8.ResumeLayout(False)
         CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage9.ResumeLayout(False)
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DG_Liste_Interventions_nonpayees, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DG_Liste_Interventions_payees, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip4.ResumeLayout(False)
         Me.ToolStrip4.PerformLayout()
         Me.Panel_Intervenants_liste.ResumeLayout(False)
@@ -1553,8 +1589,8 @@ Partial Class Formation
     Friend WithEvents Button4 As Button
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DG_Liste_Interventions_nonpayees As DataGridView
+    Friend WithEvents DG_Liste_Interventions_payees As DataGridView
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
@@ -1627,4 +1663,6 @@ Partial Class Formation
     Friend WithEvents Label33 As Label
     Friend WithEvents DTP_I_Anciennete As DateTimePicker
     Friend WithEvents Label34 As Label
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class

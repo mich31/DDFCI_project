@@ -150,25 +150,6 @@ Public Class Formation
 
 #Region "Onglet Intervenant"
 
-
-    'Sub RemplirFichePersonelleIntervenant()
-    '    Try
-    '        'Dim MonView As New DataView(MonDataSet.Tables("profils_intervenant"))
-    '        'MonView.Sort = "where NomP = '"
-    '        Dim index As Integer
-    '        Dim Ligne As DataRow
-    '        index = ListeIntervenants.SelectedIndex
-    '        Ligne = TableSF.Rows().Item(index)
-    '        Me.TB_Nom.Text = Ligne("NomP").ToString
-    '        Me.TB_Prenom.Text = Ligne("PrenomP").ToString
-    '        Me.TB_DateNaissance.Text = Ligne("DateNaissanceI").ToString
-    '        Me.TB_Telephone.Text = Ligne("NumTelP").ToString
-    '        Me.LinkEmailIntervenant.Text = Ligne("MailP").ToString
-    '    Catch ex As Exception
-    '        Console.WriteLine(ex.Message)
-    '    End Try
-    'End Sub
-
     Sub Remplir_DG_Liste_Intervenants()
         Me.DG_Liste_Intervenants.DataSource = o_Intervenant.Intervenants
         Dim nb As Integer = Me.DG_Liste_Intervenants.RowCount
@@ -178,10 +159,16 @@ Public Class Formation
         Me.DG_Liste_Intervenants.Columns("CiviliteP").HeaderText = "Civ"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Intervenants.Columns
-            If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civ." Then
+            If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civ" Then
                 col.Visible = False
             End If
         Next
+
+        ' Ajout et redimensionnement des cases à cocher
+        Dim TB As New DataGridViewCheckBoxColumn
+        Me.DG_Liste_Intervenants.Columns.Add(TB)
+        TB.DisplayIndex = 1
+        TB.Width = 21
 
         Me.LBL_Intervenant_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
     End Sub
@@ -190,19 +177,78 @@ Public Class Formation
         Me.DG_Liste_Interventions.DataSource = o_Intervenant.Interventions
         Me.DG_Liste_Interventions.Columns("NomF").HeaderText = "Formation"
         Me.DG_Liste_Interventions.Columns("TypeIntervention").HeaderText = "Type d'intervention"
-        'Date
+        Me.DG_Liste_Interventions.Columns("Date").HeaderText = "Date"
         Me.DG_Liste_Interventions.Columns("NbHeure").HeaderText = "Nb d'heures"
-        'Salle
+        Me.DG_Liste_Interventions.Columns("Salle").HeaderText = "Salle"
         Me.DG_Liste_Interventions.Columns("HeureDebut").HeaderText = "Début"
         Me.DG_Liste_Interventions.Columns("HeureFin").HeaderText = "Fin"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Interventions.Columns
-            If col.HeaderText IsNot "Formation" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
+            If col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
                 col.Visible = False
             End If
         Next
 
+        ' Ajout et redimensionnement des cases à cocher
+        Dim TB As New DataGridViewCheckBoxColumn
+        Me.DG_Liste_Interventions.Columns.Add(TB)
+        TB.DisplayIndex = 1
+        TB.Width = 21
+
+        Remplir_DG_Liste_Interventions_payees()
+        Remplir_DG_Liste_Interventions_nonpayees()
     End Sub
+
+    Sub Remplir_DG_Liste_Interventions_payees()
+        Dim MonView = New DataView(Me.DG_Liste_Interventions.DataSource, "StatutPaiement = 'Payé'", "StatutPaiement Desc", DataViewRowState.CurrentRows)
+        Me.DG_Liste_Interventions_payees.DataSource = MonView
+        Me.DG_Liste_Interventions_payees.Columns("NomF").HeaderText = "Formation"
+        Me.DG_Liste_Interventions_payees.Columns("TypeIntervention").HeaderText = "Type d'intervention"
+        Me.DG_Liste_Interventions_payees.Columns("Date").HeaderText = "Date"
+        Me.DG_Liste_Interventions_payees.Columns("NbHeure").HeaderText = "Nb d'heures"
+        Me.DG_Liste_Interventions_payees.Columns("Salle").HeaderText = "Salle"
+        Me.DG_Liste_Interventions_payees.Columns("HeureDebut").HeaderText = "Début"
+        Me.DG_Liste_Interventions_payees.Columns("HeureFin").HeaderText = "Fin"
+        Me.DG_Liste_Interventions_payees.Columns("StatutPaiement").HeaderText = "Paiement"
+
+        For Each col As DataGridViewColumn In Me.DG_Liste_Interventions_payees.Columns
+            If col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
+                col.Visible = False
+            End If
+        Next
+
+        ' Ajout et redimensionnement des cases à cocher
+        Dim TB As New DataGridViewCheckBoxColumn
+        Me.DG_Liste_Interventions_payees.Columns.Add(TB)
+        TB.DisplayIndex = 1
+        TB.Width = 21
+    End Sub
+
+    Sub Remplir_DG_Liste_Interventions_nonpayees()
+        Dim MonView = New DataView(Me.DG_Liste_Interventions.DataSource, "StatutPaiement = 'Non payé'", "StatutPaiement Desc", DataViewRowState.CurrentRows)
+        Me.DG_Liste_Interventions_nonpayees.DataSource = MonView
+        Me.DG_Liste_Interventions_nonpayees.Columns("NomF").HeaderText = "Formation"
+        Me.DG_Liste_Interventions_nonpayees.Columns("TypeIntervention").HeaderText = "Type d'intervention"
+        Me.DG_Liste_Interventions_nonpayees.Columns("Date").HeaderText = "Date"
+        Me.DG_Liste_Interventions_nonpayees.Columns("NbHeure").HeaderText = "Nb d'heures"
+        Me.DG_Liste_Interventions_nonpayees.Columns("Salle").HeaderText = "Salle"
+        Me.DG_Liste_Interventions_nonpayees.Columns("HeureDebut").HeaderText = "Début"
+        Me.DG_Liste_Interventions_nonpayees.Columns("HeureFin").HeaderText = "Fin"
+        Me.DG_Liste_Interventions_nonpayees.Columns("StatutPaiement").HeaderText = "Paiement"
+
+        For Each col As DataGridViewColumn In Me.DG_Liste_Interventions_nonpayees.Columns
+            If col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
+                col.Visible = False
+            End If
+        Next
+
+        ' Ajout et redimensionnement des cases à cocher
+        Dim TB As New DataGridViewCheckBoxColumn
+        Me.DG_Liste_Interventions_nonpayees.Columns.Add(TB)
+        TB.DisplayIndex = 1
+        TB.Width = 21
+    End Sub
+
 
     Sub Init_champs_Information()
         Me.CB_I_Civilite.Text = ""
@@ -287,6 +333,12 @@ Public Class Formation
                 col.Visible = False
             End If
         Next
+
+        ' Ajout et redimensionnement des cases à cocher
+        Dim TB As New DataGridViewCheckBoxColumn
+        Me.DG_Liste_Stagiaires.Columns.Add(TB)
+        TB.DisplayIndex = 1
+        TB.Width = 21
 
         Me.LBL_Stagiaire_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
     End Sub
@@ -404,4 +456,15 @@ Public Class Formation
         End If
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.DG_Liste_Interventions_payees.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions_payees.Rows
+            If Ligne.Cells(0).Value = True Then
+                'Ligne("StatutPaiement").
+            End If
+        Next
+    End Sub
 End Class
