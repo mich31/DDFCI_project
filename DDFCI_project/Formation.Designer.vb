@@ -108,6 +108,8 @@ Partial Class Formation
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.DG_Liste_Interventions = New System.Windows.Forms.DataGridView()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.DG_Liste_Interventions_nonpayees = New System.Windows.Forms.DataGridView()
         Me.DG_Liste_Interventions_payees = New System.Windows.Forms.DataGridView()
         Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
@@ -152,8 +154,10 @@ Partial Class Formation
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -980,6 +984,8 @@ Partial Class Formation
         'TabPage8
         '
         Me.TabPage8.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage8.Controls.Add(Me.Button8)
+        Me.TabPage8.Controls.Add(Me.Button7)
         Me.TabPage8.Controls.Add(Me.DG_Liste_Interventions)
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
@@ -992,7 +998,6 @@ Partial Class Formation
         '
         Me.DG_Liste_Interventions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Interventions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Interventions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DG_Liste_Interventions.Location = New System.Drawing.Point(89, 167)
         Me.DG_Liste_Interventions.Name = "DG_Liste_Interventions"
         Me.DG_Liste_Interventions.RowHeadersWidth = 31
@@ -1002,6 +1007,7 @@ Partial Class Formation
         'TabPage9
         '
         Me.TabPage9.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage9.Controls.Add(Me.Button9)
         Me.TabPage9.Controls.Add(Me.Button2)
         Me.TabPage9.Controls.Add(Me.Button1)
         Me.TabPage9.Controls.Add(Me.DG_Liste_Interventions_nonpayees)
@@ -1013,26 +1019,42 @@ Partial Class Formation
         Me.TabPage9.TabIndex = 3
         Me.TabPage9.Text = "Paiement(s)"
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(633, 439)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Payé"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(633, 398)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "Modifier"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'DG_Liste_Interventions_nonpayees
         '
         Me.DG_Liste_Interventions_nonpayees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Interventions_nonpayees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Interventions_nonpayees.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DG_Liste_Interventions_nonpayees.Location = New System.Drawing.Point(95, 315)
+        Me.DG_Liste_Interventions_nonpayees.Location = New System.Drawing.Point(59, 42)
         Me.DG_Liste_Interventions_nonpayees.Name = "DG_Liste_Interventions_nonpayees"
         Me.DG_Liste_Interventions_nonpayees.RowHeadersWidth = 31
-        Me.DG_Liste_Interventions_nonpayees.Size = New System.Drawing.Size(502, 228)
+        Me.DG_Liste_Interventions_nonpayees.Size = New System.Drawing.Size(547, 228)
         Me.DG_Liste_Interventions_nonpayees.TabIndex = 1
         '
         'DG_Liste_Interventions_payees
         '
         Me.DG_Liste_Interventions_payees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Interventions_payees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Interventions_payees.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DG_Liste_Interventions_payees.Location = New System.Drawing.Point(95, 72)
+        Me.DG_Liste_Interventions_payees.Location = New System.Drawing.Point(59, 319)
         Me.DG_Liste_Interventions_payees.Name = "DG_Liste_Interventions_payees"
         Me.DG_Liste_Interventions_payees.RowHeadersWidth = 31
-        Me.DG_Liste_Interventions_payees.Size = New System.Drawing.Size(502, 194)
+        Me.DG_Liste_Interventions_payees.Size = New System.Drawing.Size(547, 194)
         Me.DG_Liste_Interventions_payees.TabIndex = 0
         '
         'ToolStrip4
@@ -1054,6 +1076,7 @@ Partial Class Formation
         '
         'Panel_Intervenants_liste
         '
+        Me.Panel_Intervenants_liste.Controls.Add(Me.Button3)
         Me.Panel_Intervenants_liste.Controls.Add(Me.LBL_Intervenant_NB_Enregistrement)
         Me.Panel_Intervenants_liste.Controls.Add(Me.ToolStrip3)
         Me.Panel_Intervenants_liste.Controls.Add(Me.DG_Liste_Intervenants)
@@ -1087,7 +1110,6 @@ Partial Class Formation
         '
         Me.DG_Liste_Intervenants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Intervenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Intervenants.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DG_Liste_Intervenants.Location = New System.Drawing.Point(0, 53)
         Me.DG_Liste_Intervenants.Name = "DG_Liste_Intervenants"
         Me.DG_Liste_Intervenants.RowHeadersWidth = 31
@@ -1443,23 +1465,41 @@ Partial Class Formation
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
-        'Button1
+        'Button3
         '
-        Me.Button1.Location = New System.Drawing.Point(633, 100)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Modifier"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button3.Location = New System.Drawing.Point(102, 632)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 4
+        Me.Button3.Text = "Exporter"
+        Me.Button3.UseVisualStyleBackColor = True
         '
-        'Button2
+        'Button7
         '
-        Me.Button2.Location = New System.Drawing.Point(633, 141)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "Payé"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button7.Location = New System.Drawing.Point(244, 497)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(75, 23)
+        Me.Button7.TabIndex = 1
+        Me.Button7.Text = "Ajouter"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(369, 497)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(75, 23)
+        Me.Button8.TabIndex = 2
+        Me.Button8.Text = "Supprimer"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(633, 359)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(75, 23)
+        Me.Button9.TabIndex = 4
+        Me.Button9.Text = "Enregistrer"
+        Me.Button9.UseVisualStyleBackColor = True
         '
         'Formation
         '
@@ -1665,4 +1705,8 @@ Partial Class Formation
     Friend WithEvents Label34 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Button9 As Button
 End Class

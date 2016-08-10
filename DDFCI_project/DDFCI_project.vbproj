@@ -128,6 +128,12 @@
     <Compile Include="Document.vb" />
     <Compile Include="Onglet_intervenant.vb" />
     <Compile Include="Onglet_stagiaire.vb" />
+    <Compile Include="PageConnexion.Designer.vb">
+      <DependentUpon>PageConnexion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PageConnexion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SessionFormation.vb" />
     <Compile Include="Stagiaire.vb" />
     <Compile Include="Utilisateur.vb" />
@@ -153,6 +159,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageConnexion.resx">
+      <DependentUpon>PageConnexion.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

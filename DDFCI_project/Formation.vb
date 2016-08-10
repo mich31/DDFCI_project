@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports Excel = Microsoft.Office.Interop.Excel
+
 
 Public Class Formation
     Private bdd As BD
@@ -82,6 +84,8 @@ Public Class Formation
         Me.TV_Menu.TopNode = Me.TV_Menu.Nodes.Add(bdd.username)
         CreerArborescence()
         CreerUtilisateur()
+        Creation_DG()
+
     End Sub
 
     Sub CreerUtilisateur()
@@ -98,6 +102,33 @@ Public Class Formation
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
+    End Sub
+
+    Sub Creation_DG()
+
+        ' Ajout et redimensionnement des cases à cocher
+        Dim Chk1, Chk2, Chk3, Chk4 As New DataGridViewCheckBoxColumn
+        Me.DG_Liste_Intervenants.Columns.Add(Chk1)
+        Me.DG_Liste_Interventions.Columns.Add(Chk2)
+        Me.DG_Liste_Interventions_nonpayees.Columns.Add(Chk3)
+        Me.DG_Liste_Interventions_payees.Columns.Add(Chk4)
+        Chk1.DisplayIndex = 0
+        Chk2.DisplayIndex = 0
+        Chk3.DisplayIndex = 0
+        Chk4.DisplayIndex = 0
+
+        'Chk3.Width = 21
+
+        Chk1.Name = "_"
+        Chk2.Name = "_"
+        Chk3.Name = "_"
+        Chk4.Name = "_"
+
+        Chk1.HeaderText = ""
+        Chk2.HeaderText = ""
+        Chk3.HeaderText = ""
+        Chk4.HeaderText = ""
+
     End Sub
 
 #Region "Arborescence Formations"
@@ -159,16 +190,15 @@ Public Class Formation
         Me.DG_Liste_Intervenants.Columns("CiviliteP").HeaderText = "Civ"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Intervenants.Columns
-            If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civ" Then
+            If col.HeaderText IsNot "" And col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civ" Then
                 col.Visible = False
             End If
+            col.ReadOnly = True
+            If col.HeaderText Is "" Then
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                col.ReadOnly = False
+            End If
         Next
-
-        ' Ajout et redimensionnement des cases à cocher
-        Dim TB As New DataGridViewCheckBoxColumn
-        Me.DG_Liste_Intervenants.Columns.Add(TB)
-        TB.DisplayIndex = 1
-        TB.Width = 21
 
         Me.LBL_Intervenant_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
     End Sub
@@ -184,16 +214,15 @@ Public Class Formation
         Me.DG_Liste_Interventions.Columns("HeureFin").HeaderText = "Fin"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Interventions.Columns
-            If col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
+            If col.HeaderText IsNot "" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
                 col.Visible = False
             End If
+            col.ReadOnly = True
+            If col.HeaderText Is "" Then
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                col.ReadOnly = False
+            End If
         Next
-
-        ' Ajout et redimensionnement des cases à cocher
-        Dim TB As New DataGridViewCheckBoxColumn
-        Me.DG_Liste_Interventions.Columns.Add(TB)
-        TB.DisplayIndex = 1
-        TB.Width = 21
 
         Remplir_DG_Liste_Interventions_payees()
         Remplir_DG_Liste_Interventions_nonpayees()
@@ -212,16 +241,16 @@ Public Class Formation
         Me.DG_Liste_Interventions_payees.Columns("StatutPaiement").HeaderText = "Paiement"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Interventions_payees.Columns
-            If col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
+            If col.HeaderText IsNot "" And col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
                 col.Visible = False
+            End If
+            col.ReadOnly = True
+            If col.HeaderText Is "" Then
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                col.ReadOnly = False
             End If
         Next
 
-        ' Ajout et redimensionnement des cases à cocher
-        Dim TB As New DataGridViewCheckBoxColumn
-        Me.DG_Liste_Interventions_payees.Columns.Add(TB)
-        TB.DisplayIndex = 1
-        TB.Width = 21
     End Sub
 
     Sub Remplir_DG_Liste_Interventions_nonpayees()
@@ -237,16 +266,16 @@ Public Class Formation
         Me.DG_Liste_Interventions_nonpayees.Columns("StatutPaiement").HeaderText = "Paiement"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Interventions_nonpayees.Columns
-            If col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
+            If col.HeaderText IsNot "" And col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
                 col.Visible = False
+            End If
+            col.ReadOnly = True
+            If col.HeaderText Is "" Then
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                col.ReadOnly = False
             End If
         Next
 
-        ' Ajout et redimensionnement des cases à cocher
-        Dim TB As New DataGridViewCheckBoxColumn
-        Me.DG_Liste_Interventions_nonpayees.Columns.Add(TB)
-        TB.DisplayIndex = 1
-        TB.Width = 21
     End Sub
 
 
@@ -386,8 +415,8 @@ Public Class Formation
     ''' <param name="e"></param>
     Private Sub QuitterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitterToolStripMenuItem.Click
         bdd.deconnexion()
-        Connexion.Show()
         Me.Dispose()
+        PageConnexion.Show()
     End Sub
 
 
@@ -461,10 +490,78 @@ Public Class Formation
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions_payees.Rows
-            If Ligne.Cells(0).Value = True Then
-                'Ligne("StatutPaiement").
+        'Si les modifications sont activées
+        If Me.DG_Liste_Interventions_payees.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2 Then
+            For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions_payees.Rows
+                If Ligne.Cells.Item(0).OwningColumn.Name Is "_" And Ligne.Cells.Item(0).Value = True Then
+                    Ligne.Cells.Item(14).Value = "Non payé"
+                    'Me.DG_Liste_Interventions_payees.Rows.IndexOf(Ligne) = 1
+                    'Ligne.Index += 1
+                End If
+            Next
+        End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ExportExcel("C:\Users\michel.edjoa\Documents\Outils de gestion\Formation Continue\test.xls", Me.DG_Liste_Intervenants)
+    End Sub
+
+    Sub ExportExcel(ByVal Filename As String, ByRef DG As DataGridView)
+        Dim xlApp As Excel.Application
+        Dim xlWorkBook As Excel.Workbook
+        Dim xlWorkSheet As Excel.Worksheet
+        Dim misValue As Object = System.Reflection.Missing.Value
+
+        Dim i, j As Integer
+
+        xlApp = New Excel.Application
+        xlWorkBook = xlApp.Workbooks.Add(misValue)
+        xlWorkSheet = xlWorkBook.Sheets("Feuil1")
+
+
+        For i = 0 To DG.RowCount - 2
+            For j = 1 To DG.ColumnCount - 1
+                xlWorkSheet.Cells(i + 1, j + 1) = DG(j, i).Value.ToString()
+            Next
+        Next
+
+        xlWorkBook.SaveAs(Filename,
+                          Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
+                          Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue)
+        xlWorkBook.Close(True, misValue, misValue)
+        xlApp.Quit()
+
+        releaseObject(xlWorkSheet)
+        releaseObject(xlWorkBook)
+        releaseObject(xlApp)
+
+        MessageBox.Show("Tableau exporté")
+    End Sub
+
+    Private Sub releaseObject(ByVal obj As Object)
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+            MessageBox.Show("Exception Occured while releasing object " + ex.ToString())
+        Finally
+            GC.Collect()
+        End Try
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions.Rows
+            If Ligne.Cells.Item(0).OwningColumn.Name Is "_" And Ligne.Cells.Item(0).Value = True Then
+                Me.DG_Liste_Interventions.Rows.Remove(Ligne)
             End If
         Next
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        Dim MonAdaptateur As New SqlDataAdapter()
+        'Dim MonDataSet As New DataSet
+        'MonAdaptateur.Fill(MonDataSet)
+        MonAdaptateur.Update(o_Intervenant.Interventions)
     End Sub
 End Class
