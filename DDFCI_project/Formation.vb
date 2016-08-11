@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Imports Calendar
+'Imports Calendar
+Imports WindowsFormsCalendar
 Imports Excel = Microsoft.Office.Interop.Excel
 
 
@@ -13,7 +14,10 @@ Public Class Formation
     Private utilisateur As Utilisateur
     Private o_Intervenant As Onglet_intervenant
     Private o_Stagiaire As Onglet_stagiaire
+    Private o_Planning As Onglet_planning
     Private intervenant_select As Intervenant
+
+    'Private m_apps As New List(Of Appointment)
 
 
 #Region "Propriétés"
@@ -86,6 +90,7 @@ Public Class Formation
         CreerArborescence()
         CreerUtilisateur()
         Creation_DG()
+        MAJ_planning()
     End Sub
 
     Sub CreerUtilisateur()
@@ -391,6 +396,41 @@ Public Class Formation
 
 #End Region
 
+#Region "Onglet Planning"
+
+    Sub MAJ_planning()
+        'Dim m_app As New WindowsFormsCalendar.C
+
+        'm_app.StartDate = CDate("12/08/2016 09:15:00")
+        'm_app.EndDate = "12/08/2016 10:15:00"
+        'm_app.BorderColor = Color.Red
+        'Me.Calendar2.Invalidate()
+        'Me.Calendar2.Refresh()
+
+        'MonDayView.AllowInplaceEditing = True
+        'MonDayView.n
+        'MonDayView.CreateControl()
+        'm_apps.Add(m_app)
+        'MonDayView.Refresh()
+
+        'MonDayView.Invalidate()
+        'MonDayView.Refresh()
+        Dim it_cal As New CalendarItem(Me.Calendar2, CDate("11/08/2016 09:15:00"), CDate("11/08/2016 10:00:00"), "Mon RDV")
+        Calendar2.Items.Add(it_cal)
+        MsgBox(CDate("11/08/2016 09:15:00"))
+    End Sub
+
+    ''' <summary>
+    ''' Lorsque l'utilisateur sélectionne une date
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub MonthCalendar1_DateChanged(sender As Object, e As DateRangeEventArgs) Handles MonCalendrier.DateChanged
+        'MonDayView.StartDate = MonCalendrier.SelectionStart
+    End Sub
+
+#End Region
+
 #Region "Documents"
 
     Sub RemplirControlsDoc(ByRef SF As SessionFormation)
@@ -434,10 +474,11 @@ Public Class Formation
     Private Sub MAJ_infos()
         Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
 
-        Dim Inter = New Onglet_intervenant(bdd, SF)
-        Dim Stagiaire = New Onglet_stagiaire(bdd, SF)
-        o_Intervenant = Inter
-        o_Stagiaire = Stagiaire
+        o_Planning = New Onglet_planning(bdd, SF)
+        o_Intervenant = New Onglet_intervenant(bdd, SF)
+        o_Stagiaire = New Onglet_stagiaire(bdd, SF)
+        'o_Intervenant = Inter
+        'o_Stagiaire = Stagiaire
 
         Me.RTB_I_Formation.Text = NomFormation
         Me.RTB_S_Formation.Text = NomFormation
@@ -453,7 +494,6 @@ Public Class Formation
         Remplir_DG_Liste_Stagiaires()
         'RemplirControlsDoc(SF)
     End Sub
-
 
     Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs)
         FichePersoIntervenant.Show()
@@ -565,7 +605,9 @@ Public Class Formation
         MonAdaptateur.Update(o_Intervenant.Interventions)
     End Sub
 
-    Private Sub MonthCalendar1_DateChanged(sender As Object, e As DateRangeEventArgs) Handles MonCalendrier.DateChanged
-        MonDayView.StartDate = MonCalendrier.SelectionStart
+    Private Sub Calendar2_LoadItems(sender As Object, e As System.Windows.Forms.Calendar.CalendarLoadEventArgs)
+        Dim it_cal As New CalendarItem(Me.Calendar2, CDate("11/08/2016 09:15:00"), CDate("11/08/2016 10:00:00"), "Mon RDV")
+        Calendar2.Items.Add(it_cal)
+        MsgBox(CDate("11/08/2016 09:15:00"))
     End Sub
 End Class

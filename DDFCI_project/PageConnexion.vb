@@ -14,7 +14,6 @@ Public Class PageConnexion
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
         Connexion()
-        'My.User.CurrentPrincipal = Formation
     End Sub
 
     Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel.Click

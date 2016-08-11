@@ -100,6 +100,13 @@ DDFCI_project
  <param name="sender"></param>
  <param name="e"></param>
 </member>
+<member name="M:DDFCI_project.Formation.MonthCalendar1_DateChanged(System.Object,System.Windows.Forms.DateRangeEventArgs)">
+ <summary>
+ Lorsque l'utilisateur sélectionne une date
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
 <member name="M:DDFCI_project.Formation.QuitterToolStripMenuItem_Click(System.Object,System.EventArgs)">
  <summary>
  Effectue la déconnexion à la base de données et ferme le programme

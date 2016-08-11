@@ -47,9 +47,6 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Calendar.DayView">
-      <HintPath>..\..\..\..\Outils de gestion\Agenda\Calendar\Calendar.DayView.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -58,12 +55,18 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.Calendar">
+      <HintPath>..\..\..\..\Outils de gestion\Agenda\CAL\System.Windows.Forms.Calendar.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
     <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsCalendar">
+      <HintPath>..\..\..\..\Outils de gestion\Agenda\WinForms\WindowsFormsCalendar.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -130,6 +133,7 @@
     </Compile>
     <Compile Include="Document.vb" />
     <Compile Include="Onglet_intervenant.vb" />
+    <Compile Include="Onglet_planning.vb" />
     <Compile Include="Onglet_stagiaire.vb" />
     <Compile Include="PageConnexion.Designer.vb">
       <DependentUpon>PageConnexion.vb</DependentUpon>
