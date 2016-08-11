@@ -22,6 +22,7 @@ Partial Class Formation
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DrawTool2 As Calendar.DrawTool = New Calendar.DrawTool()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -37,7 +38,7 @@ Partial Class Formation
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
+        Me.MonCalendrier = New System.Windows.Forms.MonthCalendar()
         Me.TabIntervenants = New System.Windows.Forms.TabPage()
         Me.Panel_Intervenants_details = New System.Windows.Forms.Panel()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
@@ -106,8 +107,11 @@ Partial Class Formation
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.DG_Liste_Interventions = New System.Windows.Forms.DataGridView()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.Button9 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DG_Liste_Interventions_nonpayees = New System.Windows.Forms.DataGridView()
@@ -115,6 +119,7 @@ Partial Class Formation
         Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.Panel_Intervenants_liste = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.LBL_Intervenant_NB_Enregistrement = New System.Windows.Forms.Label()
         Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
         Me.DG_Liste_Intervenants = New System.Windows.Forms.DataGridView()
@@ -154,10 +159,7 @@ Partial Class Formation
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
+        Me.MonDayView = New Calendar.DayView()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -303,7 +305,8 @@ Partial Class Formation
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.MonthCalendar1)
+        Me.TabPage2.Controls.Add(Me.MonDayView)
+        Me.TabPage2.Controls.Add(Me.MonCalendrier)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -312,11 +315,11 @@ Partial Class Formation
         Me.TabPage2.Text = "Planning"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'MonthCalendar1
+        'MonCalendrier
         '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(353, 55)
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.TabIndex = 0
+        Me.MonCalendrier.Location = New System.Drawing.Point(403, 12)
+        Me.MonCalendrier.Name = "MonCalendrier"
+        Me.MonCalendrier.TabIndex = 0
         '
         'TabIntervenants
         '
@@ -994,6 +997,24 @@ Partial Class Formation
         Me.TabPage8.TabIndex = 2
         Me.TabPage8.Text = "Interventions(s)"
         '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(369, 497)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(75, 23)
+        Me.Button8.TabIndex = 2
+        Me.Button8.Text = "Supprimer"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(244, 497)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(75, 23)
+        Me.Button7.TabIndex = 1
+        Me.Button7.Text = "Ajouter"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
         'DG_Liste_Interventions
         '
         Me.DG_Liste_Interventions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
@@ -1018,6 +1039,15 @@ Partial Class Formation
         Me.TabPage9.Size = New System.Drawing.Size(762, 603)
         Me.TabPage9.TabIndex = 3
         Me.TabPage9.Text = "Paiement(s)"
+        '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(633, 359)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(75, 23)
+        Me.Button9.TabIndex = 4
+        Me.Button9.Text = "Enregistrer"
+        Me.Button9.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -1085,6 +1115,15 @@ Partial Class Formation
         Me.Panel_Intervenants_liste.Name = "Panel_Intervenants_liste"
         Me.Panel_Intervenants_liste.Size = New System.Drawing.Size(258, 829)
         Me.Panel_Intervenants_liste.TabIndex = 0
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(102, 632)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 4
+        Me.Button3.Text = "Exporter"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'LBL_Intervenant_NB_Enregistrement
         '
@@ -1465,41 +1504,24 @@ Partial Class Formation
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
-        'Button3
+        'MonDayView
         '
-        Me.Button3.Location = New System.Drawing.Point(102, 632)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 4
-        Me.Button3.Text = "Exporter"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(244, 497)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(75, 23)
-        Me.Button7.TabIndex = 1
-        Me.Button7.Text = "Ajouter"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.Location = New System.Drawing.Point(369, 497)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(75, 23)
-        Me.Button8.TabIndex = 2
-        Me.Button8.Text = "Supprimer"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'Button9
-        '
-        Me.Button9.Location = New System.Drawing.Point(633, 359)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(75, 23)
-        Me.Button9.TabIndex = 4
-        Me.Button9.Text = "Enregistrer"
-        Me.Button9.UseVisualStyleBackColor = True
+        DrawTool2.DayView = Me.MonDayView
+        Me.MonDayView.ActiveTool = DrawTool2
+        Me.MonDayView.AmPmDisplay = False
+        Me.MonDayView.AppHeightMode = Calendar.DayView.AppHeightDrawMode.TrueHeightAll
+        Me.MonDayView.DaysToShow = 5
+        Me.MonDayView.DrawAllAppBorder = False
+        Me.MonDayView.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.MonDayView.Location = New System.Drawing.Point(83, 273)
+        Me.MonDayView.MinHalfHourApp = False
+        Me.MonDayView.Name = "MonDayView"
+        Me.MonDayView.SelectionEnd = New Date(CType(0, Long))
+        Me.MonDayView.SelectionStart = New Date(CType(0, Long))
+        Me.MonDayView.Size = New System.Drawing.Size(865, 402)
+        Me.MonDayView.StartDate = New Date(2016, 8, 11, 0, 0, 0, 0)
+        Me.MonDayView.TabIndex = 1
+        Me.MonDayView.Text = "DayView1"
         '
         'Formation
         '
@@ -1669,7 +1691,7 @@ Partial Class Formation
     Friend WithEvents RTB_S_Formation As RichTextBox
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
-    Friend WithEvents MonthCalendar1 As MonthCalendar
+    Friend WithEvents MonCalendrier As MonthCalendar
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
@@ -1709,4 +1731,5 @@ Partial Class Formation
     Friend WithEvents Button8 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents Button9 As Button
+    Friend WithEvents MonDayView As Calendar.DayView
 End Class

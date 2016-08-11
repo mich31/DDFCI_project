@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports Calendar
 Imports Excel = Microsoft.Office.Interop.Excel
 
 
@@ -85,7 +86,6 @@ Public Class Formation
         CreerArborescence()
         CreerUtilisateur()
         Creation_DG()
-
     End Sub
 
     Sub CreerUtilisateur()
@@ -563,5 +563,9 @@ Public Class Formation
         'Dim MonDataSet As New DataSet
         'MonAdaptateur.Fill(MonDataSet)
         MonAdaptateur.Update(o_Intervenant.Interventions)
+    End Sub
+
+    Private Sub MonthCalendar1_DateChanged(sender As Object, e As DateRangeEventArgs) Handles MonCalendrier.DateChanged
+        MonDayView.StartDate = MonCalendrier.SelectionStart
     End Sub
 End Class

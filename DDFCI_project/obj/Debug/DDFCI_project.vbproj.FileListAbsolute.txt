@@ -32,3 +32,4 @@ C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_
 C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
 C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
 C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.PageConnexion.resources
+C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\Calendar.DayView.dll
