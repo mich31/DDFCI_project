@@ -22,11 +22,6 @@ Partial Class Formation
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim CalendarHighlightRange16 As System.Windows.Forms.Calendar.CalendarHighlightRange = New System.Windows.Forms.Calendar.CalendarHighlightRange()
-        Dim CalendarHighlightRange17 As System.Windows.Forms.Calendar.CalendarHighlightRange = New System.Windows.Forms.Calendar.CalendarHighlightRange()
-        Dim CalendarHighlightRange18 As System.Windows.Forms.Calendar.CalendarHighlightRange = New System.Windows.Forms.Calendar.CalendarHighlightRange()
-        Dim CalendarHighlightRange19 As System.Windows.Forms.Calendar.CalendarHighlightRange = New System.Windows.Forms.Calendar.CalendarHighlightRange()
-        Dim CalendarHighlightRange20 As System.Windows.Forms.Calendar.CalendarHighlightRange = New System.Windows.Forms.Calendar.CalendarHighlightRange()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,7 +37,7 @@ Partial Class Formation
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Calendar1 = New System.Windows.Forms.Calendar.Calendar()
+        Me.Calendar1 = New WindowsFormsCalendar.Calendar()
         Me.MonCalendrier = New System.Windows.Forms.MonthCalendar()
         Me.TabIntervenants = New System.Windows.Forms.TabPage()
         Me.Panel_Intervenants_details = New System.Windows.Forms.Panel()
@@ -164,7 +159,6 @@ Partial Class Formation
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.Calendar2 = New WindowsFormsCalendar.Calendar()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -200,7 +194,6 @@ Partial Class Formation
         Me.Panel_Stagiaires_Liste.SuspendLayout()
         CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip5.SuspendLayout()
-        Me.TabPage6.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -323,28 +316,21 @@ Partial Class Formation
         '
         'Calendar1
         '
+        Me.Calendar1.CalendarTimeFormat = WindowsFormsCalendar.CalendarTimeFormat.TwentyFourHour
+        Me.Calendar1.FirstDayOfWeek = System.DayOfWeek.Monday
         Me.Calendar1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        CalendarHighlightRange16.DayOfWeek = System.DayOfWeek.Monday
-        CalendarHighlightRange16.EndTime = System.TimeSpan.Parse("17:00:00")
-        CalendarHighlightRange16.StartTime = System.TimeSpan.Parse("08:00:00")
-        CalendarHighlightRange17.DayOfWeek = System.DayOfWeek.Tuesday
-        CalendarHighlightRange17.EndTime = System.TimeSpan.Parse("17:00:00")
-        CalendarHighlightRange17.StartTime = System.TimeSpan.Parse("08:00:00")
-        CalendarHighlightRange18.DayOfWeek = System.DayOfWeek.Wednesday
-        CalendarHighlightRange18.EndTime = System.TimeSpan.Parse("17:00:00")
-        CalendarHighlightRange18.StartTime = System.TimeSpan.Parse("08:00:00")
-        CalendarHighlightRange19.DayOfWeek = System.DayOfWeek.Thursday
-        CalendarHighlightRange19.EndTime = System.TimeSpan.Parse("17:00:00")
-        CalendarHighlightRange19.StartTime = System.TimeSpan.Parse("08:00:00")
-        CalendarHighlightRange20.DayOfWeek = System.DayOfWeek.Friday
-        CalendarHighlightRange20.EndTime = System.TimeSpan.Parse("17:00:00")
-        CalendarHighlightRange20.StartTime = System.TimeSpan.Parse("08:00:00")
-        Me.Calendar1.HighlightRanges = New System.Windows.Forms.Calendar.CalendarHighlightRange() {CalendarHighlightRange16, CalendarHighlightRange17, CalendarHighlightRange18, CalendarHighlightRange19, CalendarHighlightRange20}
-        Me.Calendar1.Location = New System.Drawing.Point(386, 236)
+        Me.Calendar1.ItemsBackgroundColor = System.Drawing.Color.RoyalBlue
+        Me.Calendar1.ItemsFont = Nothing
+        Me.Calendar1.ItemsForeColor = System.Drawing.Color.Black
+        Me.Calendar1.Location = New System.Drawing.Point(111, 208)
+        Me.Calendar1.MaximumViewDays = 700
         Me.Calendar1.Name = "Calendar1"
-        Me.Calendar1.Size = New System.Drawing.Size(500, 500)
-        Me.Calendar1.TabIndex = 2
+        Me.Calendar1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Calendar1.Scrollbars = WindowsFormsCalendar.CalendarScrollBars.Vertical
+        Me.Calendar1.Size = New System.Drawing.Size(800, 600)
+        Me.Calendar1.TabIndex = 1
         Me.Calendar1.Text = "Calendar1"
+        Me.Calendar1.TimeScale = WindowsFormsCalendar.CalendarTimeScale.FifteenMinutes
         '
         'MonCalendrier
         '
@@ -1527,7 +1513,6 @@ Partial Class Formation
         '
         'TabPage6
         '
-        Me.TabPage6.Controls.Add(Me.Calendar2)
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
@@ -1535,18 +1520,6 @@ Partial Class Formation
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
-        '
-        'Calendar2
-        '
-        Me.Calendar2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Calendar2.ItemsBackgroundColor = System.Drawing.Color.RoyalBlue
-        Me.Calendar2.ItemsFont = Nothing
-        Me.Calendar2.ItemsForeColor = System.Drawing.Color.Black
-        Me.Calendar2.Location = New System.Drawing.Point(157, 164)
-        Me.Calendar2.Name = "Calendar2"
-        Me.Calendar2.Size = New System.Drawing.Size(500, 600)
-        Me.Calendar2.TabIndex = 0
-        Me.Calendar2.Text = "Calendar2"
         '
         'Formation
         '
@@ -1615,7 +1588,6 @@ Partial Class Formation
         CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip5.ResumeLayout(False)
         Me.ToolStrip5.PerformLayout()
-        Me.TabPage6.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1757,6 +1729,5 @@ Partial Class Formation
     Friend WithEvents Button8 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents Button9 As Button
-    Friend WithEvents Calendar1 As Calendar.Calendar
-    Friend WithEvents Calendar2 As WindowsFormsCalendar.Calendar
+    Friend WithEvents Calendar1 As WindowsFormsCalendar.Calendar
 End Class

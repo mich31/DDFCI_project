@@ -24,10 +24,6 @@ Public Class Onglet_planning
         cmd.Dispose()
     End Sub
 
-    Sub GenereRDV()
-
-    End Sub
-
 #Region "Propriétés"
 
     Property Seances As DataTable

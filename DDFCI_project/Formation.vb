@@ -415,9 +415,24 @@ Public Class Formation
 
         'MonDayView.Invalidate()
         'MonDayView.Refresh()
-        Dim it_cal As New CalendarItem(Me.Calendar2, CDate("11/08/2016 09:15:00"), CDate("11/08/2016 10:00:00"), "Mon RDV")
-        Calendar2.Items.Add(it_cal)
-        MsgBox(CDate("11/08/2016 09:15:00"))
+
+        'Calendar1.SetViewRange(MonthView1.SelectionStart, MonthView1.SelectionStart.AddDays(4))
+        Calendar1.ViewStart = MonCalendrier.SelectionStart.AddHours(5)
+        Calendar1.ViewEnd = MonCalendrier.SelectionStart.AddDays(4).AddHours(5)
+        RemplirPlanning()
+
+    End Sub
+
+    Sub RemplirPlanning()
+        'Dim item1 As New CalendarItem(Me.Calendar1, CDate("12/08/2016 09:15:00"), CDate("12/08/2016 10:00:00"), "Mon RDV")
+        'Dim item2 As New CalendarItem(Me.Calendar1, CDate("13/08/2016 10:30:00"), CDate("13/08/2016 12:00:00"), "Mon 2e RDV")
+
+        For Each Ligne As DataRow In o_Planning.Seances.Rows()
+            Dim item As New CalendarItem(Me.Calendar1, CDate(Ligne("HeureDebut").ToString), CDate(Ligne("HeureFin").ToString), Ligne("Salle").ToString)
+            If item.Date >= Me.Calendar1.ViewStart.Date And item.Date <= Me.Calendar1.ViewEnd.Date.AddDays(1) Then
+                Calendar1.Items.Add(item)
+            End If
+        Next
     End Sub
 
     ''' <summary>
@@ -425,8 +440,17 @@ Public Class Formation
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub MonthCalendar1_DateChanged(sender As Object, e As DateRangeEventArgs) Handles MonCalendrier.DateChanged
+    Private Sub MonthCalendar1_DateSelected(sender As Object, e As DateRangeEventArgs) Handles MonCalendrier.DateSelected
         'MonDayView.StartDate = MonCalendrier.SelectionStart
+        If Me.MonCalendrier.SelectionStart > Me.Calendar1.ViewStart Then
+            Calendar1.ViewEnd = MonCalendrier.SelectionStart.AddDays(4)
+            Calendar1.ViewStart = MonCalendrier.SelectionStart
+        Else
+            Calendar1.ViewStart = MonCalendrier.SelectionStart
+            Calendar1.ViewEnd = MonCalendrier.SelectionStart.AddDays(4)
+        End If
+        'Me.Calendar1.SetViewRange(MonCalendrier.SelectionStart, MonCalendrier.SelectionStart.AddDays(4))
+        RemplirPlanning()
     End Sub
 
 #End Region
@@ -489,6 +513,7 @@ Public Class Formation
         Me.TB_I_NB_Stagiaires.Text = o_Stagiaire.Stagiaires.Rows.Count
         Me.TB_S_NB_Stagiaires.Text = o_Stagiaire.Stagiaires.Rows.Count
 
+        MAJ_planning()
         Remplir_DG_Liste_Intervenants()
         Remplir_DG_Liste_Interventions()
         Remplir_DG_Liste_Stagiaires()
@@ -599,15 +624,10 @@ Public Class Formation
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        Dim MonAdaptateur As New SqlDataAdapter()
-        'Dim MonDataSet As New DataSet
-        'MonAdaptateur.Fill(MonDataSet)
-        MonAdaptateur.Update(o_Intervenant.Interventions)
+        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
+        For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions.Rows
+            o_Intervenant.MAJ_Interventions(SF, Ligne, "Non payé")
+        Next
     End Sub
 
-    Private Sub Calendar2_LoadItems(sender As Object, e As System.Windows.Forms.Calendar.CalendarLoadEventArgs)
-        Dim it_cal As New CalendarItem(Me.Calendar2, CDate("11/08/2016 09:15:00"), CDate("11/08/2016 10:00:00"), "Mon RDV")
-        Calendar2.Items.Add(it_cal)
-        MsgBox(CDate("11/08/2016 09:15:00"))
-    End Sub
 End Class

@@ -100,7 +100,7 @@ DDFCI_project
  <param name="sender"></param>
  <param name="e"></param>
 </member>
-<member name="M:DDFCI_project.Formation.MonthCalendar1_DateChanged(System.Object,System.Windows.Forms.DateRangeEventArgs)">
+<member name="M:DDFCI_project.Formation.MonthCalendar1_DateSelected(System.Object,System.Windows.Forms.DateRangeEventArgs)">
  <summary>
  Lorsque l'utilisateur sélectionne une date
  </summary>

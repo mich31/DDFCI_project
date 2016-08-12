@@ -3,6 +3,7 @@
 Public Class Onglet_intervenant
     Private MonDataSet As New DataSet
     Private bdd As BD
+    Private MonAdaptateur As SqlDataAdapter
 
     Sub New(ByRef base As BD, ByVal SF As SessionFormation)
         bdd = base
@@ -17,7 +18,7 @@ Public Class Onglet_intervenant
         (select idIntervenant from liste_interventions where NomF = '" & SF.NomFormation & "' 
         and AnneeSession = '" & SF.Session & "')"
         Dim cmd As New SqlCommand(Req, bdd.connect)
-        Dim MonAdaptateur As New SqlDataAdapter(cmd)
+        MonAdaptateur = New SqlDataAdapter(cmd)
 
         Try
             MonAdaptateur.Fill(MonDataSet, "liste_intervenants")
@@ -25,6 +26,15 @@ Public Class Onglet_intervenant
             Console.WriteLine(ex.Message)
         End Try
         cmd.Dispose()
+    End Sub
+
+    Sub MAJ_Interventions(ByRef SF As SessionFormation, ByRef Ligne As DataGridViewRow, ByVal Statut As String)
+        Dim Req As String = "update liste_interventions set StatutPaiement = '" & Ligne.Cells.Item(14).Value & "' 
+        where idIntervenant = " & Ligne.Cells.Item(3).Value & " and idSeance = " & Ligne.Cells.Item(5).Value
+        Dim cmd As New SqlCommand(Req, bdd.connect)
+
+        MonAdaptateur.UpdateCommand = New SqlCommand(Req, bdd.connect)
+        MonAdaptateur.Update(MonDataSet.Tables("liste_interventions"))
     End Sub
 
     Sub GenereListeInterventions(ByRef SF As SessionFormation)
