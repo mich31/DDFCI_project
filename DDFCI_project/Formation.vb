@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
-'Imports Calendar
 Imports WindowsFormsCalendar
 Imports Excel = Microsoft.Office.Interop.Excel
+Imports Word = Microsoft.Office.Interop.Word
 
 
 Public Class Formation
@@ -17,7 +17,6 @@ Public Class Formation
     Private o_Planning As Onglet_planning
     Private intervenant_select As Intervenant
 
-    'Private m_apps As New List(Of Appointment)
 
 
 #Region "Propriétés"
@@ -377,21 +376,21 @@ Public Class Formation
         Me.LBL_Stagiaire_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
     End Sub
 
-    Sub Ajout_Stagiaire(ByRef St As Stagiaire)
-        Dim Req As String = "exec AjoutStagiaire @_Civ = '" & St.civ &
-            "',@_Nom = '" & St.nom & "',@_NomJeuneFille = '" & St.nomJF & "',@_Prenom='" &
-            St.prenom & "',@_Nationalite = '" & St.nationalite & "',@_Adresse = '" &
-            St.adresse & "',@_CP = '" & St.cp & "',@_Ville = '" & St.ville & "',@_Pays ='" &
-            St.pays & "',@_NumTel = '" & St.telephone & "',@_Mail = '" & St.mail & "'"
-        Dim cmd As New SqlCommand(Req, bdd.connect)
+    'Sub Ajout_Stagiaire(ByRef St As Stagiaire)
+    '    Dim Req As String = "exec AjoutStagiaire @_Civ = '" & St.civ &
+    '        "',@_Nom = '" & St.nom & "',@_NomJeuneFille = '" & St.nomJF & "',@_Prenom='" &
+    '        St.prenom & "',@_Nationalite = '" & St.nationalite & "',@_Adresse = '" &
+    '        St.adresse & "',@_CP = '" & St.cp & "',@_Ville = '" & St.ville & "',@_Pays ='" &
+    '        St.pays & "',@_NumTel = '" & St.telephone & "',@_Mail = '" & St.mail & "'"
+    '    Dim cmd As New SqlCommand(Req, bdd.connect)
 
-        Try
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
-        cmd.Dispose()
-    End Sub
+    '    Try
+    '        cmd.ExecuteNonQuery()
+    '    Catch ex As Exception
+    '        Console.WriteLine(ex.Message)
+    '    End Try
+    '    cmd.Dispose()
+    'End Sub
 
 
 #End Region
@@ -630,4 +629,34 @@ Public Class Formation
         Next
     End Sub
 
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+
+    End Sub
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        Dim nb As Integer = Me.DG_Liste_Stagiaires.RowCount 'Nombre de stagiaires
+        'Crée une instance de Word
+        Dim oWord As New Word.Application
+        Dim oDoc As New Word.Document
+        Dim oTable As Word.Table
+
+        'Ouvrir un document
+        oDoc = oWord.Documents.Open("C:\Users\michel.edjoa\Documents\Outils de gestion\Formation Continue\Docs à éditer\STAGIAIRES\Test\fiche Emargement.doc")
+        'Rendre le document visible
+        oWord.Visible = True
+
+        oDoc.Bookmarks.Item("Date").Range.Text = DateTime.Now.Date.ToString("d")
+        oDoc.Bookmarks.Item("Formation").Range.Text = NomFormation
+
+        oTable = oDoc.Tables.Add(oDoc.Bookmarks.Item("Tableau").Range, nb - 1, 6)
+        oTable.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle
+        oTable.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle
+
+        For ligne = 1 To nb - 1
+            oTable.Cell(ligne, 1).Range.Text = Me.DG_Liste_Stagiaires.Rows.Item(ligne).Cells.Item(1).Value
+            oTable.Cell(ligne, 2).Range.Text = Me.DG_Liste_Stagiaires.Rows.Item(ligne).Cells.Item(2).Value
+            oTable.Cell(ligne, 3).Range.Text = Me.DG_Liste_Stagiaires.Rows.Item(ligne).Cells.Item(3).Value
+        Next
+
+    End Sub
 End Class

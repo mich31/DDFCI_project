@@ -159,6 +159,10 @@ Partial Class Formation
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Button11 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -190,6 +194,7 @@ Partial Class Formation
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.TabControl3.SuspendLayout()
+        Me.TabPage11.SuspendLayout()
         Me.ToolStrip7.SuspendLayout()
         Me.Panel_Stagiaires_Liste.SuspendLayout()
         CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1407,7 +1412,7 @@ Partial Class Formation
         '
         'TabPage10
         '
-        Me.TabPage10.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.TabPage10.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
@@ -1418,6 +1423,10 @@ Partial Class Formation
         'TabPage11
         '
         Me.TabPage11.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage11.Controls.Add(Me.Button11)
+        Me.TabPage11.Controls.Add(Me.Label36)
+        Me.TabPage11.Controls.Add(Me.Button10)
+        Me.TabPage11.Controls.Add(Me.Label35)
         Me.TabPage11.Location = New System.Drawing.Point(4, 22)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
@@ -1521,6 +1530,42 @@ Partial Class Formation
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(30, 88)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(125, 13)
+        Me.Label35.TabIndex = 0
+        Me.Label35.Text = "Convention de formation:"
+        '
+        'Button10
+        '
+        Me.Button10.Location = New System.Drawing.Point(313, 85)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(75, 23)
+        Me.Button10.TabIndex = 1
+        Me.Button10.Text = "Générer"
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(32, 154)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(105, 13)
+        Me.Label36.TabIndex = 2
+        Me.Label36.Text = "Fiche d'emargement:"
+        '
+        'Button11
+        '
+        Me.Button11.Location = New System.Drawing.Point(315, 149)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(75, 23)
+        Me.Button11.TabIndex = 3
+        Me.Button11.Text = "Générer"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
         'Formation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1581,6 +1626,8 @@ Partial Class Formation
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.TabControl3.ResumeLayout(False)
+        Me.TabPage11.ResumeLayout(False)
+        Me.TabPage11.PerformLayout()
         Me.ToolStrip7.ResumeLayout(False)
         Me.ToolStrip7.PerformLayout()
         Me.Panel_Stagiaires_Liste.ResumeLayout(False)
@@ -1730,4 +1777,8 @@ Partial Class Formation
     Friend WithEvents Button7 As Button
     Friend WithEvents Button9 As Button
     Friend WithEvents Calendar1 As WindowsFormsCalendar.Calendar
+    Friend WithEvents Label35 As Label
+    Friend WithEvents Button10 As Button
+    Friend WithEvents Button11 As Button
+    Friend WithEvents Label36 As Label
 End Class
