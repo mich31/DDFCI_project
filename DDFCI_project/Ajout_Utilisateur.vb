@@ -22,7 +22,7 @@ Public Class Ajout_Utilisateur
         If TB_user.Text IsNot "" And TB_pwd.Text IsNot "" And CB_fct.SelectedIndex >= 0 Then
             Dim Req As String = "exec AjoutPersonnel @login = '" & TB_user.Text & "'
             ,@pwd = '" & TB_pwd.Text & "',@fonction= '" & CB_fct.SelectedItem.ToString & "'
-            ,@mail='" & TB_mail.Text & "'"
+            ,@mail='" & TB_mail.Text & "',@telephone= '" & TB_Telephone.Text & "',@telecopie= '" & TB_Telecopie.Text & "'"
             Dim cmd As New SqlCommand(Req, bdd.connect)
             Try
                 cmd.ExecuteNonQuery()

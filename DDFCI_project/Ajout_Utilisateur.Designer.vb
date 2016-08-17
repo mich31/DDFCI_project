@@ -23,6 +23,10 @@ Partial Class Ajout_Utilisateur
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TB_Telecopie = New System.Windows.Forms.TextBox()
+        Me.TB_Telephone = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.CB_fct = New System.Windows.Forms.ComboBox()
         Me.TB_mail = New System.Windows.Forms.TextBox()
         Me.TB_pwd = New System.Windows.Forms.TextBox()
@@ -39,6 +43,10 @@ Partial Class Ajout_Utilisateur
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.TB_Telecopie)
+        Me.Panel1.Controls.Add(Me.TB_Telephone)
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.CB_fct)
         Me.Panel1.Controls.Add(Me.TB_mail)
         Me.Panel1.Controls.Add(Me.TB_pwd)
@@ -49,8 +57,42 @@ Partial Class Ajout_Utilisateur
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(12, 51)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(267, 173)
+        Me.Panel1.Size = New System.Drawing.Size(267, 238)
         Me.Panel1.TabIndex = 0
+        '
+        'TB_Telecopie
+        '
+        Me.TB_Telecopie.Location = New System.Drawing.Point(114, 196)
+        Me.TB_Telecopie.Name = "TB_Telecopie"
+        Me.TB_Telecopie.Size = New System.Drawing.Size(129, 20)
+        Me.TB_Telecopie.TabIndex = 11
+        '
+        'TB_Telephone
+        '
+        Me.TB_Telephone.Location = New System.Drawing.Point(114, 161)
+        Me.TB_Telephone.Name = "TB_Telephone"
+        Me.TB_Telephone.Size = New System.Drawing.Size(129, 20)
+        Me.TB_Telephone.TabIndex = 10
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(40, 199)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(68, 14)
+        Me.Label6.TabIndex = 9
+        Me.Label6.Text = "Télécopie:*"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(35, 164)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(73, 14)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "Téléphone:*"
         '
         'CB_fct
         '
@@ -125,7 +167,7 @@ Partial Class Ajout_Utilisateur
         '
         'BT_Creer
         '
-        Me.BT_Creer.Location = New System.Drawing.Point(57, 271)
+        Me.BT_Creer.Location = New System.Drawing.Point(49, 309)
         Me.BT_Creer.Name = "BT_Creer"
         Me.BT_Creer.Size = New System.Drawing.Size(75, 23)
         Me.BT_Creer.TabIndex = 1
@@ -134,7 +176,7 @@ Partial Class Ajout_Utilisateur
         '
         'BT_Annuler
         '
-        Me.BT_Annuler.Location = New System.Drawing.Point(165, 271)
+        Me.BT_Annuler.Location = New System.Drawing.Point(162, 309)
         Me.BT_Annuler.Name = "BT_Annuler"
         Me.BT_Annuler.Size = New System.Drawing.Size(75, 23)
         Me.BT_Annuler.TabIndex = 2
@@ -145,7 +187,7 @@ Partial Class Ajout_Utilisateur
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(291, 324)
+        Me.ClientSize = New System.Drawing.Size(291, 356)
         Me.Controls.Add(Me.BT_Annuler)
         Me.Controls.Add(Me.BT_Creer)
         Me.Controls.Add(Me.Panel1)
@@ -168,4 +210,8 @@ Partial Class Ajout_Utilisateur
     Friend WithEvents TB_pwd As TextBox
     Friend WithEvents BT_Creer As Button
     Friend WithEvents BT_Annuler As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TB_Telecopie As TextBox
+    Friend WithEvents TB_Telephone As TextBox
 End Class

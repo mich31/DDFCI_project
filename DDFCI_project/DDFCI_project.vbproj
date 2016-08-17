@@ -116,6 +116,12 @@
     </Compile>
     <Compile Include="Intervenant.vb" />
     <Compile Include="IntervenantSelected.vb" />
+    <Compile Include="Modification_utilisateur.Designer.vb">
+      <DependentUpon>Modification_utilisateur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modification_utilisateur.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formation.resx">
       <DependentUpon>Formation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modification_utilisateur.resx">
+      <DependentUpon>Modification_utilisateur.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -149,6 +149,10 @@ Partial Class Formation
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Label35 = New System.Windows.Forms.Label()
         Me.ToolStrip7 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
         Me.Panel_Stagiaires_Liste = New System.Windows.Forms.Panel()
@@ -159,10 +163,6 @@ Partial Class Formation
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.Button11 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -1434,6 +1434,42 @@ Partial Class Formation
         Me.TabPage11.TabIndex = 1
         Me.TabPage11.Text = "Documents"
         '
+        'Button11
+        '
+        Me.Button11.Location = New System.Drawing.Point(315, 149)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(75, 23)
+        Me.Button11.TabIndex = 3
+        Me.Button11.Text = "Générer"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(32, 154)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(105, 13)
+        Me.Label36.TabIndex = 2
+        Me.Label36.Text = "Fiche d'emargement:"
+        '
+        'Button10
+        '
+        Me.Button10.Location = New System.Drawing.Point(313, 85)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(75, 23)
+        Me.Button10.TabIndex = 1
+        Me.Button10.Text = "Générer"
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(30, 88)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(125, 13)
+        Me.Label35.TabIndex = 0
+        Me.Label35.Text = "Convention de formation:"
+        '
         'ToolStrip7
         '
         Me.ToolStrip7.BackColor = System.Drawing.SystemColors.ScrollBar
@@ -1529,42 +1565,6 @@ Partial Class Formation
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
-        '
-        'Label35
-        '
-        Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(30, 88)
-        Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(125, 13)
-        Me.Label35.TabIndex = 0
-        Me.Label35.Text = "Convention de formation:"
-        '
-        'Button10
-        '
-        Me.Button10.Location = New System.Drawing.Point(313, 85)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(75, 23)
-        Me.Button10.TabIndex = 1
-        Me.Button10.Text = "Générer"
-        Me.Button10.UseVisualStyleBackColor = True
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(32, 154)
-        Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(105, 13)
-        Me.Label36.TabIndex = 2
-        Me.Label36.Text = "Fiche d'emargement:"
-        '
-        'Button11
-        '
-        Me.Button11.Location = New System.Drawing.Point(315, 149)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(75, 23)
-        Me.Button11.TabIndex = 3
-        Me.Button11.Text = "Générer"
-        Me.Button11.UseVisualStyleBackColor = True
         '
         'Formation
         '

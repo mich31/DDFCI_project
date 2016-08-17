@@ -659,4 +659,8 @@ Public Class Formation
         Next
 
     End Sub
+
+    Private Sub SupprimerUnUtilisateurToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SupprimerUnUtilisateurToolStripMenuItem.Click
+        Modification_utilisateur.Show()
+    End Sub
 End Class
