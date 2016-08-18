@@ -150,6 +150,12 @@
     <Compile Include="SessionFormation.vb" />
     <Compile Include="Stagiaire.vb" />
     <Compile Include="Utilisateur.vb" />
+    <Compile Include="Vacation.Designer.vb">
+      <DependentUpon>Vacation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Vacation.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AjouterStagiaire.resx">
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PageConnexion.resx">
       <DependentUpon>PageConnexion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vacation.resx">
+      <DependentUpon>Vacation.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

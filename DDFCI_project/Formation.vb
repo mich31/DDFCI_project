@@ -9,6 +9,8 @@ Public Class Formation
     Private MonDataSet As New DataSet
     Private NomFormation As String
     Private SessionFormation As String
+    Private idSession As String
+    Private idFormation As String
     Private TableSF As DataTable 'Table contenant la liste des intervenants
 
     Private utilisateur As Utilisateur
@@ -90,7 +92,15 @@ Public Class Formation
         CreerUtilisateur()
         Creation_DG()
         GestionDesDroits()
+        OrdonneOnglets()
         MAJ_planning()
+    End Sub
+
+    Sub OrdonneOnglets()
+        Dim Temp As TabPage
+        Temp = Me.TabPage7
+        Me.TabControl2.TabPages.Item(1) = Me.TabPage8
+        Me.TabControl2.TabPages.Item(2) = Temp
     End Sub
 
     Sub GestionDesDroits()
@@ -213,12 +223,12 @@ Public Class Formation
         Me.DG_Liste_Intervenants.Columns("CiviliteP").HeaderText = "Civ"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Intervenants.Columns
-            If col.HeaderText IsNot "" And col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civ" Then
-                col.Visible = False
-            End If
-            col.ReadOnly = True
+            'If col.HeaderText IsNot "" And col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civ" Then
+            '    col.Visible = False
+            'End If
+            'col.ReadOnly = True
             If col.HeaderText Is "" Then
-                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+                'col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
                 col.ReadOnly = False
             End If
         Next
@@ -369,6 +379,44 @@ Public Class Formation
         Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
 
+    Private Sub BT_Nouvel_Intervenant_Click(sender As Object, e As EventArgs) Handles BT_Nouvel_Intervenant.Click
+        Dim index As Integer = Me.DG_Liste_Intervenants.Rows.Count
+        'Me.DG_Liste_Intervenants.Rows.Add()
+        'Me.DG_Liste_Intervenants.Rows.Item(index).ReadOnly = False
+    End Sub
+
+    Private Sub BT_Supprimer_intervenant_Click(sender As Object, e As EventArgs) Handles BT_Supprimer_intervenant.Click
+        Dim id As String
+        For Each Ligne As DataGridViewRow In Me.DG_Liste_Intervenants.Rows
+            If Ligne.Cells.Item(0).Value = True Then
+                id = Ligne.Cells.Item(1).Value
+                SupprimeIntervenant(id)
+            End If
+        Next
+    End Sub
+
+    Sub SupprimeIntervenant(ByVal id As String)
+        Dim req As String = "delete from intervient where idIntervenant = '" & id & "' and 
+                idSeance in (select idSeance from Seance where idSessionFormation = '" & idSession & "')"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+
+        Try
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
+    Private Sub BT_Modifier_DG_ListeIntervenants_Click(sender As Object, e As EventArgs) Handles BT_Modifier_DG_ListeIntervenants.Click
+        For Each Ligne As DataGridViewRow In Me.DG_Liste_Intervenants.Rows
+            If Ligne.Cells.Item(0).Value = True Then
+                Ligne.ReadOnly = False
+                MsgBox("coché")
+            End If
+        Next
+    End Sub
+
 #End Region
 
 #Region "Onglet Stagiaire"
@@ -507,10 +555,29 @@ Public Class Formation
         If Me.TV_Menu.SelectedNode.Level = 2 Then
             NomFormation = Me.TV_Menu.SelectedNode.Parent.Text
             SessionFormation = Me.TV_Menu.SelectedNode.Text
+            GenereIDs(NomFormation, SessionFormation)
             MAJ_infos()
         ElseIf Me.TV_Menu.SelectedNode.Level = 1 Then 'Si le noeud sélectionné est une formation
             NomFormation = Me.TV_Menu.SelectedNode.Text
         End If
+    End Sub
+
+    Private Sub GenereIDs(ByVal NomF As String, ByVal Session As String)
+        Dim Req As String = "select*from SessionFormation SF join Formation F on SF.idFormation = F.idFormation 
+                        where F.NomF = '" & NomFormation & "' and SF.AnneeSession = '" & SessionFormation & "'"
+        Dim cmd As New SqlCommand(Req, bdd.connect)
+
+        Try
+            Dim MonReader As SqlDataReader = cmd.ExecuteReader()
+            If MonReader.Read() Then
+                idSession = MonReader("idSessionFormation").ToString
+                idFormation = MonReader("idFormation").ToString
+            End If
+            MonReader.Close()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
     End Sub
 
     Private Sub MAJ_infos()
@@ -519,8 +586,6 @@ Public Class Formation
         o_Planning = New Onglet_planning(bdd, SF)
         o_Intervenant = New Onglet_intervenant(bdd, SF)
         o_Stagiaire = New Onglet_stagiaire(bdd, SF)
-        'o_Intervenant = Inter
-        'o_Stagiaire = Stagiaire
 
         Me.RTB_I_Formation.Text = NomFormation
         Me.RTB_S_Formation.Text = NomFormation
@@ -585,7 +650,7 @@ Public Class Formation
         End If
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub BT_Export_DG_ListeIntervenants_Click(sender As Object, e As EventArgs) Handles BT_Export_DG_ListeIntervenants.Click
         ExportExcel("C:\Users\michel.edjoa\Documents\Outils de gestion\Formation Continue\test.xls", Me.DG_Liste_Intervenants)
     End Sub
 
@@ -648,10 +713,6 @@ Public Class Formation
         Next
     End Sub
 
-    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-
-    End Sub
-
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
         Dim nb As Integer = Me.DG_Liste_Stagiaires.RowCount 'Nombre de stagiaires
         'Crée une instance de Word
@@ -682,5 +743,9 @@ Public Class Formation
     Private Sub ModifierUtilisateurToolStripMenu_Click(sender As Object, e As EventArgs) Handles ModifierUtilisateurToolStripMenu.Click
         Dim Modif_User As New Modification_utilisateur(bdd, utilisateur)
         Modif_User.Show()
+    End Sub
+
+    Private Sub TableauDesVacationsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TableauDesVacationsToolStripMenuItem.Click
+
     End Sub
 End Class
