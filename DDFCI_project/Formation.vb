@@ -89,9 +89,23 @@ Public Class Formation
         CreerArborescence()
         CreerUtilisateur()
         Creation_DG()
+        GestionDesDroits()
         MAJ_planning()
     End Sub
 
+    Sub GestionDesDroits()
+        If utilisateur.fonction = "Admin" Then
+            Me.CréerUnUtilisateurToolStripMenuItem.Enabled = True
+            Me.SupprimerUtilisateurToolStripMenu.Enabled = True
+        Else
+            Me.CréerUnUtilisateurToolStripMenuItem.Enabled = False
+            Me.SupprimerUtilisateurToolStripMenu.Enabled = False
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Créé une instance Utilisateur
+    ''' </summary>
     Sub CreerUtilisateur()
         Dim Requete As String = "select*from Personnel where Login='" & bdd.username & "'"
         Dim cmd As New SqlCommand(Requete, bdd.connect)
@@ -99,7 +113,9 @@ Public Class Formation
         Try
             Dim MonReader As SqlDataReader = cmd.ExecuteReader()
             If MonReader.Read() Then
-                utilisateur = New Utilisateur(MonReader("Login").ToString, MonReader("Password").ToString, MonReader("Fonction").ToString, MonReader("Mail").ToString)
+                utilisateur = New Utilisateur(MonReader("Login").ToString, MonReader("Password").ToString,
+                                              MonReader("Fonction").ToString, MonReader("Mail").ToString,
+                                              MonReader("Telephone").ToString, MonReader("Telecopie").ToString)
             End If
             cmd.Dispose()
             MonReader.Close()
@@ -108,6 +124,9 @@ Public Class Formation
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Ajoute des cases à cocher sur tous les datagridview 
+    ''' </summary>
     Sub Creation_DG()
 
         ' Ajout et redimensionnement des cases à cocher
@@ -660,7 +679,8 @@ Public Class Formation
 
     End Sub
 
-    Private Sub SupprimerUnUtilisateurToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SupprimerUnUtilisateurToolStripMenuItem.Click
-        Modification_utilisateur.Show()
+    Private Sub ModifierUtilisateurToolStripMenu_Click(sender As Object, e As EventArgs) Handles ModifierUtilisateurToolStripMenu.Click
+        Dim Modif_User As New Modification_utilisateur(bdd, utilisateur)
+        Modif_User.Show()
     End Sub
 End Class

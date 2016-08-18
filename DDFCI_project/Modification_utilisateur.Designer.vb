@@ -23,19 +23,19 @@ Partial Class Modification_utilisateur
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.RB_Oui = New System.Windows.Forms.RadioButton()
-        Me.RB_Non = New System.Windows.Forms.RadioButton()
-        Me.TB_user = New System.Windows.Forms.TextBox()
-        Me.TB_Nv_mdp1 = New System.Windows.Forms.TextBox()
-        Me.TB_Nv_mdp2 = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TB_mail = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TB_telephone = New System.Windows.Forms.TextBox()
         Me.TB_telecopie = New System.Windows.Forms.TextBox()
+        Me.TB_telephone = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TB_mail = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TB_Nv_mdp2 = New System.Windows.Forms.TextBox()
+        Me.TB_Nv_mdp1 = New System.Windows.Forms.TextBox()
+        Me.TB_user = New System.Windows.Forms.TextBox()
+        Me.RB_Non = New System.Windows.Forms.RadioButton()
+        Me.RB_Oui = New System.Windows.Forms.RadioButton()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.BT_Enregistrer = New System.Windows.Forms.Button()
         Me.BT_Annuler = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
@@ -62,36 +62,79 @@ Partial Class Modification_utilisateur
         Me.Panel1.Size = New System.Drawing.Size(269, 250)
         Me.Panel1.TabIndex = 0
         '
-        'Label1
+        'TB_telecopie
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 24)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(104, 14)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Nom d'utilisateur:"
+        Me.TB_telecopie.Location = New System.Drawing.Point(125, 215)
+        Me.TB_telecopie.Name = "TB_telecopie"
+        Me.TB_telecopie.Size = New System.Drawing.Size(129, 20)
+        Me.TB_telecopie.TabIndex = 12
         '
-        'Label2
+        'TB_telephone
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 55)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(153, 14)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Changer le mot de passe?"
+        Me.TB_telephone.Location = New System.Drawing.Point(125, 185)
+        Me.TB_telephone.Name = "TB_telephone"
+        Me.TB_telephone.Size = New System.Drawing.Size(129, 20)
+        Me.TB_telephone.TabIndex = 11
         '
-        'RB_Oui
+        'Label5
         '
-        Me.RB_Oui.AutoSize = True
-        Me.RB_Oui.Location = New System.Drawing.Point(162, 54)
-        Me.RB_Oui.Name = "RB_Oui"
-        Me.RB_Oui.Size = New System.Drawing.Size(41, 17)
-        Me.RB_Oui.TabIndex = 2
-        Me.RB_Oui.TabStop = True
-        Me.RB_Oui.Text = "Oui"
-        Me.RB_Oui.UseVisualStyleBackColor = True
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(43, 218)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(64, 14)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "Télécopie:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(38, 188)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(69, 14)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "Téléphone:"
+        '
+        'TB_mail
+        '
+        Me.TB_mail.Location = New System.Drawing.Point(125, 153)
+        Me.TB_mail.Name = "TB_mail"
+        Me.TB_mail.Size = New System.Drawing.Size(129, 20)
+        Me.TB_mail.TabIndex = 8
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(64, 156)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(43, 14)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "E-mail:"
+        '
+        'TB_Nv_mdp2
+        '
+        Me.TB_Nv_mdp2.Location = New System.Drawing.Point(44, 119)
+        Me.TB_Nv_mdp2.Name = "TB_Nv_mdp2"
+        Me.TB_Nv_mdp2.Size = New System.Drawing.Size(159, 20)
+        Me.TB_Nv_mdp2.TabIndex = 6
+        Me.TB_Nv_mdp2.UseSystemPasswordChar = True
+        '
+        'TB_Nv_mdp1
+        '
+        Me.TB_Nv_mdp1.Location = New System.Drawing.Point(44, 84)
+        Me.TB_Nv_mdp1.Name = "TB_Nv_mdp1"
+        Me.TB_Nv_mdp1.Size = New System.Drawing.Size(159, 20)
+        Me.TB_Nv_mdp1.TabIndex = 5
+        Me.TB_Nv_mdp1.UseSystemPasswordChar = True
+        '
+        'TB_user
+        '
+        Me.TB_user.Location = New System.Drawing.Point(125, 21)
+        Me.TB_user.Name = "TB_user"
+        Me.TB_user.Size = New System.Drawing.Size(129, 20)
+        Me.TB_user.TabIndex = 4
         '
         'RB_Non
         '
@@ -104,77 +147,36 @@ Partial Class Modification_utilisateur
         Me.RB_Non.Text = "Non"
         Me.RB_Non.UseVisualStyleBackColor = True
         '
-        'TB_user
+        'RB_Oui
         '
-        Me.TB_user.Location = New System.Drawing.Point(125, 21)
-        Me.TB_user.Name = "TB_user"
-        Me.TB_user.Size = New System.Drawing.Size(129, 20)
-        Me.TB_user.TabIndex = 4
+        Me.RB_Oui.AutoSize = True
+        Me.RB_Oui.Location = New System.Drawing.Point(162, 54)
+        Me.RB_Oui.Name = "RB_Oui"
+        Me.RB_Oui.Size = New System.Drawing.Size(41, 17)
+        Me.RB_Oui.TabIndex = 2
+        Me.RB_Oui.TabStop = True
+        Me.RB_Oui.Text = "Oui"
+        Me.RB_Oui.UseVisualStyleBackColor = True
         '
-        'TB_Nv_mdp1
+        'Label2
         '
-        Me.TB_Nv_mdp1.Location = New System.Drawing.Point(44, 84)
-        Me.TB_Nv_mdp1.Name = "TB_Nv_mdp1"
-        Me.TB_Nv_mdp1.Size = New System.Drawing.Size(159, 20)
-        Me.TB_Nv_mdp1.TabIndex = 5
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(3, 55)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(153, 14)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Changer le mot de passe?"
         '
-        'TB_Nv_mdp2
+        'Label1
         '
-        Me.TB_Nv_mdp2.Location = New System.Drawing.Point(44, 119)
-        Me.TB_Nv_mdp2.Name = "TB_Nv_mdp2"
-        Me.TB_Nv_mdp2.Size = New System.Drawing.Size(159, 20)
-        Me.TB_Nv_mdp2.TabIndex = 6
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(64, 156)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(43, 14)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "E-mail:"
-        '
-        'TB_mail
-        '
-        Me.TB_mail.Location = New System.Drawing.Point(125, 153)
-        Me.TB_mail.Name = "TB_mail"
-        Me.TB_mail.Size = New System.Drawing.Size(129, 20)
-        Me.TB_mail.TabIndex = 8
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(38, 188)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(69, 14)
-        Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Téléphone:"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(43, 218)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(64, 14)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "Télécopie:"
-        '
-        'TB_telephone
-        '
-        Me.TB_telephone.Location = New System.Drawing.Point(125, 185)
-        Me.TB_telephone.Name = "TB_telephone"
-        Me.TB_telephone.Size = New System.Drawing.Size(129, 20)
-        Me.TB_telephone.TabIndex = 11
-        '
-        'TB_telecopie
-        '
-        Me.TB_telecopie.Location = New System.Drawing.Point(125, 215)
-        Me.TB_telecopie.Name = "TB_telecopie"
-        Me.TB_telecopie.Size = New System.Drawing.Size(129, 20)
-        Me.TB_telecopie.TabIndex = 12
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 24)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(104, 14)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Nom d'utilisateur:"
         '
         'BT_Enregistrer
         '

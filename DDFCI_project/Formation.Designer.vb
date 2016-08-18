@@ -29,8 +29,8 @@ Partial Class Formation
         Me.FormationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CréerUnUtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SupprimerUnUtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SupprimerUnUtilisateurToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModifierUtilisateurToolStripMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SupprimerUtilisateurToolStripMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.TV_Menu = New System.Windows.Forms.TreeView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -41,7 +41,6 @@ Partial Class Formation
         Me.MonCalendrier = New System.Windows.Forms.MonthCalendar()
         Me.TabIntervenants = New System.Windows.Forms.TabPage()
         Me.Panel_Intervenants_details = New System.Windows.Forms.Panel()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TB_I_NB_Stagiaires = New System.Windows.Forms.TextBox()
@@ -116,15 +115,9 @@ Partial Class Formation
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DG_Liste_Interventions_nonpayees = New System.Windows.Forms.DataGridView()
         Me.DG_Liste_Interventions_payees = New System.Windows.Forms.DataGridView()
-        Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
-        Me.Panel_Intervenants_liste = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.LBL_Intervenant_NB_Enregistrement = New System.Windows.Forms.Label()
-        Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
         Me.DG_Liste_Intervenants = New System.Windows.Forms.DataGridView()
-        Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Panel_Stagiaires_détails = New System.Windows.Forms.Panel()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
@@ -163,13 +156,16 @@ Partial Class Formation
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabIntervenants.SuspendLayout()
         Me.Panel_Intervenants_details.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -184,10 +180,7 @@ Partial Class Formation
         Me.TabPage9.SuspendLayout()
         CType(Me.DG_Liste_Interventions_nonpayees, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DG_Liste_Interventions_payees, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ToolStrip4.SuspendLayout()
-        Me.Panel_Intervenants_liste.SuspendLayout()
         CType(Me.DG_Liste_Intervenants, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ToolStrip2.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.Panel_Stagiaires_détails.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -199,6 +192,8 @@ Partial Class Formation
         Me.Panel_Stagiaires_Liste.SuspendLayout()
         CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip5.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
+        Me.ToolStrip4.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -237,7 +232,7 @@ Partial Class Formation
         '
         'UtilisateurToolStripMenuItem
         '
-        Me.UtilisateurToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CréerUnUtilisateurToolStripMenuItem, Me.SupprimerUnUtilisateurToolStripMenuItem, Me.SupprimerUnUtilisateurToolStripMenuItem1})
+        Me.UtilisateurToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CréerUnUtilisateurToolStripMenuItem, Me.ModifierUtilisateurToolStripMenu, Me.SupprimerUtilisateurToolStripMenu})
         Me.UtilisateurToolStripMenuItem.Name = "UtilisateurToolStripMenuItem"
         Me.UtilisateurToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
         Me.UtilisateurToolStripMenuItem.Text = "Utilisateur"
@@ -248,17 +243,17 @@ Partial Class Formation
         Me.CréerUnUtilisateurToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.CréerUnUtilisateurToolStripMenuItem.Text = "Créer un utilisateur"
         '
-        'SupprimerUnUtilisateurToolStripMenuItem
+        'ModifierUtilisateurToolStripMenu
         '
-        Me.SupprimerUnUtilisateurToolStripMenuItem.Name = "SupprimerUnUtilisateurToolStripMenuItem"
-        Me.SupprimerUnUtilisateurToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
-        Me.SupprimerUnUtilisateurToolStripMenuItem.Text = "Modifier mes informations"
+        Me.ModifierUtilisateurToolStripMenu.Name = "ModifierUtilisateurToolStripMenu"
+        Me.ModifierUtilisateurToolStripMenu.Size = New System.Drawing.Size(215, 22)
+        Me.ModifierUtilisateurToolStripMenu.Text = "Modifier mes informations"
         '
-        'SupprimerUnUtilisateurToolStripMenuItem1
+        'SupprimerUtilisateurToolStripMenu
         '
-        Me.SupprimerUnUtilisateurToolStripMenuItem1.Name = "SupprimerUnUtilisateurToolStripMenuItem1"
-        Me.SupprimerUnUtilisateurToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
-        Me.SupprimerUnUtilisateurToolStripMenuItem1.Text = "Supprimer un utilisateur"
+        Me.SupprimerUtilisateurToolStripMenu.Name = "SupprimerUtilisateurToolStripMenu"
+        Me.SupprimerUtilisateurToolStripMenu.Size = New System.Drawing.Size(215, 22)
+        Me.SupprimerUtilisateurToolStripMenu.Text = "Supprimer un utilisateur"
         '
         'ToolStrip1
         '
@@ -270,9 +265,9 @@ Partial Class Formation
         '
         'TV_Menu
         '
-        Me.TV_Menu.Location = New System.Drawing.Point(12, 52)
+        Me.TV_Menu.Location = New System.Drawing.Point(21, 52)
         Me.TV_Menu.Name = "TV_Menu"
-        Me.TV_Menu.Size = New System.Drawing.Size(179, 437)
+        Me.TV_Menu.Size = New System.Drawing.Size(191, 437)
         Me.TV_Menu.TabIndex = 2
         '
         'TabControl1
@@ -283,10 +278,10 @@ Partial Class Formation
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage6)
-        Me.TabControl1.Location = New System.Drawing.Point(208, 52)
+        Me.TabControl1.Location = New System.Drawing.Point(255, 52)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1045, 855)
+        Me.TabControl1.Size = New System.Drawing.Size(998, 855)
         Me.TabControl1.TabIndex = 3
         '
         'TabPage1
@@ -347,47 +342,30 @@ Partial Class Formation
         '
         Me.TabIntervenants.BackColor = System.Drawing.SystemColors.Control
         Me.TabIntervenants.Controls.Add(Me.Panel_Intervenants_details)
-        Me.TabIntervenants.Controls.Add(Me.Panel_Intervenants_liste)
         Me.TabIntervenants.Location = New System.Drawing.Point(4, 22)
         Me.TabIntervenants.Name = "TabIntervenants"
         Me.TabIntervenants.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabIntervenants.Size = New System.Drawing.Size(1037, 829)
+        Me.TabIntervenants.Size = New System.Drawing.Size(990, 829)
         Me.TabIntervenants.TabIndex = 2
         Me.TabIntervenants.Text = "Intervenants"
         '
         'Panel_Intervenants_details
         '
-        Me.Panel_Intervenants_details.Controls.Add(Me.GroupBox6)
-        Me.Panel_Intervenants_details.Controls.Add(Me.GroupBox5)
-        Me.Panel_Intervenants_details.Controls.Add(Me.GroupBox4)
-        Me.Panel_Intervenants_details.Controls.Add(Me.TabControl2)
+        Me.Panel_Intervenants_details.Controls.Add(Me.LBL_Intervenant_NB_Enregistrement)
+        Me.Panel_Intervenants_details.Controls.Add(Me.ToolStrip2)
         Me.Panel_Intervenants_details.Controls.Add(Me.ToolStrip4)
-        Me.Panel_Intervenants_details.Location = New System.Drawing.Point(261, 0)
+        Me.Panel_Intervenants_details.Controls.Add(Me.Button3)
+        Me.Panel_Intervenants_details.Controls.Add(Me.TabControl2)
+        Me.Panel_Intervenants_details.Controls.Add(Me.DG_Liste_Intervenants)
+        Me.Panel_Intervenants_details.Location = New System.Drawing.Point(0, 0)
         Me.Panel_Intervenants_details.Name = "Panel_Intervenants_details"
-        Me.Panel_Intervenants_details.Size = New System.Drawing.Size(776, 829)
+        Me.Panel_Intervenants_details.Size = New System.Drawing.Size(1037, 829)
         Me.Panel_Intervenants_details.TabIndex = 1
-        '
-        'GroupBox6
-        '
-        Me.GroupBox6.Controls.Add(Me.TextBox5)
-        Me.GroupBox6.Controls.Add(Me.TextBox4)
-        Me.GroupBox6.Controls.Add(Me.TB_I_NB_Stagiaires)
-        Me.GroupBox6.Controls.Add(Me.TB_I_NB_Intervenants)
-        Me.GroupBox6.Controls.Add(Me.Label14)
-        Me.GroupBox6.Controls.Add(Me.Label13)
-        Me.GroupBox6.Controls.Add(Me.Label12)
-        Me.GroupBox6.Controls.Add(Me.Label11)
-        Me.GroupBox6.Location = New System.Drawing.Point(475, 33)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(258, 140)
-        Me.GroupBox6.TabIndex = 4
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Indicateurs"
         '
         'TextBox5
         '
         Me.TextBox5.Enabled = False
-        Me.TextBox5.Location = New System.Drawing.Point(131, 29)
+        Me.TextBox5.Location = New System.Drawing.Point(59, 112)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(100, 20)
         Me.TextBox5.TabIndex = 7
@@ -395,7 +373,7 @@ Partial Class Formation
         'TextBox4
         '
         Me.TextBox4.Enabled = False
-        Me.TextBox4.Location = New System.Drawing.Point(131, 56)
+        Me.TextBox4.Location = New System.Drawing.Point(59, 147)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(100, 20)
         Me.TextBox4.TabIndex = 6
@@ -403,23 +381,23 @@ Partial Class Formation
         'TB_I_NB_Stagiaires
         '
         Me.TB_I_NB_Stagiaires.Enabled = False
-        Me.TB_I_NB_Stagiaires.Location = New System.Drawing.Point(131, 108)
+        Me.TB_I_NB_Stagiaires.Location = New System.Drawing.Point(48, 71)
         Me.TB_I_NB_Stagiaires.Name = "TB_I_NB_Stagiaires"
-        Me.TB_I_NB_Stagiaires.Size = New System.Drawing.Size(100, 20)
+        Me.TB_I_NB_Stagiaires.Size = New System.Drawing.Size(111, 20)
         Me.TB_I_NB_Stagiaires.TabIndex = 5
         '
         'TB_I_NB_Intervenants
         '
         Me.TB_I_NB_Intervenants.Enabled = False
-        Me.TB_I_NB_Intervenants.Location = New System.Drawing.Point(131, 82)
+        Me.TB_I_NB_Intervenants.Location = New System.Drawing.Point(49, 32)
         Me.TB_I_NB_Intervenants.Name = "TB_I_NB_Intervenants"
-        Me.TB_I_NB_Intervenants.Size = New System.Drawing.Size(100, 20)
+        Me.TB_I_NB_Intervenants.Size = New System.Drawing.Size(110, 20)
         Me.TB_I_NB_Intervenants.TabIndex = 4
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 109)
+        Me.Label14.Location = New System.Drawing.Point(46, 55)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(109, 13)
         Me.Label14.TabIndex = 3
@@ -428,7 +406,7 @@ Partial Class Formation
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(6, 85)
+        Me.Label13.Location = New System.Drawing.Point(46, 16)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(119, 13)
         Me.Label13.TabIndex = 2
@@ -437,7 +415,7 @@ Partial Class Formation
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(6, 58)
+        Me.Label12.Location = New System.Drawing.Point(6, 147)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(24, 13)
         Me.Label12.TabIndex = 1
@@ -446,7 +424,7 @@ Partial Class Formation
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(6, 32)
+        Me.Label11.Location = New System.Drawing.Point(6, 115)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(39, 13)
         Me.Label11.TabIndex = 0
@@ -458,9 +436,9 @@ Partial Class Formation
         Me.GroupBox5.Controls.Add(Me.CB_I_CP)
         Me.GroupBox5.Controls.Add(Me.Label10)
         Me.GroupBox5.Controls.Add(Me.Label9)
-        Me.GroupBox5.Location = New System.Drawing.Point(271, 33)
+        Me.GroupBox5.Location = New System.Drawing.Point(12, 785)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(180, 122)
+        Me.GroupBox5.Size = New System.Drawing.Size(207, 122)
         Me.GroupBox5.TabIndex = 3
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Gestion de la formation"
@@ -469,7 +447,7 @@ Partial Class Formation
         '
         Me.CB_I_AF.Enabled = False
         Me.CB_I_AF.FormattingEnabled = True
-        Me.CB_I_AF.Location = New System.Drawing.Point(27, 85)
+        Me.CB_I_AF.Location = New System.Drawing.Point(45, 85)
         Me.CB_I_AF.Name = "CB_I_AF"
         Me.CB_I_AF.Size = New System.Drawing.Size(121, 21)
         Me.CB_I_AF.TabIndex = 3
@@ -478,7 +456,7 @@ Partial Class Formation
         '
         Me.CB_I_CP.Enabled = False
         Me.CB_I_CP.FormattingEnabled = True
-        Me.CB_I_CP.Location = New System.Drawing.Point(27, 36)
+        Me.CB_I_CP.Location = New System.Drawing.Point(45, 35)
         Me.CB_I_CP.Name = "CB_I_CP"
         Me.CB_I_CP.Size = New System.Drawing.Size(121, 21)
         Me.CB_I_CP.TabIndex = 2
@@ -486,7 +464,7 @@ Partial Class Formation
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(24, 69)
+        Me.Label10.Location = New System.Drawing.Point(41, 69)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(125, 13)
         Me.Label10.TabIndex = 1
@@ -495,7 +473,7 @@ Partial Class Formation
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(42, 19)
+        Me.Label9.Location = New System.Drawing.Point(58, 19)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(91, 13)
         Me.Label9.TabIndex = 0
@@ -503,13 +481,17 @@ Partial Class Formation
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.TextBox4)
+        Me.GroupBox4.Controls.Add(Me.TextBox5)
         Me.GroupBox4.Controls.Add(Me.TB_I_Session)
         Me.GroupBox4.Controls.Add(Me.RTB_I_Formation)
         Me.GroupBox4.Controls.Add(Me.Label5)
         Me.GroupBox4.Controls.Add(Me.Label1)
-        Me.GroupBox4.Location = New System.Drawing.Point(7, 33)
+        Me.GroupBox4.Controls.Add(Me.Label12)
+        Me.GroupBox4.Controls.Add(Me.Label11)
+        Me.GroupBox4.Location = New System.Drawing.Point(13, 495)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(238, 140)
+        Me.GroupBox4.Size = New System.Drawing.Size(206, 184)
         Me.GroupBox4.TabIndex = 2
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Formation"
@@ -517,9 +499,9 @@ Partial Class Formation
         'TB_I_Session
         '
         Me.TB_I_Session.Enabled = False
-        Me.TB_I_Session.Location = New System.Drawing.Point(59, 102)
+        Me.TB_I_Session.Location = New System.Drawing.Point(59, 75)
         Me.TB_I_Session.Name = "TB_I_Session"
-        Me.TB_I_Session.Size = New System.Drawing.Size(162, 20)
+        Me.TB_I_Session.Size = New System.Drawing.Size(132, 20)
         Me.TB_I_Session.TabIndex = 3
         '
         'RTB_I_Formation
@@ -527,14 +509,14 @@ Partial Class Formation
         Me.RTB_I_Formation.Enabled = False
         Me.RTB_I_Formation.Location = New System.Drawing.Point(59, 19)
         Me.RTB_I_Formation.Name = "RTB_I_Formation"
-        Me.RTB_I_Formation.Size = New System.Drawing.Size(162, 63)
+        Me.RTB_I_Formation.Size = New System.Drawing.Size(132, 50)
         Me.RTB_I_Formation.TabIndex = 2
         Me.RTB_I_Formation.Text = ""
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 105)
+        Me.Label5.Location = New System.Drawing.Point(6, 78)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(47, 13)
         Me.Label5.TabIndex = 1
@@ -543,7 +525,7 @@ Partial Class Formation
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 32)
+        Me.Label1.Location = New System.Drawing.Point(6, 25)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 0
@@ -555,10 +537,10 @@ Partial Class Formation
         Me.TabControl2.Controls.Add(Me.TabPage7)
         Me.TabControl2.Controls.Add(Me.TabPage8)
         Me.TabControl2.Controls.Add(Me.TabPage9)
-        Me.TabControl2.Location = New System.Drawing.Point(3, 194)
+        Me.TabControl2.Location = New System.Drawing.Point(3, 225)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(770, 629)
+        Me.TabControl2.Size = New System.Drawing.Size(758, 608)
         Me.TabControl2.TabIndex = 1
         '
         'TabPage3
@@ -570,7 +552,7 @@ Partial Class Formation
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(762, 603)
+        Me.TabPage3.Size = New System.Drawing.Size(750, 603)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Informations"
         '
@@ -903,7 +885,7 @@ Partial Class Formation
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(762, 603)
+        Me.TabPage7.Size = New System.Drawing.Size(750, 603)
         Me.TabPage7.TabIndex = 1
         Me.TabPage7.Text = "Documents"
         '
@@ -918,7 +900,7 @@ Partial Class Formation
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Location = New System.Drawing.Point(90, 67)
+        Me.GroupBox1.Location = New System.Drawing.Point(90, 257)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(607, 270)
         Me.GroupBox1.TabIndex = 0
@@ -1015,7 +997,7 @@ Partial Class Formation
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(762, 603)
+        Me.TabPage8.Size = New System.Drawing.Size(750, 603)
         Me.TabPage8.TabIndex = 2
         Me.TabPage8.Text = "Interventions(s)"
         '
@@ -1058,13 +1040,13 @@ Partial Class Formation
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(762, 603)
+        Me.TabPage9.Size = New System.Drawing.Size(750, 582)
         Me.TabPage9.TabIndex = 3
         Me.TabPage9.Text = "Paiement(s)"
         '
         'Button9
         '
-        Me.Button9.Location = New System.Drawing.Point(633, 359)
+        Me.Button9.Location = New System.Drawing.Point(633, 310)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(75, 23)
         Me.Button9.TabIndex = 4
@@ -1073,7 +1055,7 @@ Partial Class Formation
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(633, 439)
+        Me.Button2.Location = New System.Drawing.Point(633, 376)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 3
@@ -1082,7 +1064,7 @@ Partial Class Formation
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(633, 398)
+        Me.Button1.Location = New System.Drawing.Point(633, 347)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
@@ -1093,7 +1075,7 @@ Partial Class Formation
         '
         Me.DG_Liste_Interventions_nonpayees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Interventions_nonpayees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Interventions_nonpayees.Location = New System.Drawing.Point(59, 42)
+        Me.DG_Liste_Interventions_nonpayees.Location = New System.Drawing.Point(59, 48)
         Me.DG_Liste_Interventions_nonpayees.Name = "DG_Liste_Interventions_nonpayees"
         Me.DG_Liste_Interventions_nonpayees.RowHeadersWidth = 31
         Me.DG_Liste_Interventions_nonpayees.Size = New System.Drawing.Size(547, 228)
@@ -1103,44 +1085,15 @@ Partial Class Formation
         '
         Me.DG_Liste_Interventions_payees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Interventions_payees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Interventions_payees.Location = New System.Drawing.Point(59, 319)
+        Me.DG_Liste_Interventions_payees.Location = New System.Drawing.Point(59, 287)
         Me.DG_Liste_Interventions_payees.Name = "DG_Liste_Interventions_payees"
         Me.DG_Liste_Interventions_payees.RowHeadersWidth = 31
         Me.DG_Liste_Interventions_payees.Size = New System.Drawing.Size(547, 194)
         Me.DG_Liste_Interventions_payees.TabIndex = 0
         '
-        'ToolStrip4
-        '
-        Me.ToolStrip4.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.ToolStrip4.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel3})
-        Me.ToolStrip4.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip4.Name = "ToolStrip4"
-        Me.ToolStrip4.Size = New System.Drawing.Size(776, 25)
-        Me.ToolStrip4.TabIndex = 0
-        Me.ToolStrip4.Text = "ToolStrip4"
-        '
-        'ToolStripLabel3
-        '
-        Me.ToolStripLabel3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripLabel3.Name = "ToolStripLabel3"
-        Me.ToolStripLabel3.Size = New System.Drawing.Size(45, 22)
-        Me.ToolStripLabel3.Text = "Détails"
-        '
-        'Panel_Intervenants_liste
-        '
-        Me.Panel_Intervenants_liste.Controls.Add(Me.Button3)
-        Me.Panel_Intervenants_liste.Controls.Add(Me.LBL_Intervenant_NB_Enregistrement)
-        Me.Panel_Intervenants_liste.Controls.Add(Me.ToolStrip3)
-        Me.Panel_Intervenants_liste.Controls.Add(Me.DG_Liste_Intervenants)
-        Me.Panel_Intervenants_liste.Controls.Add(Me.ToolStrip2)
-        Me.Panel_Intervenants_liste.Location = New System.Drawing.Point(0, 0)
-        Me.Panel_Intervenants_liste.Name = "Panel_Intervenants_liste"
-        Me.Panel_Intervenants_liste.Size = New System.Drawing.Size(258, 829)
-        Me.Panel_Intervenants_liste.TabIndex = 0
-        '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(102, 632)
+        Me.Button3.Location = New System.Drawing.Point(674, 185)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 4
@@ -1151,48 +1104,21 @@ Partial Class Formation
         '
         Me.LBL_Intervenant_NB_Enregistrement.AutoSize = True
         Me.LBL_Intervenant_NB_Enregistrement.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.LBL_Intervenant_NB_Enregistrement.Location = New System.Drawing.Point(86, 33)
+        Me.LBL_Intervenant_NB_Enregistrement.Location = New System.Drawing.Point(27, 32)
         Me.LBL_Intervenant_NB_Enregistrement.Name = "LBL_Intervenant_NB_Enregistrement"
         Me.LBL_Intervenant_NB_Enregistrement.Size = New System.Drawing.Size(96, 13)
         Me.LBL_Intervenant_NB_Enregistrement.TabIndex = 3
         Me.LBL_Intervenant_NB_Enregistrement.Text = "0 enregistrement(s)"
         '
-        'ToolStrip3
-        '
-        Me.ToolStrip3.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.ToolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip3.Location = New System.Drawing.Point(0, 25)
-        Me.ToolStrip3.Name = "ToolStrip3"
-        Me.ToolStrip3.Size = New System.Drawing.Size(258, 25)
-        Me.ToolStrip3.TabIndex = 2
-        Me.ToolStrip3.Text = "ToolStrip3"
-        '
         'DG_Liste_Intervenants
         '
         Me.DG_Liste_Intervenants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Intervenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Intervenants.Location = New System.Drawing.Point(0, 53)
+        Me.DG_Liste_Intervenants.Location = New System.Drawing.Point(3, 53)
         Me.DG_Liste_Intervenants.Name = "DG_Liste_Intervenants"
         Me.DG_Liste_Intervenants.RowHeadersWidth = 31
-        Me.DG_Liste_Intervenants.Size = New System.Drawing.Size(258, 535)
+        Me.DG_Liste_Intervenants.Size = New System.Drawing.Size(560, 160)
         Me.DG_Liste_Intervenants.TabIndex = 1
-        '
-        'ToolStrip2
-        '
-        Me.ToolStrip2.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1})
-        Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip2.Name = "ToolStrip2"
-        Me.ToolStrip2.Size = New System.Drawing.Size(258, 25)
-        Me.ToolStrip2.TabIndex = 0
-        Me.ToolStrip2.Text = "ToolStrip2"
-        '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(137, 22)
-        Me.ToolStripLabel1.Text = "Liste des intervenant(s)"
         '
         'TabPage4
         '
@@ -1566,13 +1492,53 @@ Partial Class Formation
         Me.TabPage6.Text = "Bilan de formation"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
+        'GroupBox11
+        '
+        Me.GroupBox11.Controls.Add(Me.TB_I_NB_Stagiaires)
+        Me.GroupBox11.Controls.Add(Me.Label13)
+        Me.GroupBox11.Controls.Add(Me.Label14)
+        Me.GroupBox11.Controls.Add(Me.TB_I_NB_Intervenants)
+        Me.GroupBox11.Location = New System.Drawing.Point(13, 679)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(206, 100)
+        Me.GroupBox11.TabIndex = 4
+        Me.GroupBox11.TabStop = False
+        '
+        'ToolStrip4
+        '
+        Me.ToolStrip4.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.ToolStrip4.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel3})
+        Me.ToolStrip4.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip4.Name = "ToolStrip4"
+        Me.ToolStrip4.Size = New System.Drawing.Size(1037, 25)
+        Me.ToolStrip4.TabIndex = 5
+        Me.ToolStrip4.Text = "ToolStrip4"
+        '
+        'ToolStripLabel3
+        '
+        Me.ToolStripLabel3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripLabel3.Name = "ToolStripLabel3"
+        Me.ToolStripLabel3.Size = New System.Drawing.Size(137, 22)
+        Me.ToolStripLabel3.Text = "Liste des intervenant(s)"
+        '
+        'ToolStrip2
+        '
+        Me.ToolStrip2.Location = New System.Drawing.Point(0, 25)
+        Me.ToolStrip2.Name = "ToolStrip2"
+        Me.ToolStrip2.Size = New System.Drawing.Size(1037, 25)
+        Me.ToolStrip2.TabIndex = 6
+        Me.ToolStrip2.Text = "ToolStrip2"
+        '
         'Formation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1253, 944)
+        Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.TV_Menu)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -1587,8 +1553,6 @@ Partial Class Formation
         Me.TabIntervenants.ResumeLayout(False)
         Me.Panel_Intervenants_details.ResumeLayout(False)
         Me.Panel_Intervenants_details.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox6.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
@@ -1609,13 +1573,7 @@ Partial Class Formation
         Me.TabPage9.ResumeLayout(False)
         CType(Me.DG_Liste_Interventions_nonpayees, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DG_Liste_Interventions_payees, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ToolStrip4.ResumeLayout(False)
-        Me.ToolStrip4.PerformLayout()
-        Me.Panel_Intervenants_liste.ResumeLayout(False)
-        Me.Panel_Intervenants_liste.PerformLayout()
         CType(Me.DG_Liste_Intervenants, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ToolStrip2.ResumeLayout(False)
-        Me.ToolStrip2.PerformLayout()
         Me.TabPage4.ResumeLayout(False)
         Me.Panel_Stagiaires_détails.ResumeLayout(False)
         Me.Panel_Stagiaires_détails.PerformLayout()
@@ -1635,6 +1593,10 @@ Partial Class Formation
         CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip5.ResumeLayout(False)
         Me.ToolStrip5.PerformLayout()
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox11.PerformLayout()
+        Me.ToolStrip4.ResumeLayout(False)
+        Me.ToolStrip4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1654,13 +1616,7 @@ Partial Class Formation
     Friend WithEvents FormationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TabIntervenants As TabPage
     Friend WithEvents Panel_Intervenants_details As Panel
-    Friend WithEvents Panel_Intervenants_liste As Panel
-    Friend WithEvents ToolStrip2 As ToolStrip
-    Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents DG_Liste_Intervenants As DataGridView
-    Friend WithEvents ToolStrip3 As ToolStrip
-    Friend WithEvents ToolStrip4 As ToolStrip
-    Friend WithEvents ToolStripLabel3 As ToolStripLabel
     Friend WithEvents LBL_Intervenant_NB_Enregistrement As Label
     Friend WithEvents TabControl2 As TabControl
     Friend WithEvents TabPage3 As TabPage
@@ -1681,8 +1637,8 @@ Partial Class Formation
     Friend WithEvents TabPage11 As TabPage
     Friend WithEvents UtilisateurToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CréerUnUtilisateurToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SupprimerUnUtilisateurToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SupprimerUnUtilisateurToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ModifierUtilisateurToolStripMenu As ToolStripMenuItem
+    Friend WithEvents SupprimerUtilisateurToolStripMenu As ToolStripMenuItem
     Friend WithEvents DG_Liste_Interventions As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label4 As Label
@@ -1698,7 +1654,6 @@ Partial Class Formation
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents DG_Liste_Interventions_nonpayees As DataGridView
     Friend WithEvents DG_Liste_Interventions_payees As DataGridView
-    Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Label1 As Label
@@ -1781,4 +1736,8 @@ Partial Class Formation
     Friend WithEvents Button10 As Button
     Friend WithEvents Button11 As Button
     Friend WithEvents Label36 As Label
+    Friend WithEvents GroupBox11 As GroupBox
+    Friend WithEvents ToolStrip4 As ToolStrip
+    Friend WithEvents ToolStrip2 As ToolStrip
+    Friend WithEvents ToolStripLabel3 As ToolStripLabel
 End Class

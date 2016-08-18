@@ -3,12 +3,16 @@
     Private mdp As String
     Private fct As String
     Private mail As String
+    Private tel As String
+    Private telecop As String
 
-    Sub New(ByVal _login As String, ByVal _mdp As String, ByVal _fct As String, ByVal _mail As String)
+    Sub New(ByVal _login As String, ByVal _mdp As String, ByVal _fct As String, ByVal _mail As String, ByVal _telephone As String, ByVal _telecopie As String)
         login = _login
         mdp = _mdp
         fct = _fct
         mail = _mail
+        tel = _telephone
+        telecop = _telecopie
     End Sub
 
 #Region "Propriétés"
@@ -46,6 +50,24 @@
         End Set
         Get
             Return mail
+        End Get
+    End Property
+
+    Property telephone As String
+        Set(value As String)
+            tel = value
+        End Set
+        Get
+            Return tel
+        End Get
+    End Property
+
+    Property telecopie As String
+        Set(value As String)
+            telecop = value
+        End Set
+        Get
+            Return telecop
         End Get
     End Property
 
