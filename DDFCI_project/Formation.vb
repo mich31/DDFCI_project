@@ -220,12 +220,14 @@ Public Class Formation
 
         Me.DG_Liste_Intervenants.Columns("NomP").HeaderText = "Nom"
         Me.DG_Liste_Intervenants.Columns("PrenomP").HeaderText = "Prénom"
-        Me.DG_Liste_Intervenants.Columns("CiviliteP").HeaderText = "Civ"
+        Me.DG_Liste_Intervenants.Columns("CiviliteP").HeaderText = "Civilité"
+        Me.DG_Liste_Intervenants.Columns("TypeIntervenant").HeaderText = "Type intervenant"
+        Me.DG_Liste_Intervenants.Columns("DateNaissanceI").HeaderText = "Date de naissance"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Intervenants.Columns
-            'If col.HeaderText IsNot "" And col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civ" Then
-            '    col.Visible = False
-            'End If
+            If col.HeaderText IsNot "" And col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civilité" And col.HeaderText IsNot "Type intervenant" And col.HeaderText IsNot "Date de naissance" Then
+                col.Visible = False
+            End If
             'col.ReadOnly = True
             If col.HeaderText Is "" Then
                 'col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
@@ -274,7 +276,7 @@ Public Class Formation
         Me.DG_Liste_Interventions_payees.Columns("StatutPaiement").HeaderText = "Paiement"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Interventions_payees.Columns
-            If col.HeaderText IsNot "" And col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
+            If col.HeaderText IsNot "" And col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
                 col.Visible = False
             End If
             col.ReadOnly = True
@@ -299,7 +301,7 @@ Public Class Formation
         Me.DG_Liste_Interventions_nonpayees.Columns("StatutPaiement").HeaderText = "Paiement"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Interventions_nonpayees.Columns
-            If col.HeaderText IsNot "" And col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
+            If col.HeaderText IsNot "" And col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
                 col.Visible = False
             End If
             col.ReadOnly = True
@@ -380,9 +382,8 @@ Public Class Formation
     End Sub
 
     Private Sub BT_Nouvel_Intervenant_Click(sender As Object, e As EventArgs) Handles BT_Nouvel_Intervenant.Click
-        Dim index As Integer = Me.DG_Liste_Intervenants.Rows.Count
-        'Me.DG_Liste_Intervenants.Rows.Add()
-        'Me.DG_Liste_Intervenants.Rows.Item(index).ReadOnly = False
+        Dim Nouv As New NouvelIntervenant(bdd)
+        Nouv.Show()
     End Sub
 
     Private Sub BT_Supprimer_intervenant_Click(sender As Object, e As EventArgs) Handles BT_Supprimer_intervenant.Click
@@ -746,6 +747,12 @@ Public Class Formation
     End Sub
 
     Private Sub TableauDesVacationsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TableauDesVacationsToolStripMenuItem.Click
+        Dim TableVac As New Vacation(bdd)
+        TableVac.Show()
+    End Sub
 
+    Private Sub FormationToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles FormationToolStripMenuItem1.Click
+        Dim Modif_formation As New Edit_Formation(bdd)
+        Modif_formation.Show()
     End Sub
 End Class

@@ -46,7 +46,6 @@ Public Class Ajout_Utilisateur
             ,@pwd = '" & TB_pwd.Text & "',@fonction= '" & CB_fct.SelectedItem.ToString & "'
             ,@mail='" & TB_mail.Text & "',@telephone= '" & TB_Telephone.Text & "',@telecopie= '" & TB_Telecopie.Text & "'"
         Dim cmd As New SqlCommand(Req, bdd.connect)
-        MsgBox("Hey")
         Try
             cmd.ExecuteNonQuery()
             MsgBox("Utilisateur/trice ajouté(e)")
@@ -57,6 +56,7 @@ Public Class Ajout_Utilisateur
         End Try
         cmd.Dispose()
     End Sub
+
 
 
 #End Region

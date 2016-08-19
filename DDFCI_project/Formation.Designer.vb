@@ -24,9 +24,14 @@ Partial Class Formation
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NouveauToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FormationToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.IntervenantToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StagiaireToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TableauDesVacationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CréerUnUtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifierUtilisateurToolStripMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -162,7 +167,7 @@ Partial Class Formation
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.TableauDesVacationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -210,15 +215,40 @@ Partial Class Formation
         '
         'FichierToolStripMenuItem
         '
-        Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuitterToolStripMenuItem})
+        Me.FichierToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NouveauToolStripMenuItem, Me.QuitterToolStripMenuItem})
         Me.FichierToolStripMenuItem.Name = "FichierToolStripMenuItem"
         Me.FichierToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.FichierToolStripMenuItem.Text = "Fichier"
         '
+        'NouveauToolStripMenuItem
+        '
+        Me.NouveauToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormationToolStripMenuItem1, Me.IntervenantToolStripMenuItem, Me.StagiaireToolStripMenuItem})
+        Me.NouveauToolStripMenuItem.Name = "NouveauToolStripMenuItem"
+        Me.NouveauToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.NouveauToolStripMenuItem.Text = "Nouveau"
+        '
+        'FormationToolStripMenuItem1
+        '
+        Me.FormationToolStripMenuItem1.Name = "FormationToolStripMenuItem1"
+        Me.FormationToolStripMenuItem1.Size = New System.Drawing.Size(134, 22)
+        Me.FormationToolStripMenuItem1.Text = "Formation"
+        '
+        'IntervenantToolStripMenuItem
+        '
+        Me.IntervenantToolStripMenuItem.Name = "IntervenantToolStripMenuItem"
+        Me.IntervenantToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.IntervenantToolStripMenuItem.Text = "Intervenant"
+        '
+        'StagiaireToolStripMenuItem
+        '
+        Me.StagiaireToolStripMenuItem.Name = "StagiaireToolStripMenuItem"
+        Me.StagiaireToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.StagiaireToolStripMenuItem.Text = "Stagiaire"
+        '
         'QuitterToolStripMenuItem
         '
         Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
-        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
+        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.QuitterToolStripMenuItem.Text = "Quitter"
         '
         'EditionToolStripMenuItem
@@ -233,6 +263,12 @@ Partial Class Formation
         Me.FormationToolStripMenuItem.Name = "FormationToolStripMenuItem"
         Me.FormationToolStripMenuItem.Size = New System.Drawing.Size(74, 20)
         Me.FormationToolStripMenuItem.Text = "Formation"
+        '
+        'TableauDesVacationsToolStripMenuItem
+        '
+        Me.TableauDesVacationsToolStripMenuItem.Name = "TableauDesVacationsToolStripMenuItem"
+        Me.TableauDesVacationsToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.TableauDesVacationsToolStripMenuItem.Text = "Tableau des vacations"
         '
         'UtilisateurToolStripMenuItem
         '
@@ -445,6 +481,7 @@ Partial Class Formation
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.SystemColors.Menu
+        Me.TabPage3.Controls.Add(Me.Button3)
         Me.TabPage3.Controls.Add(Me.GroupBox10)
         Me.TabPage3.Controls.Add(Me.GroupBox3)
         Me.TabPage3.Controls.Add(Me.GroupBox2)
@@ -784,7 +821,7 @@ Partial Class Formation
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(785, 451)
+        Me.TabPage7.Size = New System.Drawing.Size(785, 457)
         Me.TabPage7.TabIndex = 1
         Me.TabPage7.Text = "Documents"
         '
@@ -896,7 +933,7 @@ Partial Class Formation
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(785, 451)
+        Me.TabPage8.Size = New System.Drawing.Size(785, 457)
         Me.TabPage8.TabIndex = 2
         Me.TabPage8.Text = "Interventions(s)"
         '
@@ -939,7 +976,7 @@ Partial Class Formation
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(785, 451)
+        Me.TabPage9.Size = New System.Drawing.Size(785, 457)
         Me.TabPage9.TabIndex = 3
         Me.TabPage9.Text = "Paiement(s)"
         '
@@ -1552,11 +1589,14 @@ Partial Class Formation
         Me.GroupBox11.TabIndex = 4
         Me.GroupBox11.TabStop = False
         '
-        'TableauDesVacationsToolStripMenuItem
+        'Button3
         '
-        Me.TableauDesVacationsToolStripMenuItem.Name = "TableauDesVacationsToolStripMenuItem"
-        Me.TableauDesVacationsToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
-        Me.TableauDesVacationsToolStripMenuItem.Text = "Tableau des vacations"
+        Me.Button3.Location = New System.Drawing.Point(326, 405)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 3
+        Me.Button3.Text = "Enregistrer"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Formation
         '
@@ -1772,4 +1812,9 @@ Partial Class Formation
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents BT_Modifier_DG_ListeIntervenants As Button
     Friend WithEvents TableauDesVacationsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NouveauToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FormationToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents IntervenantToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StagiaireToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button3 As Button
 End Class
