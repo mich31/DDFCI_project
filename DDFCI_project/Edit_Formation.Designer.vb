@@ -25,11 +25,6 @@ Partial Class Edit_Formation
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Edit_Formation))
         Me.DG_ListeFormations = New System.Windows.Forms.DataGridView()
-        Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FormationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
-        Me.Formation_ContinueDataSet = New DDFCI_project.Formation_ContinueDataSet()
-        Me.FormationContinueDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
@@ -58,60 +53,37 @@ Partial Class Edit_Formation
         Me.BT_Ajouter = New System.Windows.Forms.Button()
         Me.TB_Nom = New System.Windows.Forms.TextBox()
         Me.CB_Type = New System.Windows.Forms.ComboBox()
-        Me.TypeFormationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FormationContinueDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BT_Enregistrer = New System.Windows.Forms.Button()
+        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
+        Me.FormationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FormationTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.FormationTableAdapter()
+        Me.NomFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeFormationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TypeFormationTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.TypeFormationTableAdapter()
         CType(Me.DG_ListeFormations, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FormationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Formation_ContinueDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FormationContinueDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FormationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TypeFormationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FormationContinueDataSet1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DG_ListeFormations
         '
+        Me.DG_ListeFormations.AutoGenerateColumns = False
         Me.DG_ListeFormations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_ListeFormations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_ListeFormations.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Type})
+        Me.DG_ListeFormations.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NomFDataGridViewTextBoxColumn, Me.TypeDataGridViewTextBoxColumn})
+        Me.DG_ListeFormations.DataSource = Me.FormationBindingSource
         Me.DG_ListeFormations.Location = New System.Drawing.Point(40, 52)
         Me.DG_ListeFormations.Name = "DG_ListeFormations"
         Me.DG_ListeFormations.ReadOnly = True
         Me.DG_ListeFormations.Size = New System.Drawing.Size(429, 150)
         Me.DG_ListeFormations.TabIndex = 0
-        '
-        'Type
-        '
-        Me.Type.DataPropertyName = "Type"
-        Me.Type.HeaderText = "Type de formation"
-        Me.Type.Name = "Type"
-        Me.Type.ReadOnly = True
-        '
-        'FormationBindingSource
-        '
-        Me.FormationBindingSource.DataMember = "Formation"
-        Me.FormationBindingSource.DataSource = Me.Formation_ContinueDataSet1
-        '
-        'Formation_ContinueDataSet1
-        '
-        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
-        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Formation_ContinueDataSet
-        '
-        Me.Formation_ContinueDataSet.DataSetName = "Formation_ContinueDataSet"
-        Me.Formation_ContinueDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'FormationContinueDataSetBindingSource
-        '
-        Me.FormationContinueDataSetBindingSource.DataSource = Me.Formation_ContinueDataSet
-        Me.FormationContinueDataSetBindingSource.Position = 0
         '
         'BindingNavigator1
         '
@@ -347,22 +319,14 @@ Partial Class Edit_Formation
         '
         'CB_Type
         '
+        Me.CB_Type.DataSource = Me.TypeFormationBindingSource
+        Me.CB_Type.DisplayMember = "Nom"
         Me.CB_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Type.FormattingEnabled = True
         Me.CB_Type.Location = New System.Drawing.Point(142, 81)
         Me.CB_Type.Name = "CB_Type"
         Me.CB_Type.Size = New System.Drawing.Size(139, 21)
         Me.CB_Type.TabIndex = 2
-        '
-        'TypeFormationBindingSource
-        '
-        Me.TypeFormationBindingSource.DataMember = "TypeFormation"
-        Me.TypeFormationBindingSource.DataSource = Me.FormationContinueDataSet1BindingSource
-        '
-        'FormationContinueDataSet1BindingSource
-        '
-        Me.FormationContinueDataSet1BindingSource.DataSource = Me.Formation_ContinueDataSet1
-        Me.FormationContinueDataSet1BindingSource.Position = 0
         '
         'Label2
         '
@@ -393,6 +357,41 @@ Partial Class Edit_Formation
         Me.BT_Enregistrer.Text = "Enregistrer"
         Me.BT_Enregistrer.UseVisualStyleBackColor = True
         '
+        'Formation_ContinueDataSet1
+        '
+        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
+        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'FormationBindingSource
+        '
+        Me.FormationBindingSource.DataMember = "Formation"
+        Me.FormationBindingSource.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'FormationTableAdapter
+        '
+        Me.FormationTableAdapter.ClearBeforeFill = True
+        '
+        'NomFDataGridViewTextBoxColumn
+        '
+        Me.NomFDataGridViewTextBoxColumn.DataPropertyName = "NomF"
+        Me.NomFDataGridViewTextBoxColumn.HeaderText = "Nom"
+        Me.NomFDataGridViewTextBoxColumn.Name = "NomFDataGridViewTextBoxColumn"
+        '
+        'TypeDataGridViewTextBoxColumn
+        '
+        Me.TypeDataGridViewTextBoxColumn.DataPropertyName = "Type"
+        Me.TypeDataGridViewTextBoxColumn.HeaderText = "Type de formation"
+        Me.TypeDataGridViewTextBoxColumn.Name = "TypeDataGridViewTextBoxColumn"
+        '
+        'TypeFormationBindingSource
+        '
+        Me.TypeFormationBindingSource.DataMember = "TypeFormation"
+        Me.TypeFormationBindingSource.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'TypeFormationTableAdapter
+        '
+        Me.TypeFormationTableAdapter.ClearBeforeFill = True
+        '
         'Edit_Formation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -407,27 +406,20 @@ Partial Class Edit_Formation
         Me.Name = "Edit_Formation"
         Me.Text = "Formation"
         CType(Me.DG_ListeFormations, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FormationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Formation_ContinueDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FormationContinueDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FormationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TypeFormationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FormationContinueDataSet1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents DG_ListeFormations As DataGridView
-    Friend WithEvents FormationContinueDataSetBindingSource As BindingSource
-    Friend WithEvents Formation_ContinueDataSet As Formation_ContinueDataSet
-    Friend WithEvents Formation_ContinueDataSet1 As Formation_ContinueDataSet1
-    Friend WithEvents FormationBindingSource As BindingSource
     Friend WithEvents BindingNavigator1 As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
@@ -458,8 +450,12 @@ Partial Class Edit_Formation
     Friend WithEvents TB_Nom As TextBox
     Friend WithEvents CB_Type As ComboBox
     Friend WithEvents BT_Ajouter As Button
-    Friend WithEvents FormationContinueDataSet1BindingSource As BindingSource
-    Friend WithEvents TypeFormationBindingSource As BindingSource
-    Friend WithEvents Type As DataGridViewTextBoxColumn
     Friend WithEvents BT_Enregistrer As Button
+    Friend WithEvents Formation_ContinueDataSet1 As Formation_ContinueDataSet1
+    Friend WithEvents FormationBindingSource As BindingSource
+    Friend WithEvents FormationTableAdapter As Formation_ContinueDataSet1TableAdapters.FormationTableAdapter
+    Friend WithEvents NomFDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TypeFormationBindingSource As BindingSource
+    Friend WithEvents TypeFormationTableAdapter As Formation_ContinueDataSet1TableAdapters.TypeFormationTableAdapter
 End Class

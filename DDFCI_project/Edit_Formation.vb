@@ -13,6 +13,10 @@ Public Class Edit_Formation
     End Sub
 
     Private Sub Edit_Formation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.TypeFormation'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+        Me.TypeFormationTableAdapter.Fill(Me.Formation_ContinueDataSet1.TypeFormation)
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.Formation'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+        Me.FormationTableAdapter.Fill(Me.Formation_ContinueDataSet1.Formation)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.Formation'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         Me.FormationTableAdapter.Fill(Me.Formation_ContinueDataSet1.Formation)
         Me.BindingNavigator1.Hide()
@@ -42,6 +46,8 @@ Public Class Edit_Formation
 
     Private Sub BT_Enregistrer_Click(sender As Object, e As EventArgs) Handles BT_Enregistrer.Click
         Me.EnregistrerToolStripButton.PerformClick()
+        Me.FormationTableAdapter.Update(Me.Formation_ContinueDataSet1.Formation.DataSet)
+        Me.DG_ListeFormations.ReadOnly = True
         MsgBox("Enregistré!")
     End Sub
 

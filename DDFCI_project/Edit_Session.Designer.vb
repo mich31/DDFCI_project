@@ -22,15 +22,12 @@ Partial Class Edit_Session
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.DG_Liste_Sessions = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.DTP_Fin = New System.Windows.Forms.DateTimePicker()
         Me.DTP_Debut = New System.Windows.Forms.DateTimePicker()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.CB_AF = New System.Windows.Forms.ComboBox()
-        Me.PersonnelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
         Me.CB_CP = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -43,18 +40,11 @@ Partial Class Edit_Session
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        'Me.PersonnelTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.PersonnelTableAdapter()
-        Me.FillByToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.FillByToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.FillByAFToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.FillByAFToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.BT_Ajouter = New System.Windows.Forms.Button()
         CType(Me.DG_Liste_Sessions, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.PersonnelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FillByToolStrip.SuspendLayout()
-        Me.FillByAFToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'DG_Liste_Sessions
@@ -70,6 +60,7 @@ Partial Class Edit_Session
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.BT_Ajouter)
         Me.Panel1.Controls.Add(Me.DTP_Fin)
         Me.Panel1.Controls.Add(Me.DTP_Debut)
         Me.Panel1.Controls.Add(Me.Panel2)
@@ -119,16 +110,6 @@ Partial Class Edit_Session
         Me.CB_AF.Name = "CB_AF"
         Me.CB_AF.Size = New System.Drawing.Size(121, 21)
         Me.CB_AF.TabIndex = 7
-        '
-        'PersonnelBindingSource
-        '
-        Me.PersonnelBindingSource.DataMember = "Personnel"
-        Me.PersonnelBindingSource.DataSource = Me.Formation_ContinueDataSet1
-        '
-        'Formation_ContinueDataSet1
-        '
-        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
-        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CB_CP
         '
@@ -216,7 +197,7 @@ Partial Class Edit_Session
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(412, 60)
+        Me.Button1.Location = New System.Drawing.Point(412, 48)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
@@ -225,7 +206,7 @@ Partial Class Edit_Session
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(412, 105)
+        Me.Button2.Location = New System.Drawing.Point(412, 77)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 3
@@ -241,49 +222,30 @@ Partial Class Edit_Session
         Me.Button3.Text = "Supprimer"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'PersonnelTableAdapter
+        'Button4
         '
-        'Me.PersonnelTableAdapter.ClearBeforeFill = True
+        Me.Button4.Location = New System.Drawing.Point(412, 106)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.TabIndex = 5
+        Me.Button4.Text = "Enregistrer"
+        Me.Button4.UseVisualStyleBackColor = True
         '
-        'FillByToolStrip
+        'BT_Ajouter
         '
-        Me.FillByToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillByToolStripButton})
-        Me.FillByToolStrip.Location = New System.Drawing.Point(0, 0)
-        Me.FillByToolStrip.Name = "FillByToolStrip"
-        Me.FillByToolStrip.Size = New System.Drawing.Size(516, 25)
-        Me.FillByToolStrip.TabIndex = 5
-        Me.FillByToolStrip.Text = "FillByToolStrip"
-        '
-        'FillByToolStripButton
-        '
-        Me.FillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.FillByToolStripButton.Name = "FillByToolStripButton"
-        Me.FillByToolStripButton.Size = New System.Drawing.Size(39, 22)
-        Me.FillByToolStripButton.Text = "FillBy"
-        '
-        'FillByAFToolStrip
-        '
-        Me.FillByAFToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillByAFToolStripButton})
-        Me.FillByAFToolStrip.Location = New System.Drawing.Point(0, 25)
-        Me.FillByAFToolStrip.Name = "FillByAFToolStrip"
-        Me.FillByAFToolStrip.Size = New System.Drawing.Size(516, 25)
-        Me.FillByAFToolStrip.TabIndex = 6
-        Me.FillByAFToolStrip.Text = "FillByAFToolStrip"
-        '
-        'FillByAFToolStripButton
-        '
-        Me.FillByAFToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.FillByAFToolStripButton.Name = "FillByAFToolStripButton"
-        Me.FillByAFToolStripButton.Size = New System.Drawing.Size(53, 22)
-        Me.FillByAFToolStripButton.Text = "FillByAF"
+        Me.BT_Ajouter.Location = New System.Drawing.Point(177, 153)
+        Me.BT_Ajouter.Name = "BT_Ajouter"
+        Me.BT_Ajouter.Size = New System.Drawing.Size(75, 23)
+        Me.BT_Ajouter.TabIndex = 11
+        Me.BT_Ajouter.Text = "Ajouter"
+        Me.BT_Ajouter.UseVisualStyleBackColor = True
         '
         'Edit_Session
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(516, 457)
-        Me.Controls.Add(Me.FillByAFToolStrip)
-        Me.Controls.Add(Me.FillByToolStrip)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -296,14 +258,7 @@ Partial Class Edit_Session
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
-        CType(Me.PersonnelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FillByToolStrip.ResumeLayout(False)
-        Me.FillByToolStrip.PerformLayout()
-        Me.FillByAFToolStrip.ResumeLayout(False)
-        Me.FillByAFToolStrip.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -325,12 +280,7 @@ Partial Class Edit_Session
     Friend WithEvents DTP_Session As DateTimePicker
     Friend WithEvents CB_CP As ComboBox
     Friend WithEvents CB_AF As ComboBox
-    Friend WithEvents Formation_ContinueDataSet1 As Formation_ContinueDataSet1
     Friend WithEvents ListechefsdeprojetsBindingSource As BindingSource
-    Friend WithEvents PersonnelBindingSource As BindingSource
-    'Friend WithEvents PersonnelTableAdapter As Formation_ContinueDataSet1TableAdapters.PersonnelTableAdapter
-    Friend WithEvents FillByToolStrip As ToolStrip
-    Friend WithEvents FillByToolStripButton As ToolStripButton
-    Friend WithEvents FillByAFToolStrip As ToolStrip
-    Friend WithEvents FillByAFToolStripButton As ToolStripButton
+    Friend WithEvents Button4 As Button
+    Friend WithEvents BT_Ajouter As Button
 End Class

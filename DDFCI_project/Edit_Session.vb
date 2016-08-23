@@ -26,5 +26,14 @@ Public Class Edit_Session
         Me.DG_Liste_Sessions.Columns("DateFin").HeaderText = "Fin"
     End Sub
 
+    Private Sub DG_Liste_Sessions_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Liste_Sessions.CellContentClick
+        Remplir_champs(Me.DG_Liste_Sessions, Me.DG_Liste_Sessions.CurrentRow.Index)
+    End Sub
 
+    Sub Remplir_champs(ByRef DG As DataGridView, ByVal index As Integer)
+        Me.TB_NomFormation.Text = DG.Rows(index).Cells("NomF").Value
+        Me.DTP_Session.Value = DG.Rows(index).Cells("AnneeSession").Value
+        Me.DTP_Debut.Value = DG.Rows(index).Cells("DateDebut").Value
+        Me.DTP_Fin.Value = DG.Rows(index).Cells("DateFin").Value
+    End Sub
 End Class
