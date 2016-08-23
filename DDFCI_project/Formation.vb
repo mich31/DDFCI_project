@@ -340,6 +340,24 @@ Public Class Formation
         Me.DTP_I_Anciennete.Value = System.DateTime.Today
     End Sub
 
+    Sub OuvertureDesChamps()
+        Me.CB_I_Civilite.Enabled = True
+        Me.TB_I_Nom.Enabled = True
+        Me.TB_I_Prenom.Enabled = True
+        Me.RTB_I_Adresse.Enabled = True
+        Me.TB_I_Pays.Enabled = True
+        Me.TB_I_Telephone.Enabled = True
+        Me.LinkLabel_Mail_Intervenant.Enabled = True
+        Me.DTP_I_DateN.Enabled = True
+        Me.TB_I_LieuN.Enabled = True
+        Me.TB_I_PaysN.Enabled = True
+        Me.TB_I_NumSS.Enabled = True
+        Me.CB_I_TypeIntervenant.Enabled = True
+        Me.RTB_I_Fonction.Enabled = True
+        Me.RTB_I_Entreprise.Enabled = True
+        Me.DTP_I_Anciennete.Enabled = True
+    End Sub
+
     Sub Remplir_Onglet_Information(ByVal DG As DataGridView, ByVal index As Integer)
         Dim id As String = DG.Rows(index).Cells("idPersonne").Value
 
@@ -418,6 +436,7 @@ Public Class Formation
     End Sub
 
     Private Sub BT_Modifier_DG_ListeIntervenants_Click(sender As Object, e As EventArgs) Handles BT_Modifier_DG_ListeIntervenants.Click
+        OuvertureDesChamps()
         For Each Ligne As DataGridViewRow In Me.DG_Liste_Intervenants.Rows
             If Ligne.Cells.Item(0).Value = True Then
                 Ligne.ReadOnly = False
@@ -468,6 +487,10 @@ Public Class Formation
     '    cmd.Dispose()
     'End Sub
 
+    Private Sub BT_Nouveau_Stagiaire_Click(sender As Object, e As EventArgs) Handles BT_Nouveau_Stagiaire.Click
+        Dim Nouv As New NouveauStagiaire(bdd, idSession)
+        Nouv.Show()
+    End Sub
 
 #End Region
 
@@ -597,13 +620,13 @@ Public Class Formation
         o_Stagiaire = New Onglet_stagiaire(bdd, SF)
 
         Me.RTB_I_Formation.Text = NomFormation
-        Me.RTB_S_Formation.Text = NomFormation
+
         Me.TB_I_Session.Text = SessionFormation
-        Me.TB_S_Session.Text = SessionFormation
+
         Me.TB_I_NB_Intervenants.Text = o_Intervenant.Intervenants.Rows.Count
-        Me.TB_S_NB_Intervenants.Text = o_Intervenant.Intervenants.Rows.Count
+
         Me.TB_I_NB_Stagiaires.Text = o_Stagiaire.Stagiaires.Rows.Count
-        Me.TB_S_NB_Stagiaires.Text = o_Stagiaire.Stagiaires.Rows.Count
+
 
         MAJ_planning()
         Remplir_DG_Liste_Intervenants()
@@ -765,8 +788,9 @@ Public Class Formation
     End Sub
 
     Private Sub NouvelleSessionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouvelleSessionToolStripMenuItem.Click
-        Dim Nvelle_session As New Edit_Session(utilisateur)
+        Dim Nvelle_session As New Edit_Session(utilisateur, bdd)
         Nvelle_session.Show()
 
     End Sub
+
 End Class

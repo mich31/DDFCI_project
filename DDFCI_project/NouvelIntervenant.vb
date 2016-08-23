@@ -40,7 +40,6 @@ Public Class NouvelIntervenant
             MsgBox(Res - 1 & " Intervenant(e) ajouté(e)")
             'Me.Dispose()
         Catch ex As Exception
-            'MsgBox(ex.Message)
             Console.WriteLine(ex.Message)
         End Try
         'cmd.Dispose()

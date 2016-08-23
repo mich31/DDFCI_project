@@ -115,40 +115,56 @@ Partial Class Formation
         Me.DG_Liste_Intervenants = New System.Windows.Forms.DataGridView()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Panel_Stagiaires_détails = New System.Windows.Forms.Panel()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TB_S_NB_Stagiaires = New System.Windows.Forms.TextBox()
-        Me.TB_S_NB_Intervenants = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.CB_S_AF = New System.Windows.Forms.ComboBox()
-        Me.CB_S_CP = New System.Windows.Forms.ComboBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.TB_S_Session = New System.Windows.Forms.TextBox()
-        Me.RTB_S_Formation = New System.Windows.Forms.RichTextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.Button14 = New System.Windows.Forms.Button()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.BT_Nouveau_Stagiaire = New System.Windows.Forms.Button()
+        Me.LBL_Stagiaire_NB_Enregistrement = New System.Windows.Forms.Label()
+        Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
+        Me.DG_Liste_Stagiaires = New System.Windows.Forms.DataGridView()
+        Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.GroupBox14 = New System.Windows.Forms.GroupBox()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
+        Me.Label51 = New System.Windows.Forms.Label()
+        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.Label43 = New System.Windows.Forms.Label()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Label35 = New System.Windows.Forms.Label()
-        Me.ToolStrip7 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripLabel4 = New System.Windows.Forms.ToolStripLabel()
-        Me.Panel_Stagiaires_Liste = New System.Windows.Forms.Panel()
-        Me.DG_Liste_Stagiaires = New System.Windows.Forms.DataGridView()
-        Me.LBL_Stagiaire_NB_Enregistrement = New System.Windows.Forms.Label()
-        Me.ToolStrip6 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
@@ -192,15 +208,15 @@ Partial Class Formation
         CType(Me.DG_Liste_Intervenants, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         Me.Panel_Stagiaires_détails.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
-        Me.TabControl3.SuspendLayout()
-        Me.TabPage11.SuspendLayout()
-        Me.ToolStrip7.SuspendLayout()
-        Me.Panel_Stagiaires_Liste.SuspendLayout()
         CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ToolStrip5.SuspendLayout()
+        Me.ToolStrip3.SuspendLayout()
+        Me.TabControl3.SuspendLayout()
+        Me.TabPage10.SuspendLayout()
+        Me.GroupBox14.SuspendLayout()
+        Me.GroupBox13.SuspendLayout()
+        Me.GroupBox12.SuspendLayout()
+        Me.TabPage11.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
@@ -226,14 +242,14 @@ Partial Class Formation
         '
         Me.NouveauToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormationToolStripMenuItem1, Me.IntervenantToolStripMenuItem, Me.StagiaireToolStripMenuItem})
         Me.NouveauToolStripMenuItem.Name = "NouveauToolStripMenuItem"
-        Me.NouveauToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NouveauToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.NouveauToolStripMenuItem.Text = "Nouveau"
         '
         'FormationToolStripMenuItem1
         '
         Me.FormationToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NouvelleFormationToolStripMenuItem, Me.NouvelleSessionToolStripMenuItem})
         Me.FormationToolStripMenuItem1.Name = "FormationToolStripMenuItem1"
-        Me.FormationToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.FormationToolStripMenuItem1.Size = New System.Drawing.Size(134, 22)
         Me.FormationToolStripMenuItem1.Text = "Formation"
         '
         'NouvelleFormationToolStripMenuItem
@@ -251,19 +267,19 @@ Partial Class Formation
         'IntervenantToolStripMenuItem
         '
         Me.IntervenantToolStripMenuItem.Name = "IntervenantToolStripMenuItem"
-        Me.IntervenantToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.IntervenantToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.IntervenantToolStripMenuItem.Text = "Intervenant"
         '
         'StagiaireToolStripMenuItem
         '
         Me.StagiaireToolStripMenuItem.Name = "StagiaireToolStripMenuItem"
-        Me.StagiaireToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.StagiaireToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.StagiaireToolStripMenuItem.Text = "Stagiaire"
         '
         'QuitterToolStripMenuItem
         '
         Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
-        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.QuitterToolStripMenuItem.Text = "Quitter"
         '
         'EditionToolStripMenuItem
@@ -1064,7 +1080,6 @@ Partial Class Formation
         '
         Me.TabPage4.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage4.Controls.Add(Me.Panel_Stagiaires_détails)
-        Me.TabPage4.Controls.Add(Me.Panel_Stagiaires_Liste)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
@@ -1074,217 +1089,454 @@ Partial Class Formation
         '
         'Panel_Stagiaires_détails
         '
-        Me.Panel_Stagiaires_détails.Controls.Add(Me.GroupBox9)
-        Me.Panel_Stagiaires_détails.Controls.Add(Me.GroupBox8)
         Me.Panel_Stagiaires_détails.Controls.Add(Me.GroupBox7)
+        Me.Panel_Stagiaires_détails.Controls.Add(Me.LBL_Stagiaire_NB_Enregistrement)
+        Me.Panel_Stagiaires_détails.Controls.Add(Me.ToolStrip5)
+        Me.Panel_Stagiaires_détails.Controls.Add(Me.DG_Liste_Stagiaires)
+        Me.Panel_Stagiaires_détails.Controls.Add(Me.ToolStrip3)
         Me.Panel_Stagiaires_détails.Controls.Add(Me.TabControl3)
-        Me.Panel_Stagiaires_détails.Controls.Add(Me.ToolStrip7)
-        Me.Panel_Stagiaires_détails.Location = New System.Drawing.Point(263, 6)
+        Me.Panel_Stagiaires_détails.Location = New System.Drawing.Point(0, 0)
         Me.Panel_Stagiaires_détails.Name = "Panel_Stagiaires_détails"
-        Me.Panel_Stagiaires_détails.Size = New System.Drawing.Size(778, 820)
+        Me.Panel_Stagiaires_détails.Size = New System.Drawing.Size(1041, 826)
         Me.Panel_Stagiaires_détails.TabIndex = 1
-        '
-        'GroupBox9
-        '
-        Me.GroupBox9.Controls.Add(Me.TextBox2)
-        Me.GroupBox9.Controls.Add(Me.TextBox3)
-        Me.GroupBox9.Controls.Add(Me.TB_S_NB_Stagiaires)
-        Me.GroupBox9.Controls.Add(Me.TB_S_NB_Intervenants)
-        Me.GroupBox9.Controls.Add(Me.Label19)
-        Me.GroupBox9.Controls.Add(Me.Label20)
-        Me.GroupBox9.Controls.Add(Me.Label21)
-        Me.GroupBox9.Controls.Add(Me.Label22)
-        Me.GroupBox9.Location = New System.Drawing.Point(488, 38)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(258, 140)
-        Me.GroupBox9.TabIndex = 5
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Indicateurs"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Enabled = False
-        Me.TextBox2.Location = New System.Drawing.Point(131, 29)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 7
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Location = New System.Drawing.Point(131, 56)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 6
-        '
-        'TB_S_NB_Stagiaires
-        '
-        Me.TB_S_NB_Stagiaires.Enabled = False
-        Me.TB_S_NB_Stagiaires.Location = New System.Drawing.Point(131, 108)
-        Me.TB_S_NB_Stagiaires.Name = "TB_S_NB_Stagiaires"
-        Me.TB_S_NB_Stagiaires.Size = New System.Drawing.Size(100, 20)
-        Me.TB_S_NB_Stagiaires.TabIndex = 5
-        '
-        'TB_S_NB_Intervenants
-        '
-        Me.TB_S_NB_Intervenants.Enabled = False
-        Me.TB_S_NB_Intervenants.Location = New System.Drawing.Point(131, 82)
-        Me.TB_S_NB_Intervenants.Name = "TB_S_NB_Intervenants"
-        Me.TB_S_NB_Intervenants.Size = New System.Drawing.Size(100, 20)
-        Me.TB_S_NB_Intervenants.TabIndex = 4
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(6, 109)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(109, 13)
-        Me.Label19.TabIndex = 3
-        Me.Label19.Text = "Nombre de stagiaires:"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(6, 85)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(119, 13)
-        Me.Label20.TabIndex = 2
-        Me.Label20.Text = "Nombre  d'intervenants:"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(6, 58)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(24, 13)
-        Me.Label21.TabIndex = 1
-        Me.Label21.Text = "Fin:"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(6, 32)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(39, 13)
-        Me.Label22.TabIndex = 0
-        Me.Label22.Text = "Début:"
-        '
-        'GroupBox8
-        '
-        Me.GroupBox8.Controls.Add(Me.CB_S_AF)
-        Me.GroupBox8.Controls.Add(Me.CB_S_CP)
-        Me.GroupBox8.Controls.Add(Me.Label17)
-        Me.GroupBox8.Controls.Add(Me.Label18)
-        Me.GroupBox8.Location = New System.Drawing.Point(277, 38)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(180, 122)
-        Me.GroupBox8.TabIndex = 4
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Gestion de la formation"
-        '
-        'CB_S_AF
-        '
-        Me.CB_S_AF.Enabled = False
-        Me.CB_S_AF.FormattingEnabled = True
-        Me.CB_S_AF.Location = New System.Drawing.Point(27, 85)
-        Me.CB_S_AF.Name = "CB_S_AF"
-        Me.CB_S_AF.Size = New System.Drawing.Size(121, 21)
-        Me.CB_S_AF.TabIndex = 3
-        '
-        'CB_S_CP
-        '
-        Me.CB_S_CP.Enabled = False
-        Me.CB_S_CP.FormattingEnabled = True
-        Me.CB_S_CP.Location = New System.Drawing.Point(27, 36)
-        Me.CB_S_CP.Name = "CB_S_CP"
-        Me.CB_S_CP.Size = New System.Drawing.Size(121, 21)
-        Me.CB_S_CP.TabIndex = 2
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(24, 69)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(125, 13)
-        Me.Label17.TabIndex = 1
-        Me.Label17.Text = "Assistant(e) de formation:"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(42, 19)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(91, 13)
-        Me.Label18.TabIndex = 0
-        Me.Label18.Text = "Chef(fe) de projet:"
         '
         'GroupBox7
         '
-        Me.GroupBox7.Controls.Add(Me.TB_S_Session)
-        Me.GroupBox7.Controls.Add(Me.RTB_S_Formation)
-        Me.GroupBox7.Controls.Add(Me.Label15)
-        Me.GroupBox7.Controls.Add(Me.Label16)
-        Me.GroupBox7.Location = New System.Drawing.Point(7, 38)
+        Me.GroupBox7.Controls.Add(Me.Button15)
+        Me.GroupBox7.Controls.Add(Me.Button14)
+        Me.GroupBox7.Controls.Add(Me.Button13)
+        Me.GroupBox7.Controls.Add(Me.BT_Nouveau_Stagiaire)
+        Me.GroupBox7.Location = New System.Drawing.Point(844, 53)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(238, 140)
-        Me.GroupBox7.TabIndex = 3
+        Me.GroupBox7.Size = New System.Drawing.Size(89, 178)
+        Me.GroupBox7.TabIndex = 6
         Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "Formation"
         '
-        'TB_S_Session
+        'Button15
         '
-        Me.TB_S_Session.Enabled = False
-        Me.TB_S_Session.Location = New System.Drawing.Point(59, 102)
-        Me.TB_S_Session.Name = "TB_S_Session"
-        Me.TB_S_Session.Size = New System.Drawing.Size(162, 20)
-        Me.TB_S_Session.TabIndex = 3
+        Me.Button15.Location = New System.Drawing.Point(8, 138)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(75, 23)
+        Me.Button15.TabIndex = 3
+        Me.Button15.Text = "Exporter"
+        Me.Button15.UseVisualStyleBackColor = True
         '
-        'RTB_S_Formation
+        'Button14
         '
-        Me.RTB_S_Formation.Enabled = False
-        Me.RTB_S_Formation.Location = New System.Drawing.Point(59, 19)
-        Me.RTB_S_Formation.Name = "RTB_S_Formation"
-        Me.RTB_S_Formation.Size = New System.Drawing.Size(162, 63)
-        Me.RTB_S_Formation.TabIndex = 2
-        Me.RTB_S_Formation.Text = ""
+        Me.Button14.Location = New System.Drawing.Point(6, 97)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(75, 23)
+        Me.Button14.TabIndex = 2
+        Me.Button14.Text = "Supprimer"
+        Me.Button14.UseVisualStyleBackColor = True
         '
-        'Label15
+        'Button13
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(6, 105)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(47, 13)
-        Me.Label15.TabIndex = 1
-        Me.Label15.Text = "Session:"
+        Me.Button13.Location = New System.Drawing.Point(6, 58)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(75, 23)
+        Me.Button13.TabIndex = 1
+        Me.Button13.Text = "Modifier"
+        Me.Button13.UseVisualStyleBackColor = True
         '
-        'Label16
+        'BT_Nouveau_Stagiaire
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(6, 32)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(32, 13)
-        Me.Label16.TabIndex = 0
-        Me.Label16.Text = "Nom:"
+        Me.BT_Nouveau_Stagiaire.Location = New System.Drawing.Point(6, 19)
+        Me.BT_Nouveau_Stagiaire.Name = "BT_Nouveau_Stagiaire"
+        Me.BT_Nouveau_Stagiaire.Size = New System.Drawing.Size(75, 23)
+        Me.BT_Nouveau_Stagiaire.TabIndex = 0
+        Me.BT_Nouveau_Stagiaire.Text = "Nouveau"
+        Me.BT_Nouveau_Stagiaire.UseVisualStyleBackColor = True
+        '
+        'LBL_Stagiaire_NB_Enregistrement
+        '
+        Me.LBL_Stagiaire_NB_Enregistrement.AutoSize = True
+        Me.LBL_Stagiaire_NB_Enregistrement.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.LBL_Stagiaire_NB_Enregistrement.Location = New System.Drawing.Point(358, 35)
+        Me.LBL_Stagiaire_NB_Enregistrement.Name = "LBL_Stagiaire_NB_Enregistrement"
+        Me.LBL_Stagiaire_NB_Enregistrement.Size = New System.Drawing.Size(96, 13)
+        Me.LBL_Stagiaire_NB_Enregistrement.TabIndex = 5
+        Me.LBL_Stagiaire_NB_Enregistrement.Text = "0 enregistrement(s)"
+        '
+        'ToolStrip5
+        '
+        Me.ToolStrip5.Location = New System.Drawing.Point(0, 25)
+        Me.ToolStrip5.Name = "ToolStrip5"
+        Me.ToolStrip5.Size = New System.Drawing.Size(1041, 25)
+        Me.ToolStrip5.TabIndex = 4
+        Me.ToolStrip5.Text = "ToolStrip5"
+        '
+        'DG_Liste_Stagiaires
+        '
+        Me.DG_Liste_Stagiaires.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Liste_Stagiaires.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.DG_Liste_Stagiaires.Location = New System.Drawing.Point(50, 51)
+        Me.DG_Liste_Stagiaires.Name = "DG_Liste_Stagiaires"
+        Me.DG_Liste_Stagiaires.RowHeadersWidth = 31
+        Me.DG_Liste_Stagiaires.Size = New System.Drawing.Size(759, 268)
+        Me.DG_Liste_Stagiaires.TabIndex = 3
+        '
+        'ToolStrip3
+        '
+        Me.ToolStrip3.BackColor = System.Drawing.SystemColors.ScrollBar
+        Me.ToolStrip3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1})
+        Me.ToolStrip3.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip3.Name = "ToolStrip3"
+        Me.ToolStrip3.Size = New System.Drawing.Size(1041, 25)
+        Me.ToolStrip3.TabIndex = 2
+        Me.ToolStrip3.Text = "ToolStrip3"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(118, 22)
+        Me.ToolStripLabel1.Text = "Liste des stagiaire(s)"
         '
         'TabControl3
         '
         Me.TabControl3.Controls.Add(Me.TabPage10)
         Me.TabControl3.Controls.Add(Me.TabPage11)
-        Me.TabControl3.Location = New System.Drawing.Point(3, 200)
+        Me.TabControl3.Location = New System.Drawing.Point(3, 352)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(775, 617)
+        Me.TabControl3.Size = New System.Drawing.Size(775, 465)
         Me.TabControl3.TabIndex = 1
         '
         'TabPage10
         '
         Me.TabPage10.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage10.Controls.Add(Me.GroupBox14)
+        Me.TabPage10.Controls.Add(Me.GroupBox13)
+        Me.TabPage10.Controls.Add(Me.GroupBox12)
         Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(767, 591)
+        Me.TabPage10.Size = New System.Drawing.Size(767, 439)
         Me.TabPage10.TabIndex = 0
         Me.TabPage10.Text = "Informations"
+        '
+        'GroupBox14
+        '
+        Me.GroupBox14.BackColor = System.Drawing.SystemColors.Menu
+        Me.GroupBox14.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox14.Controls.Add(Me.Label48)
+        Me.GroupBox14.Controls.Add(Me.RichTextBox2)
+        Me.GroupBox14.Controls.Add(Me.Label49)
+        Me.GroupBox14.Controls.Add(Me.ComboBox2)
+        Me.GroupBox14.Controls.Add(Me.Label50)
+        Me.GroupBox14.Controls.Add(Me.RichTextBox3)
+        Me.GroupBox14.Controls.Add(Me.Label51)
+        Me.GroupBox14.Location = New System.Drawing.Point(488, 116)
+        Me.GroupBox14.Name = "GroupBox14"
+        Me.GroupBox14.Size = New System.Drawing.Size(209, 273)
+        Me.GroupBox14.TabIndex = 3
+        Me.GroupBox14.TabStop = False
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Enabled = False
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(47, 238)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(126, 20)
+        Me.DateTimePicker2.TabIndex = 7
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(76, 221)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(64, 13)
+        Me.Label48.TabIndex = 6
+        Me.Label48.Text = "Ancienneté:"
+        '
+        'RichTextBox2
+        '
+        Me.RichTextBox2.Enabled = False
+        Me.RichTextBox2.Location = New System.Drawing.Point(47, 174)
+        Me.RichTextBox2.Name = "RichTextBox2"
+        Me.RichTextBox2.Size = New System.Drawing.Size(126, 39)
+        Me.RichTextBox2.TabIndex = 5
+        Me.RichTextBox2.Text = ""
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.Location = New System.Drawing.Point(82, 152)
+        Me.Label49.Name = "Label49"
+        Me.Label49.Size = New System.Drawing.Size(57, 13)
+        Me.Label49.TabIndex = 4
+        Me.Label49.Text = "Entreprise:"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.Enabled = False
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(47, 49)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox2.TabIndex = 3
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(58, 26)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(98, 13)
+        Me.Label50.TabIndex = 2
+        Me.Label50.Text = "Type d'intervenant:"
+        '
+        'RichTextBox3
+        '
+        Me.RichTextBox3.Enabled = False
+        Me.RichTextBox3.Location = New System.Drawing.Point(47, 104)
+        Me.RichTextBox3.Name = "RichTextBox3"
+        Me.RichTextBox3.Size = New System.Drawing.Size(126, 41)
+        Me.RichTextBox3.TabIndex = 1
+        Me.RichTextBox3.Text = ""
+        '
+        'Label51
+        '
+        Me.Label51.AutoSize = True
+        Me.Label51.Location = New System.Drawing.Point(82, 82)
+        Me.Label51.Name = "Label51"
+        Me.Label51.Size = New System.Drawing.Size(51, 13)
+        Me.Label51.TabIndex = 0
+        Me.Label51.Text = "Fonction:"
+        '
+        'GroupBox13
+        '
+        Me.GroupBox13.BackColor = System.Drawing.SystemColors.Menu
+        Me.GroupBox13.Controls.Add(Me.TextBox9)
+        Me.GroupBox13.Controls.Add(Me.Label44)
+        Me.GroupBox13.Controls.Add(Me.TextBox10)
+        Me.GroupBox13.Controls.Add(Me.Label45)
+        Me.GroupBox13.Controls.Add(Me.TextBox11)
+        Me.GroupBox13.Controls.Add(Me.Label46)
+        Me.GroupBox13.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox13.Controls.Add(Me.Label47)
+        Me.GroupBox13.Location = New System.Drawing.Point(247, 116)
+        Me.GroupBox13.Name = "GroupBox13"
+        Me.GroupBox13.Size = New System.Drawing.Size(200, 273)
+        Me.GroupBox13.TabIndex = 2
+        Me.GroupBox13.TabStop = False
+        '
+        'TextBox9
+        '
+        Me.TextBox9.Enabled = False
+        Me.TextBox9.Location = New System.Drawing.Point(50, 220)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox9.TabIndex = 6
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(55, 204)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(79, 13)
+        Me.Label44.TabIndex = 0
+        Me.Label44.Text = "Numero de SS:"
+        '
+        'TextBox10
+        '
+        Me.TextBox10.Enabled = False
+        Me.TextBox10.Location = New System.Drawing.Point(50, 167)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(103, 20)
+        Me.TextBox10.TabIndex = 5
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(52, 142)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(99, 13)
+        Me.Label45.TabIndex = 4
+        Me.Label45.Text = "Pays de naissance:"
+        '
+        'TextBox11
+        '
+        Me.TextBox11.Enabled = False
+        Me.TextBox11.Location = New System.Drawing.Point(50, 107)
+        Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.Size = New System.Drawing.Size(101, 20)
+        Me.TextBox11.TabIndex = 3
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(52, 82)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(96, 13)
+        Me.Label46.TabIndex = 2
+        Me.Label46.Text = "Lieu de naissance:"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Enabled = False
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(50, 48)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(101, 20)
+        Me.DateTimePicker1.TabIndex = 1
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(52, 23)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(99, 13)
+        Me.Label47.TabIndex = 0
+        Me.Label47.Text = "Date de naissance:"
+        '
+        'GroupBox12
+        '
+        Me.GroupBox12.BackColor = System.Drawing.SystemColors.Menu
+        Me.GroupBox12.Controls.Add(Me.LinkLabel1)
+        Me.GroupBox12.Controls.Add(Me.Label37)
+        Me.GroupBox12.Controls.Add(Me.TextBox1)
+        Me.GroupBox12.Controls.Add(Me.Label38)
+        Me.GroupBox12.Controls.Add(Me.TextBox6)
+        Me.GroupBox12.Controls.Add(Me.Label39)
+        Me.GroupBox12.Controls.Add(Me.RichTextBox1)
+        Me.GroupBox12.Controls.Add(Me.Label40)
+        Me.GroupBox12.Controls.Add(Me.TextBox7)
+        Me.GroupBox12.Controls.Add(Me.TextBox8)
+        Me.GroupBox12.Controls.Add(Me.ComboBox1)
+        Me.GroupBox12.Controls.Add(Me.Label41)
+        Me.GroupBox12.Controls.Add(Me.Label42)
+        Me.GroupBox12.Controls.Add(Me.Label43)
+        Me.GroupBox12.Location = New System.Drawing.Point(27, 116)
+        Me.GroupBox12.Name = "GroupBox12"
+        Me.GroupBox12.Size = New System.Drawing.Size(200, 273)
+        Me.GroupBox12.TabIndex = 1
+        Me.GroupBox12.TabStop = False
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(65, 244)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(59, 13)
+        Me.LinkLabel1.TabIndex = 13
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "LinkLabel1"
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(13, 244)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(29, 13)
+        Me.Label37.TabIndex = 12
+        Me.Label37.Text = "Mail:"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Enabled = False
+        Me.TextBox1.Location = New System.Drawing.Point(68, 213)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(115, 20)
+        Me.TextBox1.TabIndex = 11
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(6, 214)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(61, 13)
+        Me.Label38.TabIndex = 10
+        Me.Label38.Text = "Téléphone:"
+        '
+        'TextBox6
+        '
+        Me.TextBox6.Enabled = False
+        Me.TextBox6.Location = New System.Drawing.Point(68, 171)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(115, 20)
+        Me.TextBox6.TabIndex = 9
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(11, 174)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(33, 13)
+        Me.Label39.TabIndex = 8
+        Me.Label39.Text = "Pays:"
+        '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Enabled = False
+        Me.RichTextBox1.Location = New System.Drawing.Point(62, 120)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(121, 45)
+        Me.RichTextBox1.TabIndex = 7
+        Me.RichTextBox1.Text = ""
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(11, 123)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(48, 13)
+        Me.Label40.TabIndex = 6
+        Me.Label40.Text = "Adresse:"
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Enabled = False
+        Me.TextBox7.Location = New System.Drawing.Point(68, 82)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(115, 20)
+        Me.TextBox7.TabIndex = 5
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Enabled = False
+        Me.TextBox8.Location = New System.Drawing.Point(68, 52)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(115, 20)
+        Me.TextBox8.TabIndex = 4
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Enabled = False
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Mlle.", "Mme.", "Mr."})
+        Me.ComboBox1.Location = New System.Drawing.Point(68, 23)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(115, 21)
+        Me.ComboBox1.TabIndex = 3
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(10, 26)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(40, 13)
+        Me.Label41.TabIndex = 2
+        Me.Label41.Text = "Civilité:"
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(10, 87)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(46, 13)
+        Me.Label42.TabIndex = 1
+        Me.Label42.Text = "Prénom:"
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(10, 55)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(32, 13)
+        Me.Label43.TabIndex = 0
+        Me.Label43.Text = "Nom:"
         '
         'TabPage11
         '
@@ -1296,7 +1548,7 @@ Partial Class Formation
         Me.TabPage11.Location = New System.Drawing.Point(4, 22)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(767, 591)
+        Me.TabPage11.Size = New System.Drawing.Size(767, 439)
         Me.TabPage11.TabIndex = 1
         Me.TabPage11.Text = "Documents"
         '
@@ -1335,82 +1587,6 @@ Partial Class Formation
         Me.Label35.Size = New System.Drawing.Size(125, 13)
         Me.Label35.TabIndex = 0
         Me.Label35.Text = "Convention de formation:"
-        '
-        'ToolStrip7
-        '
-        Me.ToolStrip7.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.ToolStrip7.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel4})
-        Me.ToolStrip7.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip7.Name = "ToolStrip7"
-        Me.ToolStrip7.Size = New System.Drawing.Size(778, 25)
-        Me.ToolStrip7.TabIndex = 0
-        Me.ToolStrip7.Text = "ToolStrip7"
-        '
-        'ToolStripLabel4
-        '
-        Me.ToolStripLabel4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripLabel4.Name = "ToolStripLabel4"
-        Me.ToolStripLabel4.Size = New System.Drawing.Size(45, 22)
-        Me.ToolStripLabel4.Text = "Détails"
-        '
-        'Panel_Stagiaires_Liste
-        '
-        Me.Panel_Stagiaires_Liste.Controls.Add(Me.DG_Liste_Stagiaires)
-        Me.Panel_Stagiaires_Liste.Controls.Add(Me.LBL_Stagiaire_NB_Enregistrement)
-        Me.Panel_Stagiaires_Liste.Controls.Add(Me.ToolStrip6)
-        Me.Panel_Stagiaires_Liste.Controls.Add(Me.ToolStrip5)
-        Me.Panel_Stagiaires_Liste.Location = New System.Drawing.Point(3, 3)
-        Me.Panel_Stagiaires_Liste.Name = "Panel_Stagiaires_Liste"
-        Me.Panel_Stagiaires_Liste.Size = New System.Drawing.Size(254, 823)
-        Me.Panel_Stagiaires_Liste.TabIndex = 0
-        '
-        'DG_Liste_Stagiaires
-        '
-        Me.DG_Liste_Stagiaires.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Stagiaires.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DG_Liste_Stagiaires.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DG_Liste_Stagiaires.Location = New System.Drawing.Point(0, 50)
-        Me.DG_Liste_Stagiaires.Name = "DG_Liste_Stagiaires"
-        Me.DG_Liste_Stagiaires.RowHeadersWidth = 31
-        Me.DG_Liste_Stagiaires.Size = New System.Drawing.Size(254, 773)
-        Me.DG_Liste_Stagiaires.TabIndex = 3
-        '
-        'LBL_Stagiaire_NB_Enregistrement
-        '
-        Me.LBL_Stagiaire_NB_Enregistrement.AutoSize = True
-        Me.LBL_Stagiaire_NB_Enregistrement.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.LBL_Stagiaire_NB_Enregistrement.Location = New System.Drawing.Point(84, 32)
-        Me.LBL_Stagiaire_NB_Enregistrement.Name = "LBL_Stagiaire_NB_Enregistrement"
-        Me.LBL_Stagiaire_NB_Enregistrement.Size = New System.Drawing.Size(96, 13)
-        Me.LBL_Stagiaire_NB_Enregistrement.TabIndex = 2
-        Me.LBL_Stagiaire_NB_Enregistrement.Text = "0 enregistrement(s)"
-        '
-        'ToolStrip6
-        '
-        Me.ToolStrip6.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.ToolStrip6.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip6.Location = New System.Drawing.Point(0, 25)
-        Me.ToolStrip6.Name = "ToolStrip6"
-        Me.ToolStrip6.Size = New System.Drawing.Size(254, 25)
-        Me.ToolStrip6.TabIndex = 1
-        Me.ToolStrip6.Text = "ToolStrip6"
-        '
-        'ToolStrip5
-        '
-        Me.ToolStrip5.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.ToolStrip5.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel2})
-        Me.ToolStrip5.Location = New System.Drawing.Point(0, 0)
-        Me.ToolStrip5.Name = "ToolStrip5"
-        Me.ToolStrip5.Size = New System.Drawing.Size(254, 25)
-        Me.ToolStrip5.TabIndex = 0
-        Me.ToolStrip5.Text = "ToolStrip5"
-        '
-        'ToolStripLabel2
-        '
-        Me.ToolStripLabel2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripLabel2.Name = "ToolStripLabel2"
-        Me.ToolStripLabel2.Size = New System.Drawing.Size(118, 22)
-        Me.ToolStripLabel2.Text = "Liste des stagiaire(s)"
         '
         'TabPage5
         '
@@ -1659,22 +1835,20 @@ Partial Class Formation
         Me.TabPage4.ResumeLayout(False)
         Me.Panel_Stagiaires_détails.ResumeLayout(False)
         Me.Panel_Stagiaires_détails.PerformLayout()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
-        Me.GroupBox7.PerformLayout()
+        CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip3.ResumeLayout(False)
+        Me.ToolStrip3.PerformLayout()
         Me.TabControl3.ResumeLayout(False)
+        Me.TabPage10.ResumeLayout(False)
+        Me.GroupBox14.ResumeLayout(False)
+        Me.GroupBox14.PerformLayout()
+        Me.GroupBox13.ResumeLayout(False)
+        Me.GroupBox13.PerformLayout()
+        Me.GroupBox12.ResumeLayout(False)
+        Me.GroupBox12.PerformLayout()
         Me.TabPage11.ResumeLayout(False)
         Me.TabPage11.PerformLayout()
-        Me.ToolStrip7.ResumeLayout(False)
-        Me.ToolStrip7.PerformLayout()
-        Me.Panel_Stagiaires_Liste.ResumeLayout(False)
-        Me.Panel_Stagiaires_Liste.PerformLayout()
-        CType(Me.DG_Liste_Stagiaires, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ToolStrip5.ResumeLayout(False)
-        Me.ToolStrip5.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
@@ -1708,14 +1882,7 @@ Partial Class Formation
     Friend WithEvents TabPage8 As TabPage
     Friend WithEvents TabPage9 As TabPage
     Friend WithEvents Panel_Stagiaires_détails As Panel
-    Friend WithEvents Panel_Stagiaires_Liste As Panel
-    Friend WithEvents LBL_Stagiaire_NB_Enregistrement As Label
-    Friend WithEvents ToolStrip6 As ToolStrip
-    Friend WithEvents ToolStrip5 As ToolStrip
-    Friend WithEvents ToolStripLabel2 As ToolStripLabel
     Friend WithEvents DG_Liste_Stagiaires As DataGridView
-    Friend WithEvents ToolStrip7 As ToolStrip
-    Friend WithEvents ToolStripLabel4 As ToolStripLabel
     Friend WithEvents TabControl3 As TabControl
     Friend WithEvents TabPage10 As TabPage
     Friend WithEvents TabPage11 As TabPage
@@ -1754,25 +1921,6 @@ Partial Class Formation
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents TB_I_NB_Stagiaires As TextBox
     Friend WithEvents TB_I_NB_Intervenants As TextBox
-    Friend WithEvents GroupBox9 As GroupBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TB_S_NB_Stagiaires As TextBox
-    Friend WithEvents TB_S_NB_Intervenants As TextBox
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label20 As Label
-    Friend WithEvents Label21 As Label
-    Friend WithEvents Label22 As Label
-    Friend WithEvents GroupBox8 As GroupBox
-    Friend WithEvents CB_S_AF As ComboBox
-    Friend WithEvents CB_S_CP As ComboBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents GroupBox7 As GroupBox
-    Friend WithEvents TB_S_Session As TextBox
-    Friend WithEvents RTB_S_Formation As RichTextBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
     Friend WithEvents MonCalendrier As MonthCalendar
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
@@ -1834,4 +1982,46 @@ Partial Class Formation
     Friend WithEvents Button3 As Button
     Friend WithEvents NouvelleFormationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NouvelleSessionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GroupBox12 As GroupBox
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents Label37 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label38 As Label
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents Label39 As Label
+    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents Label40 As Label
+    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label41 As Label
+    Friend WithEvents Label42 As Label
+    Friend WithEvents Label43 As Label
+    Friend WithEvents GroupBox14 As GroupBox
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label48 As Label
+    Friend WithEvents RichTextBox2 As RichTextBox
+    Friend WithEvents Label49 As Label
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Label50 As Label
+    Friend WithEvents RichTextBox3 As RichTextBox
+    Friend WithEvents Label51 As Label
+    Friend WithEvents GroupBox13 As GroupBox
+    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents Label45 As Label
+    Friend WithEvents TextBox11 As TextBox
+    Friend WithEvents Label46 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label47 As Label
+    Friend WithEvents ToolStrip3 As ToolStrip
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents ToolStrip5 As ToolStrip
+    Friend WithEvents LBL_Stagiaire_NB_Enregistrement As Label
+    Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents Button15 As Button
+    Friend WithEvents Button14 As Button
+    Friend WithEvents Button13 As Button
+    Friend WithEvents BT_Nouveau_Stagiaire As Button
 End Class

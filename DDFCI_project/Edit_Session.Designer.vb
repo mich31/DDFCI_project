@@ -22,6 +22,7 @@ Partial Class Edit_Session
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DG_Liste_Sessions = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.DTP_Fin = New System.Windows.Forms.DateTimePicker()
@@ -32,7 +33,6 @@ Partial Class Edit_Session
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DTP_Session = New System.Windows.Forms.DateTimePicker()
-        Me.TB_NomFormation = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -42,9 +42,22 @@ Partial Class Edit_Session
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.BT_Ajouter = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Liste_chefs_de_projetsTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_chefs_de_projetsTableAdapter()
+        Me.ListeassistantesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Liste_assistantesTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_assistantesTableAdapter()
+        Me.CB_Formation = New System.Windows.Forms.ComboBox()
+        Me.FormationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FormationTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.FormationTableAdapter()
         CType(Me.DG_Liste_Sessions, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListeassistantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FormationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DG_Liste_Sessions
@@ -60,19 +73,20 @@ Partial Class Edit_Session
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.CB_Formation)
+        Me.Panel1.Controls.Add(Me.Button5)
         Me.Panel1.Controls.Add(Me.BT_Ajouter)
         Me.Panel1.Controls.Add(Me.DTP_Fin)
         Me.Panel1.Controls.Add(Me.DTP_Debut)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.DTP_Session)
-        Me.Panel1.Controls.Add(Me.TB_NomFormation)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(14, 215)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(473, 190)
+        Me.Panel1.Size = New System.Drawing.Size(473, 208)
         Me.Panel1.TabIndex = 1
         '
         'DTP_Fin
@@ -105,6 +119,9 @@ Partial Class Edit_Session
         '
         'CB_AF
         '
+        Me.CB_AF.DataSource = Me.ListeassistantesBindingSource
+        Me.CB_AF.DisplayMember = "Login"
+        Me.CB_AF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_AF.FormattingEnabled = True
         Me.CB_AF.Location = New System.Drawing.Point(30, 84)
         Me.CB_AF.Name = "CB_AF"
@@ -113,6 +130,9 @@ Partial Class Edit_Session
         '
         'CB_CP
         '
+        Me.CB_CP.DataSource = Me.BindingSource1
+        Me.CB_CP.DisplayMember = "Login"
+        Me.CB_CP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_CP.FormattingEnabled = True
         Me.CB_CP.Location = New System.Drawing.Point(30, 30)
         Me.CB_CP.Name = "CB_CP"
@@ -146,14 +166,6 @@ Partial Class Edit_Session
         Me.DTP_Session.Name = "DTP_Session"
         Me.DTP_Session.Size = New System.Drawing.Size(100, 20)
         Me.DTP_Session.TabIndex = 7
-        '
-        'TB_NomFormation
-        '
-        Me.TB_NomFormation.Location = New System.Drawing.Point(89, 14)
-        Me.TB_NomFormation.Multiline = True
-        Me.TB_NomFormation.Name = "TB_NomFormation"
-        Me.TB_NomFormation.Size = New System.Drawing.Size(151, 20)
-        Me.TB_NomFormation.TabIndex = 6
         '
         'Label4
         '
@@ -233,12 +245,64 @@ Partial Class Edit_Session
         '
         'BT_Ajouter
         '
-        Me.BT_Ajouter.Location = New System.Drawing.Point(177, 153)
+        Me.BT_Ajouter.Location = New System.Drawing.Point(139, 172)
         Me.BT_Ajouter.Name = "BT_Ajouter"
         Me.BT_Ajouter.Size = New System.Drawing.Size(75, 23)
         Me.BT_Ajouter.TabIndex = 11
         Me.BT_Ajouter.Text = "Ajouter"
         Me.BT_Ajouter.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(231, 172)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 12
+        Me.Button5.Text = "Enregistrer"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Formation_ContinueDataSet1
+        '
+        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
+        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataMember = "liste_chefs_de_projets"
+        Me.BindingSource1.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'Liste_chefs_de_projetsTableAdapter
+        '
+        Me.Liste_chefs_de_projetsTableAdapter.ClearBeforeFill = True
+        '
+        'ListeassistantesBindingSource
+        '
+        Me.ListeassistantesBindingSource.DataMember = "liste_assistantes"
+        Me.ListeassistantesBindingSource.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'Liste_assistantesTableAdapter
+        '
+        Me.Liste_assistantesTableAdapter.ClearBeforeFill = True
+        '
+        'CB_Formation
+        '
+        Me.CB_Formation.DataSource = Me.FormationBindingSource
+        Me.CB_Formation.DisplayMember = "NomF"
+        Me.CB_Formation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_Formation.FormattingEnabled = True
+        Me.CB_Formation.Location = New System.Drawing.Point(89, 14)
+        Me.CB_Formation.Name = "CB_Formation"
+        Me.CB_Formation.Size = New System.Drawing.Size(145, 21)
+        Me.CB_Formation.TabIndex = 13
+        '
+        'FormationBindingSource
+        '
+        Me.FormationBindingSource.DataMember = "Formation"
+        Me.FormationBindingSource.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'FormationTableAdapter
+        '
+        Me.FormationTableAdapter.ClearBeforeFill = True
         '
         'Edit_Session
         '
@@ -258,6 +322,10 @@ Partial Class Edit_Session
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListeassistantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FormationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -273,7 +341,6 @@ Partial Class Edit_Session
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
-    Friend WithEvents TB_NomFormation As TextBox
     Friend WithEvents DTP_Fin As DateTimePicker
     Friend WithEvents DTP_Debut As DateTimePicker
     Friend WithEvents Panel2 As Panel
@@ -283,4 +350,13 @@ Partial Class Edit_Session
     Friend WithEvents ListechefsdeprojetsBindingSource As BindingSource
     Friend WithEvents Button4 As Button
     Friend WithEvents BT_Ajouter As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Formation_ContinueDataSet1 As Formation_ContinueDataSet1
+    Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents Liste_chefs_de_projetsTableAdapter As Formation_ContinueDataSet1TableAdapters.liste_chefs_de_projetsTableAdapter
+    Friend WithEvents ListeassistantesBindingSource As BindingSource
+    Friend WithEvents Liste_assistantesTableAdapter As Formation_ContinueDataSet1TableAdapters.liste_assistantesTableAdapter
+    Friend WithEvents CB_Formation As ComboBox
+    Friend WithEvents FormationBindingSource As BindingSource
+    Friend WithEvents FormationTableAdapter As Formation_ContinueDataSet1TableAdapters.FormationTableAdapter
 End Class
