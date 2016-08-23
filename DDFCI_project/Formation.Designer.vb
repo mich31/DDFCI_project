@@ -26,6 +26,8 @@ Partial Class Formation
         Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NouveauToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormationToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NouvelleFormationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NouvelleSessionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IntervenantToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StagiaireToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -55,6 +57,7 @@ Partial Class Formation
         Me.ToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.DTP_I_Anciennete = New System.Windows.Forms.DateTimePicker()
         Me.Label34 = New System.Windows.Forms.Label()
@@ -167,7 +170,6 @@ Partial Class Formation
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -224,31 +226,44 @@ Partial Class Formation
         '
         Me.NouveauToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FormationToolStripMenuItem1, Me.IntervenantToolStripMenuItem, Me.StagiaireToolStripMenuItem})
         Me.NouveauToolStripMenuItem.Name = "NouveauToolStripMenuItem"
-        Me.NouveauToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.NouveauToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NouveauToolStripMenuItem.Text = "Nouveau"
         '
         'FormationToolStripMenuItem1
         '
+        Me.FormationToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NouvelleFormationToolStripMenuItem, Me.NouvelleSessionToolStripMenuItem})
         Me.FormationToolStripMenuItem1.Name = "FormationToolStripMenuItem1"
-        Me.FormationToolStripMenuItem1.Size = New System.Drawing.Size(134, 22)
+        Me.FormationToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.FormationToolStripMenuItem1.Text = "Formation"
+        '
+        'NouvelleFormationToolStripMenuItem
+        '
+        Me.NouvelleFormationToolStripMenuItem.Name = "NouvelleFormationToolStripMenuItem"
+        Me.NouvelleFormationToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.NouvelleFormationToolStripMenuItem.Text = "Nouvelle formation"
+        '
+        'NouvelleSessionToolStripMenuItem
+        '
+        Me.NouvelleSessionToolStripMenuItem.Name = "NouvelleSessionToolStripMenuItem"
+        Me.NouvelleSessionToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.NouvelleSessionToolStripMenuItem.Text = "Nouvelle session"
         '
         'IntervenantToolStripMenuItem
         '
         Me.IntervenantToolStripMenuItem.Name = "IntervenantToolStripMenuItem"
-        Me.IntervenantToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.IntervenantToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.IntervenantToolStripMenuItem.Text = "Intervenant"
         '
         'StagiaireToolStripMenuItem
         '
         Me.StagiaireToolStripMenuItem.Name = "StagiaireToolStripMenuItem"
-        Me.StagiaireToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.StagiaireToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.StagiaireToolStripMenuItem.Text = "Stagiaire"
         '
         'QuitterToolStripMenuItem
         '
         Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
-        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.QuitterToolStripMenuItem.Text = "Quitter"
         '
         'EditionToolStripMenuItem
@@ -491,6 +506,15 @@ Partial Class Formation
         Me.TabPage3.Size = New System.Drawing.Size(785, 457)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Informations"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(326, 405)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 3
+        Me.Button3.Text = "Enregistrer"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'GroupBox10
         '
@@ -1589,15 +1613,6 @@ Partial Class Formation
         Me.GroupBox11.TabIndex = 4
         Me.GroupBox11.TabStop = False
         '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(326, 405)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = "Enregistrer"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'Formation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1817,4 +1832,6 @@ Partial Class Formation
     Friend WithEvents IntervenantToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StagiaireToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Button3 As Button
+    Friend WithEvents NouvelleFormationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NouvelleSessionToolStripMenuItem As ToolStripMenuItem
 End Class

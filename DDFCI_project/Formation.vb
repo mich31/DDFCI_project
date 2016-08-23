@@ -120,15 +120,23 @@ Public Class Formation
         Dim Requete As String = "select*from Personnel where Login='" & bdd.username & "'"
         Dim cmd As New SqlCommand(Requete, bdd.connect)
 
+        Dim Login, Pwd, Fct, Mail, Telephone, Telecopie As String
+
         Try
             Dim MonReader As SqlDataReader = cmd.ExecuteReader()
             If MonReader.Read() Then
-                utilisateur = New Utilisateur(MonReader("Login").ToString, MonReader("Password").ToString,
-                                              MonReader("Fonction").ToString, MonReader("Mail").ToString,
-                                              MonReader("Telephone").ToString, MonReader("Telecopie").ToString)
+                Login = MonReader("Login").ToString
+                Pwd = MonReader("Password").ToString
+                Fct = MonReader("Fonction").ToString
+                Mail = MonReader("Mail").ToString
+                Telephone = MonReader("Telephone").ToString
+                Telecopie = MonReader("Telecopie").ToString
+
+                MonReader.Close()
+
+                utilisateur = New Utilisateur(Login, Pwd, Fct, Mail, Telephone, Telecopie, bdd)
             End If
             cmd.Dispose()
-            MonReader.Close()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
@@ -751,8 +759,14 @@ Public Class Formation
         TableVac.Show()
     End Sub
 
-    Private Sub FormationToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles FormationToolStripMenuItem1.Click
+    Private Sub NouvelleFormationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouvelleFormationToolStripMenuItem.Click
         Dim Modif_formation As New Edit_Formation(bdd)
         Modif_formation.Show()
+    End Sub
+
+    Private Sub NouvelleSessionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouvelleSessionToolStripMenuItem.Click
+        Dim Nvelle_session As New Edit_Session(utilisateur)
+        Nvelle_session.Show()
+
     End Sub
 End Class

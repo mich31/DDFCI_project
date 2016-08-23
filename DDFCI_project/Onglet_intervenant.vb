@@ -35,6 +35,8 @@ Public Class Onglet_intervenant
 
         MonAdaptateur.UpdateCommand = New SqlCommand(Req, bdd.connect)
         MonAdaptateur.Update(MonDataSet.Tables("liste_interventions"))
+        cmd.Dispose()
+
     End Sub
 
     Sub GenereListeInterventions(ByRef SF As SessionFormation)

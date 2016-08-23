@@ -25,7 +25,6 @@ Partial Class Edit_Formation
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Edit_Formation))
         Me.DG_ListeFormations = New System.Windows.Forms.DataGridView()
-        Me.NomFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FormationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
@@ -53,7 +52,6 @@ Partial Class Edit_Formation
         Me.CollerToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.FormationTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.FormationTableAdapter()
         Me.BT_Modifier = New System.Windows.Forms.Button()
         Me.BT_Supprimer = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -64,7 +62,6 @@ Partial Class Edit_Formation
         Me.FormationContinueDataSet1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TypeFormationTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.TypeFormationTableAdapter()
         Me.BT_Enregistrer = New System.Windows.Forms.Button()
         CType(Me.DG_ListeFormations, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FormationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,23 +77,14 @@ Partial Class Edit_Formation
         '
         'DG_ListeFormations
         '
-        Me.DG_ListeFormations.AutoGenerateColumns = False
         Me.DG_ListeFormations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_ListeFormations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_ListeFormations.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NomFDataGridViewTextBoxColumn, Me.Type})
-        Me.DG_ListeFormations.DataSource = Me.FormationBindingSource
+        Me.DG_ListeFormations.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Type})
         Me.DG_ListeFormations.Location = New System.Drawing.Point(40, 52)
         Me.DG_ListeFormations.Name = "DG_ListeFormations"
         Me.DG_ListeFormations.ReadOnly = True
         Me.DG_ListeFormations.Size = New System.Drawing.Size(429, 150)
         Me.DG_ListeFormations.TabIndex = 0
-        '
-        'NomFDataGridViewTextBoxColumn
-        '
-        Me.NomFDataGridViewTextBoxColumn.DataPropertyName = "NomF"
-        Me.NomFDataGridViewTextBoxColumn.HeaderText = "Nom"
-        Me.NomFDataGridViewTextBoxColumn.Name = "NomFDataGridViewTextBoxColumn"
-        Me.NomFDataGridViewTextBoxColumn.ReadOnly = True
         '
         'Type
         '
@@ -310,10 +298,6 @@ Partial Class Edit_Formation
         Me.ToolStripButton.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton.Text = "&?"
         '
-        'FormationTableAdapter
-        '
-        Me.FormationTableAdapter.ClearBeforeFill = True
-        '
         'BT_Modifier
         '
         Me.BT_Modifier.Location = New System.Drawing.Point(488, 72)
@@ -340,7 +324,7 @@ Partial Class Edit_Formation
         Me.Panel1.Controls.Add(Me.CB_Type)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(83, 241)
+        Me.Panel1.Location = New System.Drawing.Point(83, 224)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(351, 187)
         Me.Panel1.TabIndex = 5
@@ -363,8 +347,6 @@ Partial Class Edit_Formation
         '
         'CB_Type
         '
-        Me.CB_Type.DataSource = Me.TypeFormationBindingSource
-        Me.CB_Type.DisplayMember = "Nom"
         Me.CB_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Type.FormattingEnabled = True
         Me.CB_Type.Location = New System.Drawing.Point(142, 81)
@@ -401,10 +383,6 @@ Partial Class Edit_Formation
         Me.Label1.Size = New System.Drawing.Size(121, 14)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nom de la formation:"
-        '
-        'TypeFormationTableAdapter
-        '
-        Me.TypeFormationTableAdapter.ClearBeforeFill = True
         '
         'BT_Enregistrer
         '
@@ -450,7 +428,6 @@ Partial Class Edit_Formation
     Friend WithEvents Formation_ContinueDataSet As Formation_ContinueDataSet
     Friend WithEvents Formation_ContinueDataSet1 As Formation_ContinueDataSet1
     Friend WithEvents FormationBindingSource As BindingSource
-    Friend WithEvents FormationTableAdapter As Formation_ContinueDataSet1TableAdapters.FormationTableAdapter
     Friend WithEvents BindingNavigator1 As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
@@ -483,8 +460,6 @@ Partial Class Edit_Formation
     Friend WithEvents BT_Ajouter As Button
     Friend WithEvents FormationContinueDataSet1BindingSource As BindingSource
     Friend WithEvents TypeFormationBindingSource As BindingSource
-    Friend WithEvents TypeFormationTableAdapter As Formation_ContinueDataSet1TableAdapters.TypeFormationTableAdapter
-    Friend WithEvents NomFDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Type As DataGridViewTextBoxColumn
     Friend WithEvents BT_Enregistrer As Button
 End Class

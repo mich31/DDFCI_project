@@ -264,6 +264,51 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.emploisDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_assistantesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_chefs_de_projetsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_inscriptionsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_interventionsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_seancesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.profils_intervenantDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.profils_stagiairesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.travaille_sur_formationDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet1.EntrepriseRow">
 <summary>
 Represents strongly named DataRow class.
@@ -330,6 +375,51 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet1.VacationRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.emploisRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_assistantesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_chefs_de_projetsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_inscriptionsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_interventionsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_seancesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.profils_intervenantRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.profils_stagiairesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.travaille_sur_formationRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -404,6 +494,51 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.emploisRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_assistantesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_chefs_de_projetsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_inscriptionsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_interventionsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.liste_seancesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.profils_intervenantRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.profils_stagiairesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.travaille_sur_formationRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.EntrepriseTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
@@ -470,6 +605,56 @@ Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.VacationTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.emploisTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_assistantesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_chefs_de_projetsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_inscriptionsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_interventionsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_seancesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.profils_intervenantTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.profils_stagiairesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.travaille_sur_formationTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.QueriesTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

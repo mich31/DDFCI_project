@@ -102,6 +102,12 @@
       <DependentUpon>Connexion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Edit_Session.Designer.vb">
+      <DependentUpon>Edit_Session.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Session.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FichePersoIntervenant.Designer.vb">
       <DependentUpon>FichePersoIntervenant.vb</DependentUpon>
     </Compile>
@@ -188,21 +194,31 @@
   <ItemGroup>
     <EmbeddedResource Include="AjouterStagiaire.resx">
       <DependentUpon>AjouterStagiaire.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Ajout_Utilisateur.resx">
       <DependentUpon>Ajout_Utilisateur.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Session.resx">
+      <DependentUpon>Edit_Session.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FichePersoIntervenant.resx">
       <DependentUpon>FichePersoIntervenant.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formation.resx">
       <DependentUpon>Formation.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Modification_utilisateur.resx">
       <DependentUpon>Modification_utilisateur.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -212,15 +228,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Formation.resx">
       <DependentUpon>Edit_Formation.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="NouvelIntervenant.resx">
       <DependentUpon>NouvelIntervenant.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PageConnexion.resx">
       <DependentUpon>PageConnexion.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Vacation.resx">
       <DependentUpon>Vacation.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
