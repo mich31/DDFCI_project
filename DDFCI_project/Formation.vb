@@ -398,17 +398,27 @@ Public Class Formation
     Private Sub DG_Liste_Intervenants_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Liste_Intervenants.CellContentClick
         Init_champs_Information()
         intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
+        Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
+
+        Remplir_DG_Liste_Interventions_nonpayees()
+        Remplir_DG_Liste_Interventions_payees()
+
         Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
 
     Private Sub DG_Liste_Intervenants_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Intervenants.RowHeaderMouseClick
         Init_champs_Information()
         intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
+        Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
+
+        Remplir_DG_Liste_Interventions_nonpayees()
+        Remplir_DG_Liste_Interventions_payees()
+
         Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
 
     Private Sub BT_Nouvel_Intervenant_Click(sender As Object, e As EventArgs) Handles BT_Nouvel_Intervenant.Click
-        Dim Nouv As New NouvelIntervenant(bdd)
+        Dim Nouv As New NouvelIntervenant(bdd, idSession)
         Nouv.Show()
     End Sub
 
@@ -471,25 +481,15 @@ Public Class Formation
         Me.LBL_Stagiaire_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
     End Sub
 
-    'Sub Ajout_Stagiaire(ByRef St As Stagiaire)
-    '    Dim Req As String = "exec AjoutStagiaire @_Civ = '" & St.civ &
-    '        "',@_Nom = '" & St.nom & "',@_NomJeuneFille = '" & St.nomJF & "',@_Prenom='" &
-    '        St.prenom & "',@_Nationalite = '" & St.nationalite & "',@_Adresse = '" &
-    '        St.adresse & "',@_CP = '" & St.cp & "',@_Ville = '" & St.ville & "',@_Pays ='" &
-    '        St.pays & "',@_NumTel = '" & St.telephone & "',@_Mail = '" & St.mail & "'"
-    '    Dim cmd As New SqlCommand(Req, bdd.connect)
-
-    '    Try
-    '        cmd.ExecuteNonQuery()
-    '    Catch ex As Exception
-    '        Console.WriteLine(ex.Message)
-    '    End Try
-    '    cmd.Dispose()
-    'End Sub
-
     Private Sub BT_Nouveau_Stagiaire_Click(sender As Object, e As EventArgs) Handles BT_Nouveau_Stagiaire.Click
         Dim Nouv As New NouveauStagiaire(bdd, idSession)
         Nouv.Show()
+    End Sub
+
+    Private Sub BT_Refresh_Click(sender As Object, e As EventArgs) Handles BT_Refresh.Click
+        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
+        o_Stagiaire = New Onglet_stagiaire(bdd, SF)
+        Remplir_DG_Liste_Stagiaires()
     End Sub
 
 #End Region
@@ -632,7 +632,6 @@ Public Class Formation
         Remplir_DG_Liste_Intervenants()
         Remplir_DG_Liste_Interventions()
         Remplir_DG_Liste_Stagiaires()
-        'RemplirControlsDoc(SF)
     End Sub
 
     Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs)

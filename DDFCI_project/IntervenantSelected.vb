@@ -8,7 +8,7 @@ Public Class IntervenantSelected
     Private Prenom As String
 
 
-    Property data_table As DataTable
+    Property interventions As DataTable
         Set(value As DataTable)
 
         End Set

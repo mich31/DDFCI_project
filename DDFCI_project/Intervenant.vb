@@ -10,6 +10,8 @@ Public Class Intervenant
     Private Session As String
     Private utilisateur As Utilisateur
 
+    Private TableInterventions As DataTable
+
     Sub New(ByRef base As BD, ByVal ListeIntervenants As DataTable, ByVal ListeInterventions As DataTable, ByVal DonneesPro As DataTable, ByVal index As Integer, ByVal _Session As String, ByVal _NomFormation As String, ByVal _utilisateur As Utilisateur)
         bdd = base
         Dim Ligne As DataRow
@@ -18,9 +20,11 @@ Public Class Intervenant
         NomFormation = _NomFormation
         Session = _Session
         utilisateur = _utilisateur
+        TableInterventions = ListeInterventions
 
         GenereInfosPerso()
         GenereInfosPro()
+        GenereInterventions()
     End Sub
 
     Sub GenereInfosPerso()
@@ -48,6 +52,33 @@ Public Class Intervenant
         End Try
         cmd.Dispose()
     End Sub
+
+    Sub GenereInterventions()
+        Dim Req As String = "select*from liste_interventions where idIntervenant='" & id & "' and NomF='" & NomFormation & "' 
+            and AnneeSession='" & Session & "'"
+        Dim cmd As New SqlCommand(Req, bdd.connect)
+        Dim MonAdaptateur As New SqlDataAdapter(cmd)
+
+        Try
+            MonAdaptateur.Fill(MonDataSet, "tableau_interventions")
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
+#Region "Propriétés"
+
+    Property interventions As DataTable
+        Set(value As DataTable)
+
+        End Set
+        Get
+            Return MonDataSet.Tables("tableau_interventions")
+        End Get
+    End Property
+
+#End Region
 
 #Region "Edition des documents"
 

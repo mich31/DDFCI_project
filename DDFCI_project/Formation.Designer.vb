@@ -186,6 +186,7 @@ Partial Class Formation
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.BT_Refresh = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -1089,6 +1090,7 @@ Partial Class Formation
         '
         'Panel_Stagiaires_détails
         '
+        Me.Panel_Stagiaires_détails.Controls.Add(Me.BT_Refresh)
         Me.Panel_Stagiaires_détails.Controls.Add(Me.GroupBox7)
         Me.Panel_Stagiaires_détails.Controls.Add(Me.LBL_Stagiaire_NB_Enregistrement)
         Me.Panel_Stagiaires_détails.Controls.Add(Me.ToolStrip5)
@@ -1789,6 +1791,15 @@ Partial Class Formation
         Me.GroupBox11.TabIndex = 4
         Me.GroupBox11.TabStop = False
         '
+        'BT_Refresh
+        '
+        Me.BT_Refresh.Location = New System.Drawing.Point(852, 253)
+        Me.BT_Refresh.Name = "BT_Refresh"
+        Me.BT_Refresh.Size = New System.Drawing.Size(75, 23)
+        Me.BT_Refresh.TabIndex = 7
+        Me.BT_Refresh.Text = "Raffraîchir"
+        Me.BT_Refresh.UseVisualStyleBackColor = True
+        '
         'Formation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2024,4 +2035,5 @@ Partial Class Formation
     Friend WithEvents Button14 As Button
     Friend WithEvents Button13 As Button
     Friend WithEvents BT_Nouveau_Stagiaire As Button
+    Friend WithEvents BT_Refresh As Button
 End Class

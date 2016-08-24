@@ -89,13 +89,59 @@ Public Class Edit_Session
         Dim res As Integer
 
         Try
+            'Ajout d'une nouvelle session de formation
             res = cmd.ExecuteNonQuery()
+            cmd.Dispose()
+            'Liaison de la nouvelle session avec un chef de projet et une assistante
+            Dim idS As String = GenereID_Session(idF)
+            Liaison_Session_Personnel(idS)
+
             MsgBox(res & " session ajoutée")
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
-        cmd.Dispose()
     End Sub
+
+    Sub Liaison_Session_Personnel(ByVal idS As String)
+        Dim req1 As String = "insert into travailleSurFormation values ('" & Me.CB_CP.Text & "','" & idS & "')"
+        Dim req2 As String = "insert into travailleSurFormation values ('" & Me.CB_AF.Text & "','" & idS & "')"
+        Dim cmd1 As New SqlCommand(req1, bdd.connect)
+        Dim cmd2 As New SqlCommand(req2, bdd.connect)
+        Dim res1 As String = "0"
+        Dim res2 As String = "0"
+
+        Try
+            res1 = cmd1.ExecuteNonQuery()
+            cmd1.Dispose()
+            MsgBox(res1 & " Chef de projet")
+            res2 = cmd2.ExecuteNonQuery()
+            cmd2.Dispose()
+            MsgBox(res2 & " Assistante ")
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+
+    End Sub
+
+    Function GenereID_Session(ByVal ID_Formation As String) As String
+        Dim req As String = "select*from SessionFormation where idFormation='" & ID_Formation & "' 
+            and AnneeSession='" & Me.DTP_Session.Value & "' and DateDebut='" & Me.DTP_Debut.Value & "'"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim res As String = "0"
+
+        Try
+            Dim MonReader As SqlDataReader = cmd.ExecuteReader()
+            If MonReader.Read() Then
+                res = MonReader("idSessionFormation").ToString
+            End If
+            MonReader.Close()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+
+        Return res
+    End Function
 
     Function GenereID_Formation(ByVal NomFormation As String) As String
         Dim req As String = "select*from Formation where NomF='" & NomFormation & "'"

@@ -2,15 +2,17 @@
 
 Public Class NouvelIntervenant
     Private bdd As BD
-    Private id As Integer
+    Private idP As Integer
+    Private idS As String
 
-    Sub New(ByRef base As BD)
+    Sub New(ByRef base As BD, ByVal idSession As String)
 
         ' Cet appel est requis par le concepteur.
         InitializeComponent()
 
         ' Ajoutez une initialisation quelconque après l'appel InitializeComponent().
         bdd = base
+        idS = idSession
     End Sub
 
     Private Sub BT_Annuler_Click(sender As Object, e As EventArgs) Handles BT_Annuler.Click
@@ -34,20 +36,20 @@ Public Class NouvelIntervenant
         Try
             Res = cmd.ExecuteNonQuery()
             cmd.Dispose()
-            GenereIDS(TB_Nom.Text, TB_Prenom.Text)
-            MsgBox(id)
+            GenereID_Personne(TB_Nom.Text, TB_Prenom.Text)
+            MsgBox(idP)
             LiaisonIntervention()
             MsgBox(Res - 1 & " Intervenant(e) ajouté(e)")
             'Me.Dispose()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
-        'cmd.Dispose()
     End Sub
 
 
     Sub LiaisonIntervention()
-        Dim Req As String = "exec Intervenant_intervient_Seance @_idIntervenant = " & id & ", @_idSeance = 1"
+        'Dim Req As String = "exec Intervenant_intervient_Seance @_idIntervenant = " & idP & ", @_idSeance = 1"
+        Dim Req As String = "insert into intervientSurSession values ('" & idP & "','" & idS & "')"
         Dim cmd As New SqlCommand(Req, bdd.connect)
         Dim Res As Integer
         Try
@@ -60,14 +62,14 @@ Public Class NouvelIntervenant
     End Sub
 
 
-    Sub GenereIDS(ByVal Nom As String, ByVal Prenom As String)
+    Sub GenereID_Personne(ByVal Nom As String, ByVal Prenom As String)
         Dim Req As String = "select*from profils_intervenant where NomP='" & Nom & "' and PrenomP='" & Prenom & "'"
         Dim cmd As New SqlCommand(Req, bdd.connect)
 
         Try
             Dim MonReader As SqlDataReader = cmd.ExecuteReader
             If MonReader.Read() Then
-                id = MonReader("idPersonne").ToString
+                idP = MonReader("idPersonne").ToString
             End If
             MonReader.Close()
             cmd.Dispose()

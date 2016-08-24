@@ -26,11 +26,10 @@ Public Class NouveauStagiaire
         Try
             Res = cmd.ExecuteNonQuery()
             cmd.Dispose()
-            'GenereID(TB_Nom.Text, TB_Prenom.Text)
+            GenereID(TB_Nom.Text, TB_Prenom.Text)
             MsgBox(id)
-            'LiaisonIntervention()
-            MsgBox(Res - 1 & " Intervenant(e) ajouté(e)")
-            'Me.Dispose()
+            MsgBox(Res - 1 & " stagiaire ajouté(e)")
+            Me.Dispose()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
@@ -55,5 +54,9 @@ Public Class NouveauStagiaire
 
     Private Sub BT_Annuler_Click(sender As Object, e As EventArgs) Handles BT_Annuler.Click
         Me.Dispose()
+    End Sub
+
+    Private Sub BT_Ajouter_Click(sender As Object, e As EventArgs) Handles BT_Ajouter.Click
+        Ajoute_stagiaire()
     End Sub
 End Class
