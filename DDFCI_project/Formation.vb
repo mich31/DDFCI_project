@@ -87,13 +87,18 @@ Public Class Formation
 
 
     Private Sub Formation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.liste_interventions'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+        Me.Liste_interventionsTableAdapter.Fill(Me.Formation_ContinueDataSet1.liste_interventions)
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.profils_intervenant'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+        Me.Profils_intervenantTableAdapter.Fill(Me.Formation_ContinueDataSet1.profils_intervenant)
+
         Me.TV_Menu.TopNode = Me.TV_Menu.Nodes.Add(bdd.username)
         CreerArborescence()
         CreerUtilisateur()
-        Creation_DG()
+        'Creation_DG()
         GestionDesDroits()
         OrdonneOnglets()
-        MAJ_planning()
+        'MAJ_planning()
     End Sub
 
     Sub OrdonneOnglets()
@@ -177,6 +182,64 @@ Public Class Formation
 
 #Region "Arborescence Formations"
 
+    Private Sub TV_Menu_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TV_Menu.AfterSelect
+        'Si le noeud sélectionné est une session de formation
+        If Me.TV_Menu.SelectedNode.Level = 2 Then
+            NomFormation = Me.TV_Menu.SelectedNode.Parent.Text
+            SessionFormation = Me.TV_Menu.SelectedNode.Text
+            GenereIDs(NomFormation, SessionFormation)
+            MAJ_infos()
+        ElseIf Me.TV_Menu.SelectedNode.Level = 1 Then 'Si le noeud sélectionné est une formation
+            NomFormation = Me.TV_Menu.SelectedNode.Text
+        End If
+    End Sub
+
+    Private Sub GenereIDs(ByVal NomF As String, ByVal Session As String)
+        Dim Req As String = "select*from SessionFormation SF join Formation F on SF.idFormation = F.idFormation 
+                        where F.NomF = '" & NomFormation & "' and SF.AnneeSession = '" & SessionFormation & "'"
+        Dim cmd As New SqlCommand(Req, bdd.connect)
+
+        Try
+            Dim MonReader As SqlDataReader = cmd.ExecuteReader()
+            If MonReader.Read() Then
+                idSession = MonReader("idSessionFormation").ToString
+                idFormation = MonReader("idFormation").ToString
+            End If
+            MonReader.Close()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
+    Private Sub MAJ_infos()
+        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
+
+        o_Planning = New Onglet_planning(bdd, SF)
+        o_Intervenant = New Onglet_intervenant(bdd, SF, idSession)
+        o_Stagiaire = New Onglet_stagiaire(bdd, SF)
+
+        Me.RTB_Formation.Text = NomFormation
+
+        Me.TB_Session.Text = SessionFormation
+
+        Me.TB_Debut_Session.Text = SF.Debut
+        Me.TB_Fin_Session.Text = SF.Fin
+        Me.CB_CP.Text = SF.Chef_de_projet
+        Me.CB_AF.Text = SF.Assistante
+
+        Me.TB_I_NB_Intervenants.Text = o_Intervenant.Intervenants.Rows.Count
+
+        Me.TB_I_NB_Stagiaires.Text = o_Stagiaire.Stagiaires.Rows.Count
+
+
+        MAJ_planning()
+        Remplir_DG_Liste_Intervenants()
+        Remplir_DG_Liste_Interventions()
+        Remplir_DG_Liste_Stagiaires()
+    End Sub
+
+
     ''' <summary>
     ''' Crée l'arborescence des formations et sessions de formations sur lesquelles l'utilisateur travaille
     ''' </summary>
@@ -225,53 +288,76 @@ Public Class Formation
 
 #Region "Onglet Intervenant"
 
+    Private Sub FillBy_liste_intervenantsToolStripButton_Click(sender As Object, e As EventArgs) Handles FillBy_liste_intervenantsToolStripButton.Click
+        Try
+            Me.Profils_intervenantTableAdapter.FillBy_liste_intervenants(Me.Formation_ContinueDataSet1.profils_intervenant, CType(Param_DG_Intervenants.Text, Integer))
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub FillBy_liste_interventionsToolStripButton_Click(sender As Object, e As EventArgs) Handles FillBy_liste_interventionsToolStripButton.Click
+        Try
+            Me.Liste_interventionsTableAdapter.FillBy_liste_interventions(Me.Formation_ContinueDataSet1.liste_interventions, Param_NomFormation.Text, Param_Session.Text)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
     Sub Remplir_DG_Liste_Intervenants()
-        Me.DG_Liste_Intervenants.DataSource = o_Intervenant.Intervenants
-        Dim nb As Integer = Me.DG_Liste_Intervenants.RowCount
+        Me.Param_DG_Intervenants.Text = idSession
+        Me.FillBy_liste_intervenantsToolStripButton.PerformClick()
+        'Me.DG_Liste_Intervenants.DataSource = o_Intervenant.Intervenants
+        'Dim nb As Integer = Me.DG_Liste_Intervenants.RowCount
 
-        Me.DG_Liste_Intervenants.Columns("NomP").HeaderText = "Nom"
-        Me.DG_Liste_Intervenants.Columns("PrenomP").HeaderText = "Prénom"
-        Me.DG_Liste_Intervenants.Columns("CiviliteP").HeaderText = "Civilité"
-        Me.DG_Liste_Intervenants.Columns("TypeIntervenant").HeaderText = "Type intervenant"
-        Me.DG_Liste_Intervenants.Columns("DateNaissanceI").HeaderText = "Date de naissance"
+        'Me.DG_Liste_Intervenants.Columns("NomP").HeaderText = "Nom"
+        'Me.DG_Liste_Intervenants.Columns("PrenomP").HeaderText = "Prénom"
+        'Me.DG_Liste_Intervenants.Columns("CiviliteP").HeaderText = "Civilité"
+        'Me.DG_Liste_Intervenants.Columns("TypeIntervenant").HeaderText = "Type intervenant"
+        'Me.DG_Liste_Intervenants.Columns("DateNaissanceI").HeaderText = "Date de naissance"
 
-        For Each col As DataGridViewColumn In Me.DG_Liste_Intervenants.Columns
-            If col.HeaderText IsNot "" And col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civilité" And col.HeaderText IsNot "Type intervenant" And col.HeaderText IsNot "Date de naissance" Then
-                col.Visible = False
-            End If
-            'col.ReadOnly = True
-            If col.HeaderText Is "" Then
-                'col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                col.ReadOnly = False
-            End If
-        Next
+        'For Each col As DataGridViewColumn In Me.DG_Liste_Intervenants.Columns
+        '    If col.HeaderText IsNot "" And col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Civilité" And col.HeaderText IsNot "Type intervenant" And col.HeaderText IsNot "Date de naissance" Then
+        '        col.Visible = False
+        '    End If
+        '    'col.ReadOnly = True
+        '    If col.HeaderText Is "" Then
+        '        'col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        '        col.ReadOnly = False
+        '    End If
+        'Next
 
-        Me.LBL_Intervenant_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
+        'Me.LBL_Intervenant_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
     End Sub
 
     Sub Remplir_DG_Liste_Interventions()
-        Me.DG_Liste_Interventions.DataSource = o_Intervenant.Interventions
-        Me.DG_Liste_Interventions.Columns("NomF").HeaderText = "Formation"
-        Me.DG_Liste_Interventions.Columns("TypeIntervention").HeaderText = "Type d'intervention"
-        Me.DG_Liste_Interventions.Columns("Date").HeaderText = "Date"
-        Me.DG_Liste_Interventions.Columns("NbHeure").HeaderText = "Nb d'heures"
-        Me.DG_Liste_Interventions.Columns("Salle").HeaderText = "Salle"
-        Me.DG_Liste_Interventions.Columns("HeureDebut").HeaderText = "Début"
-        Me.DG_Liste_Interventions.Columns("HeureFin").HeaderText = "Fin"
+        Me.Param_NomFormation.Text = NomFormation
+        Me.Param_Session.Text = SessionFormation
+        Me.FillBy_liste_interventionsToolStripButton.PerformClick()
+        'Me.DG_Liste_Interventions.DataSource = o_Intervenant.Interventions
+        'Me.DG_Liste_Interventions.Columns("NomF").HeaderText = "Formation"
+        'Me.DG_Liste_Interventions.Columns("TypeIntervention").HeaderText = "Type d'intervention"
+        'Me.DG_Liste_Interventions.Columns("Date").HeaderText = "Date"
+        'Me.DG_Liste_Interventions.Columns("NbHeure").HeaderText = "Nb d'heures"
+        'Me.DG_Liste_Interventions.Columns("Salle").HeaderText = "Salle"
+        'Me.DG_Liste_Interventions.Columns("HeureDebut").HeaderText = "Début"
+        'Me.DG_Liste_Interventions.Columns("HeureFin").HeaderText = "Fin"
 
-        For Each col As DataGridViewColumn In Me.DG_Liste_Interventions.Columns
-            If col.HeaderText IsNot "" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
-                col.Visible = False
-            End If
-            col.ReadOnly = True
-            If col.HeaderText Is "" Then
-                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-                col.ReadOnly = False
-            End If
-        Next
+        'For Each col As DataGridViewColumn In Me.DG_Liste_Interventions.Columns
+        '    If col.HeaderText IsNot "" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
+        '        col.Visible = False
+        '    End If
+        '    col.ReadOnly = True
+        '    If col.HeaderText Is "" Then
+        '        col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        '        col.ReadOnly = False
+        '    End If
+        'Next
 
-        Remplir_DG_Liste_Interventions_payees()
-        Remplir_DG_Liste_Interventions_nonpayees()
+        'Remplir_DG_Liste_Interventions_payees()
+        'Remplir_DG_Liste_Interventions_nonpayees()
     End Sub
 
     Sub Remplir_DG_Liste_Interventions_payees()
@@ -614,62 +700,6 @@ Public Class Formation
     End Sub
 
 
-    Private Sub TV_Menu_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TV_Menu.AfterSelect
-        'Si le noeud sélectionné est une session de formation
-        If Me.TV_Menu.SelectedNode.Level = 2 Then
-            NomFormation = Me.TV_Menu.SelectedNode.Parent.Text
-            SessionFormation = Me.TV_Menu.SelectedNode.Text
-            GenereIDs(NomFormation, SessionFormation)
-            MAJ_infos()
-        ElseIf Me.TV_Menu.SelectedNode.Level = 1 Then 'Si le noeud sélectionné est une formation
-            NomFormation = Me.TV_Menu.SelectedNode.Text
-        End If
-    End Sub
-
-    Private Sub GenereIDs(ByVal NomF As String, ByVal Session As String)
-        Dim Req As String = "select*from SessionFormation SF join Formation F on SF.idFormation = F.idFormation 
-                        where F.NomF = '" & NomFormation & "' and SF.AnneeSession = '" & SessionFormation & "'"
-        Dim cmd As New SqlCommand(Req, bdd.connect)
-
-        Try
-            Dim MonReader As SqlDataReader = cmd.ExecuteReader()
-            If MonReader.Read() Then
-                idSession = MonReader("idSessionFormation").ToString
-                idFormation = MonReader("idFormation").ToString
-            End If
-            MonReader.Close()
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
-        cmd.Dispose()
-    End Sub
-
-    Private Sub MAJ_infos()
-        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
-
-        o_Planning = New Onglet_planning(bdd, SF)
-        o_Intervenant = New Onglet_intervenant(bdd, SF, idSession)
-        o_Stagiaire = New Onglet_stagiaire(bdd, SF)
-
-        Me.RTB_Formation.Text = NomFormation
-
-        Me.TB_Session.Text = SessionFormation
-
-        Me.TB_Debut_Session.Text = SF.Debut
-        Me.TB_Fin_Session.Text = SF.Fin
-        Me.CB_CP.Text = SF.Chef_de_projet
-        Me.CB_AF.Text = SF.Assistante
-
-        Me.TB_I_NB_Intervenants.Text = o_Intervenant.Intervenants.Rows.Count
-
-        Me.TB_I_NB_Stagiaires.Text = o_Stagiaire.Stagiaires.Rows.Count
-
-
-        MAJ_planning()
-        Remplir_DG_Liste_Intervenants()
-        Remplir_DG_Liste_Interventions()
-        Remplir_DG_Liste_Stagiaires()
-    End Sub
 
     Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs)
         FichePersoIntervenant.Show()
