@@ -133,6 +133,16 @@ Partial Class Formation
         Me.ListeinterventionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.FillBy_interventions_PToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.NomFormationToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_NomFormation1_P = New System.Windows.Forms.ToolStripTextBox()
+        Me.SessionToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_Session1_P = New System.Windows.Forms.ToolStripTextBox()
+        Me.NomToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_Nom1_P = New System.Windows.Forms.ToolStripTextBox()
+        Me.PrenomToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_Prenom1_P = New System.Windows.Forms.ToolStripTextBox()
+        Me.FillBy_interventions_PToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -197,7 +207,7 @@ Partial Class Formation
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.Button15 = New System.Windows.Forms.Button()
         Me.Button14 = New System.Windows.Forms.Button()
-        Me.Button13 = New System.Windows.Forms.Button()
+        Me.BT_Modifier_Stagiaires = New System.Windows.Forms.Button()
         Me.BT_Nouveau_Stagiaire = New System.Windows.Forms.Button()
         Me.LBL_Stagiaire_NB_Enregistrement = New System.Windows.Forms.Label()
         Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
@@ -269,16 +279,6 @@ Partial Class Formation
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.Profils_intervenantTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.profils_intervenantTableAdapter()
         Me.Liste_interventionsTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_interventionsTableAdapter()
-        Me.FillBy_interventions_PToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.NomFormationToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
-        Me.Param_NomFormation1_P = New System.Windows.Forms.ToolStripTextBox()
-        Me.SessionToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
-        Me.Param_Session1_P = New System.Windows.Forms.ToolStripTextBox()
-        Me.NomToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
-        Me.Param_Nom1_P = New System.Windows.Forms.ToolStripTextBox()
-        Me.PrenomToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
-        Me.Param_Prenom1_P = New System.Windows.Forms.ToolStripTextBox()
-        Me.FillBy_interventions_PToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -300,6 +300,7 @@ Partial Class Formation
         CType(Me.ListeinterventionsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage9.SuspendLayout()
+        Me.FillBy_interventions_PToolStrip1.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         CType(Me.DG_Liste_Interventions_nonpayees, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListeinterventionsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -323,7 +324,6 @@ Partial Class Formation
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
-        Me.FillBy_interventions_PToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -1280,6 +1280,68 @@ Partial Class Formation
         Me.TabPage9.TabIndex = 3
         Me.TabPage9.Text = "Paiement(s)"
         '
+        'FillBy_interventions_PToolStrip1
+        '
+        Me.FillBy_interventions_PToolStrip1.Dock = System.Windows.Forms.DockStyle.None
+        Me.FillBy_interventions_PToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NomFormationToolStripLabel3, Me.Param_NomFormation1_P, Me.SessionToolStripLabel3, Me.Param_Session1_P, Me.NomToolStripLabel2, Me.Param_Nom1_P, Me.PrenomToolStripLabel2, Me.Param_Prenom1_P, Me.FillBy_interventions_PToolStripButton1})
+        Me.FillBy_interventions_PToolStrip1.Location = New System.Drawing.Point(11, 315)
+        Me.FillBy_interventions_PToolStrip1.Name = "FillBy_interventions_PToolStrip1"
+        Me.FillBy_interventions_PToolStrip1.Size = New System.Drawing.Size(775, 25)
+        Me.FillBy_interventions_PToolStrip1.TabIndex = 5
+        Me.FillBy_interventions_PToolStrip1.Text = "FillBy_interventions_PToolStrip1"
+        Me.FillBy_interventions_PToolStrip1.Visible = False
+        '
+        'NomFormationToolStripLabel3
+        '
+        Me.NomFormationToolStripLabel3.Name = "NomFormationToolStripLabel3"
+        Me.NomFormationToolStripLabel3.Size = New System.Drawing.Size(92, 22)
+        Me.NomFormationToolStripLabel3.Text = "NomFormation:"
+        '
+        'Param_NomFormation1_P
+        '
+        Me.Param_NomFormation1_P.Name = "Param_NomFormation1_P"
+        Me.Param_NomFormation1_P.Size = New System.Drawing.Size(100, 25)
+        '
+        'SessionToolStripLabel3
+        '
+        Me.SessionToolStripLabel3.Name = "SessionToolStripLabel3"
+        Me.SessionToolStripLabel3.Size = New System.Drawing.Size(49, 22)
+        Me.SessionToolStripLabel3.Text = "Session:"
+        '
+        'Param_Session1_P
+        '
+        Me.Param_Session1_P.Name = "Param_Session1_P"
+        Me.Param_Session1_P.Size = New System.Drawing.Size(100, 25)
+        '
+        'NomToolStripLabel2
+        '
+        Me.NomToolStripLabel2.Name = "NomToolStripLabel2"
+        Me.NomToolStripLabel2.Size = New System.Drawing.Size(37, 22)
+        Me.NomToolStripLabel2.Text = "Nom:"
+        '
+        'Param_Nom1_P
+        '
+        Me.Param_Nom1_P.Name = "Param_Nom1_P"
+        Me.Param_Nom1_P.Size = New System.Drawing.Size(100, 25)
+        '
+        'PrenomToolStripLabel2
+        '
+        Me.PrenomToolStripLabel2.Name = "PrenomToolStripLabel2"
+        Me.PrenomToolStripLabel2.Size = New System.Drawing.Size(52, 22)
+        Me.PrenomToolStripLabel2.Text = "Prenom:"
+        '
+        'Param_Prenom1_P
+        '
+        Me.Param_Prenom1_P.Name = "Param_Prenom1_P"
+        Me.Param_Prenom1_P.Size = New System.Drawing.Size(100, 25)
+        '
+        'FillBy_interventions_PToolStripButton1
+        '
+        Me.FillBy_interventions_PToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillBy_interventions_PToolStripButton1.Name = "FillBy_interventions_PToolStripButton1"
+        Me.FillBy_interventions_PToolStripButton1.Size = New System.Drawing.Size(125, 22)
+        Me.FillBy_interventions_PToolStripButton1.Text = "FillBy_interventions_P"
+        '
         'GroupBox8
         '
         Me.GroupBox8.Controls.Add(Me.Button9)
@@ -1530,6 +1592,7 @@ Partial Class Formation
         Me.DG_Liste_Intervenants.DataSource = Me.ProfilsintervenantBindingSource
         Me.DG_Liste_Intervenants.Location = New System.Drawing.Point(46, 53)
         Me.DG_Liste_Intervenants.Name = "DG_Liste_Intervenants"
+        Me.DG_Liste_Intervenants.ReadOnly = True
         Me.DG_Liste_Intervenants.RowHeadersWidth = 31
         Me.DG_Liste_Intervenants.Size = New System.Drawing.Size(760, 261)
         Me.DG_Liste_Intervenants.TabIndex = 1
@@ -1540,6 +1603,7 @@ Partial Class Formation
         Me.CivilitePDataGridViewTextBoxColumn.DataPropertyName = "CiviliteP"
         Me.CivilitePDataGridViewTextBoxColumn.HeaderText = "Civilité"
         Me.CivilitePDataGridViewTextBoxColumn.Name = "CivilitePDataGridViewTextBoxColumn"
+        Me.CivilitePDataGridViewTextBoxColumn.ReadOnly = True
         Me.CivilitePDataGridViewTextBoxColumn.Width = 62
         '
         'NomPDataGridViewTextBoxColumn
@@ -1547,30 +1611,35 @@ Partial Class Formation
         Me.NomPDataGridViewTextBoxColumn.DataPropertyName = "NomP"
         Me.NomPDataGridViewTextBoxColumn.HeaderText = "Nom"
         Me.NomPDataGridViewTextBoxColumn.Name = "NomPDataGridViewTextBoxColumn"
+        Me.NomPDataGridViewTextBoxColumn.ReadOnly = True
         '
         'PrenomPDataGridViewTextBoxColumn
         '
         Me.PrenomPDataGridViewTextBoxColumn.DataPropertyName = "PrenomP"
         Me.PrenomPDataGridViewTextBoxColumn.HeaderText = "Prenom"
         Me.PrenomPDataGridViewTextBoxColumn.Name = "PrenomPDataGridViewTextBoxColumn"
+        Me.PrenomPDataGridViewTextBoxColumn.ReadOnly = True
         '
         'TypeIntervenantDataGridViewTextBoxColumn
         '
         Me.TypeIntervenantDataGridViewTextBoxColumn.DataPropertyName = "TypeIntervenant"
         Me.TypeIntervenantDataGridViewTextBoxColumn.HeaderText = "Type d'intervenant"
         Me.TypeIntervenantDataGridViewTextBoxColumn.Name = "TypeIntervenantDataGridViewTextBoxColumn"
+        Me.TypeIntervenantDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DateNaissanceIDataGridViewTextBoxColumn
         '
         Me.DateNaissanceIDataGridViewTextBoxColumn.DataPropertyName = "DateNaissanceI"
         Me.DateNaissanceIDataGridViewTextBoxColumn.HeaderText = "Date de naissance"
         Me.DateNaissanceIDataGridViewTextBoxColumn.Name = "DateNaissanceIDataGridViewTextBoxColumn"
+        Me.DateNaissanceIDataGridViewTextBoxColumn.ReadOnly = True
         '
         'PaysP
         '
         Me.PaysP.DataPropertyName = "PaysP"
         Me.PaysP.HeaderText = "PaysP"
         Me.PaysP.Name = "PaysP"
+        Me.PaysP.ReadOnly = True
         '
         'ProfilsintervenantBindingSource
         '
@@ -1727,7 +1796,7 @@ Partial Class Formation
         '
         Me.GroupBox7.Controls.Add(Me.Button15)
         Me.GroupBox7.Controls.Add(Me.Button14)
-        Me.GroupBox7.Controls.Add(Me.Button13)
+        Me.GroupBox7.Controls.Add(Me.BT_Modifier_Stagiaires)
         Me.GroupBox7.Controls.Add(Me.BT_Nouveau_Stagiaire)
         Me.GroupBox7.Location = New System.Drawing.Point(844, 53)
         Me.GroupBox7.Name = "GroupBox7"
@@ -1753,14 +1822,14 @@ Partial Class Formation
         Me.Button14.Text = "Supprimer"
         Me.Button14.UseVisualStyleBackColor = True
         '
-        'Button13
+        'BT_Modifier_Stagiaires
         '
-        Me.Button13.Location = New System.Drawing.Point(6, 58)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(75, 23)
-        Me.Button13.TabIndex = 1
-        Me.Button13.Text = "Modifier"
-        Me.Button13.UseVisualStyleBackColor = True
+        Me.BT_Modifier_Stagiaires.Location = New System.Drawing.Point(6, 58)
+        Me.BT_Modifier_Stagiaires.Name = "BT_Modifier_Stagiaires"
+        Me.BT_Modifier_Stagiaires.Size = New System.Drawing.Size(75, 23)
+        Me.BT_Modifier_Stagiaires.TabIndex = 1
+        Me.BT_Modifier_Stagiaires.Text = "Modifier"
+        Me.BT_Modifier_Stagiaires.UseVisualStyleBackColor = True
         '
         'BT_Nouveau_Stagiaire
         '
@@ -2436,68 +2505,6 @@ Partial Class Formation
         '
         Me.Liste_interventionsTableAdapter.ClearBeforeFill = True
         '
-        'FillBy_interventions_PToolStrip1
-        '
-        Me.FillBy_interventions_PToolStrip1.Dock = System.Windows.Forms.DockStyle.None
-        Me.FillBy_interventions_PToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NomFormationToolStripLabel3, Me.Param_NomFormation1_P, Me.SessionToolStripLabel3, Me.Param_Session1_P, Me.NomToolStripLabel2, Me.Param_Nom1_P, Me.PrenomToolStripLabel2, Me.Param_Prenom1_P, Me.FillBy_interventions_PToolStripButton1})
-        Me.FillBy_interventions_PToolStrip1.Location = New System.Drawing.Point(11, 315)
-        Me.FillBy_interventions_PToolStrip1.Name = "FillBy_interventions_PToolStrip1"
-        Me.FillBy_interventions_PToolStrip1.Size = New System.Drawing.Size(806, 25)
-        Me.FillBy_interventions_PToolStrip1.TabIndex = 5
-        Me.FillBy_interventions_PToolStrip1.Text = "FillBy_interventions_PToolStrip1"
-        Me.FillBy_interventions_PToolStrip1.Visible = False
-        '
-        'NomFormationToolStripLabel3
-        '
-        Me.NomFormationToolStripLabel3.Name = "NomFormationToolStripLabel3"
-        Me.NomFormationToolStripLabel3.Size = New System.Drawing.Size(92, 22)
-        Me.NomFormationToolStripLabel3.Text = "NomFormation:"
-        '
-        'Param_NomFormation1_P
-        '
-        Me.Param_NomFormation1_P.Name = "NomFormationToolStripTextBox"
-        Me.Param_NomFormation1_P.Size = New System.Drawing.Size(100, 25)
-        '
-        'SessionToolStripLabel3
-        '
-        Me.SessionToolStripLabel3.Name = "SessionToolStripLabel3"
-        Me.SessionToolStripLabel3.Size = New System.Drawing.Size(49, 22)
-        Me.SessionToolStripLabel3.Text = "Session:"
-        '
-        'Param_Session1_P
-        '
-        Me.Param_Session1_P.Name = "SessionToolStripTextBox"
-        Me.Param_Session1_P.Size = New System.Drawing.Size(100, 25)
-        '
-        'NomToolStripLabel2
-        '
-        Me.NomToolStripLabel2.Name = "NomToolStripLabel2"
-        Me.NomToolStripLabel2.Size = New System.Drawing.Size(37, 22)
-        Me.NomToolStripLabel2.Text = "Nom:"
-        '
-        'Param_Nom1_P
-        '
-        Me.Param_Nom1_P.Name = "NomToolStripTextBox"
-        Me.Param_Nom1_P.Size = New System.Drawing.Size(100, 25)
-        '
-        'PrenomToolStripLabel2
-        '
-        Me.PrenomToolStripLabel2.Name = "PrenomToolStripLabel2"
-        Me.PrenomToolStripLabel2.Size = New System.Drawing.Size(52, 22)
-        Me.PrenomToolStripLabel2.Text = "Prenom:"
-        '
-        'Param_Prenom1_P
-        '
-        Me.Param_Prenom1_P.Name = "PrenomToolStripTextBox"
-        Me.Param_Prenom1_P.Size = New System.Drawing.Size(100, 25)
-        '
-        'FillBy_interventions_PToolStripButton1
-        '
-        Me.FillBy_interventions_PToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.FillBy_interventions_PToolStripButton1.Name = "FillBy_interventions_PToolStripButton1"
-        Me.FillBy_interventions_PToolStripButton1.Size = New System.Drawing.Size(125, 22)
-        Me.FillBy_interventions_PToolStripButton1.Text = "FillBy_interventions_P"
-        '
         'Formation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2546,6 +2553,8 @@ Partial Class Formation
         CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage9.ResumeLayout(False)
         Me.TabPage9.PerformLayout()
+        Me.FillBy_interventions_PToolStrip1.ResumeLayout(False)
+        Me.FillBy_interventions_PToolStrip1.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         CType(Me.DG_Liste_Interventions_nonpayees, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListeinterventionsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2579,8 +2588,6 @@ Partial Class Formation
         Me.GroupBox4.PerformLayout()
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBox11.PerformLayout()
-        Me.FillBy_interventions_PToolStrip1.ResumeLayout(False)
-        Me.FillBy_interventions_PToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2748,7 +2755,7 @@ Partial Class Formation
     Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents Button15 As Button
     Friend WithEvents Button14 As Button
-    Friend WithEvents Button13 As Button
+    Friend WithEvents BT_Modifier_Stagiaires As Button
     Friend WithEvents BT_Nouveau_Stagiaire As Button
     Friend WithEvents BT_Refresh As Button
     Friend WithEvents GroupBox8 As GroupBox

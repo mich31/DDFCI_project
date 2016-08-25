@@ -381,8 +381,8 @@ Public Class Formation
     Sub Remplir_DG_Liste_Interventions_payees()
         Me.Param_NomFormation1_P.Text = NomFormation
         Me.Param_Session1_P.Text = SessionFormation
-        Me.Param_Nom1_P.Text = "Edjoa"
-        Me.Param_Prenom1_P.Text = "Michel"
+        Me.Param_Nom1_P.Text = ""
+        Me.Param_Prenom1_P.Text = ""
         Me.FillBy_interventions_PToolStripButton1.PerformClick()
         'Dim MonView = New DataView(Me.DG_Liste_Interventions.DataSource, "StatutPaiement = 'Payé'", "StatutPaiement Desc", DataViewRowState.CurrentRows)
         'Me.DG_Liste_Interventions_payees.DataSource = MonView
@@ -411,8 +411,8 @@ Public Class Formation
     Sub Remplir_DG_Liste_Interventions_nonpayees()
         Me.Param_NomFormation_NP.Text = NomFormation
         Me.Param_Session_NP.Text = SessionFormation
-        Me.Param_Nom_NP.Text = "Edjoa"
-        Me.Param_Prenom_NP.Text = "Michel"
+        Me.Param_Nom_NP.Text = ""
+        Me.Param_Prenom_NP.Text = ""
         Me.FillBy_interventions_NPToolStripButton.PerformClick()
         'Dim MonView = New DataView(Me.DG_Liste_Interventions.DataSource, "StatutPaiement = 'Non payé'", "StatutPaiement Desc", DataViewRowState.CurrentRows)
         'Me.DG_Liste_Interventions_nonpayees.DataSource = MonView
@@ -538,7 +538,7 @@ Public Class Formation
         Remplir_DG_Liste_Interventions_nonpayees()
         Remplir_DG_Liste_Interventions_payees()
 
-        Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
+        'Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
 
     Private Sub DG_Liste_Intervenants_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Intervenants.RowHeaderMouseClick
@@ -549,7 +549,7 @@ Public Class Formation
         Remplir_DG_Liste_Interventions_nonpayees()
         Remplir_DG_Liste_Interventions_payees()
 
-        Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
+        'Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
 
     Private Sub BT_Nouvel_Intervenant_Click(sender As Object, e As EventArgs) Handles BT_Nouvel_Intervenant.Click
@@ -582,16 +582,12 @@ Public Class Formation
 
     Private Sub BT_Modifier_DG_ListeIntervenants_Click(sender As Object, e As EventArgs) Handles BT_Modifier_DG_ListeIntervenants.Click
         OuvertureDesChamps()
-        For Each Ligne As DataGridViewRow In Me.DG_Liste_Intervenants.Rows
-            If Ligne.Cells.Item(0).Value = True Then
-                Ligne.ReadOnly = False
-                MsgBox("coché")
-            End If
-        Next
+        Me.DG_Liste_Intervenants.ReadOnly = False
     End Sub
 
-    Private Sub BT_I_Enregistrer_Click(sender As Object, e As EventArgs)
+    Private Sub BT_I_Enregistrer_Click(sender As Object, e As EventArgs) Handles BT_I_Enregistrer.Click
         FermetureDesChamps()
+        Me.DG_Liste_Intervenants.ReadOnly = True
     End Sub
 
 #End Region
