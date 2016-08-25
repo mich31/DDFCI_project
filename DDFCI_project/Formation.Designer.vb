@@ -48,6 +48,16 @@ Partial Class Formation
         Me.MonCalendrier = New System.Windows.Forms.MonthCalendar()
         Me.TabIntervenants = New System.Windows.Forms.TabPage()
         Me.Panel_Intervenants_details = New System.Windows.Forms.Panel()
+        Me.FillBy_interventions_NPToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.NomFormationToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_NomFormation_NP = New System.Windows.Forms.ToolStripTextBox()
+        Me.SessionToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_Session_NP = New System.Windows.Forms.ToolStripTextBox()
+        Me.NomToolStripLabel = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_Nom_NP = New System.Windows.Forms.ToolStripTextBox()
+        Me.PrenomToolStripLabel = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_Prenom_NP = New System.Windows.Forms.ToolStripTextBox()
+        Me.FillBy_interventions_NPToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.BT_Nouvel_Intervenant = New System.Windows.Forms.Button()
         Me.BT_Modifier_DG_ListeIntervenants = New System.Windows.Forms.Button()
@@ -105,17 +115,68 @@ Partial Class Formation
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.FillBy_liste_interventionsToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.NomFormationToolStripLabel = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_NomFormation = New System.Windows.Forms.ToolStripTextBox()
+        Me.SessionToolStripLabel = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_Session = New System.Windows.Forms.ToolStripTextBox()
+        Me.FillBy_liste_interventionsToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.DG_Liste_Interventions = New System.Windows.Forms.DataGridView()
+        Me.TypeInterventionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureDebutDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureFinDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NbHeureDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatutPaiementDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListeinterventionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DG_Liste_Interventions_nonpayees = New System.Windows.Forms.DataGridView()
+        Me.NomPDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrenomPDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdIntervenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdSeanceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdSessionFormationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AnneeSessionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeInterventionDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureDebutDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureFinDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NbHeureDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SalleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatutPaiementDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListeinterventionsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DG_Liste_Interventions_payees = New System.Windows.Forms.DataGridView()
+        Me.NomPDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrenomPDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdIntervenantDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomFDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdSeanceDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdSessionFormationDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AnneeSessionDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeInterventionDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureDebutDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureFinDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NbHeureDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SalleDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatutPaiementDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListeinterventionsBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DG_Liste_Intervenants = New System.Windows.Forms.DataGridView()
+        Me.CivilitePDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrenomPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeIntervenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateNaissanceIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaysP = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProfilsintervenantBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Panel_Stagiaires_détails = New System.Windows.Forms.Panel()
         Me.FillBy_liste_intervenantsToolStrip = New System.Windows.Forms.ToolStrip()
@@ -206,53 +267,24 @@ Partial Class Formation
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.FillBy_liste_interventionsToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.NomFormationToolStripLabel = New System.Windows.Forms.ToolStripLabel()
-        Me.Param_NomFormation = New System.Windows.Forms.ToolStripTextBox()
-        Me.SessionToolStripLabel = New System.Windows.Forms.ToolStripLabel()
-        Me.Param_Session = New System.Windows.Forms.ToolStripTextBox()
-        Me.FillBy_liste_interventionsToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.NomPDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrenomPDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdIntervenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdSeanceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdSessionFormationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AnneeSessionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeInterventionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HeureDebutDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HeureFinDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NbHeureDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SalleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StatutPaiementDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ListeinterventionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
-        Me.IdPersonneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CivilitePDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomJeuneFilleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrenomPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeIntervenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateNaissanceIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LieuNaissanceIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PaysNaissanceIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NationalitePDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AdressePDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VillePDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PaysPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumTelPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MailPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumSSIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProfilsintervenantBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Profils_intervenantTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.profils_intervenantTableAdapter()
         Me.Liste_interventionsTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_interventionsTableAdapter()
+        Me.FillBy_interventions_PToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.NomFormationToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_NomFormation1_P = New System.Windows.Forms.ToolStripTextBox()
+        Me.SessionToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_Session1_P = New System.Windows.Forms.ToolStripTextBox()
+        Me.NomToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_Nom1_P = New System.Windows.Forms.ToolStripTextBox()
+        Me.PrenomToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
+        Me.Param_Prenom1_P = New System.Windows.Forms.ToolStripTextBox()
+        Me.FillBy_interventions_PToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabIntervenants.SuspendLayout()
         Me.Panel_Intervenants_details.SuspendLayout()
+        Me.FillBy_interventions_NPToolStrip.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.ToolStrip4.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -263,12 +295,18 @@ Partial Class Formation
         Me.TabPage7.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TabPage8.SuspendLayout()
+        Me.FillBy_liste_interventionsToolStrip.SuspendLayout()
         CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListeinterventionsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage9.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         CType(Me.DG_Liste_Interventions_nonpayees, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListeinterventionsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DG_Liste_Interventions_payees, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListeinterventionsBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DG_Liste_Intervenants, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProfilsintervenantBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         Me.Panel_Stagiaires_détails.SuspendLayout()
         Me.FillBy_liste_intervenantsToolStrip.SuspendLayout()
@@ -285,10 +323,7 @@ Partial Class Formation
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
-        Me.FillBy_liste_interventionsToolStrip.SuspendLayout()
-        CType(Me.ListeinterventionsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProfilsintervenantBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FillBy_interventions_PToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -473,16 +508,79 @@ Partial Class Formation
         '
         'Panel_Intervenants_details
         '
+        Me.Panel_Intervenants_details.Controls.Add(Me.FillBy_interventions_NPToolStrip)
         Me.Panel_Intervenants_details.Controls.Add(Me.GroupBox6)
         Me.Panel_Intervenants_details.Controls.Add(Me.LBL_Intervenant_NB_Enregistrement)
         Me.Panel_Intervenants_details.Controls.Add(Me.ToolStrip2)
         Me.Panel_Intervenants_details.Controls.Add(Me.ToolStrip4)
         Me.Panel_Intervenants_details.Controls.Add(Me.TabControl2)
         Me.Panel_Intervenants_details.Controls.Add(Me.DG_Liste_Intervenants)
-        Me.Panel_Intervenants_details.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_Intervenants_details.Location = New System.Drawing.Point(3, 3)
         Me.Panel_Intervenants_details.Name = "Panel_Intervenants_details"
-        Me.Panel_Intervenants_details.Size = New System.Drawing.Size(1037, 846)
+        Me.Panel_Intervenants_details.Size = New System.Drawing.Size(984, 820)
         Me.Panel_Intervenants_details.TabIndex = 1
+        '
+        'FillBy_interventions_NPToolStrip
+        '
+        Me.FillBy_interventions_NPToolStrip.Dock = System.Windows.Forms.DockStyle.None
+        Me.FillBy_interventions_NPToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NomFormationToolStripLabel1, Me.Param_NomFormation_NP, Me.SessionToolStripLabel1, Me.Param_Session_NP, Me.NomToolStripLabel, Me.Param_Nom_NP, Me.PrenomToolStripLabel, Me.Param_Prenom_NP, Me.FillBy_interventions_NPToolStripButton})
+        Me.FillBy_interventions_NPToolStrip.Location = New System.Drawing.Point(17, 354)
+        Me.FillBy_interventions_NPToolStrip.Name = "FillBy_interventions_NPToolStrip"
+        Me.FillBy_interventions_NPToolStrip.Size = New System.Drawing.Size(784, 25)
+        Me.FillBy_interventions_NPToolStrip.TabIndex = 5
+        Me.FillBy_interventions_NPToolStrip.Text = "FillBy_interventions_NPToolStrip"
+        Me.FillBy_interventions_NPToolStrip.Visible = False
+        '
+        'NomFormationToolStripLabel1
+        '
+        Me.NomFormationToolStripLabel1.Name = "NomFormationToolStripLabel1"
+        Me.NomFormationToolStripLabel1.Size = New System.Drawing.Size(92, 22)
+        Me.NomFormationToolStripLabel1.Text = "NomFormation:"
+        '
+        'Param_NomFormation_NP
+        '
+        Me.Param_NomFormation_NP.Name = "Param_NomFormation_NP"
+        Me.Param_NomFormation_NP.Size = New System.Drawing.Size(100, 25)
+        '
+        'SessionToolStripLabel1
+        '
+        Me.SessionToolStripLabel1.Name = "SessionToolStripLabel1"
+        Me.SessionToolStripLabel1.Size = New System.Drawing.Size(49, 22)
+        Me.SessionToolStripLabel1.Text = "Session:"
+        '
+        'Param_Session_NP
+        '
+        Me.Param_Session_NP.Name = "Param_Session_NP"
+        Me.Param_Session_NP.Size = New System.Drawing.Size(100, 25)
+        '
+        'NomToolStripLabel
+        '
+        Me.NomToolStripLabel.Name = "NomToolStripLabel"
+        Me.NomToolStripLabel.Size = New System.Drawing.Size(37, 22)
+        Me.NomToolStripLabel.Text = "Nom:"
+        '
+        'Param_Nom_NP
+        '
+        Me.Param_Nom_NP.Name = "Param_Nom_NP"
+        Me.Param_Nom_NP.Size = New System.Drawing.Size(100, 25)
+        '
+        'PrenomToolStripLabel
+        '
+        Me.PrenomToolStripLabel.Name = "PrenomToolStripLabel"
+        Me.PrenomToolStripLabel.Size = New System.Drawing.Size(52, 22)
+        Me.PrenomToolStripLabel.Text = "Prenom:"
+        '
+        'Param_Prenom_NP
+        '
+        Me.Param_Prenom_NP.Name = "Param_Prenom_NP"
+        Me.Param_Prenom_NP.Size = New System.Drawing.Size(100, 25)
+        '
+        'FillBy_interventions_NPToolStripButton
+        '
+        Me.FillBy_interventions_NPToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillBy_interventions_NPToolStripButton.Name = "FillBy_interventions_NPToolStripButton"
+        Me.FillBy_interventions_NPToolStripButton.Size = New System.Drawing.Size(134, 22)
+        Me.FillBy_interventions_NPToolStripButton.Text = "FillBy_interventions_NP"
         '
         'GroupBox6
         '
@@ -546,7 +644,7 @@ Partial Class Formation
         '
         Me.ToolStrip2.Location = New System.Drawing.Point(0, 25)
         Me.ToolStrip2.Name = "ToolStrip2"
-        Me.ToolStrip2.Size = New System.Drawing.Size(1037, 25)
+        Me.ToolStrip2.Size = New System.Drawing.Size(984, 25)
         Me.ToolStrip2.TabIndex = 6
         Me.ToolStrip2.Text = "ToolStrip2"
         '
@@ -556,7 +654,7 @@ Partial Class Formation
         Me.ToolStrip4.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel3})
         Me.ToolStrip4.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip4.Name = "ToolStrip4"
-        Me.ToolStrip4.Size = New System.Drawing.Size(1037, 25)
+        Me.ToolStrip4.Size = New System.Drawing.Size(984, 25)
         Me.ToolStrip4.TabIndex = 5
         Me.ToolStrip4.Text = "ToolStrip4"
         '
@@ -573,10 +671,10 @@ Partial Class Formation
         Me.TabControl2.Controls.Add(Me.TabPage7)
         Me.TabControl2.Controls.Add(Me.TabPage8)
         Me.TabControl2.Controls.Add(Me.TabPage9)
-        Me.TabControl2.Location = New System.Drawing.Point(17, 343)
+        Me.TabControl2.Location = New System.Drawing.Point(17, 320)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(793, 483)
+        Me.TabControl2.Size = New System.Drawing.Size(825, 494)
         Me.TabControl2.TabIndex = 1
         '
         'TabPage3
@@ -589,7 +687,7 @@ Partial Class Formation
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(785, 457)
+        Me.TabPage3.Size = New System.Drawing.Size(817, 468)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Informations"
         '
@@ -931,7 +1029,7 @@ Partial Class Formation
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(785, 457)
+        Me.TabPage7.Size = New System.Drawing.Size(817, 468)
         Me.TabPage7.TabIndex = 1
         Me.TabPage7.Text = "Documents"
         '
@@ -1044,9 +1142,49 @@ Partial Class Formation
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(785, 457)
+        Me.TabPage8.Size = New System.Drawing.Size(817, 468)
         Me.TabPage8.TabIndex = 2
         Me.TabPage8.Text = "Interventions(s)"
+        '
+        'FillBy_liste_interventionsToolStrip
+        '
+        Me.FillBy_liste_interventionsToolStrip.Dock = System.Windows.Forms.DockStyle.None
+        Me.FillBy_liste_interventionsToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NomFormationToolStripLabel, Me.Param_NomFormation, Me.SessionToolStripLabel, Me.Param_Session, Me.FillBy_liste_interventionsToolStripButton})
+        Me.FillBy_liste_interventionsToolStrip.Location = New System.Drawing.Point(3, 3)
+        Me.FillBy_liste_interventionsToolStrip.Name = "FillBy_liste_interventionsToolStrip"
+        Me.FillBy_liste_interventionsToolStrip.Size = New System.Drawing.Size(496, 25)
+        Me.FillBy_liste_interventionsToolStrip.TabIndex = 5
+        Me.FillBy_liste_interventionsToolStrip.Text = "FillBy_liste_interventionsToolStrip"
+        Me.FillBy_liste_interventionsToolStrip.Visible = False
+        '
+        'NomFormationToolStripLabel
+        '
+        Me.NomFormationToolStripLabel.Name = "NomFormationToolStripLabel"
+        Me.NomFormationToolStripLabel.Size = New System.Drawing.Size(92, 22)
+        Me.NomFormationToolStripLabel.Text = "NomFormation:"
+        '
+        'Param_NomFormation
+        '
+        Me.Param_NomFormation.Name = "Param_NomFormation"
+        Me.Param_NomFormation.Size = New System.Drawing.Size(100, 25)
+        '
+        'SessionToolStripLabel
+        '
+        Me.SessionToolStripLabel.Name = "SessionToolStripLabel"
+        Me.SessionToolStripLabel.Size = New System.Drawing.Size(49, 22)
+        Me.SessionToolStripLabel.Text = "Session:"
+        '
+        'Param_Session
+        '
+        Me.Param_Session.Name = "Param_Session"
+        Me.Param_Session.Size = New System.Drawing.Size(100, 25)
+        '
+        'FillBy_liste_interventionsToolStripButton
+        '
+        Me.FillBy_liste_interventionsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillBy_liste_interventionsToolStripButton.Name = "FillBy_liste_interventionsToolStripButton"
+        Me.FillBy_liste_interventionsToolStripButton.Size = New System.Drawing.Size(139, 22)
+        Me.FillBy_liste_interventionsToolStripButton.Text = "FillBy_liste_interventions"
         '
         'Button8
         '
@@ -1071,7 +1209,7 @@ Partial Class Formation
         Me.DG_Liste_Interventions.AutoGenerateColumns = False
         Me.DG_Liste_Interventions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Interventions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Liste_Interventions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NomPDataGridViewTextBoxColumn1, Me.PrenomPDataGridViewTextBoxColumn1, Me.IdIntervenantDataGridViewTextBoxColumn, Me.NomFDataGridViewTextBoxColumn, Me.IdSeanceDataGridViewTextBoxColumn, Me.IdSessionFormationDataGridViewTextBoxColumn, Me.AnneeSessionDataGridViewTextBoxColumn, Me.TypeInterventionDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn, Me.HeureDebutDataGridViewTextBoxColumn, Me.HeureFinDataGridViewTextBoxColumn, Me.NbHeureDataGridViewTextBoxColumn, Me.SalleDataGridViewTextBoxColumn, Me.StatutPaiementDataGridViewTextBoxColumn})
+        Me.DG_Liste_Interventions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TypeInterventionDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn, Me.HeureDebutDataGridViewTextBoxColumn, Me.HeureFinDataGridViewTextBoxColumn, Me.NbHeureDataGridViewTextBoxColumn, Me.StatutPaiementDataGridViewTextBoxColumn})
         Me.DG_Liste_Interventions.DataSource = Me.ListeinterventionsBindingSource
         Me.DG_Liste_Interventions.Location = New System.Drawing.Point(86, 61)
         Me.DG_Liste_Interventions.Name = "DG_Liste_Interventions"
@@ -1079,16 +1217,66 @@ Partial Class Formation
         Me.DG_Liste_Interventions.Size = New System.Drawing.Size(547, 303)
         Me.DG_Liste_Interventions.TabIndex = 0
         '
+        'TypeInterventionDataGridViewTextBoxColumn
+        '
+        Me.TypeInterventionDataGridViewTextBoxColumn.DataPropertyName = "TypeIntervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn.HeaderText = "Type d'intervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn.Name = "TypeInterventionDataGridViewTextBoxColumn"
+        '
+        'DateDataGridViewTextBoxColumn
+        '
+        Me.DateDataGridViewTextBoxColumn.DataPropertyName = "Date"
+        Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
+        Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
+        '
+        'HeureDebutDataGridViewTextBoxColumn
+        '
+        Me.HeureDebutDataGridViewTextBoxColumn.DataPropertyName = "HeureDebut"
+        Me.HeureDebutDataGridViewTextBoxColumn.HeaderText = "Debut"
+        Me.HeureDebutDataGridViewTextBoxColumn.Name = "HeureDebutDataGridViewTextBoxColumn"
+        '
+        'HeureFinDataGridViewTextBoxColumn
+        '
+        Me.HeureFinDataGridViewTextBoxColumn.DataPropertyName = "HeureFin"
+        Me.HeureFinDataGridViewTextBoxColumn.HeaderText = "Fin"
+        Me.HeureFinDataGridViewTextBoxColumn.Name = "HeureFinDataGridViewTextBoxColumn"
+        '
+        'NbHeureDataGridViewTextBoxColumn
+        '
+        Me.NbHeureDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.NbHeureDataGridViewTextBoxColumn.DataPropertyName = "NbHeure"
+        Me.NbHeureDataGridViewTextBoxColumn.HeaderText = "Nb d'heure"
+        Me.NbHeureDataGridViewTextBoxColumn.Name = "NbHeureDataGridViewTextBoxColumn"
+        Me.NbHeureDataGridViewTextBoxColumn.Width = 78
+        '
+        'StatutPaiementDataGridViewTextBoxColumn
+        '
+        Me.StatutPaiementDataGridViewTextBoxColumn.DataPropertyName = "StatutPaiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn.HeaderText = "Paiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn.Name = "StatutPaiementDataGridViewTextBoxColumn"
+        '
+        'ListeinterventionsBindingSource
+        '
+        Me.ListeinterventionsBindingSource.DataMember = "liste_interventions"
+        Me.ListeinterventionsBindingSource.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'Formation_ContinueDataSet1
+        '
+        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
+        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'TabPage9
         '
+        Me.TabPage9.AutoScroll = True
         Me.TabPage9.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage9.Controls.Add(Me.FillBy_interventions_PToolStrip1)
         Me.TabPage9.Controls.Add(Me.GroupBox8)
         Me.TabPage9.Controls.Add(Me.DG_Liste_Interventions_nonpayees)
         Me.TabPage9.Controls.Add(Me.DG_Liste_Interventions_payees)
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(785, 457)
+        Me.TabPage9.Size = New System.Drawing.Size(817, 468)
         Me.TabPage9.TabIndex = 3
         Me.TabPage9.Text = "Paiement(s)"
         '
@@ -1132,35 +1320,262 @@ Partial Class Formation
         '
         'DG_Liste_Interventions_nonpayees
         '
+        Me.DG_Liste_Interventions_nonpayees.AutoGenerateColumns = False
         Me.DG_Liste_Interventions_nonpayees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Interventions_nonpayees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Liste_Interventions_nonpayees.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NomPDataGridViewTextBoxColumn1, Me.PrenomPDataGridViewTextBoxColumn1, Me.IdIntervenantDataGridViewTextBoxColumn, Me.NomFDataGridViewTextBoxColumn, Me.IdSeanceDataGridViewTextBoxColumn, Me.IdSessionFormationDataGridViewTextBoxColumn, Me.AnneeSessionDataGridViewTextBoxColumn, Me.TypeInterventionDataGridViewTextBoxColumn1, Me.DateDataGridViewTextBoxColumn1, Me.HeureDebutDataGridViewTextBoxColumn1, Me.HeureFinDataGridViewTextBoxColumn1, Me.NbHeureDataGridViewTextBoxColumn1, Me.SalleDataGridViewTextBoxColumn, Me.StatutPaiementDataGridViewTextBoxColumn1})
+        Me.DG_Liste_Interventions_nonpayees.DataSource = Me.ListeinterventionsBindingSource1
         Me.DG_Liste_Interventions_nonpayees.Location = New System.Drawing.Point(59, 12)
         Me.DG_Liste_Interventions_nonpayees.Name = "DG_Liste_Interventions_nonpayees"
         Me.DG_Liste_Interventions_nonpayees.RowHeadersWidth = 31
         Me.DG_Liste_Interventions_nonpayees.Size = New System.Drawing.Size(547, 228)
         Me.DG_Liste_Interventions_nonpayees.TabIndex = 1
         '
+        'NomPDataGridViewTextBoxColumn1
+        '
+        Me.NomPDataGridViewTextBoxColumn1.DataPropertyName = "NomP"
+        Me.NomPDataGridViewTextBoxColumn1.HeaderText = "NomP"
+        Me.NomPDataGridViewTextBoxColumn1.Name = "NomPDataGridViewTextBoxColumn1"
+        '
+        'PrenomPDataGridViewTextBoxColumn1
+        '
+        Me.PrenomPDataGridViewTextBoxColumn1.DataPropertyName = "PrenomP"
+        Me.PrenomPDataGridViewTextBoxColumn1.HeaderText = "PrenomP"
+        Me.PrenomPDataGridViewTextBoxColumn1.Name = "PrenomPDataGridViewTextBoxColumn1"
+        '
+        'IdIntervenantDataGridViewTextBoxColumn
+        '
+        Me.IdIntervenantDataGridViewTextBoxColumn.DataPropertyName = "idIntervenant"
+        Me.IdIntervenantDataGridViewTextBoxColumn.HeaderText = "idIntervenant"
+        Me.IdIntervenantDataGridViewTextBoxColumn.Name = "IdIntervenantDataGridViewTextBoxColumn"
+        '
+        'NomFDataGridViewTextBoxColumn
+        '
+        Me.NomFDataGridViewTextBoxColumn.DataPropertyName = "NomF"
+        Me.NomFDataGridViewTextBoxColumn.HeaderText = "NomF"
+        Me.NomFDataGridViewTextBoxColumn.Name = "NomFDataGridViewTextBoxColumn"
+        '
+        'IdSeanceDataGridViewTextBoxColumn
+        '
+        Me.IdSeanceDataGridViewTextBoxColumn.DataPropertyName = "idSeance"
+        Me.IdSeanceDataGridViewTextBoxColumn.HeaderText = "idSeance"
+        Me.IdSeanceDataGridViewTextBoxColumn.Name = "IdSeanceDataGridViewTextBoxColumn"
+        '
+        'IdSessionFormationDataGridViewTextBoxColumn
+        '
+        Me.IdSessionFormationDataGridViewTextBoxColumn.DataPropertyName = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn.HeaderText = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn.Name = "IdSessionFormationDataGridViewTextBoxColumn"
+        '
+        'AnneeSessionDataGridViewTextBoxColumn
+        '
+        Me.AnneeSessionDataGridViewTextBoxColumn.DataPropertyName = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn.HeaderText = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn.Name = "AnneeSessionDataGridViewTextBoxColumn"
+        '
+        'TypeInterventionDataGridViewTextBoxColumn1
+        '
+        Me.TypeInterventionDataGridViewTextBoxColumn1.DataPropertyName = "TypeIntervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn1.HeaderText = "TypeIntervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn1.Name = "TypeInterventionDataGridViewTextBoxColumn1"
+        '
+        'DateDataGridViewTextBoxColumn1
+        '
+        Me.DateDataGridViewTextBoxColumn1.DataPropertyName = "Date"
+        Me.DateDataGridViewTextBoxColumn1.HeaderText = "Date"
+        Me.DateDataGridViewTextBoxColumn1.Name = "DateDataGridViewTextBoxColumn1"
+        '
+        'HeureDebutDataGridViewTextBoxColumn1
+        '
+        Me.HeureDebutDataGridViewTextBoxColumn1.DataPropertyName = "HeureDebut"
+        Me.HeureDebutDataGridViewTextBoxColumn1.HeaderText = "HeureDebut"
+        Me.HeureDebutDataGridViewTextBoxColumn1.Name = "HeureDebutDataGridViewTextBoxColumn1"
+        '
+        'HeureFinDataGridViewTextBoxColumn1
+        '
+        Me.HeureFinDataGridViewTextBoxColumn1.DataPropertyName = "HeureFin"
+        Me.HeureFinDataGridViewTextBoxColumn1.HeaderText = "HeureFin"
+        Me.HeureFinDataGridViewTextBoxColumn1.Name = "HeureFinDataGridViewTextBoxColumn1"
+        '
+        'NbHeureDataGridViewTextBoxColumn1
+        '
+        Me.NbHeureDataGridViewTextBoxColumn1.DataPropertyName = "NbHeure"
+        Me.NbHeureDataGridViewTextBoxColumn1.HeaderText = "NbHeure"
+        Me.NbHeureDataGridViewTextBoxColumn1.Name = "NbHeureDataGridViewTextBoxColumn1"
+        '
+        'SalleDataGridViewTextBoxColumn
+        '
+        Me.SalleDataGridViewTextBoxColumn.DataPropertyName = "Salle"
+        Me.SalleDataGridViewTextBoxColumn.HeaderText = "Salle"
+        Me.SalleDataGridViewTextBoxColumn.Name = "SalleDataGridViewTextBoxColumn"
+        '
+        'StatutPaiementDataGridViewTextBoxColumn1
+        '
+        Me.StatutPaiementDataGridViewTextBoxColumn1.DataPropertyName = "StatutPaiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn1.HeaderText = "StatutPaiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn1.Name = "StatutPaiementDataGridViewTextBoxColumn1"
+        '
+        'ListeinterventionsBindingSource1
+        '
+        Me.ListeinterventionsBindingSource1.DataMember = "liste_interventions"
+        Me.ListeinterventionsBindingSource1.DataSource = Me.Formation_ContinueDataSet1
+        '
         'DG_Liste_Interventions_payees
         '
+        Me.DG_Liste_Interventions_payees.AutoGenerateColumns = False
         Me.DG_Liste_Interventions_payees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG_Liste_Interventions_payees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Liste_Interventions_payees.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NomPDataGridViewTextBoxColumn2, Me.PrenomPDataGridViewTextBoxColumn2, Me.IdIntervenantDataGridViewTextBoxColumn1, Me.NomFDataGridViewTextBoxColumn1, Me.IdSeanceDataGridViewTextBoxColumn1, Me.IdSessionFormationDataGridViewTextBoxColumn1, Me.AnneeSessionDataGridViewTextBoxColumn1, Me.TypeInterventionDataGridViewTextBoxColumn2, Me.DateDataGridViewTextBoxColumn2, Me.HeureDebutDataGridViewTextBoxColumn2, Me.HeureFinDataGridViewTextBoxColumn2, Me.NbHeureDataGridViewTextBoxColumn2, Me.SalleDataGridViewTextBoxColumn1, Me.StatutPaiementDataGridViewTextBoxColumn2})
+        Me.DG_Liste_Interventions_payees.DataSource = Me.ListeinterventionsBindingSource2
         Me.DG_Liste_Interventions_payees.Location = New System.Drawing.Point(59, 256)
         Me.DG_Liste_Interventions_payees.Name = "DG_Liste_Interventions_payees"
         Me.DG_Liste_Interventions_payees.RowHeadersWidth = 31
         Me.DG_Liste_Interventions_payees.Size = New System.Drawing.Size(547, 194)
         Me.DG_Liste_Interventions_payees.TabIndex = 0
         '
+        'NomPDataGridViewTextBoxColumn2
+        '
+        Me.NomPDataGridViewTextBoxColumn2.DataPropertyName = "NomP"
+        Me.NomPDataGridViewTextBoxColumn2.HeaderText = "NomP"
+        Me.NomPDataGridViewTextBoxColumn2.Name = "NomPDataGridViewTextBoxColumn2"
+        '
+        'PrenomPDataGridViewTextBoxColumn2
+        '
+        Me.PrenomPDataGridViewTextBoxColumn2.DataPropertyName = "PrenomP"
+        Me.PrenomPDataGridViewTextBoxColumn2.HeaderText = "PrenomP"
+        Me.PrenomPDataGridViewTextBoxColumn2.Name = "PrenomPDataGridViewTextBoxColumn2"
+        '
+        'IdIntervenantDataGridViewTextBoxColumn1
+        '
+        Me.IdIntervenantDataGridViewTextBoxColumn1.DataPropertyName = "idIntervenant"
+        Me.IdIntervenantDataGridViewTextBoxColumn1.HeaderText = "idIntervenant"
+        Me.IdIntervenantDataGridViewTextBoxColumn1.Name = "IdIntervenantDataGridViewTextBoxColumn1"
+        '
+        'NomFDataGridViewTextBoxColumn1
+        '
+        Me.NomFDataGridViewTextBoxColumn1.DataPropertyName = "NomF"
+        Me.NomFDataGridViewTextBoxColumn1.HeaderText = "NomF"
+        Me.NomFDataGridViewTextBoxColumn1.Name = "NomFDataGridViewTextBoxColumn1"
+        '
+        'IdSeanceDataGridViewTextBoxColumn1
+        '
+        Me.IdSeanceDataGridViewTextBoxColumn1.DataPropertyName = "idSeance"
+        Me.IdSeanceDataGridViewTextBoxColumn1.HeaderText = "idSeance"
+        Me.IdSeanceDataGridViewTextBoxColumn1.Name = "IdSeanceDataGridViewTextBoxColumn1"
+        '
+        'IdSessionFormationDataGridViewTextBoxColumn1
+        '
+        Me.IdSessionFormationDataGridViewTextBoxColumn1.DataPropertyName = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn1.HeaderText = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn1.Name = "IdSessionFormationDataGridViewTextBoxColumn1"
+        '
+        'AnneeSessionDataGridViewTextBoxColumn1
+        '
+        Me.AnneeSessionDataGridViewTextBoxColumn1.DataPropertyName = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn1.HeaderText = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn1.Name = "AnneeSessionDataGridViewTextBoxColumn1"
+        '
+        'TypeInterventionDataGridViewTextBoxColumn2
+        '
+        Me.TypeInterventionDataGridViewTextBoxColumn2.DataPropertyName = "TypeIntervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn2.HeaderText = "TypeIntervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn2.Name = "TypeInterventionDataGridViewTextBoxColumn2"
+        '
+        'DateDataGridViewTextBoxColumn2
+        '
+        Me.DateDataGridViewTextBoxColumn2.DataPropertyName = "Date"
+        Me.DateDataGridViewTextBoxColumn2.HeaderText = "Date"
+        Me.DateDataGridViewTextBoxColumn2.Name = "DateDataGridViewTextBoxColumn2"
+        '
+        'HeureDebutDataGridViewTextBoxColumn2
+        '
+        Me.HeureDebutDataGridViewTextBoxColumn2.DataPropertyName = "HeureDebut"
+        Me.HeureDebutDataGridViewTextBoxColumn2.HeaderText = "HeureDebut"
+        Me.HeureDebutDataGridViewTextBoxColumn2.Name = "HeureDebutDataGridViewTextBoxColumn2"
+        '
+        'HeureFinDataGridViewTextBoxColumn2
+        '
+        Me.HeureFinDataGridViewTextBoxColumn2.DataPropertyName = "HeureFin"
+        Me.HeureFinDataGridViewTextBoxColumn2.HeaderText = "HeureFin"
+        Me.HeureFinDataGridViewTextBoxColumn2.Name = "HeureFinDataGridViewTextBoxColumn2"
+        '
+        'NbHeureDataGridViewTextBoxColumn2
+        '
+        Me.NbHeureDataGridViewTextBoxColumn2.DataPropertyName = "NbHeure"
+        Me.NbHeureDataGridViewTextBoxColumn2.HeaderText = "NbHeure"
+        Me.NbHeureDataGridViewTextBoxColumn2.Name = "NbHeureDataGridViewTextBoxColumn2"
+        '
+        'SalleDataGridViewTextBoxColumn1
+        '
+        Me.SalleDataGridViewTextBoxColumn1.DataPropertyName = "Salle"
+        Me.SalleDataGridViewTextBoxColumn1.HeaderText = "Salle"
+        Me.SalleDataGridViewTextBoxColumn1.Name = "SalleDataGridViewTextBoxColumn1"
+        '
+        'StatutPaiementDataGridViewTextBoxColumn2
+        '
+        Me.StatutPaiementDataGridViewTextBoxColumn2.DataPropertyName = "StatutPaiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn2.HeaderText = "StatutPaiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn2.Name = "StatutPaiementDataGridViewTextBoxColumn2"
+        '
+        'ListeinterventionsBindingSource2
+        '
+        Me.ListeinterventionsBindingSource2.DataMember = "liste_interventions"
+        Me.ListeinterventionsBindingSource2.DataSource = Me.Formation_ContinueDataSet1
+        '
         'DG_Liste_Intervenants
         '
         Me.DG_Liste_Intervenants.AutoGenerateColumns = False
         Me.DG_Liste_Intervenants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DG_Liste_Intervenants.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdPersonneDataGridViewTextBoxColumn, Me.CivilitePDataGridViewTextBoxColumn, Me.NomPDataGridViewTextBoxColumn, Me.NomJeuneFilleDataGridViewTextBoxColumn, Me.PrenomPDataGridViewTextBoxColumn, Me.TypeIntervenantDataGridViewTextBoxColumn, Me.DateNaissanceIDataGridViewTextBoxColumn, Me.LieuNaissanceIDataGridViewTextBoxColumn, Me.PaysNaissanceIDataGridViewTextBoxColumn, Me.NationalitePDataGridViewTextBoxColumn, Me.AdressePDataGridViewTextBoxColumn, Me.CPDataGridViewTextBoxColumn, Me.VillePDataGridViewTextBoxColumn, Me.PaysPDataGridViewTextBoxColumn, Me.NumTelPDataGridViewTextBoxColumn, Me.MailPDataGridViewTextBoxColumn, Me.NumSSIDataGridViewTextBoxColumn})
+        Me.DG_Liste_Intervenants.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CivilitePDataGridViewTextBoxColumn, Me.NomPDataGridViewTextBoxColumn, Me.PrenomPDataGridViewTextBoxColumn, Me.TypeIntervenantDataGridViewTextBoxColumn, Me.DateNaissanceIDataGridViewTextBoxColumn, Me.PaysP})
         Me.DG_Liste_Intervenants.DataSource = Me.ProfilsintervenantBindingSource
         Me.DG_Liste_Intervenants.Location = New System.Drawing.Point(46, 53)
         Me.DG_Liste_Intervenants.Name = "DG_Liste_Intervenants"
         Me.DG_Liste_Intervenants.RowHeadersWidth = 31
         Me.DG_Liste_Intervenants.Size = New System.Drawing.Size(760, 261)
         Me.DG_Liste_Intervenants.TabIndex = 1
+        '
+        'CivilitePDataGridViewTextBoxColumn
+        '
+        Me.CivilitePDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.CivilitePDataGridViewTextBoxColumn.DataPropertyName = "CiviliteP"
+        Me.CivilitePDataGridViewTextBoxColumn.HeaderText = "Civilité"
+        Me.CivilitePDataGridViewTextBoxColumn.Name = "CivilitePDataGridViewTextBoxColumn"
+        Me.CivilitePDataGridViewTextBoxColumn.Width = 62
+        '
+        'NomPDataGridViewTextBoxColumn
+        '
+        Me.NomPDataGridViewTextBoxColumn.DataPropertyName = "NomP"
+        Me.NomPDataGridViewTextBoxColumn.HeaderText = "Nom"
+        Me.NomPDataGridViewTextBoxColumn.Name = "NomPDataGridViewTextBoxColumn"
+        '
+        'PrenomPDataGridViewTextBoxColumn
+        '
+        Me.PrenomPDataGridViewTextBoxColumn.DataPropertyName = "PrenomP"
+        Me.PrenomPDataGridViewTextBoxColumn.HeaderText = "Prenom"
+        Me.PrenomPDataGridViewTextBoxColumn.Name = "PrenomPDataGridViewTextBoxColumn"
+        '
+        'TypeIntervenantDataGridViewTextBoxColumn
+        '
+        Me.TypeIntervenantDataGridViewTextBoxColumn.DataPropertyName = "TypeIntervenant"
+        Me.TypeIntervenantDataGridViewTextBoxColumn.HeaderText = "Type d'intervenant"
+        Me.TypeIntervenantDataGridViewTextBoxColumn.Name = "TypeIntervenantDataGridViewTextBoxColumn"
+        '
+        'DateNaissanceIDataGridViewTextBoxColumn
+        '
+        Me.DateNaissanceIDataGridViewTextBoxColumn.DataPropertyName = "DateNaissanceI"
+        Me.DateNaissanceIDataGridViewTextBoxColumn.HeaderText = "Date de naissance"
+        Me.DateNaissanceIDataGridViewTextBoxColumn.Name = "DateNaissanceIDataGridViewTextBoxColumn"
+        '
+        'PaysP
+        '
+        Me.PaysP.DataPropertyName = "PaysP"
+        Me.PaysP.HeaderText = "PaysP"
+        Me.PaysP.Name = "PaysP"
+        '
+        'ProfilsintervenantBindingSource
+        '
+        Me.ProfilsintervenantBindingSource.DataMember = "profils_intervenant"
+        Me.ProfilsintervenantBindingSource.DataSource = Me.Formation_ContinueDataSet1
         '
         'TabPage4
         '
@@ -2013,247 +2428,6 @@ Partial Class Formation
         Me.GroupBox11.TabIndex = 4
         Me.GroupBox11.TabStop = False
         '
-        'FillBy_liste_interventionsToolStrip
-        '
-        Me.FillBy_liste_interventionsToolStrip.Dock = System.Windows.Forms.DockStyle.None
-        Me.FillBy_liste_interventionsToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NomFormationToolStripLabel, Me.Param_NomFormation, Me.SessionToolStripLabel, Me.Param_Session, Me.FillBy_liste_interventionsToolStripButton})
-        Me.FillBy_liste_interventionsToolStrip.Location = New System.Drawing.Point(3, 3)
-        Me.FillBy_liste_interventionsToolStrip.Name = "FillBy_liste_interventionsToolStrip"
-        Me.FillBy_liste_interventionsToolStrip.Size = New System.Drawing.Size(527, 25)
-        Me.FillBy_liste_interventionsToolStrip.TabIndex = 5
-        Me.FillBy_liste_interventionsToolStrip.Text = "FillBy_liste_interventionsToolStrip"
-        Me.FillBy_liste_interventionsToolStrip.Visible = False
-        '
-        'NomFormationToolStripLabel
-        '
-        Me.NomFormationToolStripLabel.Name = "NomFormationToolStripLabel"
-        Me.NomFormationToolStripLabel.Size = New System.Drawing.Size(92, 22)
-        Me.NomFormationToolStripLabel.Text = "NomFormation:"
-        '
-        'Param_NomFormation
-        '
-        Me.Param_NomFormation.Name = "NomFormationToolStripTextBox"
-        Me.Param_NomFormation.Size = New System.Drawing.Size(100, 25)
-        '
-        'SessionToolStripLabel
-        '
-        Me.SessionToolStripLabel.Name = "SessionToolStripLabel"
-        Me.SessionToolStripLabel.Size = New System.Drawing.Size(49, 22)
-        Me.SessionToolStripLabel.Text = "Session:"
-        '
-        'Param_Session
-        '
-        Me.Param_Session.Name = "SessionToolStripTextBox"
-        Me.Param_Session.Size = New System.Drawing.Size(100, 25)
-        '
-        'FillBy_liste_interventionsToolStripButton
-        '
-        Me.FillBy_liste_interventionsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.FillBy_liste_interventionsToolStripButton.Name = "FillBy_liste_interventionsToolStripButton"
-        Me.FillBy_liste_interventionsToolStripButton.Size = New System.Drawing.Size(139, 22)
-        Me.FillBy_liste_interventionsToolStripButton.Text = "FillBy_liste_interventions"
-        '
-        'NomPDataGridViewTextBoxColumn1
-        '
-        Me.NomPDataGridViewTextBoxColumn1.DataPropertyName = "NomP"
-        Me.NomPDataGridViewTextBoxColumn1.HeaderText = "NomP"
-        Me.NomPDataGridViewTextBoxColumn1.Name = "NomPDataGridViewTextBoxColumn1"
-        '
-        'PrenomPDataGridViewTextBoxColumn1
-        '
-        Me.PrenomPDataGridViewTextBoxColumn1.DataPropertyName = "PrenomP"
-        Me.PrenomPDataGridViewTextBoxColumn1.HeaderText = "PrenomP"
-        Me.PrenomPDataGridViewTextBoxColumn1.Name = "PrenomPDataGridViewTextBoxColumn1"
-        '
-        'IdIntervenantDataGridViewTextBoxColumn
-        '
-        Me.IdIntervenantDataGridViewTextBoxColumn.DataPropertyName = "idIntervenant"
-        Me.IdIntervenantDataGridViewTextBoxColumn.HeaderText = "idIntervenant"
-        Me.IdIntervenantDataGridViewTextBoxColumn.Name = "IdIntervenantDataGridViewTextBoxColumn"
-        '
-        'NomFDataGridViewTextBoxColumn
-        '
-        Me.NomFDataGridViewTextBoxColumn.DataPropertyName = "NomF"
-        Me.NomFDataGridViewTextBoxColumn.HeaderText = "NomF"
-        Me.NomFDataGridViewTextBoxColumn.Name = "NomFDataGridViewTextBoxColumn"
-        '
-        'IdSeanceDataGridViewTextBoxColumn
-        '
-        Me.IdSeanceDataGridViewTextBoxColumn.DataPropertyName = "idSeance"
-        Me.IdSeanceDataGridViewTextBoxColumn.HeaderText = "idSeance"
-        Me.IdSeanceDataGridViewTextBoxColumn.Name = "IdSeanceDataGridViewTextBoxColumn"
-        '
-        'IdSessionFormationDataGridViewTextBoxColumn
-        '
-        Me.IdSessionFormationDataGridViewTextBoxColumn.DataPropertyName = "idSessionFormation"
-        Me.IdSessionFormationDataGridViewTextBoxColumn.HeaderText = "idSessionFormation"
-        Me.IdSessionFormationDataGridViewTextBoxColumn.Name = "IdSessionFormationDataGridViewTextBoxColumn"
-        '
-        'AnneeSessionDataGridViewTextBoxColumn
-        '
-        Me.AnneeSessionDataGridViewTextBoxColumn.DataPropertyName = "AnneeSession"
-        Me.AnneeSessionDataGridViewTextBoxColumn.HeaderText = "AnneeSession"
-        Me.AnneeSessionDataGridViewTextBoxColumn.Name = "AnneeSessionDataGridViewTextBoxColumn"
-        '
-        'TypeInterventionDataGridViewTextBoxColumn
-        '
-        Me.TypeInterventionDataGridViewTextBoxColumn.DataPropertyName = "TypeIntervention"
-        Me.TypeInterventionDataGridViewTextBoxColumn.HeaderText = "TypeIntervention"
-        Me.TypeInterventionDataGridViewTextBoxColumn.Name = "TypeInterventionDataGridViewTextBoxColumn"
-        '
-        'DateDataGridViewTextBoxColumn
-        '
-        Me.DateDataGridViewTextBoxColumn.DataPropertyName = "Date"
-        Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
-        Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
-        '
-        'HeureDebutDataGridViewTextBoxColumn
-        '
-        Me.HeureDebutDataGridViewTextBoxColumn.DataPropertyName = "HeureDebut"
-        Me.HeureDebutDataGridViewTextBoxColumn.HeaderText = "HeureDebut"
-        Me.HeureDebutDataGridViewTextBoxColumn.Name = "HeureDebutDataGridViewTextBoxColumn"
-        '
-        'HeureFinDataGridViewTextBoxColumn
-        '
-        Me.HeureFinDataGridViewTextBoxColumn.DataPropertyName = "HeureFin"
-        Me.HeureFinDataGridViewTextBoxColumn.HeaderText = "HeureFin"
-        Me.HeureFinDataGridViewTextBoxColumn.Name = "HeureFinDataGridViewTextBoxColumn"
-        '
-        'NbHeureDataGridViewTextBoxColumn
-        '
-        Me.NbHeureDataGridViewTextBoxColumn.DataPropertyName = "NbHeure"
-        Me.NbHeureDataGridViewTextBoxColumn.HeaderText = "NbHeure"
-        Me.NbHeureDataGridViewTextBoxColumn.Name = "NbHeureDataGridViewTextBoxColumn"
-        '
-        'SalleDataGridViewTextBoxColumn
-        '
-        Me.SalleDataGridViewTextBoxColumn.DataPropertyName = "Salle"
-        Me.SalleDataGridViewTextBoxColumn.HeaderText = "Salle"
-        Me.SalleDataGridViewTextBoxColumn.Name = "SalleDataGridViewTextBoxColumn"
-        '
-        'StatutPaiementDataGridViewTextBoxColumn
-        '
-        Me.StatutPaiementDataGridViewTextBoxColumn.DataPropertyName = "StatutPaiement"
-        Me.StatutPaiementDataGridViewTextBoxColumn.HeaderText = "StatutPaiement"
-        Me.StatutPaiementDataGridViewTextBoxColumn.Name = "StatutPaiementDataGridViewTextBoxColumn"
-        '
-        'ListeinterventionsBindingSource
-        '
-        Me.ListeinterventionsBindingSource.DataMember = "liste_interventions"
-        Me.ListeinterventionsBindingSource.DataSource = Me.Formation_ContinueDataSet1
-        '
-        'Formation_ContinueDataSet1
-        '
-        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
-        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'IdPersonneDataGridViewTextBoxColumn
-        '
-        Me.IdPersonneDataGridViewTextBoxColumn.DataPropertyName = "idPersonne"
-        Me.IdPersonneDataGridViewTextBoxColumn.HeaderText = "idPersonne"
-        Me.IdPersonneDataGridViewTextBoxColumn.Name = "IdPersonneDataGridViewTextBoxColumn"
-        '
-        'CivilitePDataGridViewTextBoxColumn
-        '
-        Me.CivilitePDataGridViewTextBoxColumn.DataPropertyName = "CiviliteP"
-        Me.CivilitePDataGridViewTextBoxColumn.HeaderText = "CiviliteP"
-        Me.CivilitePDataGridViewTextBoxColumn.Name = "CivilitePDataGridViewTextBoxColumn"
-        '
-        'NomPDataGridViewTextBoxColumn
-        '
-        Me.NomPDataGridViewTextBoxColumn.DataPropertyName = "NomP"
-        Me.NomPDataGridViewTextBoxColumn.HeaderText = "NomP"
-        Me.NomPDataGridViewTextBoxColumn.Name = "NomPDataGridViewTextBoxColumn"
-        '
-        'NomJeuneFilleDataGridViewTextBoxColumn
-        '
-        Me.NomJeuneFilleDataGridViewTextBoxColumn.DataPropertyName = "NomJeuneFille"
-        Me.NomJeuneFilleDataGridViewTextBoxColumn.HeaderText = "NomJeuneFille"
-        Me.NomJeuneFilleDataGridViewTextBoxColumn.Name = "NomJeuneFilleDataGridViewTextBoxColumn"
-        '
-        'PrenomPDataGridViewTextBoxColumn
-        '
-        Me.PrenomPDataGridViewTextBoxColumn.DataPropertyName = "PrenomP"
-        Me.PrenomPDataGridViewTextBoxColumn.HeaderText = "PrenomP"
-        Me.PrenomPDataGridViewTextBoxColumn.Name = "PrenomPDataGridViewTextBoxColumn"
-        '
-        'TypeIntervenantDataGridViewTextBoxColumn
-        '
-        Me.TypeIntervenantDataGridViewTextBoxColumn.DataPropertyName = "TypeIntervenant"
-        Me.TypeIntervenantDataGridViewTextBoxColumn.HeaderText = "TypeIntervenant"
-        Me.TypeIntervenantDataGridViewTextBoxColumn.Name = "TypeIntervenantDataGridViewTextBoxColumn"
-        '
-        'DateNaissanceIDataGridViewTextBoxColumn
-        '
-        Me.DateNaissanceIDataGridViewTextBoxColumn.DataPropertyName = "DateNaissanceI"
-        Me.DateNaissanceIDataGridViewTextBoxColumn.HeaderText = "DateNaissanceI"
-        Me.DateNaissanceIDataGridViewTextBoxColumn.Name = "DateNaissanceIDataGridViewTextBoxColumn"
-        '
-        'LieuNaissanceIDataGridViewTextBoxColumn
-        '
-        Me.LieuNaissanceIDataGridViewTextBoxColumn.DataPropertyName = "LieuNaissanceI"
-        Me.LieuNaissanceIDataGridViewTextBoxColumn.HeaderText = "LieuNaissanceI"
-        Me.LieuNaissanceIDataGridViewTextBoxColumn.Name = "LieuNaissanceIDataGridViewTextBoxColumn"
-        '
-        'PaysNaissanceIDataGridViewTextBoxColumn
-        '
-        Me.PaysNaissanceIDataGridViewTextBoxColumn.DataPropertyName = "PaysNaissanceI"
-        Me.PaysNaissanceIDataGridViewTextBoxColumn.HeaderText = "PaysNaissanceI"
-        Me.PaysNaissanceIDataGridViewTextBoxColumn.Name = "PaysNaissanceIDataGridViewTextBoxColumn"
-        '
-        'NationalitePDataGridViewTextBoxColumn
-        '
-        Me.NationalitePDataGridViewTextBoxColumn.DataPropertyName = "NationaliteP"
-        Me.NationalitePDataGridViewTextBoxColumn.HeaderText = "NationaliteP"
-        Me.NationalitePDataGridViewTextBoxColumn.Name = "NationalitePDataGridViewTextBoxColumn"
-        '
-        'AdressePDataGridViewTextBoxColumn
-        '
-        Me.AdressePDataGridViewTextBoxColumn.DataPropertyName = "AdresseP"
-        Me.AdressePDataGridViewTextBoxColumn.HeaderText = "AdresseP"
-        Me.AdressePDataGridViewTextBoxColumn.Name = "AdressePDataGridViewTextBoxColumn"
-        '
-        'CPDataGridViewTextBoxColumn
-        '
-        Me.CPDataGridViewTextBoxColumn.DataPropertyName = "CP"
-        Me.CPDataGridViewTextBoxColumn.HeaderText = "CP"
-        Me.CPDataGridViewTextBoxColumn.Name = "CPDataGridViewTextBoxColumn"
-        '
-        'VillePDataGridViewTextBoxColumn
-        '
-        Me.VillePDataGridViewTextBoxColumn.DataPropertyName = "VilleP"
-        Me.VillePDataGridViewTextBoxColumn.HeaderText = "VilleP"
-        Me.VillePDataGridViewTextBoxColumn.Name = "VillePDataGridViewTextBoxColumn"
-        '
-        'PaysPDataGridViewTextBoxColumn
-        '
-        Me.PaysPDataGridViewTextBoxColumn.DataPropertyName = "PaysP"
-        Me.PaysPDataGridViewTextBoxColumn.HeaderText = "PaysP"
-        Me.PaysPDataGridViewTextBoxColumn.Name = "PaysPDataGridViewTextBoxColumn"
-        '
-        'NumTelPDataGridViewTextBoxColumn
-        '
-        Me.NumTelPDataGridViewTextBoxColumn.DataPropertyName = "NumTelP"
-        Me.NumTelPDataGridViewTextBoxColumn.HeaderText = "NumTelP"
-        Me.NumTelPDataGridViewTextBoxColumn.Name = "NumTelPDataGridViewTextBoxColumn"
-        '
-        'MailPDataGridViewTextBoxColumn
-        '
-        Me.MailPDataGridViewTextBoxColumn.DataPropertyName = "MailP"
-        Me.MailPDataGridViewTextBoxColumn.HeaderText = "MailP"
-        Me.MailPDataGridViewTextBoxColumn.Name = "MailPDataGridViewTextBoxColumn"
-        '
-        'NumSSIDataGridViewTextBoxColumn
-        '
-        Me.NumSSIDataGridViewTextBoxColumn.DataPropertyName = "NumSSI"
-        Me.NumSSIDataGridViewTextBoxColumn.HeaderText = "NumSSI"
-        Me.NumSSIDataGridViewTextBoxColumn.Name = "NumSSIDataGridViewTextBoxColumn"
-        '
-        'ProfilsintervenantBindingSource
-        '
-        Me.ProfilsintervenantBindingSource.DataMember = "profils_intervenant"
-        Me.ProfilsintervenantBindingSource.DataSource = Me.Formation_ContinueDataSet1
-        '
         'Profils_intervenantTableAdapter
         '
         Me.Profils_intervenantTableAdapter.ClearBeforeFill = True
@@ -2261,6 +2435,68 @@ Partial Class Formation
         'Liste_interventionsTableAdapter
         '
         Me.Liste_interventionsTableAdapter.ClearBeforeFill = True
+        '
+        'FillBy_interventions_PToolStrip1
+        '
+        Me.FillBy_interventions_PToolStrip1.Dock = System.Windows.Forms.DockStyle.None
+        Me.FillBy_interventions_PToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NomFormationToolStripLabel3, Me.Param_NomFormation1_P, Me.SessionToolStripLabel3, Me.Param_Session1_P, Me.NomToolStripLabel2, Me.Param_Nom1_P, Me.PrenomToolStripLabel2, Me.Param_Prenom1_P, Me.FillBy_interventions_PToolStripButton1})
+        Me.FillBy_interventions_PToolStrip1.Location = New System.Drawing.Point(11, 315)
+        Me.FillBy_interventions_PToolStrip1.Name = "FillBy_interventions_PToolStrip1"
+        Me.FillBy_interventions_PToolStrip1.Size = New System.Drawing.Size(806, 25)
+        Me.FillBy_interventions_PToolStrip1.TabIndex = 5
+        Me.FillBy_interventions_PToolStrip1.Text = "FillBy_interventions_PToolStrip1"
+        Me.FillBy_interventions_PToolStrip1.Visible = False
+        '
+        'NomFormationToolStripLabel3
+        '
+        Me.NomFormationToolStripLabel3.Name = "NomFormationToolStripLabel3"
+        Me.NomFormationToolStripLabel3.Size = New System.Drawing.Size(92, 22)
+        Me.NomFormationToolStripLabel3.Text = "NomFormation:"
+        '
+        'Param_NomFormation1_P
+        '
+        Me.Param_NomFormation1_P.Name = "NomFormationToolStripTextBox"
+        Me.Param_NomFormation1_P.Size = New System.Drawing.Size(100, 25)
+        '
+        'SessionToolStripLabel3
+        '
+        Me.SessionToolStripLabel3.Name = "SessionToolStripLabel3"
+        Me.SessionToolStripLabel3.Size = New System.Drawing.Size(49, 22)
+        Me.SessionToolStripLabel3.Text = "Session:"
+        '
+        'Param_Session1_P
+        '
+        Me.Param_Session1_P.Name = "SessionToolStripTextBox"
+        Me.Param_Session1_P.Size = New System.Drawing.Size(100, 25)
+        '
+        'NomToolStripLabel2
+        '
+        Me.NomToolStripLabel2.Name = "NomToolStripLabel2"
+        Me.NomToolStripLabel2.Size = New System.Drawing.Size(37, 22)
+        Me.NomToolStripLabel2.Text = "Nom:"
+        '
+        'Param_Nom1_P
+        '
+        Me.Param_Nom1_P.Name = "NomToolStripTextBox"
+        Me.Param_Nom1_P.Size = New System.Drawing.Size(100, 25)
+        '
+        'PrenomToolStripLabel2
+        '
+        Me.PrenomToolStripLabel2.Name = "PrenomToolStripLabel2"
+        Me.PrenomToolStripLabel2.Size = New System.Drawing.Size(52, 22)
+        Me.PrenomToolStripLabel2.Text = "Prenom:"
+        '
+        'Param_Prenom1_P
+        '
+        Me.Param_Prenom1_P.Name = "PrenomToolStripTextBox"
+        Me.Param_Prenom1_P.Size = New System.Drawing.Size(100, 25)
+        '
+        'FillBy_interventions_PToolStripButton1
+        '
+        Me.FillBy_interventions_PToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillBy_interventions_PToolStripButton1.Name = "FillBy_interventions_PToolStripButton1"
+        Me.FillBy_interventions_PToolStripButton1.Size = New System.Drawing.Size(125, 22)
+        Me.FillBy_interventions_PToolStripButton1.Text = "FillBy_interventions_P"
         '
         'Formation
         '
@@ -2285,6 +2521,8 @@ Partial Class Formation
         Me.TabIntervenants.ResumeLayout(False)
         Me.Panel_Intervenants_details.ResumeLayout(False)
         Me.Panel_Intervenants_details.PerformLayout()
+        Me.FillBy_interventions_NPToolStrip.ResumeLayout(False)
+        Me.FillBy_interventions_NPToolStrip.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
         Me.ToolStrip4.ResumeLayout(False)
         Me.ToolStrip4.PerformLayout()
@@ -2301,12 +2539,20 @@ Partial Class Formation
         Me.GroupBox1.PerformLayout()
         Me.TabPage8.ResumeLayout(False)
         Me.TabPage8.PerformLayout()
+        Me.FillBy_liste_interventionsToolStrip.ResumeLayout(False)
+        Me.FillBy_liste_interventionsToolStrip.PerformLayout()
         CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListeinterventionsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage9.ResumeLayout(False)
+        Me.TabPage9.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         CType(Me.DG_Liste_Interventions_nonpayees, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListeinterventionsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DG_Liste_Interventions_payees, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListeinterventionsBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DG_Liste_Intervenants, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProfilsintervenantBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         Me.Panel_Stagiaires_détails.ResumeLayout(False)
         Me.Panel_Stagiaires_détails.PerformLayout()
@@ -2333,11 +2579,8 @@ Partial Class Formation
         Me.GroupBox4.PerformLayout()
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBox11.PerformLayout()
-        Me.FillBy_liste_interventionsToolStrip.ResumeLayout(False)
-        Me.FillBy_liste_interventionsToolStrip.PerformLayout()
-        CType(Me.ListeinterventionsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProfilsintervenantBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FillBy_interventions_PToolStrip1.ResumeLayout(False)
+        Me.FillBy_interventions_PToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2514,23 +2757,6 @@ Partial Class Formation
     Friend WithEvents Formation_ContinueDataSet1 As Formation_ContinueDataSet1
     Friend WithEvents ProfilsintervenantBindingSource As BindingSource
     Friend WithEvents Profils_intervenantTableAdapter As Formation_ContinueDataSet1TableAdapters.profils_intervenantTableAdapter
-    Friend WithEvents IdPersonneDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CivilitePDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NomPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NomJeuneFilleDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PrenomPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TypeIntervenantDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DateNaissanceIDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents LieuNaissanceIDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PaysNaissanceIDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NationalitePDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AdressePDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents VillePDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PaysPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NumTelPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents MailPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NumSSIDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FillBy_liste_intervenantsToolStrip As ToolStrip
     Friend WithEvents IdSToolStripLabel As ToolStripLabel
     Friend WithEvents Param_DG_Intervenants As ToolStripTextBox
@@ -2547,6 +2773,24 @@ Partial Class Formation
     Friend WithEvents ToolStripButton As ToolStripButton
     Friend WithEvents ListeinterventionsBindingSource As BindingSource
     Friend WithEvents Liste_interventionsTableAdapter As Formation_ContinueDataSet1TableAdapters.liste_interventionsTableAdapter
+    Friend WithEvents FillBy_liste_interventionsToolStrip As ToolStrip
+    Friend WithEvents NomFormationToolStripLabel As ToolStripLabel
+    Friend WithEvents Param_NomFormation As ToolStripTextBox
+    Friend WithEvents SessionToolStripLabel As ToolStripLabel
+    Friend WithEvents Param_Session As ToolStripTextBox
+    Friend WithEvents FillBy_liste_interventionsToolStripButton As ToolStripButton
+    Friend WithEvents TypeInterventionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents HeureDebutDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents HeureFinDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NbHeureDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StatutPaiementDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CivilitePDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NomPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PrenomPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TypeIntervenantDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DateNaissanceIDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PaysP As DataGridViewTextBoxColumn
     Friend WithEvents NomPDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents PrenomPDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents IdIntervenantDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -2554,17 +2798,58 @@ Partial Class Formation
     Friend WithEvents IdSeanceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents IdSessionFormationDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents AnneeSessionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TypeInterventionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents HeureDebutDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents HeureFinDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NbHeureDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TypeInterventionDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DateDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents HeureDebutDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents HeureFinDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents NbHeureDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents SalleDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents StatutPaiementDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents FillBy_liste_interventionsToolStrip As ToolStrip
-    Friend WithEvents NomFormationToolStripLabel As ToolStripLabel
-    Friend WithEvents Param_NomFormation As ToolStripTextBox
-    Friend WithEvents SessionToolStripLabel As ToolStripLabel
-    Friend WithEvents Param_Session As ToolStripTextBox
-    Friend WithEvents FillBy_liste_interventionsToolStripButton As ToolStripButton
+    Friend WithEvents StatutPaiementDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents ListeinterventionsBindingSource1 As BindingSource
+    Friend WithEvents FillBy_interventions_NPToolStrip As ToolStrip
+    Friend WithEvents NomFormationToolStripLabel1 As ToolStripLabel
+    Friend WithEvents Param_NomFormation_NP As ToolStripTextBox
+    Friend WithEvents SessionToolStripLabel1 As ToolStripLabel
+    Friend WithEvents Param_Session_NP As ToolStripTextBox
+    Friend WithEvents NomToolStripLabel As ToolStripLabel
+    Friend WithEvents Param_Nom_NP As ToolStripTextBox
+    Friend WithEvents PrenomToolStripLabel As ToolStripLabel
+    Friend WithEvents Param_Prenom_NP As ToolStripTextBox
+    Friend WithEvents FillBy_interventions_NPToolStripButton As ToolStripButton
+    Friend WithEvents NomPDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents PrenomPDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents IdIntervenantDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents NomFDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents IdSeanceDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents IdSessionFormationDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents AnneeSessionDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents TypeInterventionDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DateDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents HeureDebutDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents HeureFinDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents NbHeureDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents SalleDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents StatutPaiementDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents ListeinterventionsBindingSource2 As BindingSource
+    Friend WithEvents FillBy_interventions_PToolStrip As ToolStrip
+    Friend WithEvents NomFormationToolStripLabel2 As ToolStripLabel
+    Friend WithEvents Param_NomFormation_P As ToolStripTextBox
+    Friend WithEvents SessionToolStripLabel2 As ToolStripLabel
+    Friend WithEvents Param_Session_P As ToolStripTextBox
+    Friend WithEvents NomToolStripLabel1 As ToolStripLabel
+    Friend WithEvents Param_Nom_P As ToolStripTextBox
+    Friend WithEvents PrenomToolStripLabel1 As ToolStripLabel
+    Friend WithEvents Param_Prenom_P As ToolStripTextBox
+    Friend WithEvents FillBy_interventions_PToolStripButton As ToolStripButton
+    Friend WithEvents ToolStrip6 As ToolStrip
+    Friend WithEvents FillBy_interventions_PToolStrip1 As ToolStrip
+    Friend WithEvents NomFormationToolStripLabel3 As ToolStripLabel
+    Friend WithEvents Param_NomFormation1_P As ToolStripTextBox
+    Friend WithEvents SessionToolStripLabel3 As ToolStripLabel
+    Friend WithEvents Param_Session1_P As ToolStripTextBox
+    Friend WithEvents NomToolStripLabel2 As ToolStripLabel
+    Friend WithEvents Param_Nom1_P As ToolStripTextBox
+    Friend WithEvents PrenomToolStripLabel2 As ToolStripLabel
+    Friend WithEvents Param_Prenom1_P As ToolStripTextBox
+    Friend WithEvents FillBy_interventions_PToolStripButton1 As ToolStripButton
 End Class

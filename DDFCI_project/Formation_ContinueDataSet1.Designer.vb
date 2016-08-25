@@ -21206,7 +21206,7 @@ Namespace Formation_ContinueDataSet1TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT NomP, PrenomP, idIntervenant, NomF, idSeance, idSessionFormation, AnneeSes"& _ 
@@ -21218,10 +21218,34 @@ Namespace Formation_ContinueDataSet1TableAdapters
             Me._commandCollection(1).CommandText = "SELECT        NomP, PrenomP, idIntervenant, NomF, idSeance, idSessionFormation, A"& _ 
                 "nneeSession, TypeIntervention, Date, HeureDebut, HeureFin, NbHeure, Salle, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
                 "                      StatutPaiement"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_interventions"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"& _ 
-                "        (NomF = @NomFormation) AND (AnneeSession = @Session)"
+                "        (NomF = @NomFormation) AND (AnneeSession = @Session) AND (NomP = @Nom) A"& _ 
+                "ND (PrenomP = @Prenom) AND (StatutPaiement = 'Non payé')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomFormation", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nom", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Prenom", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PrenomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        NomP, PrenomP, idIntervenant, NomF, idSeance, idSessionFormation, A"& _ 
+                "nneeSession, TypeIntervention, Date, HeureDebut, HeureFin, NbHeure, Salle, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      StatutPaiement"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_interventions"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"& _ 
+                "        (NomF = @NomFormation) AND (AnneeSession = @Session) AND (NomP = @Nom) A"& _ 
+                "ND (PrenomP = @Prenom) AND (StatutPaiement = 'Payé')"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomFormation", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nom", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Prenom", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PrenomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT        NomP, PrenomP, idIntervenant, NomF, idSeance, idSessionFormation, A"& _ 
+                "nneeSession, TypeIntervention, Date, HeureDebut, HeureFin, NbHeure, Salle, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      StatutPaiement"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_interventions"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"& _ 
+                "        (NomF = @NomFormation) AND (AnneeSession = @Session)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomFormation", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -21252,8 +21276,74 @@ Namespace Formation_ContinueDataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy_liste_interventions(ByVal dataTable As Formation_ContinueDataSet1.liste_interventionsDataTable, ByVal NomFormation As String, ByVal Session As String) As Integer
+        Public Overloads Overridable Function FillBy_interventions_NP(ByVal dataTable As Formation_ContinueDataSet1.liste_interventionsDataTable, ByVal NomFormation As String, ByVal Session As String, ByVal Nom As String, ByVal Prenom As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (NomFormation Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NomFormation")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NomFormation,String)
+            End If
+            If (Session Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Session,String)
+            End If
+            If (Nom Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nom")
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Nom,String)
+            End If
+            If (Prenom Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(Prenom,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy_interventions_P(ByVal dataTable As Formation_ContinueDataSet1.liste_interventionsDataTable, ByVal NomFormation As String, ByVal Session As String, ByVal Nom As String, ByVal Prenom As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (NomFormation Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NomFormation")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NomFormation,String)
+            End If
+            If (Session Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Session,String)
+            End If
+            If (Nom Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nom")
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Nom,String)
+            End If
+            If (Prenom Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(Prenom,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy_liste_interventions(ByVal dataTable As Formation_ContinueDataSet1.liste_interventionsDataTable, ByVal NomFormation As String, ByVal Session As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomFormation Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomFormation")
             Else
