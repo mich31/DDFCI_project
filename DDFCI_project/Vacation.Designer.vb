@@ -49,17 +49,17 @@ Partial Class Vacation
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.DG_Vacations = New System.Windows.Forms.DataGridView()
         Me.VacationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Formation_ContinueDataSet = New DDFCI_project.Formation_ContinueDataSet()
+        Me.DG_Vacations = New System.Windows.Forms.DataGridView()
         Me.LibelleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TauxDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VacationTableAdapter = New DDFCI_project.Formation_ContinueDataSetTableAdapters.VacationTableAdapter()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
-        CType(Me.DG_Vacations, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VacationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Formation_ContinueDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DG_Vacations, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BT_Enregistrer
@@ -274,6 +274,16 @@ Partial Class Vacation
         Me.BindingNavigator1.TabIndex = 5
         Me.BindingNavigator1.Text = "BindingNavigator1"
         '
+        'VacationBindingSource
+        '
+        Me.VacationBindingSource.DataMember = "Vacation"
+        Me.VacationBindingSource.DataSource = Me.Formation_ContinueDataSet
+        '
+        'Formation_ContinueDataSet
+        '
+        Me.Formation_ContinueDataSet.DataSetName = "Formation_ContinueDataSet"
+        Me.Formation_ContinueDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'DG_Vacations
         '
         Me.DG_Vacations.AutoGenerateColumns = False
@@ -285,16 +295,6 @@ Partial Class Vacation
         Me.DG_Vacations.Name = "DG_Vacations"
         Me.DG_Vacations.Size = New System.Drawing.Size(439, 182)
         Me.DG_Vacations.TabIndex = 0
-        '
-        'VacationBindingSource
-        '
-        Me.VacationBindingSource.DataMember = "Vacation"
-        Me.VacationBindingSource.DataSource = Me.Formation_ContinueDataSet
-        '
-        'Formation_ContinueDataSet
-        '
-        Me.Formation_ContinueDataSet.DataSetName = "Formation_ContinueDataSet"
-        Me.Formation_ContinueDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'LibelleDataGridViewTextBoxColumn
         '
@@ -329,9 +329,9 @@ Partial Class Vacation
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
-        CType(Me.DG_Vacations, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VacationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Formation_ContinueDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DG_Vacations, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

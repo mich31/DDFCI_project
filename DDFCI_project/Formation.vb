@@ -324,6 +324,7 @@ Public Class Formation
 
     End Sub
 
+
     Sub Remplir_DG_Liste_Intervenants()
         Me.Param_DG_Intervenants.Text = idSession
         Me.FillBy_liste_intervenantsToolStripButton.PerformClick()
@@ -439,6 +440,12 @@ Public Class Formation
     End Sub
 
 
+    Private Sub BT_Actualiser_Intervenants_Click(sender As Object, e As EventArgs) Handles BT_Actualiser_Intervenants.Click
+        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
+        o_Intervenant = New Onglet_intervenant(bdd, SF, idSession)
+        Remplir_DG_Liste_Intervenants()
+    End Sub
+
     Sub Init_champs_Information()
         Me.CB_I_Civilite.Text = ""
         Me.TB_I_Nom.Text = ""
@@ -496,20 +503,20 @@ Public Class Formation
     Sub Remplir_Onglet_Information(ByVal DG As DataGridView, ByVal index As Integer)
         Dim id As String = DG.Rows(index).Cells("idPersonne").Value
 
-        Me.CB_I_Civilite.Text = DG.Rows(index).Cells("CiviliteP").Value
-        Me.TB_I_Nom.Text = DG.Rows(index).Cells("NomP").Value
-        Me.TB_I_Prenom.Text = DG.Rows(index).Cells("PrenomP").Value
-        Me.RTB_I_Adresse.Text = DG.Rows(index).Cells("AdresseP").Value & ", " & DG.Rows(index).Cells("CP").Value & " " & DG.Rows(index).Cells("VilleP").Value
-        Me.TB_I_Pays.Text = DG.Rows(index).Cells("PaysP").Value
-        Me.TB_I_Telephone.Text = DG.Rows(index).Cells("NumTelP").Value
-        Me.LinkLabel_Mail_Intervenant.Text = DG.Rows(index).Cells("MailP").Value
+        Me.CB_I_Civilite.Text = DG.Rows(index).Cells(1).Value
+        Me.TB_I_Nom.Text = DG.Rows(index).Cells(2).Value
+        Me.TB_I_Prenom.Text = DG.Rows(index).Cells(4).Value
+        Me.RTB_I_Adresse.Text = DG.Rows(index).Cells(10).Value & ", " & DG.Rows(index).Cells(11).Value & " " & DG.Rows(index).Cells(12).Value
+        Me.TB_I_Pays.Text = DG.Rows(index).Cells(13).Value
+        Me.TB_I_Telephone.Text = DG.Rows(index).Cells(14).Value
+        Me.LinkLabel_Mail_Intervenant.Text = DG.Rows(index).Cells(15).Value
 
-        Me.DTP_I_DateN.Value = DG.Rows(index).Cells("DateNaissanceI").Value
-        Me.TB_I_LieuN.Text = DG.Rows(index).Cells("LieuNaissanceI").Value
-        Me.TB_I_PaysN.Text = DG.Rows(index).Cells("PaysNaissanceI").Value
-        Me.TB_I_NumSS.Text = DG.Rows(index).Cells("NumSSI").Value
+        Me.DTP_I_DateN.Value = DG.Rows(index).Cells(6).Value
+        Me.TB_I_LieuN.Text = DG.Rows(index).Cells(7).Value
+        Me.TB_I_PaysN.Text = DG.Rows(index).Cells(8).Value
+        Me.TB_I_NumSS.Text = DG.Rows(index).Cells(16).Value
 
-        Me.CB_I_TypeIntervenant.Text = DG.Rows(index).Cells("TypeIntervenant").Value
+        Me.CB_I_TypeIntervenant.Text = DG.Rows(index).Cells(5).Value
 
         For Each Ligne As DataRow In o_Intervenant.DonneesEntreprises.Rows()
             If Ligne("idPersonne").ToString = id Then
@@ -538,7 +545,7 @@ Public Class Formation
         Remplir_DG_Liste_Interventions_nonpayees()
         Remplir_DG_Liste_Interventions_payees()
 
-        'Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
+        Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
 
     Private Sub DG_Liste_Intervenants_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Intervenants.RowHeaderMouseClick
@@ -549,7 +556,15 @@ Public Class Formation
         Remplir_DG_Liste_Interventions_nonpayees()
         Remplir_DG_Liste_Interventions_payees()
 
-        'Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
+        Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
+    End Sub
+
+    Private Sub BT_Supprimer_Intervention_Click(sender As Object, e As EventArgs) Handles BT_Supprimer_Intervention.Click
+        Me.BN_Interventions_DeleteItem.PerformClick()
+    End Sub
+
+    Private Sub BT_Ajouter_Intervention_Click(sender As Object, e As EventArgs) Handles BT_Ajouter_Intervention.Click
+        'Me.BN_Interventions_AddItem.PerformClick()
     End Sub
 
     Private Sub BT_Nouvel_Intervenant_Click(sender As Object, e As EventArgs) Handles BT_Nouvel_Intervenant.Click
@@ -558,13 +573,19 @@ Public Class Formation
     End Sub
 
     Private Sub BT_Supprimer_intervenant_Click(sender As Object, e As EventArgs) Handles BT_Supprimer_intervenant.Click
-        Dim id As String
-        For Each Ligne As DataGridViewRow In Me.DG_Liste_Intervenants.Rows
-            If Ligne.Cells.Item(0).Value = True Then
-                id = Ligne.Cells.Item(1).Value
-                SupprimeIntervenant(id)
-            End If
-        Next
+        'Dim id As String
+        'For Each Ligne As DataGridViewRow In Me.DG_Liste_Intervenants.Rows
+        '    If Ligne.Cells.Item(0).Value = True Then
+        '        id = Ligne.Cells.Item(1).Value
+        '        SupprimeIntervenant(id)
+        '    End If
+        'Next
+        Me.BN_Intervenants_DeleteItem.PerformClick()
+    End Sub
+
+    Private Sub BT_Enregistrer_Intervenants_Click(sender As Object, e As EventArgs) Handles BT_Enregistrer_Intervenants.Click
+        Me.Enregistrer_Intervenants.PerformClick()
+        'Profils_intervenantTableAdapter.Adapter.Update(Me.Formation_ContinueDataSet1.profils_intervenant.DataSet)
     End Sub
 
     Sub SupprimeIntervenant(ByVal id As String)
@@ -623,7 +644,7 @@ Public Class Formation
         Nouv.Show()
     End Sub
 
-    Private Sub BT_Refresh_Click(sender As Object, e As EventArgs) Handles BT_Refresh.Click
+    Private Sub BT_Refresh_Stagiaires_Click(sender As Object, e As EventArgs) Handles BT_Refresh_Stagiaires.Click
         Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
         o_Stagiaire = New Onglet_stagiaire(bdd, SF)
         Remplir_DG_Liste_Stagiaires()
@@ -818,14 +839,6 @@ Public Class Formation
         Finally
             GC.Collect()
         End Try
-    End Sub
-
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions.Rows
-            If Ligne.Cells.Item(0).OwningColumn.Name Is "_" And Ligne.Cells.Item(0).Value = True Then
-                Me.DG_Liste_Interventions.Rows.Remove(Ligne)
-            End If
-        Next
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click

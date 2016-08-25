@@ -21689,6 +21689,10 @@ Namespace Formation_ContinueDataSet1TableAdapters
             tableMapping.ColumnMappings.Add("MailP", "MailP")
             tableMapping.ColumnMappings.Add("NumSSI", "NumSSI")
             Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = ""
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -21757,6 +21761,34 @@ Namespace Formation_ContinueDataSet1TableAdapters
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As Formation_ContinueDataSet1.profils_intervenantDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As Formation_ContinueDataSet1) As Integer
+            Return Me.Adapter.Update(dataSet, "profils_intervenant")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
         End Function
     End Class
     
@@ -22846,6 +22878,8 @@ Namespace Formation_ContinueDataSet1TableAdapters
         
         Private _vacationTableAdapter As VacationTableAdapter
         
+        Private _profils_intervenantTableAdapter As profils_intervenantTableAdapter
+        
         Private _backupDataSetBeforeUpdate As Boolean
         
         Private _connection As Global.System.Data.IDbConnection
@@ -23058,6 +23092,20 @@ Namespace Formation_ContinueDataSet1TableAdapters
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property profils_intervenantTableAdapter() As profils_intervenantTableAdapter
+            Get
+                Return Me._profils_intervenantTableAdapter
+            End Get
+            Set
+                Me._profils_intervenantTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
@@ -23132,6 +23180,10 @@ Namespace Formation_ContinueDataSet1TableAdapters
                             AndAlso (Not (Me._vacationTableAdapter.Connection) Is Nothing)) Then
                     Return Me._vacationTableAdapter.Connection
                 End If
+                If ((Not (Me._profils_intervenantTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._profils_intervenantTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._profils_intervenantTableAdapter.Connection
+                End If
                 Return Nothing
             End Get
             Set
@@ -23185,6 +23237,9 @@ Namespace Formation_ContinueDataSet1TableAdapters
                     count = (count + 1)
                 End If
                 If (Not (Me._vacationTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
+                If (Not (Me._profils_intervenantTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -23276,6 +23331,15 @@ Namespace Formation_ContinueDataSet1TableAdapters
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._stagiaireTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._profils_intervenantTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.profils_intervenant.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._profils_intervenantTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -23406,6 +23470,14 @@ Namespace Formation_ContinueDataSet1TableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._profils_intervenantTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.profils_intervenant.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._profils_intervenantTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._travailleSurFormationTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.travailleSurFormation.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -23493,6 +23565,14 @@ Namespace Formation_ContinueDataSet1TableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._travailleSurFormationTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._profils_intervenantTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.profils_intervenant.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._profils_intervenantTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -23679,6 +23759,11 @@ Namespace Formation_ContinueDataSet1TableAdapters
                 Throw New Global.System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm"& _ 
                         "e chaîne de connexion.")
             End If
+            If ((Not (Me._profils_intervenantTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._profils_intervenantTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("Tous les TableAdapters managés par un TableAdapterManager doivent utiliser la mêm"& _ 
+                        "e chaîne de connexion.")
+            End If
             Dim workConnection As Global.System.Data.IDbConnection = Me.Connection
             If (workConnection Is Nothing) Then
                 Throw New Global.System.ApplicationException("TableAdapterManager ne contient pas d'informations de connexion. Définissez chaqu"& _ 
@@ -23839,6 +23924,15 @@ Namespace Formation_ContinueDataSet1TableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._vacationTableAdapter.Adapter)
                     End If
                 End If
+                If (Not (Me._profils_intervenantTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._profils_intervenantTableAdapter, Me._profils_intervenantTableAdapter.Connection)
+                    Me._profils_intervenantTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._profils_intervenantTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._profils_intervenantTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._profils_intervenantTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._profils_intervenantTableAdapter.Adapter)
+                    End If
+                End If
                 '
                 '---- Perform updates -----------
                 '
@@ -23954,6 +24048,10 @@ Namespace Formation_ContinueDataSet1TableAdapters
                 If (Not (Me._vacationTableAdapter) Is Nothing) Then
                     Me._vacationTableAdapter.Connection = CType(revertConnections(Me._vacationTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._vacationTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._profils_intervenantTableAdapter) Is Nothing) Then
+                    Me._profils_intervenantTableAdapter.Connection = CType(revertConnections(Me._profils_intervenantTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._profils_intervenantTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter
