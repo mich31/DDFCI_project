@@ -297,7 +297,7 @@ Public Class Formation
 
     End Sub
 
-    Private Sub FillBy_liste_interventionsToolStripButton_Click(sender As Object, e As EventArgs) Handles FillBy_liste_interventionsToolStripButton.Click
+    Private Sub FillBy_liste_interventionsToolStripButton_Click(sender As Object, e As EventArgs)
         Try
             Me.Liste_interventionsTableAdapter.FillBy_liste_interventions(Me.Formation_ContinueDataSet1.liste_interventions, Param_NomFormation.Text, Param_Session.Text)
         Catch ex As System.Exception
@@ -324,6 +324,14 @@ Public Class Formation
 
     End Sub
 
+    Private Sub FillBy_interventionsToolStripButton_Click(sender As Object, e As EventArgs) Handles FillBy_interventionsToolStripButton.Click
+        Try
+            Me.Liste_interventionsTableAdapter.FillBy_interventions(Me.Formation_ContinueDataSet1.liste_interventions, Param_NomFormation.Text, Param_Session.Text, Param_Nom.Text, Param_Prenom.Text)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
 
     Sub Remplir_DG_Liste_Intervenants()
         Me.Param_DG_Intervenants.Text = idSession
@@ -354,7 +362,9 @@ Public Class Formation
     Sub Remplir_DG_Liste_Interventions()
         Me.Param_NomFormation.Text = NomFormation
         Me.Param_Session.Text = SessionFormation
-        Me.FillBy_liste_interventionsToolStripButton.PerformClick()
+        'Me.Param_Nom.Text = ""
+        'Me.Param_Prenom.Text = ""
+        FillBy_interventionsToolStripButton.PerformClick()
         'Me.DG_Liste_Interventions.DataSource = o_Intervenant.Interventions
         'Me.DG_Liste_Interventions.Columns("NomF").HeaderText = "Formation"
         'Me.DG_Liste_Interventions.Columns("TypeIntervention").HeaderText = "Type d'intervention"
@@ -540,8 +550,12 @@ Public Class Formation
     Private Sub DG_Liste_Intervenants_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Liste_Intervenants.CellContentClick
         Init_champs_Information()
         intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
-        Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
+        'Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
 
+        Me.Param_Nom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
+        Me.Param_Prenom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
+
+        Remplir_DG_Liste_Interventions()
         Remplir_DG_Liste_Interventions_nonpayees()
         Remplir_DG_Liste_Interventions_payees()
 
@@ -551,8 +565,12 @@ Public Class Formation
     Private Sub DG_Liste_Intervenants_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Intervenants.RowHeaderMouseClick
         Init_champs_Information()
         intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
-        Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
+        'Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
 
+        Me.Param_Nom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
+        Me.Param_Prenom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
+
+        Remplir_DG_Liste_Interventions()
         Remplir_DG_Liste_Interventions_nonpayees()
         Remplir_DG_Liste_Interventions_payees()
 

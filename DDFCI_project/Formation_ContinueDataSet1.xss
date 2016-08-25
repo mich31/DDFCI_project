@@ -24,7 +24,7 @@
     <Shape ID="DesignTable:liste_assistantes" ZOrder="22" X="2257" Y="70" Height="191" Width="236" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:liste_chefs_de_projets" ZOrder="21" X="2563" Y="70" Height="191" Width="269" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:liste_inscriptions" ZOrder="20" X="2902" Y="70" Height="210" Width="241" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
-    <Shape ID="DesignTable:liste_interventions" ZOrder="19" X="3213" Y="70" Height="324" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:liste_interventions" ZOrder="19" X="3213" Y="70" Height="381" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:liste_seances" ZOrder="18" X="3533" Y="70" Height="248" Width="218" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
     <Shape ID="DesignTable:profils_intervenant" ZOrder="17" X="3821" Y="70" Height="324" Width="254" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:profils_stagiaires" ZOrder="16" X="4145" Y="70" Height="305" Width="242" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
