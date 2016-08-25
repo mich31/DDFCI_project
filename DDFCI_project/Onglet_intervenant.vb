@@ -5,18 +5,24 @@ Public Class Onglet_intervenant
     Private bdd As BD
     Private MonAdaptateur As SqlDataAdapter
 
-    Sub New(ByRef base As BD, ByVal SF As SessionFormation)
+    Private idS As String
+
+    Sub New(ByRef base As BD, ByVal SF As SessionFormation, ByVal idSession As String)
         bdd = base
+        idS = idSession
         GenereListeInterventions(SF)
         GenereListeIntervenants(SF)
         GenereDonneesEntreprise(SF)
     End Sub
 
     Sub GenereListeIntervenants(ByRef SF As SessionFormation)
+        'Dim Req As String = "select*from profils_intervenant 
+        'where idPersonne in 
+        '(select idIntervenant from liste_interventions where NomF = '" & SF.NomFormation & "' 
+        'and AnneeSession = '" & SF.Session & "')"
         Dim Req As String = "select*from profils_intervenant 
         where idPersonne in 
-        (select idIntervenant from liste_interventions where NomF = '" & SF.NomFormation & "' 
-        and AnneeSession = '" & SF.Session & "')"
+        (select idIntervenant from intervientSurSession where idSessionFormation = '" & idS & "')"
         Dim cmd As New SqlCommand(Req, bdd.connect)
         MonAdaptateur = New SqlDataAdapter(cmd)
 

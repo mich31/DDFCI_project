@@ -11,8 +11,10 @@ Public Class Onglet_stagiaire
 
 
     Sub GenereListeStagiaires(ByRef SF As SessionFormation)
-        Dim Req As String = "select*from profils_stagiaires where idPersonne in
-        (select idStagiaire from liste_inscriptions where AnneeSession = '" & SF.Session & "');"
+        'Dim Req As String = "select*from profils_stagiaires where idPersonne in
+        '(select idStagiaire from liste_inscriptions where AnneeSession = '" & SF.Session & "');"
+        Dim Req As String = "select*from profils_stagiaires P join liste_inscriptions L on L.idStagiaire = P.idPersonne 
+            and AnneeSession ='" & SF.Session & "'"
         Dim cmd As New SqlCommand(Req, bdd.connect)
         Dim MonAdaptateur As New SqlDataAdapter(cmd)
 

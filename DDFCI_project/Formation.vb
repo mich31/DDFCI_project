@@ -100,7 +100,10 @@ Public Class Formation
         Dim Temp As TabPage
         Temp = Me.TabPage7
         Me.TabControl2.TabPages.Item(1) = Me.TabPage8
-        Me.TabControl2.TabPages.Item(2) = Temp
+        Me.TabControl2.TabPages.Item(2) = Me.TabPage9
+
+        Me.TabControl2.TabPages.Item(3) = Temp
+
     End Sub
 
     Sub GestionDesDroits()
@@ -358,6 +361,24 @@ Public Class Formation
         Me.DTP_I_Anciennete.Enabled = True
     End Sub
 
+    Sub FermetureDesChamps()
+        Me.CB_I_Civilite.Enabled = False
+        Me.TB_I_Nom.Enabled = False
+        Me.TB_I_Prenom.Enabled = False
+        Me.RTB_I_Adresse.Enabled = False
+        Me.TB_I_Pays.Enabled = False
+        Me.TB_I_Telephone.Enabled = False
+        Me.LinkLabel_Mail_Intervenant.Enabled = False
+        Me.DTP_I_DateN.Enabled = False
+        Me.TB_I_LieuN.Enabled = False
+        Me.TB_I_PaysN.Enabled = False
+        Me.TB_I_NumSS.Enabled = False
+        Me.CB_I_TypeIntervenant.Enabled = False
+        Me.RTB_I_Fonction.Enabled = False
+        Me.RTB_I_Entreprise.Enabled = False
+        Me.DTP_I_Anciennete.Enabled = False
+    End Sub
+
     Sub Remplir_Onglet_Information(ByVal DG As DataGridView, ByVal index As Integer)
         Dim id As String = DG.Rows(index).Cells("idPersonne").Value
 
@@ -455,6 +476,10 @@ Public Class Formation
         Next
     End Sub
 
+    Private Sub BT_I_Enregistrer_Click(sender As Object, e As EventArgs)
+        FermetureDesChamps()
+    End Sub
+
 #End Region
 
 #Region "Onglet Stagiaire"
@@ -465,9 +490,11 @@ Public Class Formation
 
         Me.DG_Liste_Stagiaires.Columns("NomP").HeaderText = "Nom"
         Me.DG_Liste_Stagiaires.Columns("PrenomP").HeaderText = "Prénom"
+        Me.DG_Liste_Stagiaires.Columns("Prix").HeaderText = "Frais d'inscription"
+        Me.DG_Liste_Stagiaires.Columns("Paiement").HeaderText = "Paiement"
 
         For Each col As DataGridViewColumn In Me.DG_Liste_Stagiaires.Columns
-            If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" Then
+            If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Frais d'inscription" And col.HeaderText IsNot "Paiement" Then
                 col.Visible = False
             End If
         Next
@@ -487,7 +514,7 @@ Public Class Formation
     End Sub
 
     Private Sub BT_Refresh_Click(sender As Object, e As EventArgs) Handles BT_Refresh.Click
-        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
+        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
         o_Stagiaire = New Onglet_stagiaire(bdd, SF)
         Remplir_DG_Liste_Stagiaires()
     End Sub
@@ -553,6 +580,11 @@ Public Class Formation
 
 #End Region
 
+#Region "Temps Agent"
+
+
+#End Region
+
 #Region "Documents"
 
     Sub RemplirControlsDoc(ByRef SF As SessionFormation)
@@ -613,15 +645,20 @@ Public Class Formation
     End Sub
 
     Private Sub MAJ_infos()
-        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
+        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
 
         o_Planning = New Onglet_planning(bdd, SF)
-        o_Intervenant = New Onglet_intervenant(bdd, SF)
+        o_Intervenant = New Onglet_intervenant(bdd, SF, idSession)
         o_Stagiaire = New Onglet_stagiaire(bdd, SF)
 
-        Me.RTB_I_Formation.Text = NomFormation
+        Me.RTB_Formation.Text = NomFormation
 
-        Me.TB_I_Session.Text = SessionFormation
+        Me.TB_Session.Text = SessionFormation
+
+        Me.TB_Debut_Session.Text = SF.Debut
+        Me.TB_Fin_Session.Text = SF.Fin
+        Me.CB_CP.Text = SF.Chef_de_projet
+        Me.CB_AF.Text = SF.Assistante
 
         Me.TB_I_NB_Intervenants.Text = o_Intervenant.Intervenants.Rows.Count
 
@@ -670,10 +707,10 @@ Public Class Formation
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'Si les modifications sont activées
-        If Me.DG_Liste_Interventions_payees.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2 Then
-            For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions_payees.Rows
+        If Me.DG_Liste_Interventions_nonpayees.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2 Then
+            For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions_nonpayees.Rows
                 If Ligne.Cells.Item(0).OwningColumn.Name Is "_" And Ligne.Cells.Item(0).Value = True Then
-                    Ligne.Cells.Item(14).Value = "Non payé"
+                    Ligne.Cells.Item(14).Value = "Payé"
                     'Me.DG_Liste_Interventions_payees.Rows.IndexOf(Ligne) = 1
                     'Ligne.Index += 1
                 End If
@@ -738,7 +775,7 @@ Public Class Formation
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation)
+        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
         For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions.Rows
             o_Intervenant.MAJ_Interventions(SF, Ligne, "Non payé")
         Next

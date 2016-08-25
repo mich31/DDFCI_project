@@ -39,12 +39,12 @@ Public Class Edit_Session
 
     Sub Remplir_champs(ByRef DG As DataGridView, ByVal index As Integer)
         Me.CB_Formation.Text = DG.Rows(index).Cells("NomF").Value
-        Me.DTP_Session.Value = DG.Rows(index).Cells("AnneeSession").Value
+        Me.TB_Session.Text = DG.Rows(index).Cells("AnneeSession").Value
         Me.DTP_Debut.Value = DG.Rows(index).Cells("DateDebut").Value
         Me.DTP_Fin.Value = DG.Rows(index).Cells("DateFin").Value
 
-        Remplir_champ_CP(Me.CB_Formation.Text, Me.DTP_Session.Value)
-        Remplir_champ_AF(Me.CB_Formation.Text, Me.DTP_Session.Value)
+        Remplir_champ_CP(Me.CB_Formation.Text, Me.TB_Session.Text)
+        Remplir_champ_AF(Me.CB_Formation.Text, Me.TB_Session.Text)
     End Sub
 
     Sub Remplir_champ_CP(ByVal NomFormation As String, ByVal Session As String)
@@ -84,7 +84,7 @@ Public Class Edit_Session
     Private Sub BT_Ajouter_Click(sender As Object, e As EventArgs) Handles BT_Ajouter.Click
         Dim idF As String = GenereID_Formation(Me.CB_Formation.Text)
         Dim Req As String = "insert into SessionFormation (idFormation,AnneeSession,DateDebut,DateFin) 
-            values ('" & idF & "','" & Me.DTP_Session.Value & "','" & Me.DTP_Debut.Value & "','" & Me.DTP_Fin.Value & "')"
+            values ('" & idF & "','" & Me.TB_Session.Text & "','" & Me.DTP_Debut.Value & "','" & Me.DTP_Fin.Value & "')"
         Dim cmd As New SqlCommand(Req, bdd.connect)
         Dim res As Integer
 
@@ -113,10 +113,10 @@ Public Class Edit_Session
         Try
             res1 = cmd1.ExecuteNonQuery()
             cmd1.Dispose()
-            MsgBox(res1 & " Chef de projet")
+            'MsgBox(res1 & " Chef de projet")
             res2 = cmd2.ExecuteNonQuery()
             cmd2.Dispose()
-            MsgBox(res2 & " Assistante ")
+            'MsgBox(res2 & " Assistante ")
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
@@ -125,7 +125,7 @@ Public Class Edit_Session
 
     Function GenereID_Session(ByVal ID_Formation As String) As String
         Dim req As String = "select*from SessionFormation where idFormation='" & ID_Formation & "' 
-            and AnneeSession='" & Me.DTP_Session.Value & "' and DateDebut='" & Me.DTP_Debut.Value & "'"
+            and AnneeSession='" & Me.TB_Session.Text & "' and DateDebut='" & Me.DTP_Debut.Value & "'"
         Dim cmd As New SqlCommand(req, bdd.connect)
         Dim res As String = "0"
 

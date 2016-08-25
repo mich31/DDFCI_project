@@ -54,7 +54,7 @@ Public Class NouvelIntervenant
         Dim Res As Integer
         Try
             Res = cmd.ExecuteNonQuery()
-            MsgBox(Res & "interventions")
+            'MsgBox(Res & "interventions")
             Me.Dispose()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
