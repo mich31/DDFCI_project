@@ -7,6 +7,7 @@ Public Class Onglet_stagiaire
     Sub New(ByRef base As BD, ByVal SF As SessionFormation)
         bdd = base
         GenereListeStagiaires(SF)
+        GenereDonneesEntreprise(SF)
     End Sub
 
 
@@ -26,6 +27,22 @@ Public Class Onglet_stagiaire
         cmd.Dispose()
     End Sub
 
+    Sub GenereDonneesEntreprise(ByRef SF As SessionFormation)
+        Dim Req As String = "select*from emplois 
+        where idPersonne in 
+        (select idStagiaire from liste_inscriptions where NomF = '" & SF.NomFormation & "' 
+        and AnneeSession = '" & SF.Session & "')"
+        Dim cmd As New SqlCommand(Req, bdd.connect)
+        Dim MonAdaptateur As New SqlDataAdapter(cmd)
+
+        Try
+            MonAdaptateur.Fill(MonDataSet, "donnees_entreprise")
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
 #Region "Propriétés"
 
     Property Stagiaires As DataTable
@@ -34,6 +51,15 @@ Public Class Onglet_stagiaire
         End Set
         Get
             Return MonDataSet.Tables("liste_stagiaires")
+        End Get
+    End Property
+
+    Property Donnees_entreprises As DataTable
+        Set(value As DataTable)
+
+        End Set
+        Get
+            Return MonDataSet.Tables("donnees_entreprise")
         End Get
     End Property
 

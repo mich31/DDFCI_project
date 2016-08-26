@@ -59,4 +59,5 @@ Public Class NouveauStagiaire
     Private Sub BT_Ajouter_Click(sender As Object, e As EventArgs) Handles BT_Ajouter.Click
         Ajoute_stagiaire()
     End Sub
+
 End Class

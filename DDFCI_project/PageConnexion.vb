@@ -55,4 +55,7 @@ Public Class PageConnexion
         End If
     End Sub
 
+    Private Sub PageConnexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

@@ -130,6 +130,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Formation_ContinueDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Formation_ContinueDataSet2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formation_ContinueDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Intervenant.vb" />
     <Compile Include="IntervenantSelected.vb" />
     <Compile Include="Modification_utilisateur.Designer.vb">
@@ -268,6 +273,17 @@
     </None>
     <None Include="Formation_ContinueDataSet1.xss">
       <DependentUpon>Formation_ContinueDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Formation_ContinueDataSet2.xsc">
+      <DependentUpon>Formation_ContinueDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Formation_ContinueDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Formation_ContinueDataSet2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Formation_ContinueDataSet2.xss">
+      <DependentUpon>Formation_ContinueDataSet2.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

@@ -87,6 +87,8 @@ Public Class Formation
 
 
     Private Sub Formation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.inscription_stagiaires'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+        Me.Inscription_stagiairesTableAdapter.Fill(Me.Formation_ContinueDataSet2.inscription_stagiaires)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.liste_interventions'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         Me.Liste_interventionsTableAdapter.Fill(Me.Formation_ContinueDataSet1.liste_interventions)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.profils_intervenant'. Vous pouvez la déplacer ou la supprimer selon les besoins.
@@ -337,7 +339,7 @@ Public Class Formation
         Me.Param_DG_Intervenants.Text = idSession
         Me.FillBy_liste_intervenantsToolStripButton.PerformClick()
         'Me.DG_Liste_Intervenants.DataSource = o_Intervenant.Intervenants
-        'Dim nb As Integer = Me.DG_Liste_Intervenants.RowCount
+        Dim nb As Integer = Me.DG_Liste_Intervenants.RowCount
 
         'Me.DG_Liste_Intervenants.Columns("NomP").HeaderText = "Nom"
         'Me.DG_Liste_Intervenants.Columns("PrenomP").HeaderText = "Prénom"
@@ -356,7 +358,7 @@ Public Class Formation
         '    End If
         'Next
 
-        'Me.LBL_Intervenant_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
+        Me.LBL_Intervenant_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
     End Sub
 
     Sub Remplir_DG_Liste_Interventions()
@@ -392,8 +394,7 @@ Public Class Formation
     Sub Remplir_DG_Liste_Interventions_payees()
         Me.Param_NomFormation1_P.Text = NomFormation
         Me.Param_Session1_P.Text = SessionFormation
-        Me.Param_Nom1_P.Text = ""
-        Me.Param_Prenom1_P.Text = ""
+
         Me.FillBy_interventions_PToolStripButton1.PerformClick()
         'Dim MonView = New DataView(Me.DG_Liste_Interventions.DataSource, "StatutPaiement = 'Payé'", "StatutPaiement Desc", DataViewRowState.CurrentRows)
         'Me.DG_Liste_Interventions_payees.DataSource = MonView
@@ -422,8 +423,6 @@ Public Class Formation
     Sub Remplir_DG_Liste_Interventions_nonpayees()
         Me.Param_NomFormation_NP.Text = NomFormation
         Me.Param_Session_NP.Text = SessionFormation
-        Me.Param_Nom_NP.Text = ""
-        Me.Param_Prenom_NP.Text = ""
         Me.FillBy_interventions_NPToolStripButton.PerformClick()
         'Dim MonView = New DataView(Me.DG_Liste_Interventions.DataSource, "StatutPaiement = 'Non payé'", "StatutPaiement Desc", DataViewRowState.CurrentRows)
         'Me.DG_Liste_Interventions_nonpayees.DataSource = MonView
@@ -499,7 +498,7 @@ Public Class Formation
         Me.RTB_I_Adresse.Enabled = False
         Me.TB_I_Pays.Enabled = False
         Me.TB_I_Telephone.Enabled = False
-        Me.LinkLabel_Mail_Intervenant.Enabled = False
+        'Me.LinkLabel_Mail_Intervenant.Enabled = False
         Me.DTP_I_DateN.Enabled = False
         Me.TB_I_LieuN.Enabled = False
         Me.TB_I_PaysN.Enabled = False
@@ -510,7 +509,7 @@ Public Class Formation
         Me.DTP_I_Anciennete.Enabled = False
     End Sub
 
-    Sub Remplir_Onglet_Information(ByVal DG As DataGridView, ByVal index As Integer)
+    Sub Remplir_Onglet_Information_Intervenant(ByVal DG As DataGridView, ByVal index As Integer)
         Dim id As String = DG.Rows(index).Cells("idPersonne").Value
 
         Me.CB_I_Civilite.Text = DG.Rows(index).Cells(1).Value
@@ -553,13 +552,18 @@ Public Class Formation
         'Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
 
         Me.Param_Nom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
+        Me.Param_Nom1_P.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
+        Me.Param_Nom_NP.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
+
         Me.Param_Prenom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
+        Me.Param_Prenom1_P.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
+        Me.Param_Prenom_NP.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
 
         Remplir_DG_Liste_Interventions()
         Remplir_DG_Liste_Interventions_nonpayees()
         Remplir_DG_Liste_Interventions_payees()
 
-        Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
+        Remplir_Onglet_Information_Intervenant(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
 
     Private Sub DG_Liste_Intervenants_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Intervenants.RowHeaderMouseClick
@@ -568,13 +572,18 @@ Public Class Formation
         'Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
 
         Me.Param_Nom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
+        Me.Param_Nom1_P.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
+        Me.Param_Nom_NP.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
+
         Me.Param_Prenom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
+        Me.Param_Prenom1_P.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
+        Me.Param_Prenom_NP.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
 
         Remplir_DG_Liste_Interventions()
         Remplir_DG_Liste_Interventions_nonpayees()
         Remplir_DG_Liste_Interventions_payees()
 
-        Remplir_Onglet_Information(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
+        Remplir_Onglet_Information_Intervenant(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
 
     Private Sub BT_Supprimer_Intervention_Click(sender As Object, e As EventArgs) Handles BT_Supprimer_Intervention.Click
@@ -598,12 +607,28 @@ Public Class Formation
         '        SupprimeIntervenant(id)
         '    End If
         'Next
+        Suppression_Intervenant_BD(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
         Me.BN_Intervenants_DeleteItem.PerformClick()
     End Sub
 
     Private Sub BT_Enregistrer_Intervenants_Click(sender As Object, e As EventArgs) Handles BT_Enregistrer_Intervenants.Click
         Me.Enregistrer_Intervenants.PerformClick()
         'Profils_intervenantTableAdapter.Adapter.Update(Me.Formation_ContinueDataSet1.profils_intervenant.DataSet)
+    End Sub
+
+    Private Sub Suppression_Intervenant_BD(ByVal DG As DataGridView, ByVal index As Integer)
+        Dim idPersonne As String = DG.Rows(index).Cells("idPersonne").Value
+        Dim idS As String = idSession
+        Dim Req As String = "DELETE FROM intervientSurSession WHERE idIntervenant = '" & idPersonne & "' AND 
+        idSessionFormation = '" & idS & "'"
+        Dim cmd As New SqlCommand(Req, bdd.connect)
+        Dim res As Integer = 0
+        Try
+            res = cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
     End Sub
 
     Sub SupprimeIntervenant(ByVal id As String)
@@ -633,28 +658,132 @@ Public Class Formation
 
 #Region "Onglet Stagiaire"
 
+    Private Sub FillBy_StagiairesToolStripButton_Click(sender As Object, e As EventArgs) Handles FillBy_StagiairesToolStripButton.Click
+        Try
+            Me.Inscription_stagiairesTableAdapter.FillBy_Stagiaires(Me.Formation_ContinueDataSet2.inscription_stagiaires, Param_Session_Stagiaires.Text)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
     Sub Remplir_DG_Liste_Stagiaires()
-        Me.DG_Liste_Stagiaires.DataSource = o_Stagiaire.Stagiaires
+        Me.Param_Session_Stagiaires.Text = SessionFormation
+        Me.FillBy_StagiairesToolStripButton.PerformClick()
+        'Me.DG_Liste_Stagiaires.DataSource = o_Stagiaire.Stagiaires
         Dim nb As Integer = Me.DG_Liste_Stagiaires.RowCount
 
-        Me.DG_Liste_Stagiaires.Columns("NomP").HeaderText = "Nom"
-        Me.DG_Liste_Stagiaires.Columns("PrenomP").HeaderText = "Prénom"
-        Me.DG_Liste_Stagiaires.Columns("Prix").HeaderText = "Frais d'inscription"
-        Me.DG_Liste_Stagiaires.Columns("Paiement").HeaderText = "Paiement"
+        'Me.DG_Liste_Stagiaires.Columns("NomP").HeaderText = "Nom"
+        'Me.DG_Liste_Stagiaires.Columns("PrenomP").HeaderText = "Prénom"
+        'Me.DG_Liste_Stagiaires.Columns("Prix").HeaderText = "Frais d'inscription"
+        'Me.DG_Liste_Stagiaires.Columns("Paiement").HeaderText = "Paiement"
 
-        For Each col As DataGridViewColumn In Me.DG_Liste_Stagiaires.Columns
-            If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Frais d'inscription" And col.HeaderText IsNot "Paiement" Then
-                col.Visible = False
+        'For Each col As DataGridViewColumn In Me.DG_Liste_Stagiaires.Columns
+        '    If col.HeaderText IsNot "Nom" And col.HeaderText IsNot "Prénom" And col.HeaderText IsNot "Frais d'inscription" And col.HeaderText IsNot "Paiement" Then
+        '        col.Visible = False
+        '    End If
+        'Next
+
+        '' Ajout et redimensionnement des cases à cocher
+        'Dim TB As New DataGridViewCheckBoxColumn
+        'Me.DG_Liste_Stagiaires.Columns.Add(TB)
+        'TB.DisplayIndex = 1
+        'TB.Width = 21
+
+        Me.LBL_Stagiaire_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
+    End Sub
+
+    Sub Remplir_Onglet_Information_Stagiaire(ByVal DG As DataGridView, ByVal index As Integer)
+        Dim id As String = DG.Rows(index).Cells(0).Value
+
+        Me.CB_S_Civ.Text = DG.Rows(index).Cells(1).Value
+        Me.TB_S_Nom.Text = DG.Rows(index).Cells(2).Value
+        Me.TB_S_Prenom.Text = DG.Rows(index).Cells(4).Value
+        Me.RTB_S_Adresse.Text = DG.Rows(index).Cells(6).Value & ", " & DG.Rows(index).Cells(7).Value & " " & DG.Rows(index).Cells(8).Value
+        Me.TB_S_Pays.Text = DG.Rows(index).Cells(9).Value
+        Me.TB_S_Tel.Text = DG.Rows(index).Cells(10).Value
+        Me.Email_Stagiaire.Text = DG.Rows(index).Cells(11).Value
+
+        For Each Ligne As DataRow In o_Stagiaire.Donnees_entreprises.Rows()
+            If Ligne("idPersonne").ToString = id Then
+                Me.RTB_S_Fonction.Text = Ligne("Fonction").ToString
+                Me.RTB_S_Entreprise.Text = Ligne("NomE").ToString
+                Me.DTP_S_Anciennete.Value = Ligne("Anciennete").ToString
             End If
         Next
 
-        ' Ajout et redimensionnement des cases à cocher
-        Dim TB As New DataGridViewCheckBoxColumn
-        Me.DG_Liste_Stagiaires.Columns.Add(TB)
-        TB.DisplayIndex = 1
-        TB.Width = 21
+        Me.TB_Prix.Text = DG.Rows(index).Cells(17).Value
+        Me.CB_StatutPaiement.Text = DG.Rows(index).Cells(18).Value
 
-        Me.LBL_Stagiaire_NB_Enregistrement.Text = nb - 1 & " enregistrement(s)"
+    End Sub
+
+    Sub Init_champs_Information_stagiaires()
+        Me.CB_S_Civ.Text = ""
+        Me.TB_S_Nom.Text = ""
+        Me.TB_S_Prenom.Text = ""
+        Me.RTB_S_Adresse.Text = ""
+        Me.TB_S_Pays.Text = ""
+        Me.TB_S_Tel.Text = ""
+        Me.Email_Stagiaire.Text = ""
+        Me.DTP_I_DateN.Value = System.DateTime.Today
+        Me.RTB_S_Fonction.Text = ""
+        Me.RTB_S_Entreprise.Text = ""
+        Me.DTP_S_Anciennete.Value = System.DateTime.Today
+        Me.TB_Prix.Text = ""
+    End Sub
+
+    Sub OuvertureDesChamps_stagiaires()
+        Me.CB_S_Civ.Enabled = True
+        Me.TB_S_Nom.Enabled = True
+        Me.TB_S_Prenom.Enabled = True
+        Me.RTB_S_Adresse.Enabled = True
+        Me.TB_S_Pays.Enabled = True
+        Me.TB_S_Tel.Enabled = True
+        Me.Email_Stagiaire.Enabled = True
+        'Me.DTP_I_DateN.Enabled = True
+        'Me.TB_I_LieuN.Enabled = True
+        'Me.TB_I_PaysN.Enabled = True
+        'Me.TB_I_NumSS.Enabled = True
+        Me.RTB_S_Fonction.Enabled = True
+        Me.RTB_S_Entreprise.Enabled = True
+        Me.DTP_S_Anciennete.Enabled = True
+        Me.TB_Prix.Enabled = True
+        Me.CB_StatutPaiement.Enabled = True
+    End Sub
+
+    Sub FermetureDesChamps_stagiaires()
+        Me.CB_S_Civ.Enabled = False
+        Me.TB_S_Nom.Enabled = False
+        Me.TB_S_Prenom.Enabled = False
+        Me.RTB_S_Adresse.Enabled = False
+        Me.TB_S_Pays.Enabled = False
+        Me.TB_S_Tel.Enabled = False
+
+        'Me.DTP_I_DateN.Enabled = True
+        'Me.TB_I_LieuN.Enabled = True
+        'Me.TB_I_PaysN.Enabled = True
+        'Me.TB_I_NumSS.Enabled = True
+        Me.RTB_S_Fonction.Enabled = False
+        Me.RTB_S_Entreprise.Enabled = False
+        Me.DTP_S_Anciennete.Enabled = False
+        Me.TB_Prix.Enabled = False
+        Me.CB_StatutPaiement.Enabled = False
+    End Sub
+
+    Private Sub DG_Liste_Stagiaires_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Liste_Stagiaires.CellContentClick
+        Init_champs_Information_stagiaires()
+        'intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
+        'Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
+
+        Remplir_Onglet_Information_Stagiaire(Me.DG_Liste_Stagiaires, Me.DG_Liste_Stagiaires.CurrentRow.Index)
+    End Sub
+
+    Private Sub DG_Liste_Stagiaires_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Stagiaires.RowHeaderMouseClick
+        Init_champs_Information_stagiaires()
+        'intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
+        'Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
+
+        Remplir_Onglet_Information_Stagiaire(Me.DG_Liste_Stagiaires, Me.DG_Liste_Stagiaires.CurrentRow.Index)
     End Sub
 
     Private Sub BT_Nouveau_Stagiaire_Click(sender As Object, e As EventArgs) Handles BT_Nouveau_Stagiaire.Click
@@ -662,10 +791,31 @@ Public Class Formation
         Nouv.Show()
     End Sub
 
+    Private Sub BindingNavigatorAddNewItem2_Click(sender As Object, e As EventArgs) Handles BindingNavigatorAddNewItem2.Click
+        Me.BT_Nouveau_Stagiaire.PerformClick()
+    End Sub
+
     Private Sub BT_Refresh_Stagiaires_Click(sender As Object, e As EventArgs) Handles BT_Refresh_Stagiaires.Click
         Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
         o_Stagiaire = New Onglet_stagiaire(bdd, SF)
         Remplir_DG_Liste_Stagiaires()
+    End Sub
+
+    Private Sub BT_Modifier_Stagiaires_Click(sender As Object, e As EventArgs) Handles BT_Modifier_Stagiaires.Click
+        OuvertureDesChamps_stagiaires()
+    End Sub
+
+    Private Sub BT_S_Enregistrer_Click(sender As Object, e As EventArgs) Handles BT_S_Enregistrer.Click
+        FermetureDesChamps_stagiaires()
+    End Sub
+
+    Private Sub BT_Supprimer_Stagiaire_Click(sender As Object, e As EventArgs) Handles BT_Supprimer_Stagiaire.Click
+        Me.BindingNavigatorDeleteItem.PerformClick()
+    End Sub
+
+    Private Sub BT_Enregistrer_stagiaires_Click(sender As Object, e As EventArgs) Handles BT_Enregistrer_stagiaires.Click
+        Me.Enregistrer_Stagiaires.PerformClick()
+        Inscription_stagiairesTableAdapter.Adapter.Update(Me.Formation_ContinueDataSet2.inscription_stagiaires.DataSet)
     End Sub
 
 #End Region
@@ -794,21 +944,17 @@ Public Class Formation
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.DG_Liste_Interventions_payees.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'Si les modifications sont activées
-        If Me.DG_Liste_Interventions_nonpayees.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2 Then
-            For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions_nonpayees.Rows
-                If Ligne.Cells.Item(0).OwningColumn.Name Is "_" And Ligne.Cells.Item(0).Value = True Then
-                    Ligne.Cells.Item(14).Value = "Payé"
-                    'Me.DG_Liste_Interventions_payees.Rows.IndexOf(Ligne) = 1
-                    'Ligne.Index += 1
-                End If
-            Next
-        End If
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BT_Statut_Paiement.Click
+        ''Si les modifications sont activées
+        'If Me.DG_Liste_Interventions_nonpayees.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2 Then
+        '    For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions_nonpayees.Rows
+        '        If Ligne.Cells.Item(0).OwningColumn.Name Is "_" And Ligne.Cells.Item(0).Value = True Then
+        '            Ligne.Cells.Item(14).Value = "Payé"
+        '            'Me.DG_Liste_Interventions_payees.Rows.IndexOf(Ligne) = 1
+        '            'Ligne.Index += 1
+        '        End If
+        '    Next
+        'End If
     End Sub
 
     Private Sub BT_Export_DG_ListeIntervenants_Click(sender As Object, e As EventArgs) Handles BT_Export_DG_ListeIntervenants.Click
@@ -913,5 +1059,6 @@ Public Class Formation
         Nvelle_session.Show()
 
     End Sub
+
 
 End Class

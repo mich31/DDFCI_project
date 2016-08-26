@@ -699,5 +699,250 @@ Update Order Option
 Used to sort self-referenced table's rows
 </summary>
 </member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.emploisDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.inscription_stagiairesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_assistantesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_chefs_de_projetsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_inscriptionsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_interventionsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_seancesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.profils_intervenantDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.profils_stagiairesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.travaille_sur_formationDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.emploisRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.inscription_stagiairesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_assistantesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_chefs_de_projetsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_inscriptionsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_interventionsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_seancesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.profils_intervenantRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.profils_stagiairesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.travaille_sur_formationRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.emploisRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.inscription_stagiairesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_assistantesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_chefs_de_projetsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_inscriptionsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_interventionsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_seancesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.profils_intervenantRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.profils_stagiairesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.travaille_sur_formationRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.emploisTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.inscription_stagiairesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.liste_assistantesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.liste_chefs_de_projetsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.liste_inscriptionsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.liste_interventionsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.liste_seancesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.profils_intervenantTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.profils_stagiairesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.travaille_sur_formationTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:DDFCI_project.Formation_ContinueDataSet2TableAdapters.TableAdapterManager.UpdateUpdatedRows(DDFCI_project.Formation_ContinueDataSet2,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:DDFCI_project.Formation_ContinueDataSet2TableAdapters.TableAdapterManager.UpdateInsertedRows(DDFCI_project.Formation_ContinueDataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:DDFCI_project.Formation_ContinueDataSet2TableAdapters.TableAdapterManager.UpdateDeletedRows(DDFCI_project.Formation_ContinueDataSet2,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:DDFCI_project.Formation_ContinueDataSet2TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:DDFCI_project.Formation_ContinueDataSet2TableAdapters.TableAdapterManager.UpdateAll(DDFCI_project.Formation_ContinueDataSet2)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 </members>
 </doc>
