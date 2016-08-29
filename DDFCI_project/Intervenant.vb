@@ -11,8 +11,9 @@ Public Class Intervenant
     Private utilisateur As Utilisateur
 
     Private TableInterventions As DataTable
+    Private Infos_session As DataTable
 
-    Sub New(ByRef base As BD, ByVal ListeIntervenants As DataTable, ByVal ListeInterventions As DataTable, ByVal DonneesPro As DataTable, ByVal index As Integer, ByVal _Session As String, ByVal _NomFormation As String, ByVal _utilisateur As Utilisateur)
+    Sub New(ByRef base As BD, ByVal ListeIntervenants As DataTable, ByVal ListeInterventions As DataTable, ByVal DonneesPro As DataTable, ByVal index As Integer, ByVal _Session As String, ByVal _NomFormation As String, ByVal _utilisateur As Utilisateur, ByRef infos_SF As DataTable)
         bdd = base
         Dim Ligne As DataRow
         Ligne = ListeIntervenants.Rows().Item(index)
@@ -21,6 +22,7 @@ Public Class Intervenant
         Session = _Session
         utilisateur = _utilisateur
         TableInterventions = ListeInterventions
+        Infos_session = infos_SF
 
         GenereInfosPerso()
         GenereInfosPro()
@@ -67,6 +69,7 @@ Public Class Intervenant
         cmd.Dispose()
     End Sub
 
+
 #Region "Propriétés"
 
     Property interventions As DataTable
@@ -83,11 +86,12 @@ Public Class Intervenant
 #Region "Edition des documents"
 
     Sub GenereDossierEngagement()
+        Dim fichier As String = "S:\Outil FC\Documents\Dossier_Engagement.docx"
         'Crée une instance de Word
         Dim oWord As New Word.Application
         Dim oDoc As New Word.Document
         'Ouvrir un document
-        oDoc = oWord.Documents.Open("C:\Users\michel.edjoa\Documents\Outils de gestion\Formation Continue\INTERVENANTS\Test\Dossier_Engagement.docx")
+        oDoc = oWord.Documents.Open(fichier)
         'Rendre le document visible
         oWord.Visible = True
 
@@ -126,12 +130,12 @@ Public Class Intervenant
     End Sub
 
     Sub GenereFicheServicefait()
-
+        Dim fichier As String = "S:\Outil FC\Documents\Fiche service fait.docx"
         'Crée une instance de Word
         Dim oWord As New Word.Application
         Dim oDoc As New Word.Document
         'Ouvrir un document
-        oDoc = oWord.Documents.Open("C:\Users\michel.edjoa\Documents\Outils de gestion\Formation Continue\INTERVENANTS\Test\Fiche service fait.docx")
+        oDoc = oWord.Documents.Open(fichier)
         'Rendre le document visible
         oWord.Visible = True
 
@@ -158,8 +162,13 @@ Public Class Intervenant
             oDoc.Bookmarks.Item("NomIntervenant").Range.Text = Ligne("NomP").ToString.ToUpper & " " & Ligne("PrenomP").ToString
             oDoc.Bookmarks.Item("Date").Range.Text = DateTime.Now.Date.ToString("d")
             oDoc.Bookmarks.Item("NomFormation").Range.Text = NomFormation
-            oDoc.Bookmarks.Item("Contact").Range.Text = utilisateur.email
 
+        Next
+
+        For Each Ligne As DataRow In Infos_session.Rows()
+            oDoc.Bookmarks.Item("Contact").Range.Text = Ligne("Mail2").ToString()
+            oDoc.Bookmarks.Item("Mail_CP").Range.Text = Ligne("Mail1").ToString()
+            oDoc.Bookmarks.Item("Telephone").Range.Text = Ligne("Telephone1").ToString()
         Next
 
     End Sub

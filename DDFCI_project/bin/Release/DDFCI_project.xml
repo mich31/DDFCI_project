@@ -314,6 +314,11 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.temps_agentDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet1.EntrepriseRow">
 <summary>
 Represents strongly named DataRow class.
@@ -425,6 +430,11 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet1.travaille_sur_formationRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.temps_agentRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -544,6 +554,11 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1.temps_agentRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.EntrepriseTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
@@ -655,6 +670,11 @@ Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.travaille_sur_formationTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet1TableAdapters.temps_agentTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

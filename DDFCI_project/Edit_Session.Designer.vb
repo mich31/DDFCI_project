@@ -24,6 +24,14 @@ Partial Class Edit_Session
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DG_Liste_Sessions = New System.Windows.Forms.DataGridView()
+        Me.IdFormationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdSessionFormationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AnneeSessionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListesessionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Formation_ContinueDataSet2 = New DDFCI_project.Formation_ContinueDataSet2()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TB_Session = New System.Windows.Forms.TextBox()
         Me.CB_Formation = New System.Windows.Forms.ComboBox()
@@ -46,29 +54,21 @@ Partial Class Edit_Session
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.BT_Supprimer = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Liste_chefs_de_projetsTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_chefs_de_projetsTableAdapter()
         Me.Liste_assistantesTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_assistantesTableAdapter()
         Me.FormationTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.FormationTableAdapter()
-        Me.Formation_ContinueDataSet2 = New DDFCI_project.Formation_ContinueDataSet2()
-        Me.ListesessionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Liste_sessionsTableAdapter = New DDFCI_project.Formation_ContinueDataSet2TableAdapters.liste_sessionsTableAdapter()
-        Me.IdFormationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdSessionFormationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AnneeSessionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DG_Liste_Sessions, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListesessionsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Formation_ContinueDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.FormationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.ListeassistantesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Formation_ContinueDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ListesessionsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DG_Liste_Sessions
@@ -83,6 +83,60 @@ Partial Class Edit_Session
         Me.DG_Liste_Sessions.ReadOnly = True
         Me.DG_Liste_Sessions.Size = New System.Drawing.Size(374, 150)
         Me.DG_Liste_Sessions.TabIndex = 0
+        '
+        'IdFormationDataGridViewTextBoxColumn
+        '
+        Me.IdFormationDataGridViewTextBoxColumn.DataPropertyName = "idFormation"
+        Me.IdFormationDataGridViewTextBoxColumn.HeaderText = "idFormation"
+        Me.IdFormationDataGridViewTextBoxColumn.Name = "IdFormationDataGridViewTextBoxColumn"
+        Me.IdFormationDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdFormationDataGridViewTextBoxColumn.Visible = False
+        '
+        'NomFDataGridViewTextBoxColumn
+        '
+        Me.NomFDataGridViewTextBoxColumn.DataPropertyName = "NomF"
+        Me.NomFDataGridViewTextBoxColumn.HeaderText = "Formation"
+        Me.NomFDataGridViewTextBoxColumn.Name = "NomFDataGridViewTextBoxColumn"
+        Me.NomFDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'IdSessionFormationDataGridViewTextBoxColumn
+        '
+        Me.IdSessionFormationDataGridViewTextBoxColumn.DataPropertyName = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn.HeaderText = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn.Name = "IdSessionFormationDataGridViewTextBoxColumn"
+        Me.IdSessionFormationDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdSessionFormationDataGridViewTextBoxColumn.Visible = False
+        '
+        'AnneeSessionDataGridViewTextBoxColumn
+        '
+        Me.AnneeSessionDataGridViewTextBoxColumn.DataPropertyName = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn.HeaderText = "Session"
+        Me.AnneeSessionDataGridViewTextBoxColumn.Name = "AnneeSessionDataGridViewTextBoxColumn"
+        Me.AnneeSessionDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CPDataGridViewTextBoxColumn
+        '
+        Me.CPDataGridViewTextBoxColumn.DataPropertyName = "CP"
+        Me.CPDataGridViewTextBoxColumn.HeaderText = "Chef(fe) de projet"
+        Me.CPDataGridViewTextBoxColumn.Name = "CPDataGridViewTextBoxColumn"
+        Me.CPDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'AFDataGridViewTextBoxColumn
+        '
+        Me.AFDataGridViewTextBoxColumn.DataPropertyName = "AF"
+        Me.AFDataGridViewTextBoxColumn.HeaderText = "Assistant(e) de formation"
+        Me.AFDataGridViewTextBoxColumn.Name = "AFDataGridViewTextBoxColumn"
+        Me.AFDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ListesessionsBindingSource
+        '
+        Me.ListesessionsBindingSource.DataMember = "liste_sessions"
+        Me.ListesessionsBindingSource.DataSource = Me.Formation_ContinueDataSet2
+        '
+        'Formation_ContinueDataSet2
+        '
+        Me.Formation_ContinueDataSet2.DataSetName = "Formation_ContinueDataSet2"
+        Me.Formation_ContinueDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Panel1
         '
@@ -287,14 +341,14 @@ Partial Class Edit_Session
         Me.Button2.Text = "Modifier"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Button3
+        'BT_Supprimer
         '
-        Me.Button3.Location = New System.Drawing.Point(412, 147)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 4
-        Me.Button3.Text = "Supprimer"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.BT_Supprimer.Location = New System.Drawing.Point(412, 147)
+        Me.BT_Supprimer.Name = "BT_Supprimer"
+        Me.BT_Supprimer.Size = New System.Drawing.Size(75, 23)
+        Me.BT_Supprimer.TabIndex = 4
+        Me.BT_Supprimer.Text = "Supprimer"
+        Me.BT_Supprimer.UseVisualStyleBackColor = True
         '
         'Button4
         '
@@ -317,63 +371,9 @@ Partial Class Edit_Session
         '
         Me.FormationTableAdapter.ClearBeforeFill = True
         '
-        'Formation_ContinueDataSet2
-        '
-        Me.Formation_ContinueDataSet2.DataSetName = "Formation_ContinueDataSet2"
-        Me.Formation_ContinueDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ListesessionsBindingSource
-        '
-        Me.ListesessionsBindingSource.DataMember = "liste_sessions"
-        Me.ListesessionsBindingSource.DataSource = Me.Formation_ContinueDataSet2
-        '
         'Liste_sessionsTableAdapter
         '
         Me.Liste_sessionsTableAdapter.ClearBeforeFill = True
-        '
-        'IdFormationDataGridViewTextBoxColumn
-        '
-        Me.IdFormationDataGridViewTextBoxColumn.DataPropertyName = "idFormation"
-        Me.IdFormationDataGridViewTextBoxColumn.HeaderText = "idFormation"
-        Me.IdFormationDataGridViewTextBoxColumn.Name = "IdFormationDataGridViewTextBoxColumn"
-        Me.IdFormationDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdFormationDataGridViewTextBoxColumn.Visible = False
-        '
-        'NomFDataGridViewTextBoxColumn
-        '
-        Me.NomFDataGridViewTextBoxColumn.DataPropertyName = "NomF"
-        Me.NomFDataGridViewTextBoxColumn.HeaderText = "Formation"
-        Me.NomFDataGridViewTextBoxColumn.Name = "NomFDataGridViewTextBoxColumn"
-        Me.NomFDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'IdSessionFormationDataGridViewTextBoxColumn
-        '
-        Me.IdSessionFormationDataGridViewTextBoxColumn.DataPropertyName = "idSessionFormation"
-        Me.IdSessionFormationDataGridViewTextBoxColumn.HeaderText = "idSessionFormation"
-        Me.IdSessionFormationDataGridViewTextBoxColumn.Name = "IdSessionFormationDataGridViewTextBoxColumn"
-        Me.IdSessionFormationDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdSessionFormationDataGridViewTextBoxColumn.Visible = False
-        '
-        'AnneeSessionDataGridViewTextBoxColumn
-        '
-        Me.AnneeSessionDataGridViewTextBoxColumn.DataPropertyName = "AnneeSession"
-        Me.AnneeSessionDataGridViewTextBoxColumn.HeaderText = "Session"
-        Me.AnneeSessionDataGridViewTextBoxColumn.Name = "AnneeSessionDataGridViewTextBoxColumn"
-        Me.AnneeSessionDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CPDataGridViewTextBoxColumn
-        '
-        Me.CPDataGridViewTextBoxColumn.DataPropertyName = "CP"
-        Me.CPDataGridViewTextBoxColumn.HeaderText = "Chef(fe) de projet"
-        Me.CPDataGridViewTextBoxColumn.Name = "CPDataGridViewTextBoxColumn"
-        Me.CPDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'AFDataGridViewTextBoxColumn
-        '
-        Me.AFDataGridViewTextBoxColumn.DataPropertyName = "AF"
-        Me.AFDataGridViewTextBoxColumn.HeaderText = "Assistant(e) de formation"
-        Me.AFDataGridViewTextBoxColumn.Name = "AFDataGridViewTextBoxColumn"
-        Me.AFDataGridViewTextBoxColumn.ReadOnly = True
         '
         'Edit_Session
         '
@@ -381,7 +381,7 @@ Partial Class Edit_Session
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(516, 457)
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.BT_Supprimer)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
@@ -389,6 +389,8 @@ Partial Class Edit_Session
         Me.Name = "Edit_Session"
         Me.Text = "Session de formation"
         CType(Me.DG_Liste_Sessions, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListesessionsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Formation_ContinueDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.FormationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -397,8 +399,6 @@ Partial Class Edit_Session
         Me.Panel2.PerformLayout()
         CType(Me.ListeassistantesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Formation_ContinueDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ListesessionsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -413,7 +413,7 @@ Partial Class Edit_Session
     Friend WithEvents Label5 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents BT_Supprimer As Button
     Friend WithEvents DTP_Fin As DateTimePicker
     Friend WithEvents DTP_Debut As DateTimePicker
     Friend WithEvents Panel2 As Panel

@@ -27,7 +27,6 @@ Public Class NouveauStagiaire
             Res = cmd.ExecuteNonQuery()
             cmd.Dispose()
             GenereID(TB_Nom.Text, TB_Prenom.Text)
-            MsgBox(id)
             MsgBox(Res - 1 & " stagiaire ajouté(e)")
             Me.Dispose()
         Catch ex As Exception

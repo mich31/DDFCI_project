@@ -7,7 +7,6 @@ C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Release\System.Windows.Forms.Calendar.dll
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Release\WindowsFormsCalendar.dll
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Release\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
-C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.vbprojResolveAssemblyReference.cache
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.AjouterStagiaire.resources
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.Ajout_Utilisateur.resources
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.Connexion.resources
@@ -25,6 +24,5 @@ C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.exe
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.xml
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.pdb
-C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Release\Database1.mdf
-C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Release\Database1_log.ldf
 C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.SupprimerUtilisateur.resources
+C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.vbprojResolveAssemblyReference.cache

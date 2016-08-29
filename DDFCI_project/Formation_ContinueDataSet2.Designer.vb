@@ -4735,6 +4735,14 @@ Partial Public Class Formation_ContinueDataSet2
         
         Private columnAF As Global.System.Data.DataColumn
         
+        Private columnMail1 As Global.System.Data.DataColumn
+        
+        Private columnTelephone1 As Global.System.Data.DataColumn
+        
+        Private columnMail2 As Global.System.Data.DataColumn
+        
+        Private columnTelephone2 As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -4819,6 +4827,38 @@ Partial Public Class Formation_ContinueDataSet2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Mail1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMail1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Telephone1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTelephone1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Mail2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMail2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Telephone2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTelephone2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4855,9 +4895,9 @@ Partial Public Class Formation_ContinueDataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addliste_sessionsRow(ByVal idFormation As Integer, ByVal NomF As String, ByVal idSessionFormation As Integer, ByVal AnneeSession As String, ByVal CP As String, ByVal AF As String) As liste_sessionsRow
+        Public Overloads Function Addliste_sessionsRow(ByVal idFormation As Integer, ByVal NomF As String, ByVal idSessionFormation As Integer, ByVal AnneeSession As String, ByVal CP As String, ByVal AF As String, ByVal Mail1 As String, ByVal Telephone1 As String, ByVal Mail2 As String, ByVal Telephone2 As String) As liste_sessionsRow
             Dim rowliste_sessionsRow As liste_sessionsRow = CType(Me.NewRow,liste_sessionsRow)
-            Dim columnValuesArray() As Object = New Object() {idFormation, NomF, idSessionFormation, AnneeSession, CP, AF}
+            Dim columnValuesArray() As Object = New Object() {idFormation, NomF, idSessionFormation, AnneeSession, CP, AF, Mail1, Telephone1, Mail2, Telephone2}
             rowliste_sessionsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowliste_sessionsRow)
             Return rowliste_sessionsRow
@@ -4886,6 +4926,10 @@ Partial Public Class Formation_ContinueDataSet2
             Me.columnAnneeSession = MyBase.Columns("AnneeSession")
             Me.columnCP = MyBase.Columns("CP")
             Me.columnAF = MyBase.Columns("AF")
+            Me.columnMail1 = MyBase.Columns("Mail1")
+            Me.columnTelephone1 = MyBase.Columns("Telephone1")
+            Me.columnMail2 = MyBase.Columns("Mail2")
+            Me.columnTelephone2 = MyBase.Columns("Telephone2")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4903,6 +4947,14 @@ Partial Public Class Formation_ContinueDataSet2
             MyBase.Columns.Add(Me.columnCP)
             Me.columnAF = New Global.System.Data.DataColumn("AF", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAF)
+            Me.columnMail1 = New Global.System.Data.DataColumn("Mail1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMail1)
+            Me.columnTelephone1 = New Global.System.Data.DataColumn("Telephone1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTelephone1)
+            Me.columnMail2 = New Global.System.Data.DataColumn("Mail2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMail2)
+            Me.columnTelephone2 = New Global.System.Data.DataColumn("Telephone2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTelephone2)
             Me.columnidFormation.AllowDBNull = false
             Me.columnNomF.AllowDBNull = false
             Me.columnNomF.MaxLength = 50
@@ -4912,6 +4964,10 @@ Partial Public Class Formation_ContinueDataSet2
             Me.columnCP.MaxLength = 50
             Me.columnAF.AllowDBNull = false
             Me.columnAF.MaxLength = 50
+            Me.columnMail1.MaxLength = 30
+            Me.columnTelephone1.MaxLength = 50
+            Me.columnMail2.MaxLength = 30
+            Me.columnTelephone2.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7727,6 +7783,68 @@ Partial Public Class Formation_ContinueDataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Mail1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableliste_sessions.Mail1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'Mail1' dans la table 'liste_sessions' est DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableliste_sessions.Mail1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Telephone1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableliste_sessions.Telephone1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'Telephone1' dans la table 'liste_sessions' est DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableliste_sessions.Telephone1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Mail2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableliste_sessions.Mail2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'Mail2' dans la table 'liste_sessions' est DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableliste_sessions.Mail2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Telephone2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableliste_sessions.Telephone2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'Telephone2' dans la table 'liste_sessions' est DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableliste_sessions.Telephone2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsAnneeSessionNull() As Boolean
             Return Me.IsNull(Me.tableliste_sessions.AnneeSessionColumn)
         End Function
@@ -7735,6 +7853,54 @@ Partial Public Class Formation_ContinueDataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetAnneeSessionNull()
             Me(Me.tableliste_sessions.AnneeSessionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsMail1Null() As Boolean
+            Return Me.IsNull(Me.tableliste_sessions.Mail1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetMail1Null()
+            Me(Me.tableliste_sessions.Mail1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsTelephone1Null() As Boolean
+            Return Me.IsNull(Me.tableliste_sessions.Telephone1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetTelephone1Null()
+            Me(Me.tableliste_sessions.Telephone1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsMail2Null() As Boolean
+            Return Me.IsNull(Me.tableliste_sessions.Mail2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetMail2Null()
+            Me(Me.tableliste_sessions.Mail2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsTelephone2Null() As Boolean
+            Return Me.IsNull(Me.tableliste_sessions.Telephone2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetTelephone2Null()
+            Me(Me.tableliste_sessions.Telephone2Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -10179,6 +10345,10 @@ Namespace Formation_ContinueDataSet2TableAdapters
             tableMapping.ColumnMappings.Add("AnneeSession", "AnneeSession")
             tableMapping.ColumnMappings.Add("CP", "CP")
             tableMapping.ColumnMappings.Add("AF", "AF")
+            tableMapping.ColumnMappings.Add("Mail1", "Mail1")
+            tableMapping.ColumnMappings.Add("Telephone1", "Telephone1")
+            tableMapping.ColumnMappings.Add("Mail2", "Mail2")
+            tableMapping.ColumnMappings.Add("Telephone2", "Telephone2")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -10195,7 +10365,8 @@ Namespace Formation_ContinueDataSet2TableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        liste_sessions.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_sessions"
+            Me._commandCollection(0).CommandText = "SELECT        idFormation, NomF, idSessionFormation, AnneeSession, CP, Mail1, Tel"& _ 
+                "ephone1, AF, Mail2, Telephone2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_sessions"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

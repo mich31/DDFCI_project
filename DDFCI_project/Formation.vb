@@ -12,6 +12,7 @@ Public Class Formation
     Private idSession As String
     Private idFormation As String
     Private TableSF As DataTable 'Table contenant la liste des intervenants
+    Dim SF As SessionFormation
 
     Private utilisateur As Utilisateur
     Private o_Intervenant As Onglet_intervenant
@@ -87,6 +88,8 @@ Public Class Formation
 
 
     Private Sub Formation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.temps_agent'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+        Me.Temps_agentTableAdapter.Fill(Me.Formation_ContinueDataSet1.temps_agent)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.inscription_stagiaires'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         Me.Inscription_stagiairesTableAdapter.Fill(Me.Formation_ContinueDataSet2.inscription_stagiaires)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.liste_interventions'. Vous pouvez la déplacer ou la supprimer selon les besoins.
@@ -218,7 +221,7 @@ Public Class Formation
     End Sub
 
     Private Sub MAJ_infos()
-        Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
+        SF = New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
 
         o_Planning = New Onglet_planning(bdd, SF)
         o_Intervenant = New Onglet_intervenant(bdd, SF, idSession)
@@ -241,6 +244,9 @@ Public Class Formation
         Remplir_DG_Liste_Intervenants()
         Remplir_DG_Liste_Interventions()
         Remplir_DG_Liste_Stagiaires()
+
+        Remplir_panel()
+        Remplir_LB_Taches()
     End Sub
 
 
@@ -489,7 +495,7 @@ Public Class Formation
 
     Private Sub DG_Liste_Intervenants_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Liste_Intervenants.CellContentClick
         Init_champs_Information()
-        intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
+        intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur, SF.infos_session)
         'Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
 
         Me.Param_Nom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
@@ -509,7 +515,7 @@ Public Class Formation
 
     Private Sub DG_Liste_Intervenants_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Intervenants.RowHeaderMouseClick
         Init_champs_Information()
-        intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
+        intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur, SF.infos_session)
         'Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
 
         Me.Param_Nom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
@@ -874,10 +880,120 @@ Public Class Formation
 
 #Region "Temps Agent"
 
+    Sub Remplir_panel()
+        Me.TB_Agent.Text = bdd.username
+        Me.TB_NomFormation.Text = NomFormation
+        Me.TB_NomSession.Text = SessionFormation
+    End Sub
+
+    Sub Remplir_LB_Taches()
+        Dim Type As String
+        Type = infos_formation()
+        Dim Liste_Offres_institutionelles As New List(Of String) From {"Prise de commande", "Elaboration de l'offre", "Contractualisation/Marché", "Mise en oeuvre/Suivi", "Evaluation/Bilan"}
+
+        Select Case Type
+            Case "Offres institutionnelles"
+                For Each tache As String In Liste_Offres_institutionelles
+                    Me.LB_Taches.Items.Add(tache)
+                Next
+
+            Case "Mastère spécialisé"
+                Me.LB_Taches.Items.Add("M1")
+        End Select
+    End Sub
+
+    Function infos_formation() As String
+        Dim req As String = "select*from Formation where idFormation='" & idFormation & "'"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim res As String = ""
+
+        Try
+            Dim Monreader As SqlDataReader = cmd.ExecuteReader()
+            If Monreader.Read() Then
+                res = Monreader("Type").ToString
+            End If
+            Monreader.Close()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+        Return res
+    End Function
+
+    Sub TempsAgent()
+        'Me.MonthCalendar1
+    End Sub
 
 #End Region
 
 #Region "Documents"
+
+    Private Sub BT_DossierEngagement_Click(sender As Object, e As EventArgs) Handles BT_DossierEngagement.Click
+        Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
+        If index >= 0 Then
+            intervenant_select.GenereDossierEngagement()
+        End If
+    End Sub
+
+    Private Sub BT_Service_fait_Click(sender As Object, e As EventArgs) Handles BT_Service_fait.Click
+        Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
+        If index >= 0 Then
+            intervenant_select.GenereFicheServicefait()
+        End If
+    End Sub
+
+    Private Sub BT_Convocation_Click(sender As Object, e As EventArgs) Handles BT_Convocation.Click
+        Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
+        If index >= 0 Then
+            intervenant_select.GenereConvocationIntervenant()
+        End If
+    End Sub
+
+    Private Sub BT_Fiche_Emargement_Click(sender As Object, e As EventArgs) Handles BT_Fiche_Emargement.Click
+        Dim fichier As String = "S:\Outil FC\Documents\fiche Emargement.doc"
+        Dim nb As Integer = Me.DG_Liste_Stagiaires.RowCount 'Nombre de stagiaires
+        'Crée une instance de Word
+        Dim oWord As New Word.Application
+        Dim oDoc As New Word.Document
+        Dim oTable As Word.Table
+
+        'Ouvrir un document
+        oDoc = oWord.Documents.Open(fichier)
+        'Rendre le document visible
+        oWord.Visible = True
+
+        oDoc.Bookmarks.Item("Date").Range.Text = DateTime.Now.Date.ToString("d")
+        oDoc.Bookmarks.Item("Formation").Range.Text = NomFormation
+
+        oTable = oDoc.Tables.Add(oDoc.Bookmarks.Item("Tableau").Range, nb - 1, 6)
+        oTable.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle
+        oTable.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle
+
+        For ligne = 1 To nb - 1
+            oTable.Cell(ligne, 1).Range.Text = Me.DG_Liste_Stagiaires.Rows.Item(ligne - 1).Cells.Item(1).Value
+            oTable.Cell(ligne, 2).Range.Text = Me.DG_Liste_Stagiaires.Rows.Item(ligne - 1).Cells.Item(2).Value.ToString.ToUpper
+            oTable.Cell(ligne, 3).Range.Text = Me.DG_Liste_Stagiaires.Rows.Item(ligne - 1).Cells.Item(4).Value
+            oTable.Cell(ligne, 4).Range.Text = TrouverEntreprise(Me.DG_Liste_Stagiaires.Rows.Item(ligne - 1).Cells.Item(0).Value)
+        Next
+
+    End Sub
+
+    Private Function TrouverEntreprise(ByVal id As String) As String
+        Dim req As String = "select*from emplois where idPersonne ='" & id & "'"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim res As String = ""
+        Try
+            Dim MonReader As SqlDataReader = cmd.ExecuteReader()
+            If MonReader.Read() Then
+                res = MonReader("NomE").ToString
+            End If
+            MonReader.Close()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+        Return res
+    End Function
 
     Sub RemplirControlsDoc(ByRef SF As SessionFormation)
         RemplirCB_Intervenants(SF)
@@ -894,64 +1010,14 @@ Public Class Formation
 
 #End Region
 
-    ''' <summary>
-    ''' Effectue la déconnexion à la base de données et ferme le programme
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    Private Sub QuitterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitterToolStripMenuItem.Click
-        bdd.deconnexion()
-        Me.Dispose()
-        PageConnexion.Show()
-    End Sub
-
-
-
-    Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs)
-        FichePersoIntervenant.Show()
-    End Sub
-
-    Private Sub CréerUnUtilisateurToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CréerUnUtilisateurToolStripMenuItem.Click
-        Dim aj As New Ajout_Utilisateur(bdd)
-        aj.Show()
-    End Sub
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
-        If index >= 0 Then
-            intervenant_select.GenereDossierEngagement()
-        End If
-    End Sub
-
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
-        If index >= 0 Then
-            intervenant_select.GenereFicheServicefait()
-        End If
-    End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        Dim index As Integer = Me.DG_Liste_Intervenants.CurrentRow.Index
-        If index >= 0 Then
-            intervenant_select.GenereConvocationIntervenant()
-        End If
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BT_Statut_Paiement.Click
-        ''Si les modifications sont activées
-        'If Me.DG_Liste_Interventions_nonpayees.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2 Then
-        '    For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions_nonpayees.Rows
-        '        If Ligne.Cells.Item(0).OwningColumn.Name Is "_" And Ligne.Cells.Item(0).Value = True Then
-        '            Ligne.Cells.Item(14).Value = "Payé"
-        '            'Me.DG_Liste_Interventions_payees.Rows.IndexOf(Ligne) = 1
-        '            'Ligne.Index += 1
-        '        End If
-        '    Next
-        'End If
-    End Sub
+#Region "Export"
 
     Private Sub BT_Export_DG_ListeIntervenants_Click(sender As Object, e As EventArgs) Handles BT_Export_DG_ListeIntervenants.Click
-        ExportExcel("C:\Users\michel.edjoa\Documents\Outils de gestion\Formation Continue\test.xls", Me.DG_Liste_Intervenants)
+        ExportExcel("S:\Outil FC\Exports\Liste_intervenants.xls", Me.DG_Liste_Intervenants)
+    End Sub
+
+    Private Sub BT_Export_stagiaires_Click(sender As Object, e As EventArgs) Handles BT_Export_stagiaires.Click
+        ExportExcel("S:\Outil FC\Exports\Liste_stagiaires.xls", Me.DG_Liste_Stagiaires)
     End Sub
 
     Sub ExportExcel(ByVal Filename As String, ByRef DG As DataGridView)
@@ -998,38 +1064,48 @@ Public Class Formation
         End Try
     End Sub
 
+#End Region
+
+    ''' <summary>
+    ''' Effectue la déconnexion à la base de données et ferme le programme
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub QuitterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitterToolStripMenuItem.Click
+        bdd.deconnexion()
+        Me.Dispose()
+        PageConnexion.Show()
+    End Sub
+
+
+
+    Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs)
+        FichePersoIntervenant.Show()
+    End Sub
+
+    Private Sub CréerUnUtilisateurToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CréerUnUtilisateurToolStripMenuItem.Click
+        Dim aj As New Ajout_Utilisateur(bdd)
+        aj.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BT_Statut_Paiement.Click
+        ''Si les modifications sont activées
+        'If Me.DG_Liste_Interventions_nonpayees.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2 Then
+        '    For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions_nonpayees.Rows
+        '        If Ligne.Cells.Item(0).OwningColumn.Name Is "_" And Ligne.Cells.Item(0).Value = True Then
+        '            Ligne.Cells.Item(14).Value = "Payé"
+        '            'Me.DG_Liste_Interventions_payees.Rows.IndexOf(Ligne) = 1
+        '            'Ligne.Index += 1
+        '        End If
+        '    Next
+        'End If
+    End Sub
+
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         Dim SF As New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
         For Each Ligne As DataGridViewRow In Me.DG_Liste_Interventions.Rows
             o_Intervenant.MAJ_Interventions(SF, Ligne, "Non payé")
         Next
-    End Sub
-
-    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        Dim nb As Integer = Me.DG_Liste_Stagiaires.RowCount 'Nombre de stagiaires
-        'Crée une instance de Word
-        Dim oWord As New Word.Application
-        Dim oDoc As New Word.Document
-        Dim oTable As Word.Table
-
-        'Ouvrir un document
-        oDoc = oWord.Documents.Open("C:\Users\michel.edjoa\Documents\Outils de gestion\Formation Continue\Docs à éditer\STAGIAIRES\Test\fiche Emargement.doc")
-        'Rendre le document visible
-        oWord.Visible = True
-
-        oDoc.Bookmarks.Item("Date").Range.Text = DateTime.Now.Date.ToString("d")
-        oDoc.Bookmarks.Item("Formation").Range.Text = NomFormation
-
-        oTable = oDoc.Tables.Add(oDoc.Bookmarks.Item("Tableau").Range, nb - 1, 6)
-        oTable.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle
-        oTable.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle
-
-        For ligne = 1 To nb - 1
-            oTable.Cell(ligne, 1).Range.Text = Me.DG_Liste_Stagiaires.Rows.Item(ligne).Cells.Item(1).Value
-            oTable.Cell(ligne, 2).Range.Text = Me.DG_Liste_Stagiaires.Rows.Item(ligne).Cells.Item(2).Value
-            oTable.Cell(ligne, 3).Range.Text = Me.DG_Liste_Stagiaires.Rows.Item(ligne).Cells.Item(3).Value
-        Next
-
     End Sub
 
     Private Sub ModifierUtilisateurToolStripMenu_Click(sender As Object, e As EventArgs) Handles ModifierUtilisateurToolStripMenu.Click
@@ -1057,4 +1133,5 @@ Public Class Formation
         Dim suppr_utilisateur As New SupprimerUtilisateur(bdd)
         suppr_utilisateur.Show()
     End Sub
+
 End Class

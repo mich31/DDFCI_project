@@ -14,6 +14,8 @@ Public Class SessionFormation
     Public Assistante As String = ""
 
 
+#Region "Propriétés"
+
     Property Liste_stagiaires As DataTable
         Set(value As DataTable)
 
@@ -32,6 +34,18 @@ Public Class SessionFormation
         End Get
     End Property
 
+    Property infos_session As DataTable
+        Set(value As DataTable)
+
+        End Set
+        Get
+            Return MonDataSet.Tables("infos_session")
+        End Get
+    End Property
+
+#End Region
+
+
     Sub New(ByRef base As BD, _nomF As String, _session As String, idS As String, idF As String)
         bdd = base
         NomFormation = _nomF
@@ -44,6 +58,7 @@ Public Class SessionFormation
         GenereDateSession()
         Genere_CP()
         Genere_AF()
+        GenereInfosSession()
     End Sub
 
     Sub GenereListeStagiaires()
@@ -91,6 +106,18 @@ Public Class SessionFormation
                 Fin = MonReader("DateFin").ToString
             End If
             MonReader.Close()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
+    Sub GenereInfosSession()
+        Dim req As String = "select*from liste_sessions where idFormation='" & idFormation & "' and idSessionFormation ='" & idSession & "'"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim MonAdaptateur As New SqlDataAdapter(cmd)
+        Try
+            MonAdaptateur.Fill(MonDataSet, "infos_session")
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
