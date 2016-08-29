@@ -235,7 +235,7 @@ Public Class Formation
         Me.TB_I_NB_Stagiaires.Text = o_Stagiaire.Stagiaires.Rows.Count
 
 
-        MAJ_planning()
+        'MAJ_planning()
         Remplir_DG_Liste_Intervenants()
         Remplir_DG_Liste_Interventions()
         Remplir_DG_Liste_Stagiaires()
@@ -651,7 +651,35 @@ Public Class Formation
 
     Private Sub BT_I_Enregistrer_Click(sender As Object, e As EventArgs) Handles BT_I_Enregistrer.Click
         FermetureDesChamps()
+        Enregistrer_infos_intervenant()
         Me.DG_Liste_Intervenants.ReadOnly = True
+    End Sub
+
+    ''' <summary>
+    ''' Enregistre les modifications sur les infos de l'intervenant sélectionné
+    ''' </summary>
+    Sub Enregistrer_infos_intervenant()
+        Dim req1 As String = "update profils_intervenant set CiviliteP = '" & Me.CB_I_Civilite.Text & "',NomP='" & Me.TB_I_Nom.Text & "'
+            ,PrenomP='" & Me.TB_I_Prenom.Text & "',PaysP='" & Me.TB_I_Pays.Text & "',NumTelP='" & Me.TB_I_Telephone.Text & "'
+            ,MailP='" & Me.LinkLabel_Mail_Intervenant.Text & "'
+            where idPersonne = '" & Me.DG_Liste_Intervenants.CurrentRow.Cells("idPersonne").Value & "'"
+        Dim req2 As String = "update profils_intervenant set DateNaissanceI ='" & Me.DTP_I_DateN.Value.ToShortDateString() & "',LieuNaissanceI='" & Me.TB_I_LieuN.Text & "'
+            , PaysNaissanceI ='" & Me.TB_I_PaysN.Text & "',NumSSI='" & Me.TB_I_NumSS.Text & "',TypeIntervenant='" & Me.CB_I_TypeIntervenant.Text & "' 
+            where idPersonne = '" & Me.DG_Liste_Intervenants.CurrentRow.Cells("idPersonne").Value & "'"
+        Dim cmd1 As New SqlCommand(req1, bdd.connect)
+        Dim cmd2 As New SqlCommand(req2, bdd.connect)
+        Dim res1 As Integer = 0
+        Dim res2 As Integer = 0
+
+        Try
+            res1 = cmd1.ExecuteNonQuery()
+            cmd1.Dispose()
+            res2 = cmd2.ExecuteNonQuery()
+            cmd2.Dispose()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+
     End Sub
 
 #End Region
@@ -806,7 +834,31 @@ Public Class Formation
     End Sub
 
     Private Sub BT_S_Enregistrer_Click(sender As Object, e As EventArgs) Handles BT_S_Enregistrer.Click
+        Enregistrer_infos_stagiaire()
         FermetureDesChamps_stagiaires()
+    End Sub
+
+    Private Sub Enregistrer_infos_stagiaire()
+        Dim req1 As String = "update inscription_stagiaires set CiviliteP='" & Me.CB_S_Civ.Text & "',NomP='" & Me.TB_S_Nom.Text & "'
+        ,PrenomP='" & Me.TB_S_Prenom.Text & "',PaysP='" & Me.TB_S_Pays.Text & "',NumTelP='" & Me.TB_S_Tel.Text & "'
+        ,MailP='" & Me.Email_Stagiaire.Text & "' 
+        where idPersonne='" & Me.DG_Liste_Stagiaires.CurrentRow.Cells(0).Value & "'"
+        Dim req3 As String = "update inscription_stagiaires set Prix='" & Me.TB_Prix.Text & "',Paiement='" & Me.CB_StatutPaiement.Text & "'
+            where idPersonne='" & Me.DG_Liste_Stagiaires.CurrentRow.Cells(0).Value & "'"
+        Dim cmd1 As New SqlCommand(req1, bdd.connect)
+        Dim cmd3 As New SqlCommand(req3, bdd.connect)
+        Dim res1 As Integer = 0
+        Dim res3 As Integer = 0
+
+        Try
+            res1 = cmd1.ExecuteNonQuery()
+            cmd1.Dispose()
+            res3 = cmd3.ExecuteNonQuery()
+            cmd3.Dispose()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub BT_Supprimer_Stagiaire_Click(sender As Object, e As EventArgs) Handles BT_Supprimer_Stagiaire.Click
@@ -1060,5 +1112,8 @@ Public Class Formation
 
     End Sub
 
-
+    Private Sub SupprimerUtilisateurToolStripMenu_Click(sender As Object, e As EventArgs) Handles SupprimerUtilisateurToolStripMenu.Click
+        Dim suppr_utilisateur As New SupprimerUtilisateur(bdd)
+        suppr_utilisateur.Show()
+    End Sub
 End Class

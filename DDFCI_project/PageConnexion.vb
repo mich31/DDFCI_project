@@ -2,7 +2,8 @@
 
 Public Class PageConnexion
 
-    Dim bdd As New BD("Data source=SI-SQLTEST;Initial Catalog=Formation Continue;Integrated Security=True;")
+    'Dim bdd As New BD("Data source=SI-SQLTEST;Initial Catalog=Formation Continue;Integrated Security=True;")
+    Dim bdd As New BD("Data source=localhost;Initial Catalog=Formation_Continue;Integrated Security=True;")
 
     ' TODO: insérez le code pour effectuer une authentification personnalisée à l'aide du nom d'utilisateur et du mot de passe fournis 
     ' (Voir http://go.microsoft.com/fwlink/?LinkId=35339).  

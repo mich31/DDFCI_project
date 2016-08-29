@@ -58,4 +58,8 @@ Public Class Edit_Formation
     Private Sub BT_Modifier_Click(sender As Object, e As EventArgs) Handles BT_Modifier.Click
         Me.DG_ListeFormations.ReadOnly = False
     End Sub
+
+    Private Sub BT_Actualiser_Click(sender As Object, e As EventArgs) Handles BT_Actualiser.Click
+        Me.FormationTableAdapter.Fill(Me.Formation_ContinueDataSet1.Formation)
+    End Sub
 End Class

@@ -15,13 +15,15 @@ Public Class Edit_Session
     End Sub
 
     Private Sub Edit_Session_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.liste_sessions'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
+        Me.Liste_sessionsTableAdapter.Fill(Me.Formation_ContinueDataSet2.liste_sessions)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.Formation'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         Me.FormationTableAdapter.Fill(Me.Formation_ContinueDataSet1.Formation)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.liste_assistantes'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         Me.Liste_assistantesTableAdapter.Fill(Me.Formation_ContinueDataSet1.liste_assistantes)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.liste_chefs_de_projets'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         Me.Liste_chefs_de_projetsTableAdapter.Fill(Me.Formation_ContinueDataSet1.liste_chefs_de_projets)
-        Remplir_DG()
+        'Remplir_DG()
     End Sub
 
     Private Sub Remplir_DG()

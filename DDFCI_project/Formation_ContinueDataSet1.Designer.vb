@@ -7345,7 +7345,7 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addliste_interventionsRow(ByVal NomP As String, ByVal PrenomP As String, ByVal idIntervenant As Integer, ByVal NomF As String, ByVal idSeance As Integer, ByVal idSessionFormation As Integer, ByVal AnneeSession As Date, ByVal TypeIntervention As String, ByVal _Date As Date, ByVal HeureDebut As Date, ByVal HeureFin As Date, ByVal NbHeure As Integer, ByVal Salle As String, ByVal StatutPaiement As String) As liste_interventionsRow
+        Public Overloads Function Addliste_interventionsRow(ByVal NomP As String, ByVal PrenomP As String, ByVal idIntervenant As Integer, ByVal NomF As String, ByVal idSeance As Integer, ByVal idSessionFormation As Integer, ByVal AnneeSession As Date, ByVal TypeIntervention As String, ByVal _Date As Date, ByVal HeureDebut As System.TimeSpan, ByVal HeureFin As System.TimeSpan, ByVal NbHeure As Integer, ByVal Salle As String, ByVal StatutPaiement As String) As liste_interventionsRow
             Dim rowliste_interventionsRow As liste_interventionsRow = CType(Me.NewRow,liste_interventionsRow)
             Dim columnValuesArray() As Object = New Object() {NomP, PrenomP, idIntervenant, NomF, idSeance, idSessionFormation, AnneeSession, TypeIntervention, _Date, HeureDebut, HeureFin, NbHeure, Salle, StatutPaiement}
             rowliste_interventionsRow.ItemArray = columnValuesArray
@@ -7410,9 +7410,9 @@ Partial Public Class Formation_ContinueDataSet1
             Me.columnDate.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnDate")
             Me.columnDate.ExtendedProperties.Add("Generator_UserColumnName", "Date")
             MyBase.Columns.Add(Me.columnDate)
-            Me.columnHeureDebut = New Global.System.Data.DataColumn("HeureDebut", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnHeureDebut = New Global.System.Data.DataColumn("HeureDebut", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHeureDebut)
-            Me.columnHeureFin = New Global.System.Data.DataColumn("HeureFin", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnHeureFin = New Global.System.Data.DataColumn("HeureFin", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHeureFin)
             Me.columnNbHeure = New Global.System.Data.DataColumn("NbHeure", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNbHeure)
@@ -12120,10 +12120,10 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property HeureDebut() As Date
+        Public Property HeureDebut() As System.TimeSpan
             Get
                 Try 
-                    Return CType(Me(Me.tableliste_interventions.HeureDebutColumn),Date)
+                    Return CType(Me(Me.tableliste_interventions.HeureDebutColumn),Global.System.TimeSpan)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'HeureDebut' dans la table 'liste_interventions' est DB"& _ 
                             "Null.", e)
@@ -12136,10 +12136,10 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property HeureFin() As Date
+        Public Property HeureFin() As System.TimeSpan
             Get
                 Try 
-                    Return CType(Me(Me.tableliste_interventions.HeureFinColumn),Date)
+                    Return CType(Me(Me.tableliste_interventions.HeureFinColumn),Global.System.TimeSpan)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'HeureFin' dans la table 'liste_interventions' est DBNu"& _ 
                             "ll.", e)
@@ -16939,12 +16939,20 @@ Namespace Formation_ContinueDataSet1TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT idPersonne, CiviliteP, NomP, NomJeuneFille, PrenomP, NationaliteP, Adresse"& _ 
                 "P, CP, VilleP, PaysP, NumTelP, MailP FROM dbo.Personne"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        idPersonne, CiviliteP, NomP, NomJeuneFille, PrenomP, NationaliteP, "& _ 
+                "AdresseP, CP, VilleP, PaysP, NumTelP, MailP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Personne"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
+                "    (NomP = @NomP) AND (PrenomP = @PrenomP)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomP", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrenomP", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PrenomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16966,6 +16974,50 @@ Namespace Formation_ContinueDataSet1TableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As Formation_ContinueDataSet1.PersonneDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As Formation_ContinueDataSet1.PersonneDataTable = New Formation_ContinueDataSet1.PersonneDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function GetPersonne(ByVal dataTable As Formation_ContinueDataSet1.PersonneDataTable, ByVal NomP As String, ByVal PrenomP As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (NomP Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NomP")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NomP,String)
+            End If
+            If (PrenomP Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(PrenomP,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataPersonne(ByVal NomP As String, ByVal PrenomP As String) As Formation_ContinueDataSet1.PersonneDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (NomP Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NomP")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NomP,String)
+            End If
+            If (PrenomP Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(PrenomP,String)
+            End If
             Dim dataTable As Formation_ContinueDataSet1.PersonneDataTable = New Formation_ContinueDataSet1.PersonneDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

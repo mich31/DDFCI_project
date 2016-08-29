@@ -61,6 +61,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -203,6 +206,12 @@
     </Compile>
     <Compile Include="SessionFormation.vb" />
     <Compile Include="Stagiaire.vb" />
+    <Compile Include="SupprimerUtilisateur.Designer.vb">
+      <DependentUpon>SupprimerUtilisateur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SupprimerUtilisateur.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilisateur.vb" />
     <Compile Include="Vacation.Designer.vb">
       <DependentUpon>Vacation.vb</DependentUpon>
@@ -261,6 +270,9 @@
       <DependentUpon>PageConnexion.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="SupprimerUtilisateur.resx">
+      <DependentUpon>SupprimerUtilisateur.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vacation.resx">
       <DependentUpon>Vacation.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -300,6 +312,7 @@
     <None Include="Formation_ContinueDataSet2.xss">
       <DependentUpon>Formation_ContinueDataSet2.xsd</DependentUpon>
     </None>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

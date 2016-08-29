@@ -55,6 +55,7 @@ Public Class NouvelIntervenant
         Try
             Res = cmd.ExecuteNonQuery()
             'MsgBox(Res & "interventions")
+            cmd.Dispose()
             Me.Dispose()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
@@ -77,4 +78,73 @@ Public Class NouvelIntervenant
             Console.WriteLine(ex.Message)
         End Try
     End Sub
+
+    Private Sub NouvelIntervenant_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.Personne'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
+        Me.PersonneTableAdapter.Fill(Me.Formation_ContinueDataSet1.Personne)
+
+    End Sub
+
+    Private Sub BT_rechercher_Click(sender As Object, e As EventArgs) Handles BT_rechercher.Click
+        If Me.TB_Nom_R IsNot "" Then
+            Me.PersonneTableAdapter.GetPersonne(Me.Formation_ContinueDataSet1.Personne, Me.TB_Nom_R.Text, Me.TB_Prenom_R.Text)
+        End If
+    End Sub
+
+    Private Sub BT_Ajouter_R_Click(sender As Object, e As EventArgs) Handles BT_Ajouter_R.Click
+        Dim id As String = Me.DG_Liste_personne.CurrentRow.Cells(0).Value
+        Dim MonBool As Boolean
+        MonBool = Recherche_Intervenant_BD(id)
+
+        If MonBool = False Then
+            CreerIntervenant(id)
+
+        End If
+        LiaisonIntervenantSession(id)
+        MsgBox("1 intervenant(e) ajouté(e)!")
+    End Sub
+
+    Private Sub CreerIntervenant(ByVal id As String)
+        Dim req1 As String = "insert into Intervenant(idIntervenant,DateNaissanceI,LieuNaissanceI,PaysNaissanceI,NumSSI,TypeIntervenant) 
+        values ('" & id & "','1900-01-01','','','','Externe')"
+        Dim cmd1 As New SqlCommand(req1, bdd.connect)
+        Dim res As Integer = 0
+        Try
+            res = cmd1.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd1.Dispose()
+    End Sub
+
+    Private Sub LiaisonIntervenantSession(ByVal id As String)
+        Dim req1 As String = "insert into intervientSurSession values ('" & id & "','" & idS & "')"
+        Dim cmd1 As New SqlCommand(req1, bdd.connect)
+        Dim res As Integer = 0
+        Try
+            res = cmd1.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd1.Dispose()
+
+    End Sub
+
+    Private Function Recherche_Intervenant_BD(ByVal id As String)
+        Dim req1 As String = "select*from Intervenant where idIntervenant='" & id & "'"
+        Dim cmd1 As New SqlCommand(req1, bdd.connect)
+        Dim MonBool As Boolean = False
+
+        Try
+            Dim MonReader As SqlDataReader = cmd1.ExecuteReader()
+            If MonReader.Read() Then
+                MonBool = True
+            End If
+            MonReader.Close()
+            cmd1.Dispose()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        Return MonBool
+    End Function
 End Class

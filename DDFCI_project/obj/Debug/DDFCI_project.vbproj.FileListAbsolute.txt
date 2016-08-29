@@ -40,3 +40,16 @@ C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.NouvelIntervenant.resources
 C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Edit_Session.resources
 C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.NouveauStagiaire.resources
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\Database1.mdf
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\Database1_log.ldf
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Ajout_Utilisateur.resources
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Edit_Session.resources
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Modification_utilisateur.resources
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Edit_Formation.resources
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.NouveauStagiaire.resources
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.NouvelIntervenant.resources
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.PageConnexion.resources
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Vacation.resources
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.SupprimerUtilisateur.resources

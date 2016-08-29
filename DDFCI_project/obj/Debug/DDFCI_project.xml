@@ -6,22 +6,6 @@ DDFCI_project
 </name>
 </assembly>
 <members>
-<member name="T:DDFCI_project.My.Resources.Resources">
-<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member>
-<member name="P:DDFCI_project.My.Resources.Resources.ResourceManager">
-<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member>
-<member name="P:DDFCI_project.My.Resources.Resources.Culture">
-<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member>
 <member name="M:DDFCI_project.BD.connexionBD">
  <summary>
  Etablie la connexion à la base de données
@@ -109,6 +93,11 @@ DDFCI_project
  </summary>
  <param name="sender"></param>
  <param name="e"></param>
+</member>
+<member name="M:DDFCI_project.Formation.Enregistrer_infos_intervenant">
+ <summary>
+ Enregistre les modifications sur les infos de l'intervenant sélectionné
+ </summary>
 </member>
 <member name="M:DDFCI_project.Formation.MonthCalendar1_DateSelected(System.Object,System.Windows.Forms.DateRangeEventArgs)">
  <summary>
@@ -754,6 +743,11 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_sessionsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet2.emploisRow">
 <summary>
 Represents strongly named DataRow class.
@@ -800,6 +794,11 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet2.travaille_sur_formationRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_sessionsRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -854,6 +853,11 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2.liste_sessionsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.emploisTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
@@ -904,6 +908,11 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
+<member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.liste_sessionsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
 <member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.TableAdapterManager">
 <summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
@@ -942,6 +951,22 @@ Update Order Option
 <member name="T:DDFCI_project.Formation_ContinueDataSet2TableAdapters.TableAdapterManager.SelfReferenceComparer">
 <summary>
 Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:DDFCI_project.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:DDFCI_project.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:DDFCI_project.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
 </summary>
 </member>
 </members>
