@@ -191,6 +191,9 @@ Public Class Formation
             SessionFormation = Me.TV_Menu.SelectedNode.Text
             GenereIDs(NomFormation, SessionFormation)
             MAJ_infos()
+            Me.DG_Liste_Intervenants.Enabled = True
+            Me.DG_Liste_Stagiaires.Enabled = True
+            Me.DG_Liste_Interventions.Enabled = True
         ElseIf Me.TV_Menu.SelectedNode.Level = 1 Then 'Si le noeud sélectionné est une formation
             NomFormation = Me.TV_Menu.SelectedNode.Text
         End If
@@ -233,7 +236,6 @@ Public Class Formation
         Me.TB_I_NB_Intervenants.Text = o_Intervenant.Intervenants.Rows.Count
 
         Me.TB_I_NB_Stagiaires.Text = o_Stagiaire.Stagiaires.Rows.Count
-
 
         'MAJ_planning()
         Remplir_DG_Liste_Intervenants()
@@ -364,31 +366,12 @@ Public Class Formation
     Sub Remplir_DG_Liste_Interventions()
         Me.Param_NomFormation.Text = NomFormation
         Me.Param_Session.Text = SessionFormation
-        'Me.Param_Nom.Text = ""
-        'Me.Param_Prenom.Text = ""
-        FillBy_interventionsToolStripButton.PerformClick()
-        'Me.DG_Liste_Interventions.DataSource = o_Intervenant.Interventions
-        'Me.DG_Liste_Interventions.Columns("NomF").HeaderText = "Formation"
-        'Me.DG_Liste_Interventions.Columns("TypeIntervention").HeaderText = "Type d'intervention"
-        'Me.DG_Liste_Interventions.Columns("Date").HeaderText = "Date"
-        'Me.DG_Liste_Interventions.Columns("NbHeure").HeaderText = "Nb d'heures"
-        'Me.DG_Liste_Interventions.Columns("Salle").HeaderText = "Salle"
-        'Me.DG_Liste_Interventions.Columns("HeureDebut").HeaderText = "Début"
-        'Me.DG_Liste_Interventions.Columns("HeureFin").HeaderText = "Fin"
 
-        'For Each col As DataGridViewColumn In Me.DG_Liste_Interventions.Columns
-        '    If col.HeaderText IsNot "" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Salle" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
-        '        col.Visible = False
-        '    End If
-        '    col.ReadOnly = True
-        '    If col.HeaderText Is "" Then
-        '        col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        '        col.ReadOnly = False
-        '    End If
-        'Next
+        FillBy_interventionsToolStripButton.PerformClick()
 
         Remplir_DG_Liste_Interventions_payees()
         Remplir_DG_Liste_Interventions_nonpayees()
+
     End Sub
 
     Sub Remplir_DG_Liste_Interventions_payees()
@@ -396,27 +379,6 @@ Public Class Formation
         Me.Param_Session1_P.Text = SessionFormation
 
         Me.FillBy_interventions_PToolStripButton1.PerformClick()
-        'Dim MonView = New DataView(Me.DG_Liste_Interventions.DataSource, "StatutPaiement = 'Payé'", "StatutPaiement Desc", DataViewRowState.CurrentRows)
-        'Me.DG_Liste_Interventions_payees.DataSource = MonView
-        'Me.DG_Liste_Interventions_payees.Columns("NomF").HeaderText = "Formation"
-        'Me.DG_Liste_Interventions_payees.Columns("TypeIntervention").HeaderText = "Type d'intervention"
-        'Me.DG_Liste_Interventions_payees.Columns("Date").HeaderText = "Date"
-        'Me.DG_Liste_Interventions_payees.Columns("NbHeure").HeaderText = "Nb d'heures"
-        'Me.DG_Liste_Interventions_payees.Columns("Salle").HeaderText = "Salle"
-        'Me.DG_Liste_Interventions_payees.Columns("HeureDebut").HeaderText = "Début"
-        'Me.DG_Liste_Interventions_payees.Columns("HeureFin").HeaderText = "Fin"
-        'Me.DG_Liste_Interventions_payees.Columns("StatutPaiement").HeaderText = "Paiement"
-
-        'For Each col As DataGridViewColumn In Me.DG_Liste_Interventions_payees.Columns
-        '    If col.HeaderText IsNot "" And col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
-        '        col.Visible = False
-        '    End If
-        '    col.ReadOnly = True
-        '    If col.HeaderText Is "" Then
-        '        col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        '        col.ReadOnly = False
-        '    End If
-        'Next
 
     End Sub
 
@@ -424,27 +386,6 @@ Public Class Formation
         Me.Param_NomFormation_NP.Text = NomFormation
         Me.Param_Session_NP.Text = SessionFormation
         Me.FillBy_interventions_NPToolStripButton.PerformClick()
-        'Dim MonView = New DataView(Me.DG_Liste_Interventions.DataSource, "StatutPaiement = 'Non payé'", "StatutPaiement Desc", DataViewRowState.CurrentRows)
-        'Me.DG_Liste_Interventions_nonpayees.DataSource = MonView
-        'Me.DG_Liste_Interventions_nonpayees.Columns("NomF").HeaderText = "Formation"
-        'Me.DG_Liste_Interventions_nonpayees.Columns("TypeIntervention").HeaderText = "Type d'intervention"
-        'Me.DG_Liste_Interventions_nonpayees.Columns("Date").HeaderText = "Date"
-        'Me.DG_Liste_Interventions_nonpayees.Columns("NbHeure").HeaderText = "Nb d'heures"
-        'Me.DG_Liste_Interventions_nonpayees.Columns("Salle").HeaderText = "Salle"
-        'Me.DG_Liste_Interventions_nonpayees.Columns("HeureDebut").HeaderText = "Début"
-        'Me.DG_Liste_Interventions_nonpayees.Columns("HeureFin").HeaderText = "Fin"
-        'Me.DG_Liste_Interventions_nonpayees.Columns("StatutPaiement").HeaderText = "Paiement"
-
-        'For Each col As DataGridViewColumn In Me.DG_Liste_Interventions_nonpayees.Columns
-        '    If col.HeaderText IsNot "" And col.HeaderText IsNot "Paiement" And col.HeaderText IsNot "Type d'intervention" And col.HeaderText IsNot "Date" And col.HeaderText IsNot "Nb d'heures" And col.HeaderText IsNot "Début" And col.HeaderText IsNot "Fin" Then
-        '        col.Visible = False
-        '    End If
-        '    col.ReadOnly = True
-        '    If col.HeaderText Is "" Then
-        '        col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        '        col.ReadOnly = False
-        '    End If
-        'Next
 
     End Sub
 

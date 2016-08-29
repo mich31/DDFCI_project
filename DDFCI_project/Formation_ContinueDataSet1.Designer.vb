@@ -4106,7 +4106,7 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddSessionFormationRow(ByVal idSessionFormation As Integer, ByVal parentFormationRowByFK_SessionFormation_Formation1 As FormationRow, ByVal AnneeSession As Date, ByVal DateDebut As Date, ByVal DateFin As Date) As SessionFormationRow
+        Public Overloads Function AddSessionFormationRow(ByVal idSessionFormation As Integer, ByVal parentFormationRowByFK_SessionFormation_Formation1 As FormationRow, ByVal AnneeSession As String, ByVal DateDebut As Date, ByVal DateFin As Date) As SessionFormationRow
             Dim rowSessionFormationRow As SessionFormationRow = CType(Me.NewRow,SessionFormationRow)
             Dim columnValuesArray() As Object = New Object() {idSessionFormation, Nothing, AnneeSession, DateDebut, DateFin}
             If (Not (parentFormationRowByFK_SessionFormation_Formation1) Is Nothing) Then
@@ -4154,7 +4154,7 @@ Partial Public Class Formation_ContinueDataSet1
             MyBase.Columns.Add(Me.columnidSessionFormation)
             Me.columnidFormation = New Global.System.Data.DataColumn("idFormation", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidFormation)
-            Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnneeSession)
             Me.columnDateDebut = New Global.System.Data.DataColumn("DateDebut", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDateDebut)
@@ -6938,7 +6938,7 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addliste_inscriptionsRow(ByVal idStagiaire As Integer, ByVal idSessionFormation As Integer, ByVal idFormation As Integer, ByVal NomF As String, ByVal AnneeSession As Date, ByVal Attentes As String, ByVal Avis As String) As liste_inscriptionsRow
+        Public Overloads Function Addliste_inscriptionsRow(ByVal idStagiaire As Integer, ByVal idSessionFormation As Integer, ByVal idFormation As Integer, ByVal NomF As String, ByVal AnneeSession As String, ByVal Attentes As String, ByVal Avis As String) As liste_inscriptionsRow
             Dim rowliste_inscriptionsRow As liste_inscriptionsRow = CType(Me.NewRow,liste_inscriptionsRow)
             Dim columnValuesArray() As Object = New Object() {idStagiaire, idSessionFormation, idFormation, NomF, AnneeSession, Attentes, Avis}
             rowliste_inscriptionsRow.ItemArray = columnValuesArray
@@ -6983,7 +6983,7 @@ Partial Public Class Formation_ContinueDataSet1
             MyBase.Columns.Add(Me.columnidFormation)
             Me.columnNomF = New Global.System.Data.DataColumn("NomF", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNomF)
-            Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnneeSession)
             Me.columnAttentes = New Global.System.Data.DataColumn("Attentes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAttentes)
@@ -7345,7 +7345,7 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addliste_interventionsRow(ByVal NomP As String, ByVal PrenomP As String, ByVal idIntervenant As Integer, ByVal NomF As String, ByVal idSeance As Integer, ByVal idSessionFormation As Integer, ByVal AnneeSession As Date, ByVal TypeIntervention As String, ByVal _Date As Date, ByVal HeureDebut As System.TimeSpan, ByVal HeureFin As System.TimeSpan, ByVal NbHeure As Integer, ByVal Salle As String, ByVal StatutPaiement As String) As liste_interventionsRow
+        Public Overloads Function Addliste_interventionsRow(ByVal NomP As String, ByVal PrenomP As String, ByVal idIntervenant As Integer, ByVal NomF As String, ByVal idSeance As Integer, ByVal idSessionFormation As Integer, ByVal AnneeSession As String, ByVal TypeIntervention As String, ByVal _Date As Date, ByVal HeureDebut As System.TimeSpan, ByVal HeureFin As System.TimeSpan, ByVal NbHeure As Integer, ByVal Salle As String, ByVal StatutPaiement As String) As liste_interventionsRow
             Dim rowliste_interventionsRow As liste_interventionsRow = CType(Me.NewRow,liste_interventionsRow)
             Dim columnValuesArray() As Object = New Object() {NomP, PrenomP, idIntervenant, NomF, idSeance, idSessionFormation, AnneeSession, TypeIntervention, _Date, HeureDebut, HeureFin, NbHeure, Salle, StatutPaiement}
             rowliste_interventionsRow.ItemArray = columnValuesArray
@@ -7401,7 +7401,7 @@ Partial Public Class Formation_ContinueDataSet1
             MyBase.Columns.Add(Me.columnidSeance)
             Me.columnidSessionFormation = New Global.System.Data.DataColumn("idSessionFormation", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidSessionFormation)
-            Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnneeSession)
             Me.columnTypeIntervention = New Global.System.Data.DataColumn("TypeIntervention", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTypeIntervention)
@@ -7730,7 +7730,7 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addliste_seancesRow(ByVal idSeance As Integer, ByVal Salle As String, ByVal _Date As Date, ByVal HeureDebut As Date, ByVal HeureFin As Date, ByVal AnneeSession As Date, ByVal DateDebut As Date, ByVal DateFin As Date, ByVal NomF As String) As liste_seancesRow
+        Public Overloads Function Addliste_seancesRow(ByVal idSeance As Integer, ByVal Salle As String, ByVal _Date As Date, ByVal HeureDebut As Date, ByVal HeureFin As Date, ByVal AnneeSession As String, ByVal DateDebut As Date, ByVal DateFin As Date, ByVal NomF As String) As liste_seancesRow
             Dim rowliste_seancesRow As liste_seancesRow = CType(Me.NewRow,liste_seancesRow)
             Dim columnValuesArray() As Object = New Object() {idSeance, Salle, _Date, HeureDebut, HeureFin, AnneeSession, DateDebut, DateFin, NomF}
             rowliste_seancesRow.ItemArray = columnValuesArray
@@ -7788,7 +7788,7 @@ Partial Public Class Formation_ContinueDataSet1
             MyBase.Columns.Add(Me.columnHeureDebut)
             Me.columnHeureFin = New Global.System.Data.DataColumn("HeureFin", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHeureFin)
-            Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnneeSession)
             Me.columnDateDebut = New Global.System.Data.DataColumn("DateDebut", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDateDebut)
@@ -8983,7 +8983,7 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addtravaille_sur_formationRow(ByVal Login As String, ByVal idFormation As Integer, ByVal NomF As String, ByVal idSessionFormation As Integer, ByVal AnneeSession As Date) As travaille_sur_formationRow
+        Public Overloads Function Addtravaille_sur_formationRow(ByVal Login As String, ByVal idFormation As Integer, ByVal NomF As String, ByVal idSessionFormation As Integer, ByVal AnneeSession As String) As travaille_sur_formationRow
             Dim rowtravaille_sur_formationRow As travaille_sur_formationRow = CType(Me.NewRow,travaille_sur_formationRow)
             Dim columnValuesArray() As Object = New Object() {Login, idFormation, NomF, idSessionFormation, AnneeSession}
             rowtravaille_sur_formationRow.ItemArray = columnValuesArray
@@ -9032,7 +9032,7 @@ Partial Public Class Formation_ContinueDataSet1
             MyBase.Columns.Add(Me.columnNomF)
             Me.columnidSessionFormation = New Global.System.Data.DataColumn("idSessionFormation", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidSessionFormation)
-            Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnneeSession)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidFormation, Me.columnidSessionFormation}, true))
             Me.columnLogin.AllowDBNull = false
@@ -10843,10 +10843,10 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property AnneeSession() As Date
+        Public Property AnneeSession() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableSessionFormation.AnneeSessionColumn),Date)
+                    Return CType(Me(Me.tableSessionFormation.AnneeSessionColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'AnneeSession' dans la table 'SessionFormation' est DBN"& _ 
                             "ull.", e)
@@ -11903,10 +11903,10 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property AnneeSession() As Date
+        Public Property AnneeSession() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableliste_inscriptions.AnneeSessionColumn),Date)
+                    Return CType(Me(Me.tableliste_inscriptions.AnneeSessionColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'AnneeSession' dans la table 'liste_inscriptions' est D"& _ 
                             "BNull.", e)
@@ -12073,10 +12073,10 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property AnneeSession() As Date
+        Public Property AnneeSession() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableliste_interventions.AnneeSessionColumn),Date)
+                    Return CType(Me(Me.tableliste_interventions.AnneeSessionColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'AnneeSession' dans la table 'liste_interventions' est "& _ 
                             "DBNull.", e)
@@ -12395,10 +12395,10 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property AnneeSession() As Date
+        Public Property AnneeSession() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableliste_seances.AnneeSessionColumn),Date)
+                    Return CType(Me(Me.tableliste_seances.AnneeSessionColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'AnneeSession' dans la table 'liste_seances' est DBNull"& _ 
                             ".", e)
@@ -13300,10 +13300,10 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property AnneeSession() As Date
+        Public Property AnneeSession() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabletravaille_sur_formation.AnneeSessionColumn),Date)
+                    Return CType(Me(Me.tabletravaille_sur_formation.AnneeSessionColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'AnneeSession' dans la table 'travaille_sur_formation' "& _ 
                             "est DBNull.", e)
@@ -21274,7 +21274,7 @@ Namespace Formation_ContinueDataSet1TableAdapters
                 "ND (PrenomP = @Prenom)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomFormation", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nom", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Prenom", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PrenomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
@@ -21286,7 +21286,7 @@ Namespace Formation_ContinueDataSet1TableAdapters
                 "ND (PrenomP = @Prenom) AND (StatutPaiement = 'Non payé')"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomFormation", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nom", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Prenom", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PrenomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
@@ -21298,7 +21298,7 @@ Namespace Formation_ContinueDataSet1TableAdapters
                 "ND (PrenomP = @Prenom) AND (StatutPaiement = 'Payé')"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomFormation", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nom", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Prenom", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PrenomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
@@ -21309,7 +21309,7 @@ Namespace Formation_ContinueDataSet1TableAdapters
                 "        (NomF = @NomFormation) AND (AnneeSession = @Session)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomFormation", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

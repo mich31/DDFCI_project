@@ -53,3 +53,6 @@ C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_projec
 C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.PageConnexion.resources
 C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.Vacation.resources
 C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.SupprimerUtilisateur.resources
+C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\Database1.mdf
+C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\bin\Debug\Database1_log.ldf
+C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Debug\DDFCI_project.SupprimerUtilisateur.resources
