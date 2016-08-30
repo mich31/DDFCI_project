@@ -52,8 +52,6 @@ Partial Class Formation
         Me.BT_Actualiser_Intervenants = New System.Windows.Forms.Button()
         Me.BN_Intervenants = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.ProfilsintervenantBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BN_Intervenants_DeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -156,7 +154,6 @@ Partial Class Formation
         Me.FillBy_interventionsToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem1 = New System.Windows.Forms.ToolStripButton()
-        Me.ListeinterventionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BN_Interventions_DeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.NouveauToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.OuvrirToolStripButton2 = New System.Windows.Forms.ToolStripButton()
@@ -174,13 +171,7 @@ Partial Class Formation
         Me.idSeance = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idSessionFormation = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AnneeSession = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeInterventionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HeureDebutDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HeureFinDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NbHeureDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Salle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StatutPaiementDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.FillBy_interventions_PToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.NomFormationToolStripLabel3 = New System.Windows.Forms.ToolStripLabel()
@@ -196,21 +187,6 @@ Partial Class Formation
         Me.Button9 = New System.Windows.Forms.Button()
         Me.BT_Statut_Paiement = New System.Windows.Forms.Button()
         Me.DG_Liste_Interventions_nonpayees = New System.Windows.Forms.DataGridView()
-        Me.NomPDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrenomPDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdIntervenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdSeanceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdSessionFormationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AnneeSessionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeInterventionDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HeureDebutDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HeureFinDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NbHeureDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SalleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StatutPaiementDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ListeinterventionsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.FillBy_interventions_NPToolStrip = New System.Windows.Forms.ToolStrip()
         Me.NomFormationToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.Param_NomFormation_NP = New System.Windows.Forms.ToolStripTextBox()
@@ -222,29 +198,25 @@ Partial Class Formation
         Me.Param_Prenom_NP = New System.Windows.Forms.ToolStripTextBox()
         Me.FillBy_interventions_NPToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.DG_Liste_Interventions_payees = New System.Windows.Forms.DataGridView()
-        Me.NomPDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrenomPDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdIntervenantDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomFDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdSeanceDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdSessionFormationDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AnneeSessionDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeInterventionDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HeureDebutDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HeureFinDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NbHeureDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SalleDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StatutPaiementDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ListeinterventionsBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.BT_Actualiser = New System.Windows.Forms.Button()
+        Me.BT_Modifier_seance = New System.Windows.Forms.Button()
+        Me.BT_supprimer_seance = New System.Windows.Forms.Button()
+        Me.BT_Ajout_intervention = New System.Windows.Forms.Button()
+        Me.DG_Seances = New System.Windows.Forms.DataGridView()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.BT_Ajouter_seance = New System.Windows.Forms.Button()
+        Me.TB_Heure_FinSeance = New System.Windows.Forms.TextBox()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.TB_Heure_DebutSeance = New System.Windows.Forms.TextBox()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.DTP_Seance = New System.Windows.Forms.DateTimePicker()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.TB_Module = New System.Windows.Forms.TextBox()
+        Me.Label44 = New System.Windows.Forms.Label()
         Me.DG_Liste_Intervenants = New System.Windows.Forms.DataGridView()
         Me.idPersonne = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CivilitePDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomJeuneFille = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrenomPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeIntervenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateNaissanceIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LieuNaissanceI = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PaysNaissanceI = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NationaliteP = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -324,17 +296,6 @@ Partial Class Formation
         Me.LB_Taches = New System.Windows.Forms.ListBox()
         Me.DTP_Periode = New System.Windows.Forms.DateTimePicker()
         Me.DG_Temps_saisie = New System.Windows.Forms.DataGridView()
-        Me.LoginDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdFormationDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomFDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdSessionFormationDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AnneeSessionDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeProjetDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NomDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TacheDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TempsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TempsagentBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TB_NomSession = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -362,24 +323,66 @@ Partial Class Formation
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.ProfilsintervenantBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
+        Me.ListeinterventionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TypeInterventionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureDebutDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureFinDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NbHeureDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatutPaiementDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomPDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrenomPDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdIntervenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomFDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdSeanceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdSessionFormationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AnneeSessionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeInterventionDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureDebutDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureFinDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NbHeureDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SalleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatutPaiementDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListeinterventionsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.NomPDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrenomPDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdIntervenantDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomFDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdSeanceDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdSessionFormationDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AnneeSessionDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeInterventionDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureDebutDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HeureFinDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NbHeureDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SalleDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatutPaiementDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ListeinterventionsBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CivilitePDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrenomPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeIntervenantDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateNaissanceIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LoginDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdFormationDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomFDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdSessionFormationDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AnneeSessionDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypeProjetDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NomDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TacheDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TempsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TempsagentBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Profils_intervenantTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.profils_intervenantTableAdapter()
         Me.Liste_interventionsTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.liste_interventionsTableAdapter()
         Me.Temps_agentTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.temps_agentTableAdapter()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.TB_Module = New System.Windows.Forms.TextBox()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.DTP_Seance = New System.Windows.Forms.DateTimePicker()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.TB_Heure_DebutSeance = New System.Windows.Forms.TextBox()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.TB_Heure_FinSeance = New System.Windows.Forms.TextBox()
-        Me.BT_Ajouter_seance = New System.Windows.Forms.Button()
-        Me.DG_Seances = New System.Windows.Forms.DataGridView()
-        Me.ListeseancesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Formation_ContinueDataSet2 = New DDFCI_project.Formation_ContinueDataSet2()
         Me.InscriptionstagiairesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Formation_ContinueDataSet2 = New DDFCI_project.Formation_ContinueDataSet2()
         Me.IdPersonneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CivilitePDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomPDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -402,9 +405,11 @@ Partial Class Formation
         Me.AttentesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AvisDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Inscription_stagiairesTableAdapter = New DDFCI_project.Formation_ContinueDataSet2TableAdapters.inscription_stagiairesTableAdapter()
+        Me.ListeseancesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Liste_seancesTableAdapter = New DDFCI_project.Formation_ContinueDataSet2TableAdapters.liste_seancesTableAdapter()
         Me.IdSeanceDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SalleDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ModuleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateDataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HeureDebutDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HeureFinDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -412,10 +417,6 @@ Partial Class Formation
         Me.DateDebutDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateFinDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomFDataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BT_Ajout_intervention = New System.Windows.Forms.Button()
-        Me.BT_supprimer_seance = New System.Windows.Forms.Button()
-        Me.BT_Modifier_seance = New System.Windows.Forms.Button()
-        Me.BT_Actualiser = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -423,8 +424,6 @@ Partial Class Formation
         Me.Panel_Intervenants_details.SuspendLayout()
         CType(Me.BN_Intervenants, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BN_Intervenants.SuspendLayout()
-        CType(Me.ProfilsintervenantBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FillBy_liste_intervenantsToolStrip.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.ToolStrip4.SuspendLayout()
@@ -439,16 +438,16 @@ Partial Class Formation
         Me.FillBy_interventionsToolStrip.SuspendLayout()
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BindingNavigator1.SuspendLayout()
-        CType(Me.ListeinterventionsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage9.SuspendLayout()
         Me.FillBy_interventions_PToolStrip1.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         CType(Me.DG_Liste_Interventions_nonpayees, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ListeinterventionsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FillBy_interventions_NPToolStrip.SuspendLayout()
         CType(Me.DG_Liste_Interventions_payees, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ListeinterventionsBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage1.SuspendLayout()
+        CType(Me.DG_Seances, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         CType(Me.DG_Liste_Intervenants, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         Me.Panel_Stagiaires_détails.SuspendLayout()
@@ -468,17 +467,19 @@ Partial Class Formation
         Me.Panel2.SuspendLayout()
         CType(Me.NUP_nb_jours, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DG_Temps_saisie, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TempsagentBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        CType(Me.DG_Seances, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ListeseancesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Formation_ContinueDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProfilsintervenantBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListeinterventionsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListeinterventionsBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListeinterventionsBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TempsagentBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InscriptionstagiairesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Formation_ContinueDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ListeseancesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -635,7 +636,7 @@ Partial Class Formation
         '
         Me.Calendar1.CalendarTimeFormat = WindowsFormsCalendar.CalendarTimeFormat.TwentyFourHour
         Me.Calendar1.FirstDayOfWeek = System.DayOfWeek.Monday
-        Me.Calendar1.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.Calendar1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Calendar1.ItemsBackgroundColor = System.Drawing.Color.RoyalBlue
         Me.Calendar1.ItemsFont = Nothing
         Me.Calendar1.ItemsForeColor = System.Drawing.Color.Black
@@ -720,16 +721,6 @@ Partial Class Formation
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "Ajouter nouveau"
-        '
-        'ProfilsintervenantBindingSource
-        '
-        Me.ProfilsintervenantBindingSource.DataMember = "profils_intervenant"
-        Me.ProfilsintervenantBindingSource.DataSource = Me.Formation_ContinueDataSet1
-        '
-        'Formation_ContinueDataSet1
-        '
-        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
-        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -1648,11 +1639,6 @@ Partial Class Formation
         Me.BindingNavigatorAddNewItem1.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem1.Text = "Ajouter nouveau"
         '
-        'ListeinterventionsBindingSource
-        '
-        Me.ListeinterventionsBindingSource.DataMember = "liste_interventions"
-        Me.ListeinterventionsBindingSource.DataSource = Me.Formation_ContinueDataSet1
-        '
         'BN_Interventions_DeleteItem
         '
         Me.BN_Interventions_DeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -1793,50 +1779,12 @@ Partial Class Formation
         Me.AnneeSession.Name = "AnneeSession"
         Me.AnneeSession.Visible = False
         '
-        'TypeInterventionDataGridViewTextBoxColumn
-        '
-        Me.TypeInterventionDataGridViewTextBoxColumn.DataPropertyName = "TypeIntervention"
-        Me.TypeInterventionDataGridViewTextBoxColumn.HeaderText = "Type d'intervention"
-        Me.TypeInterventionDataGridViewTextBoxColumn.Name = "TypeInterventionDataGridViewTextBoxColumn"
-        '
-        'DateDataGridViewTextBoxColumn
-        '
-        Me.DateDataGridViewTextBoxColumn.DataPropertyName = "Date"
-        Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
-        Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
-        '
-        'HeureDebutDataGridViewTextBoxColumn
-        '
-        Me.HeureDebutDataGridViewTextBoxColumn.DataPropertyName = "HeureDebut"
-        Me.HeureDebutDataGridViewTextBoxColumn.HeaderText = "Début"
-        Me.HeureDebutDataGridViewTextBoxColumn.Name = "HeureDebutDataGridViewTextBoxColumn"
-        '
-        'HeureFinDataGridViewTextBoxColumn
-        '
-        Me.HeureFinDataGridViewTextBoxColumn.DataPropertyName = "HeureFin"
-        Me.HeureFinDataGridViewTextBoxColumn.HeaderText = "Fin"
-        Me.HeureFinDataGridViewTextBoxColumn.Name = "HeureFinDataGridViewTextBoxColumn"
-        '
-        'NbHeureDataGridViewTextBoxColumn
-        '
-        Me.NbHeureDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.NbHeureDataGridViewTextBoxColumn.DataPropertyName = "NbHeure"
-        Me.NbHeureDataGridViewTextBoxColumn.HeaderText = "Nb d'heure"
-        Me.NbHeureDataGridViewTextBoxColumn.Name = "NbHeureDataGridViewTextBoxColumn"
-        Me.NbHeureDataGridViewTextBoxColumn.Width = 84
-        '
         'Salle
         '
         Me.Salle.DataPropertyName = "Salle"
         Me.Salle.HeaderText = "Salle"
         Me.Salle.Name = "Salle"
         Me.Salle.Visible = False
-        '
-        'StatutPaiementDataGridViewTextBoxColumn
-        '
-        Me.StatutPaiementDataGridViewTextBoxColumn.DataPropertyName = "StatutPaiement"
-        Me.StatutPaiementDataGridViewTextBoxColumn.HeaderText = "Paiement"
-        Me.StatutPaiementDataGridViewTextBoxColumn.Name = "StatutPaiementDataGridViewTextBoxColumn"
         '
         'TabPage9
         '
@@ -1956,105 +1904,6 @@ Partial Class Formation
         Me.DG_Liste_Interventions_nonpayees.Size = New System.Drawing.Size(547, 203)
         Me.DG_Liste_Interventions_nonpayees.TabIndex = 1
         '
-        'NomPDataGridViewTextBoxColumn1
-        '
-        Me.NomPDataGridViewTextBoxColumn1.DataPropertyName = "NomP"
-        Me.NomPDataGridViewTextBoxColumn1.HeaderText = "NomP"
-        Me.NomPDataGridViewTextBoxColumn1.Name = "NomPDataGridViewTextBoxColumn1"
-        Me.NomPDataGridViewTextBoxColumn1.Visible = False
-        '
-        'PrenomPDataGridViewTextBoxColumn1
-        '
-        Me.PrenomPDataGridViewTextBoxColumn1.DataPropertyName = "PrenomP"
-        Me.PrenomPDataGridViewTextBoxColumn1.HeaderText = "PrenomP"
-        Me.PrenomPDataGridViewTextBoxColumn1.Name = "PrenomPDataGridViewTextBoxColumn1"
-        Me.PrenomPDataGridViewTextBoxColumn1.Visible = False
-        '
-        'IdIntervenantDataGridViewTextBoxColumn
-        '
-        Me.IdIntervenantDataGridViewTextBoxColumn.DataPropertyName = "idIntervenant"
-        Me.IdIntervenantDataGridViewTextBoxColumn.HeaderText = "idIntervenant"
-        Me.IdIntervenantDataGridViewTextBoxColumn.Name = "IdIntervenantDataGridViewTextBoxColumn"
-        Me.IdIntervenantDataGridViewTextBoxColumn.Visible = False
-        '
-        'NomFDataGridViewTextBoxColumn
-        '
-        Me.NomFDataGridViewTextBoxColumn.DataPropertyName = "NomF"
-        Me.NomFDataGridViewTextBoxColumn.HeaderText = "NomF"
-        Me.NomFDataGridViewTextBoxColumn.Name = "NomFDataGridViewTextBoxColumn"
-        Me.NomFDataGridViewTextBoxColumn.Visible = False
-        '
-        'IdSeanceDataGridViewTextBoxColumn
-        '
-        Me.IdSeanceDataGridViewTextBoxColumn.DataPropertyName = "idSeance"
-        Me.IdSeanceDataGridViewTextBoxColumn.HeaderText = "idSeance"
-        Me.IdSeanceDataGridViewTextBoxColumn.Name = "IdSeanceDataGridViewTextBoxColumn"
-        Me.IdSeanceDataGridViewTextBoxColumn.Visible = False
-        '
-        'IdSessionFormationDataGridViewTextBoxColumn
-        '
-        Me.IdSessionFormationDataGridViewTextBoxColumn.DataPropertyName = "idSessionFormation"
-        Me.IdSessionFormationDataGridViewTextBoxColumn.HeaderText = "idSessionFormation"
-        Me.IdSessionFormationDataGridViewTextBoxColumn.Name = "IdSessionFormationDataGridViewTextBoxColumn"
-        Me.IdSessionFormationDataGridViewTextBoxColumn.Visible = False
-        '
-        'AnneeSessionDataGridViewTextBoxColumn
-        '
-        Me.AnneeSessionDataGridViewTextBoxColumn.DataPropertyName = "AnneeSession"
-        Me.AnneeSessionDataGridViewTextBoxColumn.HeaderText = "AnneeSession"
-        Me.AnneeSessionDataGridViewTextBoxColumn.Name = "AnneeSessionDataGridViewTextBoxColumn"
-        Me.AnneeSessionDataGridViewTextBoxColumn.Visible = False
-        '
-        'TypeInterventionDataGridViewTextBoxColumn1
-        '
-        Me.TypeInterventionDataGridViewTextBoxColumn1.DataPropertyName = "TypeIntervention"
-        Me.TypeInterventionDataGridViewTextBoxColumn1.HeaderText = "TypeIntervention"
-        Me.TypeInterventionDataGridViewTextBoxColumn1.Name = "TypeInterventionDataGridViewTextBoxColumn1"
-        '
-        'DateDataGridViewTextBoxColumn1
-        '
-        Me.DateDataGridViewTextBoxColumn1.DataPropertyName = "Date"
-        Me.DateDataGridViewTextBoxColumn1.HeaderText = "Date"
-        Me.DateDataGridViewTextBoxColumn1.Name = "DateDataGridViewTextBoxColumn1"
-        '
-        'HeureDebutDataGridViewTextBoxColumn1
-        '
-        Me.HeureDebutDataGridViewTextBoxColumn1.DataPropertyName = "HeureDebut"
-        Me.HeureDebutDataGridViewTextBoxColumn1.HeaderText = "HeureDebut"
-        Me.HeureDebutDataGridViewTextBoxColumn1.Name = "HeureDebutDataGridViewTextBoxColumn1"
-        '
-        'HeureFinDataGridViewTextBoxColumn1
-        '
-        Me.HeureFinDataGridViewTextBoxColumn1.DataPropertyName = "HeureFin"
-        Me.HeureFinDataGridViewTextBoxColumn1.HeaderText = "HeureFin"
-        Me.HeureFinDataGridViewTextBoxColumn1.Name = "HeureFinDataGridViewTextBoxColumn1"
-        '
-        'NbHeureDataGridViewTextBoxColumn1
-        '
-        Me.NbHeureDataGridViewTextBoxColumn1.DataPropertyName = "NbHeure"
-        Me.NbHeureDataGridViewTextBoxColumn1.HeaderText = "NbHeure"
-        Me.NbHeureDataGridViewTextBoxColumn1.Name = "NbHeureDataGridViewTextBoxColumn1"
-        '
-        'SalleDataGridViewTextBoxColumn
-        '
-        Me.SalleDataGridViewTextBoxColumn.DataPropertyName = "Salle"
-        Me.SalleDataGridViewTextBoxColumn.HeaderText = "Salle"
-        Me.SalleDataGridViewTextBoxColumn.Name = "SalleDataGridViewTextBoxColumn"
-        Me.SalleDataGridViewTextBoxColumn.Visible = False
-        '
-        'StatutPaiementDataGridViewTextBoxColumn1
-        '
-        Me.StatutPaiementDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.StatutPaiementDataGridViewTextBoxColumn1.DataPropertyName = "StatutPaiement"
-        Me.StatutPaiementDataGridViewTextBoxColumn1.HeaderText = "Statut"
-        Me.StatutPaiementDataGridViewTextBoxColumn1.Name = "StatutPaiementDataGridViewTextBoxColumn1"
-        Me.StatutPaiementDataGridViewTextBoxColumn1.Width = 60
-        '
-        'ListeinterventionsBindingSource1
-        '
-        Me.ListeinterventionsBindingSource1.DataMember = "liste_interventions"
-        Me.ListeinterventionsBindingSource1.DataSource = Me.Formation_ContinueDataSet1
-        '
         'FillBy_interventions_NPToolStrip
         '
         Me.FillBy_interventions_NPToolStrip.Dock = System.Windows.Forms.DockStyle.None
@@ -2129,102 +1978,159 @@ Partial Class Formation
         Me.DG_Liste_Interventions_payees.Size = New System.Drawing.Size(547, 194)
         Me.DG_Liste_Interventions_payees.TabIndex = 0
         '
-        'NomPDataGridViewTextBoxColumn2
+        'TabPage1
         '
-        Me.NomPDataGridViewTextBoxColumn2.DataPropertyName = "NomP"
-        Me.NomPDataGridViewTextBoxColumn2.HeaderText = "NomP"
-        Me.NomPDataGridViewTextBoxColumn2.Name = "NomPDataGridViewTextBoxColumn2"
-        Me.NomPDataGridViewTextBoxColumn2.Visible = False
+        Me.TabPage1.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage1.Controls.Add(Me.BT_Actualiser)
+        Me.TabPage1.Controls.Add(Me.BT_Modifier_seance)
+        Me.TabPage1.Controls.Add(Me.BT_supprimer_seance)
+        Me.TabPage1.Controls.Add(Me.BT_Ajout_intervention)
+        Me.TabPage1.Controls.Add(Me.DG_Seances)
+        Me.TabPage1.Controls.Add(Me.Panel3)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(817, 468)
+        Me.TabPage1.TabIndex = 4
+        Me.TabPage1.Text = "Séance(s)"
         '
-        'PrenomPDataGridViewTextBoxColumn2
+        'BT_Actualiser
         '
-        Me.PrenomPDataGridViewTextBoxColumn2.DataPropertyName = "PrenomP"
-        Me.PrenomPDataGridViewTextBoxColumn2.HeaderText = "PrenomP"
-        Me.PrenomPDataGridViewTextBoxColumn2.Name = "PrenomPDataGridViewTextBoxColumn2"
-        Me.PrenomPDataGridViewTextBoxColumn2.Visible = False
+        Me.BT_Actualiser.Location = New System.Drawing.Point(445, 239)
+        Me.BT_Actualiser.Name = "BT_Actualiser"
+        Me.BT_Actualiser.Size = New System.Drawing.Size(75, 37)
+        Me.BT_Actualiser.TabIndex = 5
+        Me.BT_Actualiser.Text = "Actualiser"
+        Me.BT_Actualiser.UseVisualStyleBackColor = True
         '
-        'IdIntervenantDataGridViewTextBoxColumn1
+        'BT_Modifier_seance
         '
-        Me.IdIntervenantDataGridViewTextBoxColumn1.DataPropertyName = "idIntervenant"
-        Me.IdIntervenantDataGridViewTextBoxColumn1.HeaderText = "idIntervenant"
-        Me.IdIntervenantDataGridViewTextBoxColumn1.Name = "IdIntervenantDataGridViewTextBoxColumn1"
-        Me.IdIntervenantDataGridViewTextBoxColumn1.Visible = False
+        Me.BT_Modifier_seance.Location = New System.Drawing.Point(563, 238)
+        Me.BT_Modifier_seance.Name = "BT_Modifier_seance"
+        Me.BT_Modifier_seance.Size = New System.Drawing.Size(75, 38)
+        Me.BT_Modifier_seance.TabIndex = 4
+        Me.BT_Modifier_seance.Text = "Modifier"
+        Me.BT_Modifier_seance.UseVisualStyleBackColor = True
         '
-        'NomFDataGridViewTextBoxColumn1
+        'BT_supprimer_seance
         '
-        Me.NomFDataGridViewTextBoxColumn1.DataPropertyName = "NomF"
-        Me.NomFDataGridViewTextBoxColumn1.HeaderText = "NomF"
-        Me.NomFDataGridViewTextBoxColumn1.Name = "NomFDataGridViewTextBoxColumn1"
-        Me.NomFDataGridViewTextBoxColumn1.Visible = False
+        Me.BT_supprimer_seance.Location = New System.Drawing.Point(692, 238)
+        Me.BT_supprimer_seance.Name = "BT_supprimer_seance"
+        Me.BT_supprimer_seance.Size = New System.Drawing.Size(75, 38)
+        Me.BT_supprimer_seance.TabIndex = 3
+        Me.BT_supprimer_seance.Text = "Supprimer"
+        Me.BT_supprimer_seance.UseVisualStyleBackColor = True
         '
-        'IdSeanceDataGridViewTextBoxColumn1
+        'BT_Ajout_intervention
         '
-        Me.IdSeanceDataGridViewTextBoxColumn1.DataPropertyName = "idSeance"
-        Me.IdSeanceDataGridViewTextBoxColumn1.HeaderText = "idSeance"
-        Me.IdSeanceDataGridViewTextBoxColumn1.Name = "IdSeanceDataGridViewTextBoxColumn1"
-        Me.IdSeanceDataGridViewTextBoxColumn1.Visible = False
+        Me.BT_Ajout_intervention.Location = New System.Drawing.Point(333, 238)
+        Me.BT_Ajout_intervention.Name = "BT_Ajout_intervention"
+        Me.BT_Ajout_intervention.Size = New System.Drawing.Size(75, 40)
+        Me.BT_Ajout_intervention.TabIndex = 2
+        Me.BT_Ajout_intervention.Text = "Ajouter une intervention"
+        Me.BT_Ajout_intervention.UseVisualStyleBackColor = True
         '
-        'IdSessionFormationDataGridViewTextBoxColumn1
+        'DG_Seances
         '
-        Me.IdSessionFormationDataGridViewTextBoxColumn1.DataPropertyName = "idSessionFormation"
-        Me.IdSessionFormationDataGridViewTextBoxColumn1.HeaderText = "idSessionFormation"
-        Me.IdSessionFormationDataGridViewTextBoxColumn1.Name = "IdSessionFormationDataGridViewTextBoxColumn1"
-        Me.IdSessionFormationDataGridViewTextBoxColumn1.Visible = False
+        Me.DG_Seances.AutoGenerateColumns = False
+        Me.DG_Seances.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DG_Seances.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_Seances.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdSeanceDataGridViewTextBoxColumn2, Me.SalleDataGridViewTextBoxColumn2, Me.ModuleDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn4, Me.HeureDebutDataGridViewTextBoxColumn3, Me.HeureFinDataGridViewTextBoxColumn3, Me.AnneeSessionDataGridViewTextBoxColumn4, Me.DateDebutDataGridViewTextBoxColumn, Me.DateFinDataGridViewTextBoxColumn, Me.NomFDataGridViewTextBoxColumn4})
+        Me.DG_Seances.DataSource = Me.ListeseancesBindingSource
+        Me.DG_Seances.Location = New System.Drawing.Point(275, 30)
+        Me.DG_Seances.Name = "DG_Seances"
+        Me.DG_Seances.Size = New System.Drawing.Size(492, 182)
+        Me.DG_Seances.TabIndex = 1
         '
-        'AnneeSessionDataGridViewTextBoxColumn1
+        'Panel3
         '
-        Me.AnneeSessionDataGridViewTextBoxColumn1.DataPropertyName = "AnneeSession"
-        Me.AnneeSessionDataGridViewTextBoxColumn1.HeaderText = "AnneeSession"
-        Me.AnneeSessionDataGridViewTextBoxColumn1.Name = "AnneeSessionDataGridViewTextBoxColumn1"
-        Me.AnneeSessionDataGridViewTextBoxColumn1.Visible = False
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.BT_Ajouter_seance)
+        Me.Panel3.Controls.Add(Me.TB_Heure_FinSeance)
+        Me.Panel3.Controls.Add(Me.Label50)
+        Me.Panel3.Controls.Add(Me.TB_Heure_DebutSeance)
+        Me.Panel3.Controls.Add(Me.Label46)
+        Me.Panel3.Controls.Add(Me.DTP_Seance)
+        Me.Panel3.Controls.Add(Me.Label45)
+        Me.Panel3.Controls.Add(Me.TB_Module)
+        Me.Panel3.Controls.Add(Me.Label44)
+        Me.Panel3.Location = New System.Drawing.Point(15, 31)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(236, 247)
+        Me.Panel3.TabIndex = 0
         '
-        'TypeInterventionDataGridViewTextBoxColumn2
+        'BT_Ajouter_seance
         '
-        Me.TypeInterventionDataGridViewTextBoxColumn2.DataPropertyName = "TypeIntervention"
-        Me.TypeInterventionDataGridViewTextBoxColumn2.HeaderText = "TypeIntervention"
-        Me.TypeInterventionDataGridViewTextBoxColumn2.Name = "TypeInterventionDataGridViewTextBoxColumn2"
+        Me.BT_Ajouter_seance.Location = New System.Drawing.Point(75, 208)
+        Me.BT_Ajouter_seance.Name = "BT_Ajouter_seance"
+        Me.BT_Ajouter_seance.Size = New System.Drawing.Size(72, 20)
+        Me.BT_Ajouter_seance.TabIndex = 1
+        Me.BT_Ajouter_seance.Text = "Ajouter"
+        Me.BT_Ajouter_seance.UseVisualStyleBackColor = True
         '
-        'DateDataGridViewTextBoxColumn2
+        'TB_Heure_FinSeance
         '
-        Me.DateDataGridViewTextBoxColumn2.DataPropertyName = "Date"
-        Me.DateDataGridViewTextBoxColumn2.HeaderText = "Date"
-        Me.DateDataGridViewTextBoxColumn2.Name = "DateDataGridViewTextBoxColumn2"
+        Me.TB_Heure_FinSeance.Location = New System.Drawing.Point(144, 160)
+        Me.TB_Heure_FinSeance.Name = "TB_Heure_FinSeance"
+        Me.TB_Heure_FinSeance.Size = New System.Drawing.Size(52, 20)
+        Me.TB_Heure_FinSeance.TabIndex = 1
         '
-        'HeureDebutDataGridViewTextBoxColumn2
+        'Label50
         '
-        Me.HeureDebutDataGridViewTextBoxColumn2.DataPropertyName = "HeureDebut"
-        Me.HeureDebutDataGridViewTextBoxColumn2.HeaderText = "HeureDebut"
-        Me.HeureDebutDataGridViewTextBoxColumn2.Name = "HeureDebutDataGridViewTextBoxColumn2"
+        Me.Label50.AutoSize = True
+        Me.Label50.Location = New System.Drawing.Point(114, 163)
+        Me.Label50.Name = "Label50"
+        Me.Label50.Size = New System.Drawing.Size(24, 13)
+        Me.Label50.TabIndex = 1
+        Me.Label50.Text = "Fin:"
         '
-        'HeureFinDataGridViewTextBoxColumn2
+        'TB_Heure_DebutSeance
         '
-        Me.HeureFinDataGridViewTextBoxColumn2.DataPropertyName = "HeureFin"
-        Me.HeureFinDataGridViewTextBoxColumn2.HeaderText = "HeureFin"
-        Me.HeureFinDataGridViewTextBoxColumn2.Name = "HeureFinDataGridViewTextBoxColumn2"
+        Me.TB_Heure_DebutSeance.Location = New System.Drawing.Point(47, 160)
+        Me.TB_Heure_DebutSeance.Name = "TB_Heure_DebutSeance"
+        Me.TB_Heure_DebutSeance.Size = New System.Drawing.Size(53, 20)
+        Me.TB_Heure_DebutSeance.TabIndex = 1
         '
-        'NbHeureDataGridViewTextBoxColumn2
+        'Label46
         '
-        Me.NbHeureDataGridViewTextBoxColumn2.DataPropertyName = "NbHeure"
-        Me.NbHeureDataGridViewTextBoxColumn2.HeaderText = "NbHeure"
-        Me.NbHeureDataGridViewTextBoxColumn2.Name = "NbHeureDataGridViewTextBoxColumn2"
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(6, 163)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(39, 13)
+        Me.Label46.TabIndex = 1
+        Me.Label46.Text = "Début:"
         '
-        'SalleDataGridViewTextBoxColumn1
+        'DTP_Seance
         '
-        Me.SalleDataGridViewTextBoxColumn1.DataPropertyName = "Salle"
-        Me.SalleDataGridViewTextBoxColumn1.HeaderText = "Salle"
-        Me.SalleDataGridViewTextBoxColumn1.Name = "SalleDataGridViewTextBoxColumn1"
-        Me.SalleDataGridViewTextBoxColumn1.Visible = False
+        Me.DTP_Seance.Location = New System.Drawing.Point(24, 82)
+        Me.DTP_Seance.Name = "DTP_Seance"
+        Me.DTP_Seance.Size = New System.Drawing.Size(164, 20)
+        Me.DTP_Seance.TabIndex = 1
         '
-        'StatutPaiementDataGridViewTextBoxColumn2
+        'Label45
         '
-        Me.StatutPaiementDataGridViewTextBoxColumn2.DataPropertyName = "StatutPaiement"
-        Me.StatutPaiementDataGridViewTextBoxColumn2.HeaderText = "StatutPaiement"
-        Me.StatutPaiementDataGridViewTextBoxColumn2.Name = "StatutPaiementDataGridViewTextBoxColumn2"
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(75, 66)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(33, 13)
+        Me.Label45.TabIndex = 1
+        Me.Label45.Text = "Date:"
         '
-        'ListeinterventionsBindingSource2
+        'TB_Module
         '
-        Me.ListeinterventionsBindingSource2.DataMember = "liste_interventions"
-        Me.ListeinterventionsBindingSource2.DataSource = Me.Formation_ContinueDataSet1
+        Me.TB_Module.Location = New System.Drawing.Point(47, 29)
+        Me.TB_Module.Name = "TB_Module"
+        Me.TB_Module.Size = New System.Drawing.Size(100, 20)
+        Me.TB_Module.TabIndex = 1
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(75, 13)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(45, 13)
+        Me.Label44.TabIndex = 1
+        Me.Label44.Text = "Module:"
         '
         'DG_Liste_Intervenants
         '
@@ -2250,22 +2156,6 @@ Partial Class Formation
         Me.idPersonne.Visible = False
         Me.idPersonne.Width = 85
         '
-        'CivilitePDataGridViewTextBoxColumn
-        '
-        Me.CivilitePDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.CivilitePDataGridViewTextBoxColumn.DataPropertyName = "CiviliteP"
-        Me.CivilitePDataGridViewTextBoxColumn.HeaderText = "Civilité"
-        Me.CivilitePDataGridViewTextBoxColumn.Name = "CivilitePDataGridViewTextBoxColumn"
-        Me.CivilitePDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CivilitePDataGridViewTextBoxColumn.Width = 62
-        '
-        'NomPDataGridViewTextBoxColumn
-        '
-        Me.NomPDataGridViewTextBoxColumn.DataPropertyName = "NomP"
-        Me.NomPDataGridViewTextBoxColumn.HeaderText = "Nom"
-        Me.NomPDataGridViewTextBoxColumn.Name = "NomPDataGridViewTextBoxColumn"
-        Me.NomPDataGridViewTextBoxColumn.ReadOnly = True
-        '
         'NomJeuneFille
         '
         Me.NomJeuneFille.DataPropertyName = "NomJeuneFille"
@@ -2273,27 +2163,6 @@ Partial Class Formation
         Me.NomJeuneFille.Name = "NomJeuneFille"
         Me.NomJeuneFille.ReadOnly = True
         Me.NomJeuneFille.Visible = False
-        '
-        'PrenomPDataGridViewTextBoxColumn
-        '
-        Me.PrenomPDataGridViewTextBoxColumn.DataPropertyName = "PrenomP"
-        Me.PrenomPDataGridViewTextBoxColumn.HeaderText = "Prenom"
-        Me.PrenomPDataGridViewTextBoxColumn.Name = "PrenomPDataGridViewTextBoxColumn"
-        Me.PrenomPDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TypeIntervenantDataGridViewTextBoxColumn
-        '
-        Me.TypeIntervenantDataGridViewTextBoxColumn.DataPropertyName = "TypeIntervenant"
-        Me.TypeIntervenantDataGridViewTextBoxColumn.HeaderText = "Type d'intervenant"
-        Me.TypeIntervenantDataGridViewTextBoxColumn.Name = "TypeIntervenantDataGridViewTextBoxColumn"
-        Me.TypeIntervenantDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DateNaissanceIDataGridViewTextBoxColumn
-        '
-        Me.DateNaissanceIDataGridViewTextBoxColumn.DataPropertyName = "DateNaissanceI"
-        Me.DateNaissanceIDataGridViewTextBoxColumn.HeaderText = "Date de naissance"
-        Me.DateNaissanceIDataGridViewTextBoxColumn.Name = "DateNaissanceIDataGridViewTextBoxColumn"
-        Me.DateNaissanceIDataGridViewTextBoxColumn.ReadOnly = True
         '
         'LieuNaissanceI
         '
@@ -3066,71 +2935,6 @@ Partial Class Formation
         Me.DG_Temps_saisie.Size = New System.Drawing.Size(628, 160)
         Me.DG_Temps_saisie.TabIndex = 4
         '
-        'LoginDataGridViewTextBoxColumn
-        '
-        Me.LoginDataGridViewTextBoxColumn.DataPropertyName = "Login"
-        Me.LoginDataGridViewTextBoxColumn.HeaderText = "Login"
-        Me.LoginDataGridViewTextBoxColumn.Name = "LoginDataGridViewTextBoxColumn"
-        '
-        'IdFormationDataGridViewTextBoxColumn1
-        '
-        Me.IdFormationDataGridViewTextBoxColumn1.DataPropertyName = "idFormation"
-        Me.IdFormationDataGridViewTextBoxColumn1.HeaderText = "idFormation"
-        Me.IdFormationDataGridViewTextBoxColumn1.Name = "IdFormationDataGridViewTextBoxColumn1"
-        '
-        'NomFDataGridViewTextBoxColumn3
-        '
-        Me.NomFDataGridViewTextBoxColumn3.DataPropertyName = "NomF"
-        Me.NomFDataGridViewTextBoxColumn3.HeaderText = "NomF"
-        Me.NomFDataGridViewTextBoxColumn3.Name = "NomFDataGridViewTextBoxColumn3"
-        '
-        'IdSessionFormationDataGridViewTextBoxColumn3
-        '
-        Me.IdSessionFormationDataGridViewTextBoxColumn3.DataPropertyName = "idSessionFormation"
-        Me.IdSessionFormationDataGridViewTextBoxColumn3.HeaderText = "idSessionFormation"
-        Me.IdSessionFormationDataGridViewTextBoxColumn3.Name = "IdSessionFormationDataGridViewTextBoxColumn3"
-        '
-        'AnneeSessionDataGridViewTextBoxColumn3
-        '
-        Me.AnneeSessionDataGridViewTextBoxColumn3.DataPropertyName = "AnneeSession"
-        Me.AnneeSessionDataGridViewTextBoxColumn3.HeaderText = "AnneeSession"
-        Me.AnneeSessionDataGridViewTextBoxColumn3.Name = "AnneeSessionDataGridViewTextBoxColumn3"
-        '
-        'DateDataGridViewTextBoxColumn3
-        '
-        Me.DateDataGridViewTextBoxColumn3.DataPropertyName = "Date"
-        Me.DateDataGridViewTextBoxColumn3.HeaderText = "Date"
-        Me.DateDataGridViewTextBoxColumn3.Name = "DateDataGridViewTextBoxColumn3"
-        '
-        'TypeProjetDataGridViewTextBoxColumn
-        '
-        Me.TypeProjetDataGridViewTextBoxColumn.DataPropertyName = "TypeProjet"
-        Me.TypeProjetDataGridViewTextBoxColumn.HeaderText = "TypeProjet"
-        Me.TypeProjetDataGridViewTextBoxColumn.Name = "TypeProjetDataGridViewTextBoxColumn"
-        '
-        'NomDataGridViewTextBoxColumn
-        '
-        Me.NomDataGridViewTextBoxColumn.DataPropertyName = "Nom"
-        Me.NomDataGridViewTextBoxColumn.HeaderText = "Nom"
-        Me.NomDataGridViewTextBoxColumn.Name = "NomDataGridViewTextBoxColumn"
-        '
-        'TacheDataGridViewTextBoxColumn
-        '
-        Me.TacheDataGridViewTextBoxColumn.DataPropertyName = "Tache"
-        Me.TacheDataGridViewTextBoxColumn.HeaderText = "Tache"
-        Me.TacheDataGridViewTextBoxColumn.Name = "TacheDataGridViewTextBoxColumn"
-        '
-        'TempsDataGridViewTextBoxColumn
-        '
-        Me.TempsDataGridViewTextBoxColumn.DataPropertyName = "Temps"
-        Me.TempsDataGridViewTextBoxColumn.HeaderText = "Temps"
-        Me.TempsDataGridViewTextBoxColumn.Name = "TempsDataGridViewTextBoxColumn"
-        '
-        'TempsagentBindingSource
-        '
-        Me.TempsagentBindingSource.DataMember = "temps_agent"
-        Me.TempsagentBindingSource.DataSource = Me.Formation_ContinueDataSet1
-        '
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -3390,6 +3194,357 @@ Partial Class Formation
         Me.GroupBox11.TabIndex = 4
         Me.GroupBox11.TabStop = False
         '
+        'ProfilsintervenantBindingSource
+        '
+        Me.ProfilsintervenantBindingSource.DataMember = "profils_intervenant"
+        Me.ProfilsintervenantBindingSource.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'Formation_ContinueDataSet1
+        '
+        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
+        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ListeinterventionsBindingSource
+        '
+        Me.ListeinterventionsBindingSource.DataMember = "liste_interventions"
+        Me.ListeinterventionsBindingSource.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'TypeInterventionDataGridViewTextBoxColumn
+        '
+        Me.TypeInterventionDataGridViewTextBoxColumn.DataPropertyName = "TypeIntervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn.HeaderText = "Type d'intervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn.Name = "TypeInterventionDataGridViewTextBoxColumn"
+        '
+        'DateDataGridViewTextBoxColumn
+        '
+        Me.DateDataGridViewTextBoxColumn.DataPropertyName = "Date"
+        Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
+        Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
+        '
+        'HeureDebutDataGridViewTextBoxColumn
+        '
+        Me.HeureDebutDataGridViewTextBoxColumn.DataPropertyName = "HeureDebut"
+        Me.HeureDebutDataGridViewTextBoxColumn.HeaderText = "Début"
+        Me.HeureDebutDataGridViewTextBoxColumn.Name = "HeureDebutDataGridViewTextBoxColumn"
+        '
+        'HeureFinDataGridViewTextBoxColumn
+        '
+        Me.HeureFinDataGridViewTextBoxColumn.DataPropertyName = "HeureFin"
+        Me.HeureFinDataGridViewTextBoxColumn.HeaderText = "Fin"
+        Me.HeureFinDataGridViewTextBoxColumn.Name = "HeureFinDataGridViewTextBoxColumn"
+        '
+        'NbHeureDataGridViewTextBoxColumn
+        '
+        Me.NbHeureDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.NbHeureDataGridViewTextBoxColumn.DataPropertyName = "NbHeure"
+        Me.NbHeureDataGridViewTextBoxColumn.HeaderText = "Nb d'heure"
+        Me.NbHeureDataGridViewTextBoxColumn.Name = "NbHeureDataGridViewTextBoxColumn"
+        Me.NbHeureDataGridViewTextBoxColumn.Width = 84
+        '
+        'StatutPaiementDataGridViewTextBoxColumn
+        '
+        Me.StatutPaiementDataGridViewTextBoxColumn.DataPropertyName = "StatutPaiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn.HeaderText = "Paiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn.Name = "StatutPaiementDataGridViewTextBoxColumn"
+        '
+        'NomPDataGridViewTextBoxColumn1
+        '
+        Me.NomPDataGridViewTextBoxColumn1.DataPropertyName = "NomP"
+        Me.NomPDataGridViewTextBoxColumn1.HeaderText = "NomP"
+        Me.NomPDataGridViewTextBoxColumn1.Name = "NomPDataGridViewTextBoxColumn1"
+        Me.NomPDataGridViewTextBoxColumn1.Visible = False
+        '
+        'PrenomPDataGridViewTextBoxColumn1
+        '
+        Me.PrenomPDataGridViewTextBoxColumn1.DataPropertyName = "PrenomP"
+        Me.PrenomPDataGridViewTextBoxColumn1.HeaderText = "PrenomP"
+        Me.PrenomPDataGridViewTextBoxColumn1.Name = "PrenomPDataGridViewTextBoxColumn1"
+        Me.PrenomPDataGridViewTextBoxColumn1.Visible = False
+        '
+        'IdIntervenantDataGridViewTextBoxColumn
+        '
+        Me.IdIntervenantDataGridViewTextBoxColumn.DataPropertyName = "idIntervenant"
+        Me.IdIntervenantDataGridViewTextBoxColumn.HeaderText = "idIntervenant"
+        Me.IdIntervenantDataGridViewTextBoxColumn.Name = "IdIntervenantDataGridViewTextBoxColumn"
+        Me.IdIntervenantDataGridViewTextBoxColumn.Visible = False
+        '
+        'NomFDataGridViewTextBoxColumn
+        '
+        Me.NomFDataGridViewTextBoxColumn.DataPropertyName = "NomF"
+        Me.NomFDataGridViewTextBoxColumn.HeaderText = "NomF"
+        Me.NomFDataGridViewTextBoxColumn.Name = "NomFDataGridViewTextBoxColumn"
+        Me.NomFDataGridViewTextBoxColumn.Visible = False
+        '
+        'IdSeanceDataGridViewTextBoxColumn
+        '
+        Me.IdSeanceDataGridViewTextBoxColumn.DataPropertyName = "idSeance"
+        Me.IdSeanceDataGridViewTextBoxColumn.HeaderText = "idSeance"
+        Me.IdSeanceDataGridViewTextBoxColumn.Name = "IdSeanceDataGridViewTextBoxColumn"
+        Me.IdSeanceDataGridViewTextBoxColumn.Visible = False
+        '
+        'IdSessionFormationDataGridViewTextBoxColumn
+        '
+        Me.IdSessionFormationDataGridViewTextBoxColumn.DataPropertyName = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn.HeaderText = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn.Name = "IdSessionFormationDataGridViewTextBoxColumn"
+        Me.IdSessionFormationDataGridViewTextBoxColumn.Visible = False
+        '
+        'AnneeSessionDataGridViewTextBoxColumn
+        '
+        Me.AnneeSessionDataGridViewTextBoxColumn.DataPropertyName = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn.HeaderText = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn.Name = "AnneeSessionDataGridViewTextBoxColumn"
+        Me.AnneeSessionDataGridViewTextBoxColumn.Visible = False
+        '
+        'TypeInterventionDataGridViewTextBoxColumn1
+        '
+        Me.TypeInterventionDataGridViewTextBoxColumn1.DataPropertyName = "TypeIntervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn1.HeaderText = "TypeIntervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn1.Name = "TypeInterventionDataGridViewTextBoxColumn1"
+        '
+        'DateDataGridViewTextBoxColumn1
+        '
+        Me.DateDataGridViewTextBoxColumn1.DataPropertyName = "Date"
+        Me.DateDataGridViewTextBoxColumn1.HeaderText = "Date"
+        Me.DateDataGridViewTextBoxColumn1.Name = "DateDataGridViewTextBoxColumn1"
+        '
+        'HeureDebutDataGridViewTextBoxColumn1
+        '
+        Me.HeureDebutDataGridViewTextBoxColumn1.DataPropertyName = "HeureDebut"
+        Me.HeureDebutDataGridViewTextBoxColumn1.HeaderText = "HeureDebut"
+        Me.HeureDebutDataGridViewTextBoxColumn1.Name = "HeureDebutDataGridViewTextBoxColumn1"
+        '
+        'HeureFinDataGridViewTextBoxColumn1
+        '
+        Me.HeureFinDataGridViewTextBoxColumn1.DataPropertyName = "HeureFin"
+        Me.HeureFinDataGridViewTextBoxColumn1.HeaderText = "HeureFin"
+        Me.HeureFinDataGridViewTextBoxColumn1.Name = "HeureFinDataGridViewTextBoxColumn1"
+        '
+        'NbHeureDataGridViewTextBoxColumn1
+        '
+        Me.NbHeureDataGridViewTextBoxColumn1.DataPropertyName = "NbHeure"
+        Me.NbHeureDataGridViewTextBoxColumn1.HeaderText = "NbHeure"
+        Me.NbHeureDataGridViewTextBoxColumn1.Name = "NbHeureDataGridViewTextBoxColumn1"
+        '
+        'SalleDataGridViewTextBoxColumn
+        '
+        Me.SalleDataGridViewTextBoxColumn.DataPropertyName = "Salle"
+        Me.SalleDataGridViewTextBoxColumn.HeaderText = "Salle"
+        Me.SalleDataGridViewTextBoxColumn.Name = "SalleDataGridViewTextBoxColumn"
+        Me.SalleDataGridViewTextBoxColumn.Visible = False
+        '
+        'StatutPaiementDataGridViewTextBoxColumn1
+        '
+        Me.StatutPaiementDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.StatutPaiementDataGridViewTextBoxColumn1.DataPropertyName = "StatutPaiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn1.HeaderText = "Statut"
+        Me.StatutPaiementDataGridViewTextBoxColumn1.Name = "StatutPaiementDataGridViewTextBoxColumn1"
+        Me.StatutPaiementDataGridViewTextBoxColumn1.Width = 60
+        '
+        'ListeinterventionsBindingSource1
+        '
+        Me.ListeinterventionsBindingSource1.DataMember = "liste_interventions"
+        Me.ListeinterventionsBindingSource1.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'NomPDataGridViewTextBoxColumn2
+        '
+        Me.NomPDataGridViewTextBoxColumn2.DataPropertyName = "NomP"
+        Me.NomPDataGridViewTextBoxColumn2.HeaderText = "NomP"
+        Me.NomPDataGridViewTextBoxColumn2.Name = "NomPDataGridViewTextBoxColumn2"
+        Me.NomPDataGridViewTextBoxColumn2.Visible = False
+        '
+        'PrenomPDataGridViewTextBoxColumn2
+        '
+        Me.PrenomPDataGridViewTextBoxColumn2.DataPropertyName = "PrenomP"
+        Me.PrenomPDataGridViewTextBoxColumn2.HeaderText = "PrenomP"
+        Me.PrenomPDataGridViewTextBoxColumn2.Name = "PrenomPDataGridViewTextBoxColumn2"
+        Me.PrenomPDataGridViewTextBoxColumn2.Visible = False
+        '
+        'IdIntervenantDataGridViewTextBoxColumn1
+        '
+        Me.IdIntervenantDataGridViewTextBoxColumn1.DataPropertyName = "idIntervenant"
+        Me.IdIntervenantDataGridViewTextBoxColumn1.HeaderText = "idIntervenant"
+        Me.IdIntervenantDataGridViewTextBoxColumn1.Name = "IdIntervenantDataGridViewTextBoxColumn1"
+        Me.IdIntervenantDataGridViewTextBoxColumn1.Visible = False
+        '
+        'NomFDataGridViewTextBoxColumn1
+        '
+        Me.NomFDataGridViewTextBoxColumn1.DataPropertyName = "NomF"
+        Me.NomFDataGridViewTextBoxColumn1.HeaderText = "NomF"
+        Me.NomFDataGridViewTextBoxColumn1.Name = "NomFDataGridViewTextBoxColumn1"
+        Me.NomFDataGridViewTextBoxColumn1.Visible = False
+        '
+        'IdSeanceDataGridViewTextBoxColumn1
+        '
+        Me.IdSeanceDataGridViewTextBoxColumn1.DataPropertyName = "idSeance"
+        Me.IdSeanceDataGridViewTextBoxColumn1.HeaderText = "idSeance"
+        Me.IdSeanceDataGridViewTextBoxColumn1.Name = "IdSeanceDataGridViewTextBoxColumn1"
+        Me.IdSeanceDataGridViewTextBoxColumn1.Visible = False
+        '
+        'IdSessionFormationDataGridViewTextBoxColumn1
+        '
+        Me.IdSessionFormationDataGridViewTextBoxColumn1.DataPropertyName = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn1.HeaderText = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn1.Name = "IdSessionFormationDataGridViewTextBoxColumn1"
+        Me.IdSessionFormationDataGridViewTextBoxColumn1.Visible = False
+        '
+        'AnneeSessionDataGridViewTextBoxColumn1
+        '
+        Me.AnneeSessionDataGridViewTextBoxColumn1.DataPropertyName = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn1.HeaderText = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn1.Name = "AnneeSessionDataGridViewTextBoxColumn1"
+        Me.AnneeSessionDataGridViewTextBoxColumn1.Visible = False
+        '
+        'TypeInterventionDataGridViewTextBoxColumn2
+        '
+        Me.TypeInterventionDataGridViewTextBoxColumn2.DataPropertyName = "TypeIntervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn2.HeaderText = "TypeIntervention"
+        Me.TypeInterventionDataGridViewTextBoxColumn2.Name = "TypeInterventionDataGridViewTextBoxColumn2"
+        '
+        'DateDataGridViewTextBoxColumn2
+        '
+        Me.DateDataGridViewTextBoxColumn2.DataPropertyName = "Date"
+        Me.DateDataGridViewTextBoxColumn2.HeaderText = "Date"
+        Me.DateDataGridViewTextBoxColumn2.Name = "DateDataGridViewTextBoxColumn2"
+        '
+        'HeureDebutDataGridViewTextBoxColumn2
+        '
+        Me.HeureDebutDataGridViewTextBoxColumn2.DataPropertyName = "HeureDebut"
+        Me.HeureDebutDataGridViewTextBoxColumn2.HeaderText = "HeureDebut"
+        Me.HeureDebutDataGridViewTextBoxColumn2.Name = "HeureDebutDataGridViewTextBoxColumn2"
+        '
+        'HeureFinDataGridViewTextBoxColumn2
+        '
+        Me.HeureFinDataGridViewTextBoxColumn2.DataPropertyName = "HeureFin"
+        Me.HeureFinDataGridViewTextBoxColumn2.HeaderText = "HeureFin"
+        Me.HeureFinDataGridViewTextBoxColumn2.Name = "HeureFinDataGridViewTextBoxColumn2"
+        '
+        'NbHeureDataGridViewTextBoxColumn2
+        '
+        Me.NbHeureDataGridViewTextBoxColumn2.DataPropertyName = "NbHeure"
+        Me.NbHeureDataGridViewTextBoxColumn2.HeaderText = "NbHeure"
+        Me.NbHeureDataGridViewTextBoxColumn2.Name = "NbHeureDataGridViewTextBoxColumn2"
+        '
+        'SalleDataGridViewTextBoxColumn1
+        '
+        Me.SalleDataGridViewTextBoxColumn1.DataPropertyName = "Salle"
+        Me.SalleDataGridViewTextBoxColumn1.HeaderText = "Salle"
+        Me.SalleDataGridViewTextBoxColumn1.Name = "SalleDataGridViewTextBoxColumn1"
+        Me.SalleDataGridViewTextBoxColumn1.Visible = False
+        '
+        'StatutPaiementDataGridViewTextBoxColumn2
+        '
+        Me.StatutPaiementDataGridViewTextBoxColumn2.DataPropertyName = "StatutPaiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn2.HeaderText = "StatutPaiement"
+        Me.StatutPaiementDataGridViewTextBoxColumn2.Name = "StatutPaiementDataGridViewTextBoxColumn2"
+        '
+        'ListeinterventionsBindingSource2
+        '
+        Me.ListeinterventionsBindingSource2.DataMember = "liste_interventions"
+        Me.ListeinterventionsBindingSource2.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'CivilitePDataGridViewTextBoxColumn
+        '
+        Me.CivilitePDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.CivilitePDataGridViewTextBoxColumn.DataPropertyName = "CiviliteP"
+        Me.CivilitePDataGridViewTextBoxColumn.HeaderText = "Civilité"
+        Me.CivilitePDataGridViewTextBoxColumn.Name = "CivilitePDataGridViewTextBoxColumn"
+        Me.CivilitePDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CivilitePDataGridViewTextBoxColumn.Width = 62
+        '
+        'NomPDataGridViewTextBoxColumn
+        '
+        Me.NomPDataGridViewTextBoxColumn.DataPropertyName = "NomP"
+        Me.NomPDataGridViewTextBoxColumn.HeaderText = "Nom"
+        Me.NomPDataGridViewTextBoxColumn.Name = "NomPDataGridViewTextBoxColumn"
+        Me.NomPDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PrenomPDataGridViewTextBoxColumn
+        '
+        Me.PrenomPDataGridViewTextBoxColumn.DataPropertyName = "PrenomP"
+        Me.PrenomPDataGridViewTextBoxColumn.HeaderText = "Prenom"
+        Me.PrenomPDataGridViewTextBoxColumn.Name = "PrenomPDataGridViewTextBoxColumn"
+        Me.PrenomPDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TypeIntervenantDataGridViewTextBoxColumn
+        '
+        Me.TypeIntervenantDataGridViewTextBoxColumn.DataPropertyName = "TypeIntervenant"
+        Me.TypeIntervenantDataGridViewTextBoxColumn.HeaderText = "Type d'intervenant"
+        Me.TypeIntervenantDataGridViewTextBoxColumn.Name = "TypeIntervenantDataGridViewTextBoxColumn"
+        Me.TypeIntervenantDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DateNaissanceIDataGridViewTextBoxColumn
+        '
+        Me.DateNaissanceIDataGridViewTextBoxColumn.DataPropertyName = "DateNaissanceI"
+        Me.DateNaissanceIDataGridViewTextBoxColumn.HeaderText = "Date de naissance"
+        Me.DateNaissanceIDataGridViewTextBoxColumn.Name = "DateNaissanceIDataGridViewTextBoxColumn"
+        Me.DateNaissanceIDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'LoginDataGridViewTextBoxColumn
+        '
+        Me.LoginDataGridViewTextBoxColumn.DataPropertyName = "Login"
+        Me.LoginDataGridViewTextBoxColumn.HeaderText = "Login"
+        Me.LoginDataGridViewTextBoxColumn.Name = "LoginDataGridViewTextBoxColumn"
+        '
+        'IdFormationDataGridViewTextBoxColumn1
+        '
+        Me.IdFormationDataGridViewTextBoxColumn1.DataPropertyName = "idFormation"
+        Me.IdFormationDataGridViewTextBoxColumn1.HeaderText = "idFormation"
+        Me.IdFormationDataGridViewTextBoxColumn1.Name = "IdFormationDataGridViewTextBoxColumn1"
+        '
+        'NomFDataGridViewTextBoxColumn3
+        '
+        Me.NomFDataGridViewTextBoxColumn3.DataPropertyName = "NomF"
+        Me.NomFDataGridViewTextBoxColumn3.HeaderText = "NomF"
+        Me.NomFDataGridViewTextBoxColumn3.Name = "NomFDataGridViewTextBoxColumn3"
+        '
+        'IdSessionFormationDataGridViewTextBoxColumn3
+        '
+        Me.IdSessionFormationDataGridViewTextBoxColumn3.DataPropertyName = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn3.HeaderText = "idSessionFormation"
+        Me.IdSessionFormationDataGridViewTextBoxColumn3.Name = "IdSessionFormationDataGridViewTextBoxColumn3"
+        '
+        'AnneeSessionDataGridViewTextBoxColumn3
+        '
+        Me.AnneeSessionDataGridViewTextBoxColumn3.DataPropertyName = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn3.HeaderText = "AnneeSession"
+        Me.AnneeSessionDataGridViewTextBoxColumn3.Name = "AnneeSessionDataGridViewTextBoxColumn3"
+        '
+        'DateDataGridViewTextBoxColumn3
+        '
+        Me.DateDataGridViewTextBoxColumn3.DataPropertyName = "Date"
+        Me.DateDataGridViewTextBoxColumn3.HeaderText = "Date"
+        Me.DateDataGridViewTextBoxColumn3.Name = "DateDataGridViewTextBoxColumn3"
+        '
+        'TypeProjetDataGridViewTextBoxColumn
+        '
+        Me.TypeProjetDataGridViewTextBoxColumn.DataPropertyName = "TypeProjet"
+        Me.TypeProjetDataGridViewTextBoxColumn.HeaderText = "TypeProjet"
+        Me.TypeProjetDataGridViewTextBoxColumn.Name = "TypeProjetDataGridViewTextBoxColumn"
+        '
+        'NomDataGridViewTextBoxColumn
+        '
+        Me.NomDataGridViewTextBoxColumn.DataPropertyName = "Nom"
+        Me.NomDataGridViewTextBoxColumn.HeaderText = "Nom"
+        Me.NomDataGridViewTextBoxColumn.Name = "NomDataGridViewTextBoxColumn"
+        '
+        'TacheDataGridViewTextBoxColumn
+        '
+        Me.TacheDataGridViewTextBoxColumn.DataPropertyName = "Tache"
+        Me.TacheDataGridViewTextBoxColumn.HeaderText = "Tache"
+        Me.TacheDataGridViewTextBoxColumn.Name = "TacheDataGridViewTextBoxColumn"
+        '
+        'TempsDataGridViewTextBoxColumn
+        '
+        Me.TempsDataGridViewTextBoxColumn.DataPropertyName = "Temps"
+        Me.TempsDataGridViewTextBoxColumn.HeaderText = "Temps"
+        Me.TempsDataGridViewTextBoxColumn.Name = "TempsDataGridViewTextBoxColumn"
+        '
+        'TempsagentBindingSource
+        '
+        Me.TempsagentBindingSource.DataMember = "temps_agent"
+        Me.TempsagentBindingSource.DataSource = Me.Formation_ContinueDataSet1
+        '
         'Profils_intervenantTableAdapter
         '
         Me.Profils_intervenantTableAdapter.ClearBeforeFill = True
@@ -3402,138 +3557,15 @@ Partial Class Formation
         '
         Me.Temps_agentTableAdapter.ClearBeforeFill = True
         '
-        'TabPage1
+        'InscriptionstagiairesBindingSource
         '
-        Me.TabPage1.BackColor = System.Drawing.SystemColors.Control
-        Me.TabPage1.Controls.Add(Me.BT_Actualiser)
-        Me.TabPage1.Controls.Add(Me.BT_Modifier_seance)
-        Me.TabPage1.Controls.Add(Me.BT_supprimer_seance)
-        Me.TabPage1.Controls.Add(Me.BT_Ajout_intervention)
-        Me.TabPage1.Controls.Add(Me.DG_Seances)
-        Me.TabPage1.Controls.Add(Me.Panel3)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(817, 468)
-        Me.TabPage1.TabIndex = 4
-        Me.TabPage1.Text = "Séance(s)"
-        '
-        'Panel3
-        '
-        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.BT_Ajouter_seance)
-        Me.Panel3.Controls.Add(Me.TB_Heure_FinSeance)
-        Me.Panel3.Controls.Add(Me.Label50)
-        Me.Panel3.Controls.Add(Me.TB_Heure_DebutSeance)
-        Me.Panel3.Controls.Add(Me.Label46)
-        Me.Panel3.Controls.Add(Me.DTP_Seance)
-        Me.Panel3.Controls.Add(Me.Label45)
-        Me.Panel3.Controls.Add(Me.TB_Module)
-        Me.Panel3.Controls.Add(Me.Label44)
-        Me.Panel3.Location = New System.Drawing.Point(15, 31)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(236, 247)
-        Me.Panel3.TabIndex = 0
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.Location = New System.Drawing.Point(75, 13)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(45, 13)
-        Me.Label44.TabIndex = 1
-        Me.Label44.Text = "Module:"
-        '
-        'TB_Module
-        '
-        Me.TB_Module.Location = New System.Drawing.Point(47, 29)
-        Me.TB_Module.Name = "TB_Module"
-        Me.TB_Module.Size = New System.Drawing.Size(100, 20)
-        Me.TB_Module.TabIndex = 1
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(75, 66)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(33, 13)
-        Me.Label45.TabIndex = 1
-        Me.Label45.Text = "Date:"
-        '
-        'DTP_Seance
-        '
-        Me.DTP_Seance.Location = New System.Drawing.Point(24, 82)
-        Me.DTP_Seance.Name = "DTP_Seance"
-        Me.DTP_Seance.Size = New System.Drawing.Size(164, 20)
-        Me.DTP_Seance.TabIndex = 1
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(6, 163)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(39, 13)
-        Me.Label46.TabIndex = 1
-        Me.Label46.Text = "Début:"
-        '
-        'TB_Heure_DebutSeance
-        '
-        Me.TB_Heure_DebutSeance.Location = New System.Drawing.Point(47, 160)
-        Me.TB_Heure_DebutSeance.Name = "TB_Heure_DebutSeance"
-        Me.TB_Heure_DebutSeance.Size = New System.Drawing.Size(53, 20)
-        Me.TB_Heure_DebutSeance.TabIndex = 1
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.Location = New System.Drawing.Point(114, 163)
-        Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(24, 13)
-        Me.Label50.TabIndex = 1
-        Me.Label50.Text = "Fin:"
-        '
-        'TB_Heure_FinSeance
-        '
-        Me.TB_Heure_FinSeance.Location = New System.Drawing.Point(144, 160)
-        Me.TB_Heure_FinSeance.Name = "TB_Heure_FinSeance"
-        Me.TB_Heure_FinSeance.Size = New System.Drawing.Size(52, 20)
-        Me.TB_Heure_FinSeance.TabIndex = 1
-        '
-        'BT_Ajouter_seance
-        '
-        Me.BT_Ajouter_seance.Location = New System.Drawing.Point(75, 208)
-        Me.BT_Ajouter_seance.Name = "BT_Ajouter_seance"
-        Me.BT_Ajouter_seance.Size = New System.Drawing.Size(72, 20)
-        Me.BT_Ajouter_seance.TabIndex = 1
-        Me.BT_Ajouter_seance.Text = "Ajouter"
-        Me.BT_Ajouter_seance.UseVisualStyleBackColor = True
-        '
-        'DG_Seances
-        '
-        Me.DG_Seances.AutoGenerateColumns = False
-        Me.DG_Seances.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DG_Seances.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_Seances.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdSeanceDataGridViewTextBoxColumn2, Me.SalleDataGridViewTextBoxColumn2, Me.DateDataGridViewTextBoxColumn4, Me.HeureDebutDataGridViewTextBoxColumn3, Me.HeureFinDataGridViewTextBoxColumn3, Me.AnneeSessionDataGridViewTextBoxColumn4, Me.DateDebutDataGridViewTextBoxColumn, Me.DateFinDataGridViewTextBoxColumn, Me.NomFDataGridViewTextBoxColumn4})
-        Me.DG_Seances.DataSource = Me.ListeseancesBindingSource
-        Me.DG_Seances.Location = New System.Drawing.Point(275, 30)
-        Me.DG_Seances.Name = "DG_Seances"
-        Me.DG_Seances.Size = New System.Drawing.Size(492, 182)
-        Me.DG_Seances.TabIndex = 1
-        '
-        'ListeseancesBindingSource
-        '
-        Me.ListeseancesBindingSource.DataMember = "liste_seances"
-        Me.ListeseancesBindingSource.DataSource = Me.Formation_ContinueDataSet2
+        Me.InscriptionstagiairesBindingSource.DataMember = "inscription_stagiaires"
+        Me.InscriptionstagiairesBindingSource.DataSource = Me.Formation_ContinueDataSet2
         '
         'Formation_ContinueDataSet2
         '
         Me.Formation_ContinueDataSet2.DataSetName = "Formation_ContinueDataSet2"
         Me.Formation_ContinueDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'InscriptionstagiairesBindingSource
-        '
-        Me.InscriptionstagiairesBindingSource.DataMember = "inscription_stagiaires"
-        Me.InscriptionstagiairesBindingSource.DataSource = Me.Formation_ContinueDataSet2
         '
         'IdPersonneDataGridViewTextBoxColumn
         '
@@ -3705,6 +3737,11 @@ Partial Class Formation
         '
         Me.Inscription_stagiairesTableAdapter.ClearBeforeFill = True
         '
+        'ListeseancesBindingSource
+        '
+        Me.ListeseancesBindingSource.DataMember = "liste_seances"
+        Me.ListeseancesBindingSource.DataSource = Me.Formation_ContinueDataSet2
+        '
         'Liste_seancesTableAdapter
         '
         Me.Liste_seancesTableAdapter.ClearBeforeFill = True
@@ -3721,6 +3758,13 @@ Partial Class Formation
         Me.SalleDataGridViewTextBoxColumn2.DataPropertyName = "Salle"
         Me.SalleDataGridViewTextBoxColumn2.HeaderText = "Salle"
         Me.SalleDataGridViewTextBoxColumn2.Name = "SalleDataGridViewTextBoxColumn2"
+        Me.SalleDataGridViewTextBoxColumn2.Visible = False
+        '
+        'ModuleDataGridViewTextBoxColumn
+        '
+        Me.ModuleDataGridViewTextBoxColumn.DataPropertyName = "Module"
+        Me.ModuleDataGridViewTextBoxColumn.HeaderText = "Module"
+        Me.ModuleDataGridViewTextBoxColumn.Name = "ModuleDataGridViewTextBoxColumn"
         '
         'DateDataGridViewTextBoxColumn4
         '
@@ -3768,48 +3812,12 @@ Partial Class Formation
         Me.NomFDataGridViewTextBoxColumn4.Name = "NomFDataGridViewTextBoxColumn4"
         Me.NomFDataGridViewTextBoxColumn4.Visible = False
         '
-        'BT_Ajout_intervention
-        '
-        Me.BT_Ajout_intervention.Location = New System.Drawing.Point(333, 238)
-        Me.BT_Ajout_intervention.Name = "BT_Ajout_intervention"
-        Me.BT_Ajout_intervention.Size = New System.Drawing.Size(75, 40)
-        Me.BT_Ajout_intervention.TabIndex = 2
-        Me.BT_Ajout_intervention.Text = "Ajouter une intervention"
-        Me.BT_Ajout_intervention.UseVisualStyleBackColor = True
-        '
-        'BT_supprimer_seance
-        '
-        Me.BT_supprimer_seance.Location = New System.Drawing.Point(692, 238)
-        Me.BT_supprimer_seance.Name = "BT_supprimer_seance"
-        Me.BT_supprimer_seance.Size = New System.Drawing.Size(75, 38)
-        Me.BT_supprimer_seance.TabIndex = 3
-        Me.BT_supprimer_seance.Text = "Supprimer"
-        Me.BT_supprimer_seance.UseVisualStyleBackColor = True
-        '
-        'BT_Modifier_seance
-        '
-        Me.BT_Modifier_seance.Location = New System.Drawing.Point(563, 238)
-        Me.BT_Modifier_seance.Name = "BT_Modifier_seance"
-        Me.BT_Modifier_seance.Size = New System.Drawing.Size(75, 38)
-        Me.BT_Modifier_seance.TabIndex = 4
-        Me.BT_Modifier_seance.Text = "Modifier"
-        Me.BT_Modifier_seance.UseVisualStyleBackColor = True
-        '
-        'BT_Actualiser
-        '
-        Me.BT_Actualiser.Location = New System.Drawing.Point(445, 239)
-        Me.BT_Actualiser.Name = "BT_Actualiser"
-        Me.BT_Actualiser.Size = New System.Drawing.Size(75, 37)
-        Me.BT_Actualiser.TabIndex = 5
-        Me.BT_Actualiser.Text = "Actualiser"
-        Me.BT_Actualiser.UseVisualStyleBackColor = True
-        '
         'Formation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(1253, 733)
+        Me.ClientSize = New System.Drawing.Size(1253, 957)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox5)
@@ -3832,8 +3840,6 @@ Partial Class Formation
         CType(Me.BN_Intervenants, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BN_Intervenants.ResumeLayout(False)
         Me.BN_Intervenants.PerformLayout()
-        CType(Me.ProfilsintervenantBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FillBy_liste_intervenantsToolStrip.ResumeLayout(False)
         Me.FillBy_liste_intervenantsToolStrip.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
@@ -3857,7 +3863,6 @@ Partial Class Formation
         CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BindingNavigator1.ResumeLayout(False)
         Me.BindingNavigator1.PerformLayout()
-        CType(Me.ListeinterventionsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DG_Liste_Interventions, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage9.ResumeLayout(False)
         Me.TabPage9.PerformLayout()
@@ -3865,11 +3870,13 @@ Partial Class Formation
         Me.FillBy_interventions_PToolStrip1.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         CType(Me.DG_Liste_Interventions_nonpayees, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ListeinterventionsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FillBy_interventions_NPToolStrip.ResumeLayout(False)
         Me.FillBy_interventions_NPToolStrip.PerformLayout()
         CType(Me.DG_Liste_Interventions_payees, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ListeinterventionsBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage1.ResumeLayout(False)
+        CType(Me.DG_Seances, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         CType(Me.DG_Liste_Intervenants, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         Me.Panel_Stagiaires_détails.ResumeLayout(False)
@@ -3898,7 +3905,6 @@ Partial Class Formation
         Me.Panel2.PerformLayout()
         CType(Me.NUP_nb_jours, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DG_Temps_saisie, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TempsagentBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
@@ -3907,13 +3913,15 @@ Partial Class Formation
         Me.GroupBox4.PerformLayout()
         Me.GroupBox11.ResumeLayout(False)
         Me.GroupBox11.PerformLayout()
-        Me.TabPage1.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
-        CType(Me.DG_Seances, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ListeseancesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Formation_ContinueDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProfilsintervenantBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListeinterventionsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListeinterventionsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListeinterventionsBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TempsagentBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.InscriptionstagiairesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Formation_ContinueDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ListeseancesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -4307,10 +4315,16 @@ Partial Class Formation
     Friend WithEvents Label46 As Label
     Friend WithEvents BT_Ajouter_seance As Button
     Friend WithEvents DG_Seances As DataGridView
+    Friend WithEvents BT_Ajout_intervention As Button
+    Friend WithEvents BT_supprimer_seance As Button
+    Friend WithEvents BT_Modifier_seance As Button
+    Friend WithEvents BT_Actualiser As Button
+    Friend WithEvents ToolStrip7 As ToolStrip
     Friend WithEvents ListeseancesBindingSource As BindingSource
     Friend WithEvents Liste_seancesTableAdapter As Formation_ContinueDataSet2TableAdapters.liste_seancesTableAdapter
     Friend WithEvents IdSeanceDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents SalleDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents ModuleDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DateDataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents HeureDebutDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents HeureFinDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
@@ -4318,8 +4332,4 @@ Partial Class Formation
     Friend WithEvents DateDebutDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DateFinDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NomFDataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents BT_Ajout_intervention As Button
-    Friend WithEvents BT_supprimer_seance As Button
-    Friend WithEvents BT_Modifier_seance As Button
-    Friend WithEvents BT_Actualiser As Button
 End Class

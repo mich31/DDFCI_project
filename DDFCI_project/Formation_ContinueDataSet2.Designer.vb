@@ -3114,6 +3114,8 @@ Partial Public Class Formation_ContinueDataSet2
         
         Private columnNomF As Global.System.Data.DataColumn
         
+        Private columnModule As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3222,6 +3224,14 @@ Partial Public Class Formation_ContinueDataSet2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ModuleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnModule
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3258,9 +3268,9 @@ Partial Public Class Formation_ContinueDataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addliste_seancesRow(ByVal idSeance As Integer, ByVal Salle As String, ByVal _Date As Date, ByVal HeureDebut As System.TimeSpan, ByVal HeureFin As System.TimeSpan, ByVal AnneeSession As String, ByVal DateDebut As Date, ByVal DateFin As Date, ByVal NomF As String) As liste_seancesRow
+        Public Overloads Function Addliste_seancesRow(ByVal idSeance As Integer, ByVal Salle As String, ByVal _Date As Date, ByVal HeureDebut As System.TimeSpan, ByVal HeureFin As System.TimeSpan, ByVal AnneeSession As String, ByVal DateDebut As Date, ByVal DateFin As Date, ByVal NomF As String, ByVal _Module As String) As liste_seancesRow
             Dim rowliste_seancesRow As liste_seancesRow = CType(Me.NewRow,liste_seancesRow)
-            Dim columnValuesArray() As Object = New Object() {idSeance, Salle, _Date, HeureDebut, HeureFin, AnneeSession, DateDebut, DateFin, NomF}
+            Dim columnValuesArray() As Object = New Object() {idSeance, Salle, _Date, HeureDebut, HeureFin, AnneeSession, DateDebut, DateFin, NomF, _Module}
             rowliste_seancesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowliste_seancesRow)
             Return rowliste_seancesRow
@@ -3298,6 +3308,7 @@ Partial Public Class Formation_ContinueDataSet2
             Me.columnDateDebut = MyBase.Columns("DateDebut")
             Me.columnDateFin = MyBase.Columns("DateFin")
             Me.columnNomF = MyBase.Columns("NomF")
+            Me.columnModule = MyBase.Columns("Module")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3324,6 +3335,11 @@ Partial Public Class Formation_ContinueDataSet2
             MyBase.Columns.Add(Me.columnDateFin)
             Me.columnNomF = New Global.System.Data.DataColumn("NomF", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNomF)
+            Me.columnModule = New Global.System.Data.DataColumn("Module", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnModule.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "ModuleColumn")
+            Me.columnModule.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnModule")
+            Me.columnModule.ExtendedProperties.Add("Generator_UserColumnName", "Module")
+            MyBase.Columns.Add(Me.columnModule)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidSeance}, true))
             Me.columnidSeance.AllowDBNull = false
             Me.columnidSeance.Unique = true
@@ -3331,6 +3347,7 @@ Partial Public Class Formation_ContinueDataSet2
             Me.columnAnneeSession.MaxLength = 50
             Me.columnNomF.AllowDBNull = false
             Me.columnNomF.MaxLength = 50
+            Me.columnModule.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6809,6 +6826,21 @@ Partial Public Class Formation_ContinueDataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property _Module() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableliste_seances.ModuleColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'Module' dans la table 'liste_seances' est DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableliste_seances.ModuleColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsSalleNull() As Boolean
             Return Me.IsNull(Me.tableliste_seances.SalleColumn)
         End Function
@@ -6889,6 +6921,18 @@ Partial Public Class Formation_ContinueDataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetDateFinNull()
             Me(Me.tableliste_seances.DateFinColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Is_ModuleNull() As Boolean
+            Return Me.IsNull(Me.tableliste_seances.ModuleColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Set_ModuleNull()
+            Me(Me.tableliste_seances.ModuleColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -9611,6 +9655,7 @@ Namespace Formation_ContinueDataSet2TableAdapters
             tableMapping.ColumnMappings.Add("DateDebut", "DateDebut")
             tableMapping.ColumnMappings.Add("DateFin", "DateFin")
             tableMapping.ColumnMappings.Add("NomF", "NomF")
+            tableMapping.ColumnMappings.Add("Module", "Module")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -9627,14 +9672,14 @@ Namespace Formation_ContinueDataSet2TableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT idSeance, Salle, Date, HeureDebut, HeureFin, AnneeSession, DateDebut, Date"& _ 
-                "Fin, NomF FROM dbo.liste_seances"
+            Me._commandCollection(0).CommandText = "SELECT        idSeance, Salle, Module, Date, HeureDebut, HeureFin, AnneeSession, "& _ 
+                "DateDebut, DateFin, NomF"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_seances"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        idSeance, Salle, Date, HeureDebut, HeureFin, AnneeSession, DateDebu"& _ 
-                "t, DateFin, NomF"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_seances"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NomF = @NomF) AND"& _ 
-                " (AnneeSession = @AnneeSession)"
+            Me._commandCollection(1).CommandText = "SELECT AnneeSession, Date, DateDebut, DateFin, HeureDebut, HeureFin, Module, NomF"& _ 
+                ", Salle, idSeance FROM liste_seances WHERE (NomF = @NomF) AND (AnneeSession = @A"& _ 
+                "nneeSession)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomF", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AnneeSession", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

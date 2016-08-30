@@ -88,6 +88,10 @@ Public Class Formation
 
 
     Private Sub Formation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.liste_seances'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+        Me.Liste_seancesTableAdapter.Fill(Me.Formation_ContinueDataSet2.liste_seances)
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.liste_seances'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+        Me.Liste_seancesTableAdapter.Fill(Me.Formation_ContinueDataSet2.liste_seances)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.liste_seances'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
         Me.Liste_seancesTableAdapter.Fill(Me.Formation_ContinueDataSet2.liste_seances)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.temps_agent'. Vous pouvez la déplacer ou la supprimer selon les besoins.
@@ -888,9 +892,9 @@ Public Class Formation
     End Sub
 
     Private Sub Ajoute_seance()
-        Dim MaDate As Date = Me.DTP_Seance.Value
+        Dim MaDate As Date = Me.DTP_Seance.Value.Date
         Dim req As String = "insert into Seance (idSessionFormation,Module,Date,HeureDebut,HeureFin) 
-            values ('" & idSession & "','" & Me.TB_Module.Text & "'," & MaDate & ",'" & Me.TB_Heure_DebutSeance.Text & "','" & Me.TB_Heure_FinSeance.Text & "')"
+            values ('" & idSession & "','" & Me.TB_Module.Text & "','" & MaDate & "','" & Me.TB_Heure_DebutSeance.Text & "','" & Me.TB_Heure_FinSeance.Text & "')"
         Dim cmd As New SqlCommand(req, bdd.connect)
         Dim res As Integer = 0
         MsgBox(MaDate)

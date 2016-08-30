@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=""Formation_Continue"";Integrated Security=Tr"& _ 
-            "ue")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=SI-SQLTEST;Initial Catalog=""Formation Continue"";Integrated Security=T"& _ 
+            "rue")>  _
         Public ReadOnly Property Formation_ContinueConnectionString() As String
             Get
                 Return CType(Me("Formation_ContinueConnectionString"),String)

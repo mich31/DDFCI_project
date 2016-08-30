@@ -34,7 +34,7 @@ Public Class Ajout_intervention
         Dim Fin As String = Me.DTP_Fin.Value.TimeOfDay.ToString
 
         Dim req As String = "insert into intervient 
-        values ('" & idIntervenant & "','" & idSeance & "','" & Me.CB_Type.Text & "','Non payé','0','Incomplet'," & nb & ",'','" & Debut & "','" & Fin & "')"
+        values ('" & idIntervenant & "','" & idSeance & "','" & Me.CB_Type.Text & "','Non payé','0','Incomplet'," & nb & ",'" & Debut & "','" & Fin & "','')"
         Dim cmd As New SqlCommand(req, bdd.connect)
         Dim res As Integer = 0
 
