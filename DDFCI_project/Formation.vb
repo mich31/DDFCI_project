@@ -88,6 +88,8 @@ Public Class Formation
 
 
     Private Sub Formation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.liste_seances'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
+        Me.Liste_seancesTableAdapter.Fill(Me.Formation_ContinueDataSet2.liste_seances)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.temps_agent'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         Me.Temps_agentTableAdapter.Fill(Me.Formation_ContinueDataSet1.temps_agent)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.inscription_stagiaires'. Vous pouvez la déplacer ou la supprimer selon les besoins.
@@ -245,6 +247,7 @@ Public Class Formation
         Remplir_DG_Liste_Interventions()
         Remplir_DG_Liste_Stagiaires()
 
+        Remplir_DG_Seances()
         Remplir_panel()
         Remplir_LB_Taches()
     End Sub
@@ -874,6 +877,69 @@ Public Class Formation
         End If
         'Me.Calendar1.SetViewRange(MonCalendrier.SelectionStart, MonCalendrier.SelectionStart.AddDays(4))
         RemplirPlanning()
+    End Sub
+
+#End Region
+
+#Region " Sous onglet Séances"
+
+    Private Sub BT_Ajouter_seance_Click(sender As Object, e As EventArgs) Handles BT_Ajouter_seance.Click
+        Ajoute_seance()
+    End Sub
+
+    Private Sub Ajoute_seance()
+        Dim MaDate As Date = Me.DTP_Seance.Value
+        Dim req As String = "insert into Seance (idSessionFormation,Module,Date,HeureDebut,HeureFin) 
+            values ('" & idSession & "','" & Me.TB_Module.Text & "'," & MaDate & ",'" & Me.TB_Heure_DebutSeance.Text & "','" & Me.TB_Heure_FinSeance.Text & "')"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim res As Integer = 0
+        MsgBox(MaDate)
+        Try
+            res = cmd.ExecuteNonQuery()
+            If res = 1 Then
+                MsgBox("Séance ajoutée!")
+            End If
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
+    Private Sub BT_Ajout_intervention_Click(sender As Object, e As EventArgs) Handles BT_Ajout_intervention.Click
+        Dim ajout As New Ajout_intervention(bdd, Me.DG_Liste_Intervenants.CurrentRow, Me.DG_Seances.CurrentRow)
+        ajout.Show()
+        'Ajoute_intervention()
+    End Sub
+
+    Private Sub BT_Actualiser_Click(sender As Object, e As EventArgs) Handles BT_Actualiser.Click
+        Remplir_DG_Seances()
+    End Sub
+
+    Private Sub BT_supprimer_seance_Click(sender As Object, e As EventArgs) Handles BT_supprimer_seance.Click
+        supprime_seance()
+    End Sub
+
+    Private Sub supprime_seance()
+        Dim req As String = "delete from Seance where idSeance ='" & Me.DG_Seances.CurrentRow.Cells(0).Value & "'"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim res As Integer = 0
+        Try
+            res = cmd.ExecuteNonQuery()
+            If res = 1 Then
+                MsgBox("Séance supprimée!")
+            End If
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
+    Private Sub Remplir_DG_Seances()
+        Try
+            Me.Liste_seancesTableAdapter.FillBy_Seances(Me.Formation_ContinueDataSet2.liste_seances, NomFormation, SessionFormation)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
 #End Region

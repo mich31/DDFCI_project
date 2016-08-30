@@ -3258,7 +3258,7 @@ Partial Public Class Formation_ContinueDataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addliste_seancesRow(ByVal idSeance As Integer, ByVal Salle As String, ByVal _Date As Date, ByVal HeureDebut As Date, ByVal HeureFin As Date, ByVal AnneeSession As String, ByVal DateDebut As Date, ByVal DateFin As Date, ByVal NomF As String) As liste_seancesRow
+        Public Overloads Function Addliste_seancesRow(ByVal idSeance As Integer, ByVal Salle As String, ByVal _Date As Date, ByVal HeureDebut As System.TimeSpan, ByVal HeureFin As System.TimeSpan, ByVal AnneeSession As String, ByVal DateDebut As Date, ByVal DateFin As Date, ByVal NomF As String) As liste_seancesRow
             Dim rowliste_seancesRow As liste_seancesRow = CType(Me.NewRow,liste_seancesRow)
             Dim columnValuesArray() As Object = New Object() {idSeance, Salle, _Date, HeureDebut, HeureFin, AnneeSession, DateDebut, DateFin, NomF}
             rowliste_seancesRow.ItemArray = columnValuesArray
@@ -3312,9 +3312,9 @@ Partial Public Class Formation_ContinueDataSet2
             Me.columnDate.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnDate")
             Me.columnDate.ExtendedProperties.Add("Generator_UserColumnName", "Date")
             MyBase.Columns.Add(Me.columnDate)
-            Me.columnHeureDebut = New Global.System.Data.DataColumn("HeureDebut", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnHeureDebut = New Global.System.Data.DataColumn("HeureDebut", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHeureDebut)
-            Me.columnHeureFin = New Global.System.Data.DataColumn("HeureFin", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnHeureFin = New Global.System.Data.DataColumn("HeureFin", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHeureFin)
             Me.columnAnneeSession = New Global.System.Data.DataColumn("AnneeSession", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAnneeSession)
@@ -6722,10 +6722,10 @@ Partial Public Class Formation_ContinueDataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property HeureDebut() As Date
+        Public Property HeureDebut() As System.TimeSpan
             Get
                 Try 
-                    Return CType(Me(Me.tableliste_seances.HeureDebutColumn),Date)
+                    Return CType(Me(Me.tableliste_seances.HeureDebutColumn),Global.System.TimeSpan)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'HeureDebut' dans la table 'liste_seances' est DBNull.", e)
                 End Try
@@ -6737,10 +6737,10 @@ Partial Public Class Formation_ContinueDataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property HeureFin() As Date
+        Public Property HeureFin() As System.TimeSpan
             Get
                 Try 
-                    Return CType(Me(Me.tableliste_seances.HeureFinColumn),Date)
+                    Return CType(Me(Me.tableliste_seances.HeureFinColumn),Global.System.TimeSpan)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'HeureFin' dans la table 'liste_seances' est DBNull.", e)
                 End Try
@@ -9624,12 +9624,20 @@ Namespace Formation_ContinueDataSet2TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT idSeance, Salle, Date, HeureDebut, HeureFin, AnneeSession, DateDebut, Date"& _ 
                 "Fin, NomF FROM dbo.liste_seances"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        idSeance, Salle, Date, HeureDebut, HeureFin, AnneeSession, DateDebu"& _ 
+                "t, DateFin, NomF"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_seances"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NomF = @NomF) AND"& _ 
+                " (AnneeSession = @AnneeSession)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomF", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AnneeSession", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9651,6 +9659,50 @@ Namespace Formation_ContinueDataSet2TableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As Formation_ContinueDataSet2.liste_seancesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As Formation_ContinueDataSet2.liste_seancesDataTable = New Formation_ContinueDataSet2.liste_seancesDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy_Seances(ByVal dataTable As Formation_ContinueDataSet2.liste_seancesDataTable, ByVal NomF As String, ByVal AnneeSession As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (NomF Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NomF")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NomF,String)
+            End If
+            If (AnneeSession Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(AnneeSession,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy_Seances(ByVal NomF As String, ByVal AnneeSession As String) As Formation_ContinueDataSet2.liste_seancesDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (NomF Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NomF")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NomF,String)
+            End If
+            If (AnneeSession Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(AnneeSession,String)
+            End If
             Dim dataTable As Formation_ContinueDataSet2.liste_seancesDataTable = New Formation_ContinueDataSet2.liste_seancesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
