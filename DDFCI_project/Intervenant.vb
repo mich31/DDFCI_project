@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports Word = Microsoft.Office.Interop.Word
+Imports System.IO
 
 Public Class Intervenant
     Private MonDataSet As New DataSet
@@ -85,8 +86,11 @@ Public Class Intervenant
 
 #Region "Edition des documents"
 
+
     Sub GenereDossierEngagement()
         Dim fichier As String = "S:\Outil FC\Documents\Dossier_Engagement.docx"
+        Dim Nom As String = ""
+        Dim Prenom As String = ""
         'Crée une instance de Word
         Dim oWord As New Word.Application
         Dim oDoc As New Word.Document
@@ -98,8 +102,10 @@ Public Class Intervenant
         For Each Ligne As DataRow In MonDataSet.Tables("fiche_perso_intervenant").Rows()
             oDoc.Bookmarks.Item("Civilité").Range.Text = Ligne("CiviliteP").ToString
             oDoc.Bookmarks.Item("Nom").Range.Text = Ligne("NomP").ToString
+            Nom = Ligne("NomP").ToString
             oDoc.Bookmarks.Item("NomJeuneFille").Range.Text = Ligne("NomJeuneFille").ToString
             oDoc.Bookmarks.Item("Prénom").Range.Text = Ligne("PrenomP").ToString
+            Prenom = Ligne("PrenomP").ToString
             oDoc.Bookmarks.Item("DateNaissance").Range.Text = Ligne("DateNaissanceI").ToString
             oDoc.Bookmarks.Item("LieuNaissance").Range.Text = Ligne("LieuNaissanceI").ToString
             oDoc.Bookmarks.Item("PaysNaissance").Range.Text = Ligne("PaysNaissanceI").ToString
@@ -127,6 +133,13 @@ Public Class Intervenant
         oDoc.Bookmarks.Item("FaitA").Range.Text = "Vaulx en Velin"
         oDoc.Bookmarks.Item("Année").Range.Text = DateTime.Now.Year.ToString
         oDoc.Bookmarks.Item("Date").Range.Text = DateTime.Now.Date.ToString("d")
+
+        MsgBox(utilisateur.user)
+        If Not Directory.Exists("S:\Outil FC\FC\" & utilisateur.user) Then
+            Directory.CreateDirectory("S:\Outil FC\FC\" & utilisateur.user)
+        End If
+
+        oWord.ActiveDocument.SaveAs2("S:\Outil FC\FC\" & utilisateur.user & "\" & "Dossier_engagement_" & Nom.ToUpper & "_" & Prenom & ".docx")
     End Sub
 
     Sub GenereFicheServicefait()

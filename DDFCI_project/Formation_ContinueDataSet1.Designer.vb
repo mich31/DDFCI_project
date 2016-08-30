@@ -7380,7 +7380,7 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function Addliste_interventionsRow(ByVal NomP As String, ByVal PrenomP As String, ByVal idIntervenant As Integer, ByVal NomF As String, ByVal idSeance As Integer, ByVal idSessionFormation As Integer, ByVal AnneeSession As String, ByVal TypeIntervention As String, ByVal _Date As Date, ByVal HeureDebut As System.TimeSpan, ByVal HeureFin As System.TimeSpan, ByVal NbHeure As Integer, ByVal Salle As String, ByVal StatutPaiement As String) As liste_interventionsRow
+        Public Overloads Function Addliste_interventionsRow(ByVal NomP As String, ByVal PrenomP As String, ByVal idIntervenant As Integer, ByVal NomF As String, ByVal idSeance As Integer, ByVal idSessionFormation As Integer, ByVal AnneeSession As String, ByVal TypeIntervention As String, ByVal _Date As Date, ByVal HeureDebut As System.TimeSpan, ByVal HeureFin As System.TimeSpan, ByVal NbHeure As Double, ByVal Salle As String, ByVal StatutPaiement As String) As liste_interventionsRow
             Dim rowliste_interventionsRow As liste_interventionsRow = CType(Me.NewRow,liste_interventionsRow)
             Dim columnValuesArray() As Object = New Object() {NomP, PrenomP, idIntervenant, NomF, idSeance, idSessionFormation, AnneeSession, TypeIntervention, _Date, HeureDebut, HeureFin, NbHeure, Salle, StatutPaiement}
             rowliste_interventionsRow.ItemArray = columnValuesArray
@@ -7449,7 +7449,7 @@ Partial Public Class Formation_ContinueDataSet1
             MyBase.Columns.Add(Me.columnHeureDebut)
             Me.columnHeureFin = New Global.System.Data.DataColumn("HeureFin", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHeureFin)
-            Me.columnNbHeure = New Global.System.Data.DataColumn("NbHeure", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNbHeure = New Global.System.Data.DataColumn("NbHeure", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNbHeure)
             Me.columnSalle = New Global.System.Data.DataColumn("Salle", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSalle)
@@ -12570,10 +12570,10 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NbHeure() As Integer
+        Public Property NbHeure() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tableliste_interventions.NbHeureColumn),Integer)
+                    Return CType(Me(Me.tableliste_interventions.NbHeureColumn),Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("La valeur pour la colonne 'NbHeure' dans la table 'liste_interventions' est DBNul"& _ 
                             "l.", e)

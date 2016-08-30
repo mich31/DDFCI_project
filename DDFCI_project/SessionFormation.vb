@@ -98,12 +98,15 @@ Public Class SessionFormation
     Sub GenereDateSession()
         Dim req As String = "select*from SessionFormation where idSessionFormation='" & idSession & "' and idFormation='" & idFormation & "'"
         Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim _Debut, _Fin As Date
 
         Try
             Dim MonReader As SqlDataReader = cmd.ExecuteReader()
             If MonReader.Read() Then
-                Debut = MonReader("DateDebut").ToString
-                Fin = MonReader("DateFin").ToString
+                _Debut = MonReader("DateDebut").ToString
+                _Fin = MonReader("DateFin").ToString
+                Debut = _Debut.Date
+                Fin = _Fin.Date
             End If
             MonReader.Close()
         Catch ex As Exception
