@@ -150,11 +150,12 @@ Public Class Intervenant
     End Sub
 
     Sub GenereConvocationIntervenant()
+        Dim fichier As String = "S:\Outil FC\Documents\Convocation.doc"
         'Crée une instance de Word
         Dim oWord As New Word.Application
         Dim oDoc As New Word.Document
         'Ouvrir un document
-        oDoc = oWord.Documents.Open("C:\Users\michel.edjoa\Documents\Outils de gestion\Formation Continue\INTERVENANTS\Test\Convocation.doc")
+        oDoc = oWord.Documents.Open(fichier)
         'Rendre le document visible
         oWord.Visible = True
 

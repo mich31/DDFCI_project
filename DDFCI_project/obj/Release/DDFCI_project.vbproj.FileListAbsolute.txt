@@ -26,3 +26,4 @@ C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.pdb
 C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.SupprimerUtilisateur.resources
 C:\Users\michel.edjoa\documents\visual studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.vbprojResolveAssemblyReference.cache
+C:\Users\michel.edjoa\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.Ajout_intervention.resources

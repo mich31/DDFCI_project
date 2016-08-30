@@ -163,4 +163,25 @@ Public Class Edit_Session
 
         Return res
     End Function
+
+    Private Sub BT_Supprimer_Click(sender As Object, e As EventArgs) Handles BT_Supprimer.Click
+        supprime_session()
+    End Sub
+
+    Private Sub supprime_session()
+        Dim idSession As String = Me.DG_Liste_Sessions.CurrentRow.Cells(2).Value
+        Dim req As String = "delete from SessionFormation where idSessionFormation = '" & idSession & "'"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim res As Integer
+
+        Try
+            res = cmd.ExecuteNonQuery()
+            If res = 1 Then
+                MsgBox("Session supprimée!")
+            End If
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
 End Class

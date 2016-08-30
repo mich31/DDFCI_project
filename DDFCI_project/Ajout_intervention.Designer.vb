@@ -24,28 +24,28 @@ Partial Class Ajout_intervention
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TB_Nom = New System.Windows.Forms.TextBox()
-        Me.TB_Prenom = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.CB_Type = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.DTP_Fin = New System.Windows.Forms.DateTimePicker()
+        Me.DTP_Debut = New System.Windows.Forms.DateTimePicker()
+        Me.TB_NB_Heures = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.DTP_Date = New System.Windows.Forms.DateTimePicker()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.CB_Type = New System.Windows.Forms.ComboBox()
+        Me.VacationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TB_Prenom = New System.Windows.Forms.TextBox()
+        Me.TB_Nom = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.BT_Ajouter = New System.Windows.Forms.Button()
         Me.BT_Annuler = New System.Windows.Forms.Button()
-        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
-        Me.VacationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VacationTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.VacationTableAdapter()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.DTP_Date = New System.Windows.Forms.DateTimePicker()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TB_NB_Heures = New System.Windows.Forms.TextBox()
-        Me.DTP_Debut = New System.Windows.Forms.DateTimePicker()
-        Me.DTP_Fin = New System.Windows.Forms.DateTimePicker()
         Me.Panel1.SuspendLayout()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VacationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -70,48 +70,74 @@ Partial Class Ajout_intervention
         Me.Panel1.Size = New System.Drawing.Size(246, 252)
         Me.Panel1.TabIndex = 0
         '
-        'Label1
+        'DTP_Fin
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(19, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(32, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Nom:"
+        Me.DTP_Fin.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DTP_Fin.Location = New System.Drawing.Point(162, 178)
+        Me.DTP_Fin.Name = "DTP_Fin"
+        Me.DTP_Fin.Size = New System.Drawing.Size(65, 20)
+        Me.DTP_Fin.TabIndex = 4
         '
-        'Label2
+        'DTP_Debut
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(5, 42)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Prénom:"
+        Me.DTP_Debut.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DTP_Debut.Location = New System.Drawing.Point(57, 178)
+        Me.DTP_Debut.Name = "DTP_Debut"
+        Me.DTP_Debut.Size = New System.Drawing.Size(64, 20)
+        Me.DTP_Debut.TabIndex = 3
         '
-        'TB_Nom
+        'TB_NB_Heures
         '
-        Me.TB_Nom.Enabled = False
-        Me.TB_Nom.Location = New System.Drawing.Point(57, 13)
-        Me.TB_Nom.Name = "TB_Nom"
-        Me.TB_Nom.Size = New System.Drawing.Size(100, 20)
-        Me.TB_Nom.TabIndex = 1
+        Me.TB_NB_Heures.Enabled = False
+        Me.TB_NB_Heures.Location = New System.Drawing.Point(108, 216)
+        Me.TB_NB_Heures.Name = "TB_NB_Heures"
+        Me.TB_NB_Heures.Size = New System.Drawing.Size(48, 20)
+        Me.TB_NB_Heures.TabIndex = 3
         '
-        'TB_Prenom
+        'Label7
         '
-        Me.TB_Prenom.Enabled = False
-        Me.TB_Prenom.Location = New System.Drawing.Point(57, 42)
-        Me.TB_Prenom.Name = "TB_Prenom"
-        Me.TB_Prenom.Size = New System.Drawing.Size(100, 20)
-        Me.TB_Prenom.TabIndex = 1
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(12, 219)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(90, 13)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "Nombre d'heures:"
         '
-        'Label3
+        'DTP_Date
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(73, 84)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(100, 13)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Type d'intervention:"
+        Me.DTP_Date.Enabled = False
+        Me.DTP_Date.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTP_Date.Location = New System.Drawing.Point(73, 151)
+        Me.DTP_Date.Name = "DTP_Date"
+        Me.DTP_Date.Size = New System.Drawing.Size(100, 20)
+        Me.DTP_Date.TabIndex = 3
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(106, 135)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(33, 13)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "Date:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(132, 184)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(24, 13)
+        Me.Label5.TabIndex = 1
+        Me.Label5.Text = "Fin:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(12, 184)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(39, 13)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Début:"
         '
         'CB_Type
         '
@@ -124,23 +150,58 @@ Partial Class Ajout_intervention
         Me.CB_Type.Size = New System.Drawing.Size(136, 21)
         Me.CB_Type.TabIndex = 2
         '
-        'Label4
+        'VacationBindingSource
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 184)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(39, 13)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Début:"
+        Me.VacationBindingSource.DataMember = "Vacation"
+        Me.VacationBindingSource.DataSource = Me.Formation_ContinueDataSet1
         '
-        'Label5
+        'Formation_ContinueDataSet1
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(132, 184)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(24, 13)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "Fin:"
+        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
+        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(73, 84)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(100, 13)
+        Me.Label3.TabIndex = 1
+        Me.Label3.Text = "Type d'intervention:"
+        '
+        'TB_Prenom
+        '
+        Me.TB_Prenom.Enabled = False
+        Me.TB_Prenom.Location = New System.Drawing.Point(57, 42)
+        Me.TB_Prenom.Name = "TB_Prenom"
+        Me.TB_Prenom.Size = New System.Drawing.Size(100, 20)
+        Me.TB_Prenom.TabIndex = 1
+        '
+        'TB_Nom
+        '
+        Me.TB_Nom.Enabled = False
+        Me.TB_Nom.Location = New System.Drawing.Point(57, 13)
+        Me.TB_Nom.Name = "TB_Nom"
+        Me.TB_Nom.Size = New System.Drawing.Size(100, 20)
+        Me.TB_Nom.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(5, 42)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Prénom:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(19, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(32, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Nom:"
         '
         'BT_Ajouter
         '
@@ -160,69 +221,9 @@ Partial Class Ajout_intervention
         Me.BT_Annuler.Text = "Annuler"
         Me.BT_Annuler.UseVisualStyleBackColor = True
         '
-        'Formation_ContinueDataSet1
-        '
-        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
-        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'VacationBindingSource
-        '
-        Me.VacationBindingSource.DataMember = "Vacation"
-        Me.VacationBindingSource.DataSource = Me.Formation_ContinueDataSet1
-        '
         'VacationTableAdapter
         '
         Me.VacationTableAdapter.ClearBeforeFill = True
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(106, 135)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(33, 13)
-        Me.Label6.TabIndex = 3
-        Me.Label6.Text = "Date:"
-        '
-        'DTP_Date
-        '
-        Me.DTP_Date.Enabled = False
-        Me.DTP_Date.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTP_Date.Location = New System.Drawing.Point(73, 151)
-        Me.DTP_Date.Name = "DTP_Date"
-        Me.DTP_Date.Size = New System.Drawing.Size(100, 20)
-        Me.DTP_Date.TabIndex = 3
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(12, 219)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(90, 13)
-        Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Nombre d'heures:"
-        '
-        'TB_NB_Heures
-        '
-        Me.TB_NB_Heures.Location = New System.Drawing.Point(108, 216)
-        Me.TB_NB_Heures.Name = "TB_NB_Heures"
-        Me.TB_NB_Heures.Size = New System.Drawing.Size(48, 20)
-        Me.TB_NB_Heures.TabIndex = 3
-        '
-        'DTP_Debut
-        '
-        Me.DTP_Debut.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DTP_Debut.Location = New System.Drawing.Point(57, 178)
-        Me.DTP_Debut.Name = "DTP_Debut"
-        Me.DTP_Debut.Size = New System.Drawing.Size(64, 20)
-        Me.DTP_Debut.TabIndex = 3
-        '
-        'DTP_Fin
-        '
-        Me.DTP_Fin.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DTP_Fin.Location = New System.Drawing.Point(162, 178)
-        Me.DTP_Fin.Name = "DTP_Fin"
-        Me.DTP_Fin.Size = New System.Drawing.Size(65, 20)
-        Me.DTP_Fin.TabIndex = 4
         '
         'Ajout_intervention
         '
@@ -236,8 +237,8 @@ Partial Class Ajout_intervention
         Me.Text = "Ajouter une intervention"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VacationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
