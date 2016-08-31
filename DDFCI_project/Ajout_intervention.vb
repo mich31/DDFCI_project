@@ -49,6 +49,26 @@ Public Class Ajout_intervention
         End Try
     End Sub
 
+    Private Function Calcul_cout(ByRef nb As Double, ByVal intervention As String) As Double
+        Dim req As String = "select*from Vacation where Libelle='" & intervention & "'"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim taux As Double = 0
+        Dim cout As Double = 0
+
+        Try
+            Dim MonReader As SqlDataReader = cmd.ExecuteReader()
+            If MonReader.Read() Then
+                taux = MonReader("Taux").ToString
+            End If
+            MonReader.Close()
+            cmd.Dispose()
+        Catch ex As Exception
+            Console.WriteLine()
+        End Try
+        cout = nb * taux * 41.5
+        Return cout
+    End Function
+
     Private Sub BT_Annuler_Click(sender As Object, e As EventArgs) Handles BT_Annuler.Click
         Me.Dispose()
     End Sub

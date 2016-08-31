@@ -72,7 +72,8 @@ Partial Class Ajout_intervention
         '
         'DTP_Fin
         '
-        Me.DTP_Fin.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DTP_Fin.CustomFormat = "HH:MM"
+        Me.DTP_Fin.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DTP_Fin.Location = New System.Drawing.Point(162, 178)
         Me.DTP_Fin.Name = "DTP_Fin"
         Me.DTP_Fin.Size = New System.Drawing.Size(65, 20)
@@ -80,7 +81,8 @@ Partial Class Ajout_intervention
         '
         'DTP_Debut
         '
-        Me.DTP_Debut.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DTP_Debut.CustomFormat = "HH:MM"
+        Me.DTP_Debut.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DTP_Debut.Location = New System.Drawing.Point(57, 178)
         Me.DTP_Debut.Name = "DTP_Debut"
         Me.DTP_Debut.Size = New System.Drawing.Size(64, 20)
