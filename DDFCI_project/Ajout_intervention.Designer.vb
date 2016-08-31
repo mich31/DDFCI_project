@@ -24,14 +24,15 @@ Partial Class Ajout_intervention
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.DTP_Fin = New System.Windows.Forms.DateTimePicker()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DTP_Debut = New System.Windows.Forms.DateTimePicker()
+        Me.DTP_Fin = New System.Windows.Forms.DateTimePicker()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.TB_NB_Heures = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DTP_Date = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.CB_Type = New System.Windows.Forms.ComboBox()
         Me.VacationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
@@ -44,6 +45,7 @@ Partial Class Ajout_intervention
         Me.BT_Annuler = New System.Windows.Forms.Button()
         Me.VacationTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.VacationTableAdapter()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.VacationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -51,14 +53,11 @@ Partial Class Ajout_intervention
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.DTP_Fin)
-        Me.Panel1.Controls.Add(Me.DTP_Debut)
+        Me.Panel1.Controls.Add(Me.GroupBox1)
         Me.Panel1.Controls.Add(Me.TB_NB_Heures)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.DTP_Date)
         Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.CB_Type)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.TB_Prenom)
@@ -67,31 +66,53 @@ Partial Class Ajout_intervention
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(29, 27)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(246, 252)
+        Me.Panel1.Size = New System.Drawing.Size(246, 282)
         Me.Panel1.TabIndex = 0
         '
-        'DTP_Fin
+        'GroupBox1
         '
-        Me.DTP_Fin.CustomFormat = "HH:MM"
-        Me.DTP_Fin.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DTP_Fin.Location = New System.Drawing.Point(162, 178)
-        Me.DTP_Fin.Name = "DTP_Fin"
-        Me.DTP_Fin.Size = New System.Drawing.Size(65, 20)
-        Me.DTP_Fin.TabIndex = 4
+        Me.GroupBox1.Controls.Add(Me.DTP_Debut)
+        Me.GroupBox1.Controls.Add(Me.DTP_Fin)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 187)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(238, 43)
+        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Heure d'intervention"
         '
         'DTP_Debut
         '
-        Me.DTP_Debut.CustomFormat = "HH:MM"
+        Me.DTP_Debut.CustomFormat = "HH:mm"
         Me.DTP_Debut.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DTP_Debut.Location = New System.Drawing.Point(57, 178)
+        Me.DTP_Debut.Location = New System.Drawing.Point(44, 17)
         Me.DTP_Debut.Name = "DTP_Debut"
         Me.DTP_Debut.Size = New System.Drawing.Size(64, 20)
         Me.DTP_Debut.TabIndex = 3
         '
+        'DTP_Fin
+        '
+        Me.DTP_Fin.CustomFormat = "HH:mm"
+        Me.DTP_Fin.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DTP_Fin.Location = New System.Drawing.Point(155, 16)
+        Me.DTP_Fin.Name = "DTP_Fin"
+        Me.DTP_Fin.Size = New System.Drawing.Size(65, 20)
+        Me.DTP_Fin.TabIndex = 4
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(2, 23)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(39, 13)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Début:"
+        '
         'TB_NB_Heures
         '
         Me.TB_NB_Heures.Enabled = False
-        Me.TB_NB_Heures.Location = New System.Drawing.Point(108, 216)
+        Me.TB_NB_Heures.Location = New System.Drawing.Point(109, 248)
         Me.TB_NB_Heures.Name = "TB_NB_Heures"
         Me.TB_NB_Heures.Size = New System.Drawing.Size(48, 20)
         Me.TB_NB_Heures.TabIndex = 3
@@ -99,7 +120,7 @@ Partial Class Ajout_intervention
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(12, 219)
+        Me.Label7.Location = New System.Drawing.Point(12, 251)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(90, 13)
         Me.Label7.TabIndex = 3
@@ -107,7 +128,6 @@ Partial Class Ajout_intervention
         '
         'DTP_Date
         '
-        Me.DTP_Date.Enabled = False
         Me.DTP_Date.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DTP_Date.Location = New System.Drawing.Point(73, 151)
         Me.DTP_Date.Name = "DTP_Date"
@@ -126,20 +146,11 @@ Partial Class Ajout_intervention
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(132, 184)
+        Me.Label5.Location = New System.Drawing.Point(125, 22)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(24, 13)
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "Fin:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 184)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(39, 13)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Début:"
         '
         'CB_Type
         '
@@ -207,7 +218,7 @@ Partial Class Ajout_intervention
         '
         'BT_Ajouter
         '
-        Me.BT_Ajouter.Location = New System.Drawing.Point(69, 293)
+        Me.BT_Ajouter.Location = New System.Drawing.Point(66, 315)
         Me.BT_Ajouter.Name = "BT_Ajouter"
         Me.BT_Ajouter.Size = New System.Drawing.Size(75, 23)
         Me.BT_Ajouter.TabIndex = 1
@@ -216,7 +227,7 @@ Partial Class Ajout_intervention
         '
         'BT_Annuler
         '
-        Me.BT_Annuler.Location = New System.Drawing.Point(165, 293)
+        Me.BT_Annuler.Location = New System.Drawing.Point(165, 315)
         Me.BT_Annuler.Name = "BT_Annuler"
         Me.BT_Annuler.Size = New System.Drawing.Size(75, 23)
         Me.BT_Annuler.TabIndex = 2
@@ -231,7 +242,7 @@ Partial Class Ajout_intervention
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(304, 328)
+        Me.ClientSize = New System.Drawing.Size(304, 350)
         Me.Controls.Add(Me.BT_Annuler)
         Me.Controls.Add(Me.BT_Ajouter)
         Me.Controls.Add(Me.Panel1)
@@ -239,6 +250,8 @@ Partial Class Ajout_intervention
         Me.Text = "Ajouter une intervention"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.VacationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -265,4 +278,5 @@ Partial Class Ajout_intervention
     Friend WithEvents TB_NB_Heures As TextBox
     Friend WithEvents DTP_Debut As DateTimePicker
     Friend WithEvents DTP_Fin As DateTimePicker
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

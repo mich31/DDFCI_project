@@ -21,7 +21,9 @@ Public Class NouvelIntervenant
 
     Private Sub BT_Ajouter_Click(sender As Object, e As EventArgs) Handles BT_Ajouter.Click
         If TB_Nom.TextLength >= 2 And TB_Nationalite.TextLength >= 2 And TB_Tel.TextLength >= 4 And TB_Mail.Text.Contains("@") And TB_Mail.TextLength >= 3 Then
+            MsgBox("Ajout en cours")
             Ajoute_Intervenant()
+            MsgBox("Fin de l'ajout")
         End If
     End Sub
 
@@ -37,12 +39,12 @@ Public Class NouvelIntervenant
             Res = cmd.ExecuteNonQuery()
             cmd.Dispose()
             GenereID_Personne(TB_Nom.Text, TB_Prenom.Text)
-            MsgBox(idP)
             LiaisonIntervention()
             MsgBox(Res - 1 & " Intervenant(e) ajouté(e)")
             'Me.Dispose()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
+            MsgBox("Ajoute " & ex.Message)
         End Try
     End Sub
 
@@ -59,6 +61,7 @@ Public Class NouvelIntervenant
             Me.Dispose()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
+            MsgBox("Liaison" & ex.Message)
         End Try
     End Sub
 
@@ -76,6 +79,7 @@ Public Class NouvelIntervenant
             cmd.Dispose()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
+            MsgBox("GenereID " & ex.Message)
         End Try
     End Sub
 
@@ -113,6 +117,7 @@ Public Class NouvelIntervenant
             res = cmd1.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
+            MsgBox("CreerIntervenant " & ex.Message)
         End Try
         cmd1.Dispose()
     End Sub
@@ -125,6 +130,7 @@ Public Class NouvelIntervenant
             res = cmd1.ExecuteNonQuery()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
+            MsgBox("LiaisonIntervenantSession" & ex.Message)
         End Try
         cmd1.Dispose()
 
@@ -144,6 +150,7 @@ Public Class NouvelIntervenant
             cmd1.Dispose()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
+            MsgBox("Recherche " & ex.Message)
         End Try
         Return MonBool
     End Function

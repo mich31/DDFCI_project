@@ -102,6 +102,7 @@ Public Class Edit_Session
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
+        Me.Liste_sessionsTableAdapter.Fill(Me.Formation_ContinueDataSet2.liste_sessions)
     End Sub
 
     Sub Liaison_Session_Personnel(ByVal idS As String)
@@ -166,6 +167,7 @@ Public Class Edit_Session
 
     Private Sub BT_Supprimer_Click(sender As Object, e As EventArgs) Handles BT_Supprimer.Click
         supprime_session()
+        Me.Liste_sessionsTableAdapter.Fill(Me.Formation_ContinueDataSet2.liste_sessions)
     End Sub
 
     Private Sub supprime_session()
@@ -181,7 +183,9 @@ Public Class Edit_Session
             End If
         Catch ex As Exception
             Console.WriteLine(ex.Message)
+            MsgBox(ex.Message)
         End Try
         cmd.Dispose()
     End Sub
+
 End Class

@@ -33,8 +33,11 @@ Public Class Ajout_intervention
         Dim Debut As String = Me.DTP_Debut.Value.TimeOfDay.ToString
         Dim Fin As String = Me.DTP_Fin.Value.TimeOfDay.ToString
 
+        Dim prix As Double = Calcul_cout(Math.Round(nbh.TotalHours, 2), Me.CB_Type.Text)
+        Dim cout As String = Replace(prix, ",", ".")
+
         Dim req As String = "insert into intervient 
-        values ('" & idIntervenant & "','" & idSeance & "','" & Me.CB_Type.Text & "','Non payé','0','Incomplet'," & nb & ",'" & Debut & "','" & Fin & "','')"
+        values ('" & idIntervenant & "','" & idSeance & "','" & Me.CB_Type.Text & "','Non payé'," & cout & ",'Incomplet'," & nb & ",'" & Debut & "','" & Fin & "','')"
         Dim cmd As New SqlCommand(req, bdd.connect)
         Dim res As Integer = 0
 
@@ -65,7 +68,7 @@ Public Class Ajout_intervention
         Catch ex As Exception
             Console.WriteLine()
         End Try
-        cout = nb * taux * 41.5
+        cout = nb * taux * 41.17
         Return cout
     End Function
 
@@ -76,4 +79,5 @@ Public Class Ajout_intervention
     Private Sub BT_Ajouter_Click(sender As Object, e As EventArgs) Handles BT_Ajouter.Click
         Ajoute_intervention()
     End Sub
+
 End Class

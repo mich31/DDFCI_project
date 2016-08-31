@@ -65,6 +65,8 @@ Partial Class Edit_Formation
         Me.TypeFormationTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.TypeFormationTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BT_Actualiser = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CB_projet = New System.Windows.Forms.ComboBox()
         CType(Me.DG_ListeFormations, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FormationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -318,6 +320,8 @@ Partial Class Edit_Formation
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.CB_projet)
+        Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.BT_Ajouter)
         Me.Panel1.Controls.Add(Me.TB_Nom)
         Me.Panel1.Controls.Add(Me.CB_Type)
@@ -325,12 +329,12 @@ Partial Class Edit_Formation
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(83, 224)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(351, 187)
+        Me.Panel1.Size = New System.Drawing.Size(351, 195)
         Me.Panel1.TabIndex = 5
         '
         'BT_Ajouter
         '
-        Me.BT_Ajouter.Location = New System.Drawing.Point(142, 150)
+        Me.BT_Ajouter.Location = New System.Drawing.Point(142, 157)
         Me.BT_Ajouter.Name = "BT_Ajouter"
         Me.BT_Ajouter.Size = New System.Drawing.Size(75, 23)
         Me.BT_Ajouter.TabIndex = 4
@@ -346,13 +350,11 @@ Partial Class Edit_Formation
         '
         'CB_Type
         '
-        Me.CB_Type.DataSource = Me.TypeFormationBindingSource
-        Me.CB_Type.DisplayMember = "Nom"
         Me.CB_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Type.FormattingEnabled = True
-        Me.CB_Type.Location = New System.Drawing.Point(142, 81)
+        Me.CB_Type.Location = New System.Drawing.Point(142, 108)
         Me.CB_Type.Name = "CB_Type"
-        Me.CB_Type.Size = New System.Drawing.Size(139, 21)
+        Me.CB_Type.Size = New System.Drawing.Size(121, 21)
         Me.CB_Type.TabIndex = 2
         '
         'TypeFormationBindingSource
@@ -364,7 +366,7 @@ Partial Class Edit_Formation
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(26, 84)
+        Me.Label2.Location = New System.Drawing.Point(26, 111)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(110, 14)
         Me.Label2.TabIndex = 1
@@ -417,6 +419,26 @@ Partial Class Edit_Formation
         Me.BT_Actualiser.TabIndex = 7
         Me.BT_Actualiser.Text = "Actualiser"
         Me.BT_Actualiser.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(47, 74)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(89, 14)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Type de projet:"
+        '
+        'CB_projet
+        '
+        Me.CB_projet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CB_projet.FormattingEnabled = True
+        Me.CB_projet.Items.AddRange(New Object() {"Mastère spécialisé", "Offres internationales", "Offres institutionnelles", "Offres payantes"})
+        Me.CB_projet.Location = New System.Drawing.Point(142, 71)
+        Me.CB_projet.Name = "CB_projet"
+        Me.CB_projet.Size = New System.Drawing.Size(121, 21)
+        Me.CB_projet.TabIndex = 6
         '
         'Edit_Formation
         '
@@ -485,4 +507,6 @@ Partial Class Edit_Formation
     Friend WithEvents TypeFormationTableAdapter As Formation_ContinueDataSet1TableAdapters.TypeFormationTableAdapter
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents BT_Actualiser As Button
+    Friend WithEvents CB_projet As ComboBox
+    Friend WithEvents Label3 As Label
 End Class

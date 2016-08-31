@@ -88,6 +88,9 @@ Public Class Formation
 
 
     Private Sub Formation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.TempsAgent'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+        'Me.TempsAgentTableAdapter.Fill(Me.Formation_ContinueDataSet1.TempsAgent)
+        Me.TempsAgentTableAdapter.FillBy_user(Me.Formation_ContinueDataSet1.TempsAgent, bdd.username)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.liste_seances'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         Me.Liste_seancesTableAdapter.Fill(Me.Formation_ContinueDataSet2.liste_seances)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.liste_seances'. Vous pouvez la déplacer ou la supprimer selon les besoins.
@@ -95,7 +98,7 @@ Public Class Formation
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.liste_seances'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
         Me.Liste_seancesTableAdapter.Fill(Me.Formation_ContinueDataSet2.liste_seances)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.temps_agent'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-        Me.Temps_agentTableAdapter.Fill(Me.Formation_ContinueDataSet1.temps_agent)
+        'Me.Temps_agentTableAdapter.Fill(Me.Formation_ContinueDataSet1.temps_agent)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet2.inscription_stagiaires'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         Me.Inscription_stagiairesTableAdapter.Fill(Me.Formation_ContinueDataSet2.inscription_stagiaires)
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.liste_interventions'. Vous pouvez la déplacer ou la supprimer selon les besoins.
@@ -209,8 +212,10 @@ Public Class Formation
             Me.DG_Liste_Intervenants.Enabled = True
             Me.DG_Liste_Stagiaires.Enabled = True
             Me.DG_Liste_Interventions.Enabled = True
+            Me.BT_Ajouter.Enabled = True
         ElseIf Me.TV_Menu.SelectedNode.Level = 1 Then 'Si le noeud sélectionné est une formation
             NomFormation = Me.TV_Menu.SelectedNode.Text
+            Me.BT_Ajouter.Enabled = False
         End If
     End Sub
 
@@ -260,6 +265,8 @@ Public Class Formation
         Remplir_DG_Seances()
         Remplir_panel()
         Remplir_LB_Taches()
+        Me.TempsAgentTableAdapter.FillBy_user_session(Me.Formation_ContinueDataSet1.TempsAgent, bdd.username, NomFormation, SessionFormation)
+
     End Sub
 
 
@@ -621,18 +628,18 @@ Public Class Formation
 
     End Sub
 
-    Private Sub DG_Liste_Interventions_nonpayees_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Liste_Interventions_nonpayees.CellContentClick
-        Me.CB_Statut.Text = Me.DG_Liste_Interventions_nonpayees.CurrentRow.Cells(13).Value
+    Private Sub DG_Liste_Interventions_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Liste_Interventions.CellContentClick
+        Me.CB_Statut.Text = Me.DG_Liste_Interventions.CurrentRow.Cells(13).Value
     End Sub
 
-    Private Sub DG_Liste_Interventions_nonpayees_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Interventions_nonpayees.RowHeaderMouseClick
-        Me.CB_Statut.Text = Me.DG_Liste_Interventions_nonpayees.CurrentRow.Cells(13).Value
+    Private Sub DG_Liste_Interventions_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DG_Liste_Interventions.RowHeaderMouseClick
+        Me.CB_Statut.Text = Me.DG_Liste_Interventions.CurrentRow.Cells(13).Value
     End Sub
 
     Private Sub BT_Statut_Paiement_Click(sender As Object, e As EventArgs) Handles BT_Statut_Paiement.Click
         Dim Statut As String = Me.CB_Statut.Text
-        Dim idIntervenant As String = Me.DG_Liste_Interventions_nonpayees.CurrentRow.Cells(2).Value
-        Dim idSeance As String = Me.DG_Liste_Interventions_nonpayees.CurrentRow.Cells(4).Value
+        Dim idIntervenant As String = Me.DG_Liste_Interventions.CurrentRow.Cells(2).Value
+        Dim idSeance As String = Me.DG_Liste_Interventions.CurrentRow.Cells(4).Value
         Dim req As String = "update liste_interventions set StatutPaiement = '" & Statut & "' 
             where idIntervenant = '" & idIntervenant & "' and idSeance = '" & idSeance & "'"
         Dim cmd As New SqlCommand(req, bdd.connect)
@@ -648,6 +655,7 @@ Public Class Formation
         End Try
 
     End Sub
+
 
 #End Region
 
@@ -843,8 +851,8 @@ Public Class Formation
         'MonDayView.Refresh()
 
         'Calendar1.SetViewRange(MonthView1.SelectionStart, MonthView1.SelectionStart.AddDays(4))
-        Calendar1.ViewStart = MonCalendrier.SelectionStart.AddHours(5)
-        Calendar1.ViewEnd = MonCalendrier.SelectionStart.AddDays(4).AddHours(5)
+        'Calendar1.ViewStart = MonCalendrier.SelectionStart.AddHours(5)
+        'Calendar1.ViewEnd = MonCalendrier.SelectionStart.AddDays(4).AddHours(5)
         RemplirPlanning()
 
     End Sub
@@ -853,12 +861,12 @@ Public Class Formation
         'Dim item1 As New CalendarItem(Me.Calendar1, CDate("12/08/2016 09:15:00"), CDate("12/08/2016 10:00:00"), "Mon RDV")
         'Dim item2 As New CalendarItem(Me.Calendar1, CDate("13/08/2016 10:30:00"), CDate("13/08/2016 12:00:00"), "Mon 2e RDV")
 
-        For Each Ligne As DataRow In o_Planning.Seances.Rows()
-            Dim item As New CalendarItem(Me.Calendar1, CDate(Ligne("HeureDebut").ToString), CDate(Ligne("HeureFin").ToString), Ligne("Salle").ToString)
-            If item.Date >= Me.Calendar1.ViewStart.Date And item.Date <= Me.Calendar1.ViewEnd.Date.AddDays(1) Then
-                Calendar1.Items.Add(item)
-            End If
-        Next
+        'For Each Ligne As DataRow In o_Planning.Seances.Rows()
+        '    Dim item As New CalendarItem(Me.Calendar1, CDate(Ligne("HeureDebut").ToString), CDate(Ligne("HeureFin").ToString), Ligne("Salle").ToString)
+        '    If item.Date >= Me.Calendar1.ViewStart.Date And item.Date <= Me.Calendar1.ViewEnd.Date.AddDays(1) Then
+        '        Calendar1.Items.Add(item)
+        '    End If
+        'Next
     End Sub
 
     ''' <summary>
@@ -866,15 +874,15 @@ Public Class Formation
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub MonthCalendar1_DateSelected(sender As Object, e As DateRangeEventArgs) Handles MonCalendrier.DateSelected
+    Private Sub MonthCalendar1_DateSelected(sender As Object, e As DateRangeEventArgs)
         'MonDayView.StartDate = MonCalendrier.SelectionStart
-        If Me.MonCalendrier.SelectionStart > Me.Calendar1.ViewStart Then
-            Calendar1.ViewEnd = MonCalendrier.SelectionStart.AddDays(4)
-            Calendar1.ViewStart = MonCalendrier.SelectionStart
-        Else
-            Calendar1.ViewStart = MonCalendrier.SelectionStart
-            Calendar1.ViewEnd = MonCalendrier.SelectionStart.AddDays(4)
-        End If
+        'If Me.MonCalendrier.SelectionStart > Me.Calendar1.ViewStart Then
+        '    Calendar1.ViewEnd = MonCalendrier.SelectionStart.AddDays(4)
+        '    Calendar1.ViewStart = MonCalendrier.SelectionStart
+        'Else
+        '    Calendar1.ViewStart = MonCalendrier.SelectionStart
+        '    Calendar1.ViewEnd = MonCalendrier.SelectionStart.AddDays(4)
+        'End If
         'Me.Calendar1.SetViewRange(MonCalendrier.SelectionStart, MonCalendrier.SelectionStart.AddDays(4))
         RemplirPlanning()
     End Sub
@@ -953,22 +961,67 @@ Public Class Formation
     End Sub
 
     Sub Remplir_LB_Taches()
-        Dim Type As String
-        Type = infos_formation()
-        Dim Liste_Offres_institutionelles As New List(Of String) From {"Prise de commande", "Elaboration de l'offre", "Contractualisation/Marché", "Mise en oeuvre/Suivi", "Evaluation/Bilan"}
+        Dim Type, Projet As String
+        Type = infos_type_formation()
+        Projet = infos_projet_formation()
+        Me.TB_Type_Projet.Text = Projet
+        Me.TB_Type_Formation.Text = Type
 
-        Select Case Type
-            Case "Offres institutionnelles"
-                For Each tache As String In Liste_Offres_institutionelles
-                    Me.LB_Taches.Items.Add(tache)
-                Next
+        Dim Liste_MSpe As New List(Of String) From {"Etude de marché", "Etablissement du pré-projet", "Elaboration dossier d'accréditation", "Vie du MSpé", "Renouvellement Accréditation annuel"}
 
-            Case "Mastère spécialisé"
-                Me.LB_Taches.Items.Add("M1")
-        End Select
+        Dim Liste_Offres_institutionelles_AvecMarches As New List(Of String) From {"Prise de commande", "Elaboration de l'offre", "Contractualisation/Marché", "Mise en oeuvre/Suivi", "Evaluation/Bilan"}
+        Dim Liste_Offres_institutionelles_SansMarches As New List(Of String) From {"Prise de commande", "Elaboration de l'offre", "Mise en oeuvre/Suivi", "Evaluation/Bilan"}
+
+        Dim Liste_Offres_payantes_intra As New List(Of String) From {"Prise de commande", "Elaboration Pré-Projet", "Elaboration/Constitution de l'offre", "Mise en oeuvre/Suivi", "Evaluation/Bilan"}
+        Dim Liste_Offres_payantes_extra As New List(Of String) From {"Prise de commande", "Elaboration Pré-Projet", "Contractualisation/Marché", "Elaboration de l'Offre", "Mise en oeuvre/Suivi", "Evaluation/Bilan"}
+        Dim Liste_Offres_payantes_AO As New List(Of String) From {"Réponse AO", "Elaboration/Constitution de l'Offre", "Mise en oeuvre/Suivi", "Evaluation/Bilan"}
+
+        Dim Liste_Offres_internationales_seminaires As New List(Of String) From {"Elaboration Pré-Projet", "Recherche de Financement/Communication", "Elaboration/Constitution de l'Offre", "Mise en oeuvre/Suivi", "Evaluation/Bilan"}
+        Dim Liste_Offres_internationales_ces As New List(Of String) From {"Elaboration/Constitution de l'Offre", "Mise en oeuvre/Suivi", "Evaluation/Bilan"}
+        Dim Liste_Offres_internationales_AO As New List(Of String) From {"Réponse AO", "Elaboration/Constitution de l'Offre", "Mise en oeuvre/Suivi", "Evaluation/Bilan"}
+
+        Me.LB_Taches.Items.Clear()
+
+        If Projet.Equals("Mastère spécialisé") Then
+            For Each tache As String In Liste_MSpe
+                Me.LB_Taches.Items.Add(tache)
+            Next
+        ElseIf Projet.Equals("Offres institutionnelles") And Type.Equals("Offres Avec Marchés") Then
+            For Each tache As String In Liste_Offres_institutionelles_AvecMarches
+                Me.LB_Taches.Items.Add(tache)
+            Next
+        ElseIf Projet.Equals("Offres institutionnelles") And Type.Equals("Offres Sans Marchés") Then
+            For Each tache As String In Liste_Offres_institutionelles_SansMarches
+                Me.LB_Taches.Items.Add(tache)
+            Next
+        ElseIf Projet.Equals("Offres payantes") And Type.Equals("Offres Payantes Intra(Sollicitation)") Then
+            For Each tache As String In Liste_Offres_payantes_intra
+                Me.LB_Taches.Items.Add(tache)
+            Next
+        ElseIf Projet.Equals("Offres payantes") And Type.Equals("Offres Payantes Extra") Then
+            For Each tache As String In Liste_Offres_payantes_extra
+                Me.LB_Taches.Items.Add(tache)
+            Next
+        ElseIf Projet.Equals("Offres payantes") And Type.Equals("Offres AO") Then
+            For Each tache As String In Liste_Offres_payantes_AO
+                Me.LB_Taches.Items.Add(tache)
+            Next
+        ElseIf Projet.Equals("Offres internationales") And Type.Equals("Séminaires") Then
+            For Each tache As String In Liste_Offres_internationales_seminaires
+                Me.LB_Taches.Items.Add(tache)
+            Next
+        ElseIf Projet.Equals("Offres internationales") And Type.Equals("CES") Then
+            For Each tache As String In Liste_Offres_internationales_ces
+                Me.LB_Taches.Items.Add(tache)
+            Next
+        ElseIf Projet.Equals("Offres internationales") And Type.Equals("Offres AO") Then
+            For Each tache As String In Liste_Offres_internationales_AO
+                Me.LB_Taches.Items.Add(tache)
+            Next
+        End If
     End Sub
 
-    Function infos_formation() As String
+    Function infos_type_formation() As String
         Dim req As String = "select*from Formation where idFormation='" & idFormation & "'"
         Dim cmd As New SqlCommand(req, bdd.connect)
         Dim res As String = ""
@@ -986,9 +1039,86 @@ Public Class Formation
         Return res
     End Function
 
-    Sub TempsAgent()
-        'Me.MonthCalendar1
+    Function infos_projet_formation() As String
+        Dim req As String = "select*from Formation where idFormation='" & idFormation & "'"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim res As String = ""
+
+        Try
+            Dim Monreader As SqlDataReader = cmd.ExecuteReader()
+            If Monreader.Read() Then
+                res = Monreader("Projet").ToString
+            End If
+            Monreader.Close()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+        Return res
+    End Function
+
+    Private Sub BT_Ajouter_Click(sender As Object, e As EventArgs) Handles BT_Ajouter.Click
+        test_ajout_temps()
+        Me.TempsAgentTableAdapter.FillBy_user_session(Me.Formation_ContinueDataSet1.TempsAgent, utilisateur.user, NomFormation, SessionFormation)
     End Sub
+
+    Private Sub ajoute_temps()
+        Dim Type_projet As String = Me.TB_Type_Projet.Text
+        Dim Type_Formation As String = Me.TB_Type_Formation.Text
+        Dim nb As Double = Me.NUP_nb_jours.Value
+        Dim temps As String = nb.ToString.Replace(",", ".")
+        Dim req As String = "insert into TempsAgent 
+            values ('" & idSession & "','" & utilisateur.user & "','" & NomFormation & "','" & SessionFormation & "',
+            '" & Type_projet & "','" & Type_Formation & "','" & Me.LB_Taches.SelectedItem.ToString.Replace("'", "''") & "'," & temps & ",'" & Me.DTP_Periode.Value & "')"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim res As Integer
+        Try
+            res = cmd.ExecuteNonQuery()
+            If res = 1 Then
+                MsgBox("Temps ajouté!")
+            End If
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
+    Private Sub test_ajout_temps()
+        Dim max As Date = trouve_date_max()
+        'MsgBox(max)
+        Dim MaDate As Date = Me.DTP_Periode.Value
+        If MaDate > max.AddDays(7) Then
+            'MsgBox("Go")
+            ajoute_temps()
+        Else
+            MsgBox("Veuillez saisir une date ultérieure au " & max.AddDays(7))
+        End If
+    End Sub
+
+    Private Function trouve_date_max() As Date
+        Dim req As String = "select MAX(Date) as max from TempsAgent T 
+        where T.Login = '" & bdd.username & "' and T.Formation = '" & NomFormation & "' and T.Session = '" & SessionFormation & "' 
+        and T.Tache = '" & Me.LB_Taches.SelectedItem.ToString.Replace("'", "''") & "'"
+        Dim cmd As New SqlCommand(req, bdd.connect)
+        Dim res As Date
+        Dim MonReader As SqlDataReader = cmd.ExecuteReader()
+        Try
+            If MonReader.Read() Then
+                res = MonReader("max").ToString
+            End If
+
+        Catch ex As Exception
+            'Console.WriteLine(ex.Message)
+            'MsgBox(ex.Message)
+            res = "1900-01-01"
+        End Try
+        MonReader.Close()
+        cmd.Dispose()
+
+        Return res
+    End Function
+
+
 
 #End Region
 
@@ -1061,29 +1191,21 @@ Public Class Formation
         Return res
     End Function
 
-    Sub RemplirControlsDoc(ByRef SF As SessionFormation)
-        RemplirCB_Intervenants(SF)
-    End Sub
-
-    Sub RemplirCB_Intervenants(ByRef SF As SessionFormation)
-        'CB_I_DSE.Items.Clear()
-        'For Each Ligne As DataRow In SF.Liste_intervenants.Rows()
-        '    CB_I_DSE.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
-        '    CB_FSF.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
-        '    CB_convoc.Items.Add(Ligne("NomP").ToString & " " & Ligne("PrenomP").ToString)
-        'Next
-    End Sub
 
 #End Region
 
 #Region "Export"
 
     Private Sub BT_Export_DG_ListeIntervenants_Click(sender As Object, e As EventArgs) Handles BT_Export_DG_ListeIntervenants.Click
-        ExportExcel("S:\Outil FC\Exports\Liste_intervenants.xls", Me.DG_Liste_Intervenants)
+        ExportExcel("S:\Outil FC\Exports\Liste_intervenants_" & NomFormation & "_" & SessionFormation & "_" & bdd.username & ".xls", Me.DG_Liste_Intervenants)
     End Sub
 
     Private Sub BT_Export_stagiaires_Click(sender As Object, e As EventArgs) Handles BT_Export_stagiaires.Click
-        ExportExcel("S:\Outil FC\Exports\Liste_stagiaires.xls", Me.DG_Liste_Stagiaires)
+        ExportExcel("S:\Outil FC\Exports\Liste_" & NomFormation & "_" & SessionFormation & "_" & bdd.username & ".xls", Me.DG_Liste_Stagiaires)
+    End Sub
+
+    Private Sub BT_Export_Temps_Click(sender As Object, e As EventArgs) Handles BT_Export_Temps.Click
+        ExportExcel("S:\Outil FC\Exports\Temps_Travail_" & bdd.username & ".xls", Me.DG_Temps_saisie)
     End Sub
 
     Sub ExportExcel(ByVal Filename As String, ByRef DG As DataGridView)
@@ -1172,20 +1294,29 @@ Public Class Formation
         TableVac.Show()
     End Sub
 
-    Private Sub NouvelleFormationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouvelleFormationToolStripMenuItem.Click
-        Dim Modif_formation As New Edit_Formation(bdd)
-        Modif_formation.Show()
-    End Sub
+    'Private Sub NouvelleFormationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouvelleFormationToolStripMenuItem.Click
+    '    Dim Modif_formation As New Edit_Formation(bdd)
+    '    Modif_formation.Show()
+    'End Sub
 
-    Private Sub NouvelleSessionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouvelleSessionToolStripMenuItem.Click
-        Dim Nvelle_session As New Edit_Session(utilisateur, bdd)
-        Nvelle_session.Show()
+    'Private Sub NouvelleSessionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouvelleSessionToolStripMenuItem.Click
+    '    Dim Nvelle_session As New Edit_Session(utilisateur, bdd)
+    '    Nvelle_session.Show()
 
-    End Sub
+    'End Sub
 
     Private Sub SupprimerUtilisateurToolStripMenu_Click(sender As Object, e As EventArgs) Handles SupprimerUtilisateurToolStripMenu.Click
         Dim suppr_utilisateur As New SupprimerUtilisateur(bdd)
         suppr_utilisateur.Show()
     End Sub
 
+    Private Sub SessionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SessionToolStripMenuItem.Click
+        Dim Nvelle_session As New Edit_Session(utilisateur, bdd)
+        Nvelle_session.Show()
+    End Sub
+
+    Private Sub FormationToolStripMenuItem2_Click_1(sender As Object, e As EventArgs) Handles FormationToolStripMenuItem2.Click
+        Dim Modif_formation As New Edit_Formation(bdd)
+        Modif_formation.Show()
+    End Sub
 End Class
