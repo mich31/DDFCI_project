@@ -28,9 +28,9 @@ Partial Class Formation
         Me.FichierToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuitterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TableauDesVacationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SessionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormationToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SessionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TableauDesVacationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CréerUnUtilisateurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ModifierUtilisateurToolStripMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -111,6 +111,10 @@ Partial Class Formation
         Me.DTP_I_DateN = New System.Windows.Forms.DateTimePicker()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TB_I_Ville = New System.Windows.Forms.TextBox()
+        Me.Label55 = New System.Windows.Forms.Label()
+        Me.TB_I_CP = New System.Windows.Forms.TextBox()
+        Me.Label54 = New System.Windows.Forms.Label()
         Me.LinkLabel_Mail_Intervenant = New System.Windows.Forms.LinkLabel()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TB_I_Telephone = New System.Windows.Forms.TextBox()
@@ -297,6 +301,10 @@ Partial Class Formation
         Me.Label49 = New System.Windows.Forms.Label()
         Me.RTB_S_Fonction = New System.Windows.Forms.RichTextBox()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.TB_S_CP = New System.Windows.Forms.TextBox()
+        Me.Label57 = New System.Windows.Forms.Label()
+        Me.TB_S_Ville = New System.Windows.Forms.TextBox()
+        Me.Label56 = New System.Windows.Forms.Label()
         Me.Email_Stagiaire = New System.Windows.Forms.LinkLabel()
         Me.Label37 = New System.Windows.Forms.Label()
         Me.TB_S_Tel = New System.Windows.Forms.TextBox()
@@ -451,7 +459,7 @@ Partial Class Formation
         'QuitterToolStripMenuItem
         '
         Me.QuitterToolStripMenuItem.Name = "QuitterToolStripMenuItem"
-        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.QuitterToolStripMenuItem.Size = New System.Drawing.Size(111, 22)
         Me.QuitterToolStripMenuItem.Text = "Quitter"
         '
         'FormationToolStripMenuItem
@@ -461,11 +469,11 @@ Partial Class Formation
         Me.FormationToolStripMenuItem.Size = New System.Drawing.Size(56, 20)
         Me.FormationToolStripMenuItem.Text = "Edition"
         '
-        'TableauDesVacationsToolStripMenuItem
+        'FormationToolStripMenuItem2
         '
-        Me.TableauDesVacationsToolStripMenuItem.Name = "TableauDesVacationsToolStripMenuItem"
-        Me.TableauDesVacationsToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
-        Me.TableauDesVacationsToolStripMenuItem.Text = "Tableau des vacations"
+        Me.FormationToolStripMenuItem2.Name = "FormationToolStripMenuItem2"
+        Me.FormationToolStripMenuItem2.Size = New System.Drawing.Size(190, 22)
+        Me.FormationToolStripMenuItem2.Text = "Formation"
         '
         'SessionToolStripMenuItem
         '
@@ -473,11 +481,11 @@ Partial Class Formation
         Me.SessionToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.SessionToolStripMenuItem.Text = "Session"
         '
-        'FormationToolStripMenuItem2
+        'TableauDesVacationsToolStripMenuItem
         '
-        Me.FormationToolStripMenuItem2.Name = "FormationToolStripMenuItem2"
-        Me.FormationToolStripMenuItem2.Size = New System.Drawing.Size(190, 22)
-        Me.FormationToolStripMenuItem2.Text = "Formation"
+        Me.TableauDesVacationsToolStripMenuItem.Name = "TableauDesVacationsToolStripMenuItem"
+        Me.TableauDesVacationsToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.TableauDesVacationsToolStripMenuItem.Text = "Tableau des vacations"
         '
         'UtilisateurToolStripMenuItem
         '
@@ -1016,7 +1024,7 @@ Partial Class Formation
         Me.GroupBox10.Controls.Add(Me.Label32)
         Me.GroupBox10.Controls.Add(Me.RTB_I_Fonction)
         Me.GroupBox10.Controls.Add(Me.Label31)
-        Me.GroupBox10.Location = New System.Drawing.Point(517, 99)
+        Me.GroupBox10.Location = New System.Drawing.Point(510, 43)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Size = New System.Drawing.Size(209, 273)
         Me.GroupBox10.TabIndex = 2
@@ -1107,7 +1115,7 @@ Partial Class Formation
         Me.GroupBox3.Controls.Add(Me.Label28)
         Me.GroupBox3.Controls.Add(Me.DTP_I_DateN)
         Me.GroupBox3.Controls.Add(Me.Label27)
-        Me.GroupBox3.Location = New System.Drawing.Point(276, 99)
+        Me.GroupBox3.Location = New System.Drawing.Point(282, 43)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(200, 273)
         Me.GroupBox3.TabIndex = 1
@@ -1185,6 +1193,10 @@ Partial Class Formation
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.SystemColors.Menu
+        Me.GroupBox2.Controls.Add(Me.TB_I_Ville)
+        Me.GroupBox2.Controls.Add(Me.Label55)
+        Me.GroupBox2.Controls.Add(Me.TB_I_CP)
+        Me.GroupBox2.Controls.Add(Me.Label54)
         Me.GroupBox2.Controls.Add(Me.LinkLabel_Mail_Intervenant)
         Me.GroupBox2.Controls.Add(Me.Label26)
         Me.GroupBox2.Controls.Add(Me.TB_I_Telephone)
@@ -1199,16 +1211,50 @@ Partial Class Formation
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Location = New System.Drawing.Point(38, 99)
+        Me.GroupBox2.Location = New System.Drawing.Point(38, 43)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(211, 273)
         Me.GroupBox2.TabIndex = 0
         Me.GroupBox2.TabStop = False
         '
+        'TB_I_Ville
+        '
+        Me.TB_I_Ville.Enabled = False
+        Me.TB_I_Ville.Location = New System.Drawing.Point(68, 141)
+        Me.TB_I_Ville.Name = "TB_I_Ville"
+        Me.TB_I_Ville.Size = New System.Drawing.Size(115, 20)
+        Me.TB_I_Ville.TabIndex = 17
+        '
+        'Label55
+        '
+        Me.Label55.AutoSize = True
+        Me.Label55.Location = New System.Drawing.Point(38, 144)
+        Me.Label55.Name = "Label55"
+        Me.Label55.Size = New System.Drawing.Size(29, 13)
+        Me.Label55.TabIndex = 16
+        Me.Label55.Text = "Ville:"
+        '
+        'TB_I_CP
+        '
+        Me.TB_I_CP.Enabled = False
+        Me.TB_I_CP.Location = New System.Drawing.Point(68, 167)
+        Me.TB_I_CP.Name = "TB_I_CP"
+        Me.TB_I_CP.Size = New System.Drawing.Size(115, 20)
+        Me.TB_I_CP.TabIndex = 15
+        '
+        'Label54
+        '
+        Me.Label54.AutoSize = True
+        Me.Label54.Location = New System.Drawing.Point(43, 170)
+        Me.Label54.Name = "Label54"
+        Me.Label54.Size = New System.Drawing.Size(24, 13)
+        Me.Label54.TabIndex = 14
+        Me.Label54.Text = "CP:"
+        '
         'LinkLabel_Mail_Intervenant
         '
         Me.LinkLabel_Mail_Intervenant.AutoSize = True
-        Me.LinkLabel_Mail_Intervenant.Location = New System.Drawing.Point(65, 244)
+        Me.LinkLabel_Mail_Intervenant.Location = New System.Drawing.Point(65, 253)
         Me.LinkLabel_Mail_Intervenant.Name = "LinkLabel_Mail_Intervenant"
         Me.LinkLabel_Mail_Intervenant.Size = New System.Drawing.Size(59, 13)
         Me.LinkLabel_Mail_Intervenant.TabIndex = 13
@@ -1218,7 +1264,7 @@ Partial Class Formation
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(13, 244)
+        Me.Label26.Location = New System.Drawing.Point(38, 253)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(29, 13)
         Me.Label26.TabIndex = 12
@@ -1227,7 +1273,7 @@ Partial Class Formation
         'TB_I_Telephone
         '
         Me.TB_I_Telephone.Enabled = False
-        Me.TB_I_Telephone.Location = New System.Drawing.Point(68, 213)
+        Me.TB_I_Telephone.Location = New System.Drawing.Point(68, 221)
         Me.TB_I_Telephone.Name = "TB_I_Telephone"
         Me.TB_I_Telephone.Size = New System.Drawing.Size(115, 20)
         Me.TB_I_Telephone.TabIndex = 11
@@ -1235,7 +1281,7 @@ Partial Class Formation
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(6, 214)
+        Me.Label25.Location = New System.Drawing.Point(6, 224)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(61, 13)
         Me.Label25.TabIndex = 10
@@ -1244,7 +1290,7 @@ Partial Class Formation
         'TB_I_Pays
         '
         Me.TB_I_Pays.Enabled = False
-        Me.TB_I_Pays.Location = New System.Drawing.Point(68, 171)
+        Me.TB_I_Pays.Location = New System.Drawing.Point(68, 193)
         Me.TB_I_Pays.Name = "TB_I_Pays"
         Me.TB_I_Pays.Size = New System.Drawing.Size(115, 20)
         Me.TB_I_Pays.TabIndex = 9
@@ -1252,7 +1298,7 @@ Partial Class Formation
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(11, 174)
+        Me.Label24.Location = New System.Drawing.Point(34, 196)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(33, 13)
         Me.Label24.TabIndex = 8
@@ -1261,16 +1307,16 @@ Partial Class Formation
         'RTB_I_Adresse
         '
         Me.RTB_I_Adresse.Enabled = False
-        Me.RTB_I_Adresse.Location = New System.Drawing.Point(62, 120)
+        Me.RTB_I_Adresse.Location = New System.Drawing.Point(68, 94)
         Me.RTB_I_Adresse.Name = "RTB_I_Adresse"
-        Me.RTB_I_Adresse.Size = New System.Drawing.Size(121, 45)
+        Me.RTB_I_Adresse.Size = New System.Drawing.Size(121, 41)
         Me.RTB_I_Adresse.TabIndex = 7
         Me.RTB_I_Adresse.Text = ""
         '
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(11, 123)
+        Me.Label23.Location = New System.Drawing.Point(19, 99)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(48, 13)
         Me.Label23.TabIndex = 6
@@ -1279,7 +1325,7 @@ Partial Class Formation
         'TB_I_Prenom
         '
         Me.TB_I_Prenom.Enabled = False
-        Me.TB_I_Prenom.Location = New System.Drawing.Point(68, 82)
+        Me.TB_I_Prenom.Location = New System.Drawing.Point(68, 68)
         Me.TB_I_Prenom.Name = "TB_I_Prenom"
         Me.TB_I_Prenom.Size = New System.Drawing.Size(115, 20)
         Me.TB_I_Prenom.TabIndex = 5
@@ -1287,7 +1333,7 @@ Partial Class Formation
         'TB_I_Nom
         '
         Me.TB_I_Nom.Enabled = False
-        Me.TB_I_Nom.Location = New System.Drawing.Point(68, 52)
+        Me.TB_I_Nom.Location = New System.Drawing.Point(68, 42)
         Me.TB_I_Nom.Name = "TB_I_Nom"
         Me.TB_I_Nom.Size = New System.Drawing.Size(115, 20)
         Me.TB_I_Nom.TabIndex = 4
@@ -1298,7 +1344,7 @@ Partial Class Formation
         Me.CB_I_Civilite.Enabled = False
         Me.CB_I_Civilite.FormattingEnabled = True
         Me.CB_I_Civilite.Items.AddRange(New Object() {"Mme.", "M."})
-        Me.CB_I_Civilite.Location = New System.Drawing.Point(68, 23)
+        Me.CB_I_Civilite.Location = New System.Drawing.Point(68, 15)
         Me.CB_I_Civilite.Name = "CB_I_Civilite"
         Me.CB_I_Civilite.Size = New System.Drawing.Size(115, 21)
         Me.CB_I_Civilite.TabIndex = 3
@@ -1306,7 +1352,7 @@ Partial Class Formation
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(10, 26)
+        Me.Label8.Location = New System.Drawing.Point(27, 18)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(40, 13)
         Me.Label8.TabIndex = 2
@@ -1315,7 +1361,7 @@ Partial Class Formation
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 87)
+        Me.Label7.Location = New System.Drawing.Point(21, 71)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(46, 13)
         Me.Label7.TabIndex = 1
@@ -1324,7 +1370,7 @@ Partial Class Formation
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(10, 55)
+        Me.Label6.Location = New System.Drawing.Point(35, 48)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(32, 13)
         Me.Label6.TabIndex = 0
@@ -2191,6 +2237,7 @@ Partial Class Formation
         Me.PaysP.HeaderText = "PaysP"
         Me.PaysP.Name = "PaysP"
         Me.PaysP.ReadOnly = True
+        Me.PaysP.Visible = False
         '
         'NumTelP
         '
@@ -2781,6 +2828,10 @@ Partial Class Formation
         'GroupBox12
         '
         Me.GroupBox12.BackColor = System.Drawing.SystemColors.Menu
+        Me.GroupBox12.Controls.Add(Me.TB_S_CP)
+        Me.GroupBox12.Controls.Add(Me.Label57)
+        Me.GroupBox12.Controls.Add(Me.TB_S_Ville)
+        Me.GroupBox12.Controls.Add(Me.Label56)
         Me.GroupBox12.Controls.Add(Me.Email_Stagiaire)
         Me.GroupBox12.Controls.Add(Me.Label37)
         Me.GroupBox12.Controls.Add(Me.TB_S_Tel)
@@ -2795,11 +2846,43 @@ Partial Class Formation
         Me.GroupBox12.Controls.Add(Me.Label41)
         Me.GroupBox12.Controls.Add(Me.Label42)
         Me.GroupBox12.Controls.Add(Me.Label43)
-        Me.GroupBox12.Location = New System.Drawing.Point(32, 72)
+        Me.GroupBox12.Location = New System.Drawing.Point(41, 72)
         Me.GroupBox12.Name = "GroupBox12"
         Me.GroupBox12.Size = New System.Drawing.Size(200, 273)
         Me.GroupBox12.TabIndex = 1
         Me.GroupBox12.TabStop = False
+        '
+        'TB_S_CP
+        '
+        Me.TB_S_CP.Location = New System.Drawing.Point(68, 160)
+        Me.TB_S_CP.Name = "TB_S_CP"
+        Me.TB_S_CP.Size = New System.Drawing.Size(115, 20)
+        Me.TB_S_CP.TabIndex = 17
+        '
+        'Label57
+        '
+        Me.Label57.AutoSize = True
+        Me.Label57.Location = New System.Drawing.Point(43, 163)
+        Me.Label57.Name = "Label57"
+        Me.Label57.Size = New System.Drawing.Size(24, 13)
+        Me.Label57.TabIndex = 16
+        Me.Label57.Text = "CP:"
+        '
+        'TB_S_Ville
+        '
+        Me.TB_S_Ville.Location = New System.Drawing.Point(68, 133)
+        Me.TB_S_Ville.Name = "TB_S_Ville"
+        Me.TB_S_Ville.Size = New System.Drawing.Size(115, 20)
+        Me.TB_S_Ville.TabIndex = 15
+        '
+        'Label56
+        '
+        Me.Label56.AutoSize = True
+        Me.Label56.Location = New System.Drawing.Point(38, 136)
+        Me.Label56.Name = "Label56"
+        Me.Label56.Size = New System.Drawing.Size(29, 13)
+        Me.Label56.TabIndex = 14
+        Me.Label56.Text = "Ville:"
         '
         'Email_Stagiaire
         '
@@ -2814,7 +2897,7 @@ Partial Class Formation
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(13, 244)
+        Me.Label37.Location = New System.Drawing.Point(38, 244)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(29, 13)
         Me.Label37.TabIndex = 12
@@ -2840,7 +2923,7 @@ Partial Class Formation
         'TB_S_Pays
         '
         Me.TB_S_Pays.Enabled = False
-        Me.TB_S_Pays.Location = New System.Drawing.Point(68, 171)
+        Me.TB_S_Pays.Location = New System.Drawing.Point(68, 186)
         Me.TB_S_Pays.Name = "TB_S_Pays"
         Me.TB_S_Pays.Size = New System.Drawing.Size(115, 20)
         Me.TB_S_Pays.TabIndex = 9
@@ -2848,7 +2931,7 @@ Partial Class Formation
         'Label39
         '
         Me.Label39.AutoSize = True
-        Me.Label39.Location = New System.Drawing.Point(11, 174)
+        Me.Label39.Location = New System.Drawing.Point(34, 189)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(33, 13)
         Me.Label39.TabIndex = 8
@@ -2857,16 +2940,16 @@ Partial Class Formation
         'RTB_S_Adresse
         '
         Me.RTB_S_Adresse.Enabled = False
-        Me.RTB_S_Adresse.Location = New System.Drawing.Point(62, 120)
+        Me.RTB_S_Adresse.Location = New System.Drawing.Point(68, 93)
         Me.RTB_S_Adresse.Name = "RTB_S_Adresse"
-        Me.RTB_S_Adresse.Size = New System.Drawing.Size(121, 45)
+        Me.RTB_S_Adresse.Size = New System.Drawing.Size(121, 34)
         Me.RTB_S_Adresse.TabIndex = 7
         Me.RTB_S_Adresse.Text = ""
         '
         'Label40
         '
         Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(11, 123)
+        Me.Label40.Location = New System.Drawing.Point(19, 96)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(48, 13)
         Me.Label40.TabIndex = 6
@@ -2875,7 +2958,7 @@ Partial Class Formation
         'TB_S_Prenom
         '
         Me.TB_S_Prenom.Enabled = False
-        Me.TB_S_Prenom.Location = New System.Drawing.Point(68, 82)
+        Me.TB_S_Prenom.Location = New System.Drawing.Point(68, 68)
         Me.TB_S_Prenom.Name = "TB_S_Prenom"
         Me.TB_S_Prenom.Size = New System.Drawing.Size(115, 20)
         Me.TB_S_Prenom.TabIndex = 5
@@ -2883,7 +2966,7 @@ Partial Class Formation
         'TB_S_Nom
         '
         Me.TB_S_Nom.Enabled = False
-        Me.TB_S_Nom.Location = New System.Drawing.Point(68, 52)
+        Me.TB_S_Nom.Location = New System.Drawing.Point(68, 42)
         Me.TB_S_Nom.Name = "TB_S_Nom"
         Me.TB_S_Nom.Size = New System.Drawing.Size(115, 20)
         Me.TB_S_Nom.TabIndex = 4
@@ -2894,7 +2977,7 @@ Partial Class Formation
         Me.CB_S_Civ.Enabled = False
         Me.CB_S_Civ.FormattingEnabled = True
         Me.CB_S_Civ.Items.AddRange(New Object() {"Mme.", "M."})
-        Me.CB_S_Civ.Location = New System.Drawing.Point(68, 23)
+        Me.CB_S_Civ.Location = New System.Drawing.Point(68, 16)
         Me.CB_S_Civ.Name = "CB_S_Civ"
         Me.CB_S_Civ.Size = New System.Drawing.Size(115, 21)
         Me.CB_S_Civ.TabIndex = 3
@@ -2902,7 +2985,7 @@ Partial Class Formation
         'Label41
         '
         Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(10, 26)
+        Me.Label41.Location = New System.Drawing.Point(27, 16)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(40, 13)
         Me.Label41.TabIndex = 2
@@ -2911,7 +2994,7 @@ Partial Class Formation
         'Label42
         '
         Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(10, 87)
+        Me.Label42.Location = New System.Drawing.Point(21, 71)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(46, 13)
         Me.Label42.TabIndex = 1
@@ -2920,7 +3003,7 @@ Partial Class Formation
         'Label43
         '
         Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(10, 55)
+        Me.Label43.Location = New System.Drawing.Point(35, 45)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(32, 13)
         Me.Label43.TabIndex = 0
@@ -3486,7 +3569,7 @@ Partial Class Formation
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(1253, 957)
+        Me.ClientSize = New System.Drawing.Size(1253, 733)
         Me.Controls.Add(Me.BT_Actualiser_TV)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.TabControl1)
@@ -3817,23 +3900,6 @@ Partial Class Formation
     Friend WithEvents Enregistrer_Stagiaires As ToolStripButton
     Friend WithEvents BT_Modifier_intervention As Button
     Friend WithEvents SessionToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents idPersonne As DataGridViewTextBoxColumn
-    Friend WithEvents CivilitePDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NomPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NomJeuneFille As DataGridViewTextBoxColumn
-    Friend WithEvents PrenomPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TypeIntervenantDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DateNaissanceIDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents LieuNaissanceI As DataGridViewTextBoxColumn
-    Friend WithEvents PaysNaissanceI As DataGridViewTextBoxColumn
-    Friend WithEvents NationaliteP As DataGridViewTextBoxColumn
-    Friend WithEvents AdresseP As DataGridViewTextBoxColumn
-    Friend WithEvents CP As DataGridViewTextBoxColumn
-    Friend WithEvents VilleP As DataGridViewTextBoxColumn
-    Friend WithEvents PaysP As DataGridViewTextBoxColumn
-    Friend WithEvents NumTelP As DataGridViewTextBoxColumn
-    Friend WithEvents MailP As DataGridViewTextBoxColumn
-    Friend WithEvents NumSSI As DataGridViewTextBoxColumn
     Friend WithEvents IdPersonneDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CivilitePDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents NomPDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
@@ -3950,4 +4016,29 @@ Partial Class Formation
     Friend WithEvents Cout As DataGridViewTextBoxColumn
     Friend WithEvents Commentaire As DataGridViewTextBoxColumn
     Friend WithEvents FormationToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents TB_I_Ville As TextBox
+    Friend WithEvents Label55 As Label
+    Friend WithEvents TB_I_CP As TextBox
+    Friend WithEvents Label54 As Label
+    Friend WithEvents idPersonne As DataGridViewTextBoxColumn
+    Friend WithEvents CivilitePDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NomPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NomJeuneFille As DataGridViewTextBoxColumn
+    Friend WithEvents PrenomPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TypeIntervenantDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DateNaissanceIDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents LieuNaissanceI As DataGridViewTextBoxColumn
+    Friend WithEvents PaysNaissanceI As DataGridViewTextBoxColumn
+    Friend WithEvents NationaliteP As DataGridViewTextBoxColumn
+    Friend WithEvents AdresseP As DataGridViewTextBoxColumn
+    Friend WithEvents CP As DataGridViewTextBoxColumn
+    Friend WithEvents VilleP As DataGridViewTextBoxColumn
+    Friend WithEvents PaysP As DataGridViewTextBoxColumn
+    Friend WithEvents NumTelP As DataGridViewTextBoxColumn
+    Friend WithEvents MailP As DataGridViewTextBoxColumn
+    Friend WithEvents NumSSI As DataGridViewTextBoxColumn
+    Friend WithEvents TB_S_CP As TextBox
+    Friend WithEvents Label57 As Label
+    Friend WithEvents TB_S_Ville As TextBox
+    Friend WithEvents Label56 As Label
 End Class

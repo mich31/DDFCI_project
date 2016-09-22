@@ -109,10 +109,8 @@ Public Class Formation
         Me.TV_Menu.TopNode = Me.TV_Menu.Nodes.Add(bdd.username)
         CreerArborescence()
         CreerUtilisateur()
-        'Creation_DG()
         GestionDesDroits()
         OrdonneOnglets()
-        'MAJ_planning()
     End Sub
 
     Sub OrdonneOnglets()
@@ -142,7 +140,12 @@ Public Class Formation
         Dim Requete As String = "select*from Personnel where Login='" & bdd.username & "'"
         Dim cmd As New SqlCommand(Requete, bdd.connect)
 
-        Dim Login, Pwd, Fct, Mail, Telephone, Telecopie As String
+        Dim Login As String = ""
+        Dim Pwd As String = ""
+        Dim Fct As String = ""
+        Dim Mail As String = ""
+        Dim Telephone As String = ""
+        Dim Telecopie As String = ""
 
         Try
             Dim MonReader As SqlDataReader = cmd.ExecuteReader()
@@ -153,46 +156,15 @@ Public Class Formation
                 Mail = MonReader("Mail").ToString
                 Telephone = MonReader("Telephone").ToString
                 Telecopie = MonReader("Telecopie").ToString
-
-                MonReader.Close()
-
-                utilisateur = New Utilisateur(Login, Pwd, Fct, Mail, Telephone, Telecopie, bdd)
             End If
-            cmd.Dispose()
+            MonReader.Close()
+            utilisateur = New Utilisateur(Login, Pwd, Fct, Mail, Telephone, Telecopie, bdd)
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
+        cmd.Dispose()
     End Sub
 
-    ''' <summary>
-    ''' Ajoute des cases à cocher sur tous les datagridview 
-    ''' </summary>
-    Sub Creation_DG()
-
-        ' Ajout et redimensionnement des cases à cocher
-        Dim Chk1, Chk2, Chk3, Chk4 As New DataGridViewCheckBoxColumn
-        Me.DG_Liste_Intervenants.Columns.Add(Chk1)
-        Me.DG_Liste_Interventions.Columns.Add(Chk2)
-        Me.DG_Liste_Interventions_nonpayees.Columns.Add(Chk3)
-
-        Chk1.DisplayIndex = 0
-        Chk2.DisplayIndex = 0
-        Chk3.DisplayIndex = 0
-        Chk4.DisplayIndex = 0
-
-        'Chk3.Width = 21
-
-        Chk1.Name = "_"
-        Chk2.Name = "_"
-        Chk3.Name = "_"
-        Chk4.Name = "_"
-
-        Chk1.HeaderText = ""
-        Chk2.HeaderText = ""
-        Chk3.HeaderText = ""
-        Chk4.HeaderText = ""
-
-    End Sub
 
 #Region "Arborescence Formations"
 
@@ -240,7 +212,7 @@ Public Class Formation
     Private Sub MAJ_infos()
         SF = New SessionFormation(bdd, NomFormation, SessionFormation, idSession, idFormation)
 
-        o_Planning = New Onglet_planning(bdd, SF)
+        'o_Planning = New Onglet_planning(bdd, SF)
         o_Intervenant = New Onglet_intervenant(bdd, SF, idSession)
         o_Stagiaire = New Onglet_stagiaire(bdd, SF)
 
@@ -371,9 +343,6 @@ Public Class Formation
 
         FillBy_interventionsToolStripButton.PerformClick()
 
-        'Remplir_DG_Liste_Interventions_payees()
-        'Remplir_DG_Liste_Interventions_nonpayees()
-
     End Sub
 
     Private Sub BT_Actualiser_paiement_Click(sender As Object, e As EventArgs) Handles BT_Actualiser_paiement.Click
@@ -395,6 +364,8 @@ Public Class Formation
         Me.TB_I_Nom.Text = ""
         Me.TB_I_Prenom.Text = ""
         Me.RTB_I_Adresse.Text = ""
+        Me.TB_I_Ville.Text = ""
+        Me.TB_I_CP.Text = ""
         Me.TB_I_Pays.Text = ""
         Me.TB_I_Telephone.Text = ""
         Me.LinkLabel_Mail_Intervenant.Text = ""
@@ -413,6 +384,8 @@ Public Class Formation
         Me.TB_I_Nom.Enabled = True
         Me.TB_I_Prenom.Enabled = True
         Me.RTB_I_Adresse.Enabled = True
+        Me.TB_I_Ville.Enabled = True
+        Me.TB_I_CP.Enabled = True
         Me.TB_I_Pays.Enabled = True
         Me.TB_I_Telephone.Enabled = True
         Me.LinkLabel_Mail_Intervenant.Enabled = True
@@ -431,6 +404,8 @@ Public Class Formation
         Me.TB_I_Nom.Enabled = False
         Me.TB_I_Prenom.Enabled = False
         Me.RTB_I_Adresse.Enabled = False
+        Me.TB_I_Ville.Enabled = False
+        Me.TB_I_CP.Enabled = False
         Me.TB_I_Pays.Enabled = False
         Me.TB_I_Telephone.Enabled = False
         'Me.LinkLabel_Mail_Intervenant.Enabled = False
@@ -450,7 +425,9 @@ Public Class Formation
         Me.CB_I_Civilite.Text = DG.Rows(index).Cells(1).Value
         Me.TB_I_Nom.Text = DG.Rows(index).Cells(2).Value
         Me.TB_I_Prenom.Text = DG.Rows(index).Cells(4).Value
-        Me.RTB_I_Adresse.Text = DG.Rows(index).Cells(10).Value & ", " & DG.Rows(index).Cells(11).Value & " " & DG.Rows(index).Cells(12).Value
+        Me.RTB_I_Adresse.Text = DG.Rows(index).Cells(10).Value
+        Me.TB_I_Ville.Text = DG.Rows(index).Cells(12).Value
+        Me.TB_I_CP.Text = DG.Rows(index).Cells(11).Value
         Me.TB_I_Pays.Text = DG.Rows(index).Cells(13).Value
         Me.TB_I_Telephone.Text = DG.Rows(index).Cells(14).Value
         Me.LinkLabel_Mail_Intervenant.Text = DG.Rows(index).Cells(15).Value
@@ -495,8 +472,6 @@ Public Class Formation
         'Me.Param_Prenom_NP.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
 
         Remplir_DG_Liste_Interventions()
-        'Remplir_DG_Liste_Interventions_nonpayees()
-        'Remplir_DG_Liste_Interventions_payees()
 
         Remplir_Onglet_Information_Intervenant(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
@@ -515,8 +490,6 @@ Public Class Formation
         'Me.Param_Prenom_NP.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
 
         Remplir_DG_Liste_Interventions()
-        'Remplir_DG_Liste_Interventions_nonpayees()
-        'Remplir_DG_Liste_Interventions_payees()
 
         Remplir_Onglet_Information_Intervenant(Me.DG_Liste_Intervenants, Me.DG_Liste_Intervenants.CurrentRow.Index)
     End Sub
@@ -607,7 +580,8 @@ Public Class Formation
     Sub Enregistrer_infos_intervenant()
         Dim req1 As String = "update profils_intervenant set CiviliteP = '" & Me.CB_I_Civilite.Text & "',NomP='" & Me.TB_I_Nom.Text & "'
             ,PrenomP='" & Me.TB_I_Prenom.Text & "',PaysP='" & Me.TB_I_Pays.Text & "',NumTelP='" & Me.TB_I_Telephone.Text & "'
-            ,MailP='" & Me.LinkLabel_Mail_Intervenant.Text & "'
+            ,MailP='" & Me.LinkLabel_Mail_Intervenant.Text & "',AdresseP='" & Me.RTB_I_Adresse.Text & "',CP='" & Me.TB_I_CP.Text & "'
+            ,VilleP='" & Me.TB_I_Ville.Text & "'
             where idPersonne = '" & Me.DG_Liste_Intervenants.CurrentRow.Cells("idPersonne").Value & "'"
         Dim req2 As String = "update profils_intervenant set DateNaissanceI ='" & Me.DTP_I_DateN.Value.ToShortDateString() & "',LieuNaissanceI='" & Me.TB_I_LieuN.Text & "'
             , PaysNaissanceI ='" & Me.TB_I_PaysN.Text & "',NumSSI='" & Me.TB_I_NumSS.Text & "',TypeIntervenant='" & Me.CB_I_TypeIntervenant.Text & "' 
