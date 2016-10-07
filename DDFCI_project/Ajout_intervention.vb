@@ -21,7 +21,7 @@ Public Class Ajout_intervention
         Me.VacationTableAdapter.Fill(Me.Formation_ContinueDataSet1.Vacation)
         Me.TB_Nom.Text = MonIntervenant.Cells(2).Value
         Me.TB_Prenom.Text = MonIntervenant.Cells(4).Value
-        Me.DTP_Date.Value = MaSeance.Cells(2).Value
+        Me.DTP_Date.Value = MaSeance.Cells(3).Value
     End Sub
 
     Private Sub Ajoute_intervention()

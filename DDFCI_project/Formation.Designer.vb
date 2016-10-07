@@ -2306,9 +2306,10 @@ Partial Class Formation
         Me.BindingNavigator2.MovePreviousItem = Nothing
         Me.BindingNavigator2.Name = "BindingNavigator2"
         Me.BindingNavigator2.PositionItem = Nothing
-        Me.BindingNavigator2.Size = New System.Drawing.Size(81, 25)
+        Me.BindingNavigator2.Size = New System.Drawing.Size(112, 25)
         Me.BindingNavigator2.TabIndex = 8
         Me.BindingNavigator2.Text = "BindingNavigator2"
+        Me.BindingNavigator2.Visible = False
         '
         'BindingNavigatorAddNewItem2
         '
@@ -2854,6 +2855,7 @@ Partial Class Formation
         '
         'TB_S_CP
         '
+        Me.TB_S_CP.Enabled = False
         Me.TB_S_CP.Location = New System.Drawing.Point(68, 160)
         Me.TB_S_CP.Name = "TB_S_CP"
         Me.TB_S_CP.Size = New System.Drawing.Size(115, 20)
@@ -2870,6 +2872,7 @@ Partial Class Formation
         '
         'TB_S_Ville
         '
+        Me.TB_S_Ville.Enabled = False
         Me.TB_S_Ville.Location = New System.Drawing.Point(68, 133)
         Me.TB_S_Ville.Name = "TB_S_Ville"
         Me.TB_S_Ville.Size = New System.Drawing.Size(115, 20)

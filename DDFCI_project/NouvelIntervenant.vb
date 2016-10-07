@@ -91,7 +91,7 @@ Public Class NouvelIntervenant
 
     Private Sub BT_rechercher_Click(sender As Object, e As EventArgs) Handles BT_rechercher.Click
         If Me.TB_Nom_R IsNot "" Then
-            Me.PersonneTableAdapter.GetPersonne(Me.Formation_ContinueDataSet1.Personne, Me.TB_Nom_R.Text, Me.TB_Prenom_R.Text)
+            Me.PersonneTableAdapter.GetPersonne(Me.Formation_ContinueDataSet1.Personne, "%" + Me.TB_Nom_R.Text + "%", "%" + Me.TB_Prenom_R.Text + "%")
         End If
     End Sub
 

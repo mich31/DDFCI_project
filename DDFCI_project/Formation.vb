@@ -107,8 +107,8 @@ Public Class Formation
         Me.Profils_intervenantTableAdapter.Fill(Me.Formation_ContinueDataSet1.profils_intervenant)
 
         Me.TV_Menu.TopNode = Me.TV_Menu.Nodes.Add(bdd.username)
-        CreerArborescence()
         CreerUtilisateur()
+        CreerArborescence()
         GestionDesDroits()
         OrdonneOnglets()
     End Sub
@@ -124,7 +124,7 @@ Public Class Formation
     End Sub
 
     Sub GestionDesDroits()
-        If utilisateur.fonction = "Admin" Then
+        If utilisateur.fonction = "Admin" Or utilisateur.fonction = "Direction" Then
             Me.CréerUnUtilisateurToolStripMenuItem.Enabled = True
             Me.SupprimerUtilisateurToolStripMenu.Enabled = True
         Else
@@ -237,7 +237,12 @@ Public Class Formation
         Remplir_DG_Seances()
         Remplir_panel()
         Remplir_LB_Taches()
-        Me.TempsAgentTableAdapter.FillBy_user_session(Me.Formation_ContinueDataSet1.TempsAgent, bdd.username, NomFormation, SessionFormation)
+
+        If utilisateur.fonction = "Admin" Or utilisateur.fonction = "Direction" Then
+            Me.TempsAgentTableAdapter.FillBy_user_session(Me.Formation_ContinueDataSet1.TempsAgent, "%", NomFormation, SessionFormation)
+        Else
+            Me.TempsAgentTableAdapter.FillBy_user_session(Me.Formation_ContinueDataSet1.TempsAgent, bdd.username, NomFormation, SessionFormation)
+        End If
 
     End Sub
 
@@ -246,21 +251,39 @@ Public Class Formation
     ''' Crée l'arborescence des formations et sessions de formations sur lesquelles l'utilisateur travaille
     ''' </summary>
     Sub CreerArborescence()
-        Dim Req As String = "select distinct NomF from travaille_sur_formation where Login='" & bdd.username & "'"
-        Dim cmd As New SqlCommand(Req, bdd.connect)
-        Dim MonAdaptateur As New SqlDataAdapter(cmd)
+        If utilisateur.fonction = "Admin" Or utilisateur.fonction = "Direction" Then
+            Dim Req As String = "select distinct NomF from Formation"
+            Dim cmd As New SqlCommand(Req, bdd.connect)
+            Dim MonAdaptateur As New SqlDataAdapter(cmd)
 
-        Try
-            MonAdaptateur.Fill(MonDataSet, "travaille_sur_formation")
-            'Analyse du dataset
-            For Each Ligne As DataRow In MonDataSet.Tables("travaille_sur_formation").Rows()
-                Me.TV_Menu.TopNode.Nodes.Add(Ligne("NomF").ToString, Ligne("NomF").ToString)
-                CreerArborescenceFormation(Ligne("NomF").ToString, Me.TV_Menu.TopNode)
-            Next
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
-        cmd.Dispose()
+            Try
+                MonAdaptateur.Fill(MonDataSet, "travaille_sur_formation")
+                'Analyse du dataset
+                For Each Ligne As DataRow In MonDataSet.Tables("travaille_sur_formation").Rows()
+                    Me.TV_Menu.TopNode.Nodes.Add(Ligne("NomF").ToString, Ligne("NomF").ToString)
+                    CreerArborescenceFormation(Ligne("NomF").ToString, Me.TV_Menu.TopNode)
+                Next
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+            End Try
+            cmd.Dispose()
+        Else
+            Dim Req As String = "select distinct NomF from travaille_sur_formation where Login='" & bdd.username & "'"
+            Dim cmd As New SqlCommand(Req, bdd.connect)
+            Dim MonAdaptateur As New SqlDataAdapter(cmd)
+
+            Try
+                MonAdaptateur.Fill(MonDataSet, "travaille_sur_formation")
+                'Analyse du dataset
+                For Each Ligne As DataRow In MonDataSet.Tables("travaille_sur_formation").Rows()
+                    Me.TV_Menu.TopNode.Nodes.Add(Ligne("NomF").ToString, Ligne("NomF").ToString)
+                    CreerArborescenceFormation(Ligne("NomF").ToString, Me.TV_Menu.TopNode)
+                Next
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+            End Try
+            cmd.Dispose()
+        End If
     End Sub
 
     Sub ActualiserArborescence()
@@ -289,20 +312,38 @@ Public Class Formation
     ''' <param name="NodeActuel"></param>
     Sub CreerArborescenceFormation(ByVal NomFormation As String, ByVal NodeActuel As TreeNode)
         Dim Node As TreeNode = NodeActuel.Nodes(NomFormation)
-        Dim Req As String = "select * from travaille_sur_formation where Login='" & bdd.username & "' and NomF='" & NomFormation & "'"
-        Dim cmd As New SqlCommand(Req, bdd.connect)
-        Dim MonAdaptateur As New SqlDataAdapter(cmd)
+        If utilisateur.fonction = "Admin" Or utilisateur.fonction = "Direction" Then
+            Dim Req As String = "select*from SessionFormation S, Formation F 
+                where S.idFormation = F.idFormation and NomF = '" & NomFormation & "'"
+            Dim cmd As New SqlCommand(Req, bdd.connect)
+            Dim MonAdaptateur As New SqlDataAdapter(cmd)
 
-        Try
-            MonAdaptateur.Fill(MonDataSet, "session_par_formation")
-            For Each Ligne As DataRow In MonDataSet.Tables("session_par_formation").Rows()
-                Node.Nodes.Add(Ligne("AnneeSession").ToString)
-            Next
-            MonDataSet.Tables("session_par_formation").Clear()
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
-        cmd.Dispose()
+            Try
+                MonAdaptateur.Fill(MonDataSet, "session_par_formation")
+                For Each Ligne As DataRow In MonDataSet.Tables("session_par_formation").Rows()
+                    Node.Nodes.Add(Ligne("AnneeSession").ToString)
+                Next
+                MonDataSet.Tables("session_par_formation").Clear()
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+            End Try
+            cmd.Dispose()
+        Else
+            Dim Req As String = "Select * from travaille_sur_formation where Login='" & bdd.username & "' and NomF='" & NomFormation & "'"
+            Dim cmd As New SqlCommand(Req, bdd.connect)
+            Dim MonAdaptateur As New SqlDataAdapter(cmd)
+
+            Try
+                MonAdaptateur.Fill(MonDataSet, "session_par_formation")
+                For Each Ligne As DataRow In MonDataSet.Tables("session_par_formation").Rows()
+                    Node.Nodes.Add(Ligne("AnneeSession").ToString)
+                Next
+                MonDataSet.Tables("session_par_formation").Clear()
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+            End Try
+            cmd.Dispose()
+        End If
     End Sub
 
 #End Region
@@ -572,6 +613,8 @@ Public Class Formation
         FermetureDesChamps()
         Enregistrer_infos_intervenant()
         Me.DG_Liste_Intervenants.ReadOnly = True
+        Me.BT_Actualiser_Intervenants.PerformClick()
+
     End Sub
 
     ''' <summary>
@@ -583,13 +626,14 @@ Public Class Formation
             ,MailP='" & Me.LinkLabel_Mail_Intervenant.Text & "',AdresseP='" & Me.RTB_I_Adresse.Text & "',CP='" & Me.TB_I_CP.Text & "'
             ,VilleP='" & Me.TB_I_Ville.Text & "'
             where idPersonne = '" & Me.DG_Liste_Intervenants.CurrentRow.Cells("idPersonne").Value & "'"
-        Dim req2 As String = "update profils_intervenant set DateNaissanceI ='" & Me.DTP_I_DateN.Value.ToShortDateString() & "',LieuNaissanceI='" & Me.TB_I_LieuN.Text & "'
+        Dim req2 As String = "update profils_intervenant set DateNaissanceI ='" & Me.DTP_I_DateN.Value.ToString("yyyy-MM-dd") & "',LieuNaissanceI='" & Me.TB_I_LieuN.Text & "'
             , PaysNaissanceI ='" & Me.TB_I_PaysN.Text & "',NumSSI='" & Me.TB_I_NumSS.Text & "',TypeIntervenant='" & Me.CB_I_TypeIntervenant.Text & "' 
             where idPersonne = '" & Me.DG_Liste_Intervenants.CurrentRow.Cells("idPersonne").Value & "'"
         Dim cmd1 As New SqlCommand(req1, bdd.connect)
         Dim cmd2 As New SqlCommand(req2, bdd.connect)
         Dim res1 As Integer = 0
         Dim res2 As Integer = 0
+
 
         Try
             res1 = cmd1.ExecuteNonQuery()
@@ -672,7 +716,8 @@ Public Class Formation
             End If
         Next
 
-        Me.TB_Prix.Text = DG.Rows(index).Cells(17).Value
+        Me.TB_Prix.Text = DG.Rows(index).Cells(17).Value.ToString
+
         Me.CB_StatutPaiement.Text = DG.Rows(index).Cells(18).Value
 
     End Sub
@@ -682,6 +727,8 @@ Public Class Formation
         Me.TB_S_Nom.Text = ""
         Me.TB_S_Prenom.Text = ""
         Me.RTB_S_Adresse.Text = ""
+        Me.TB_S_CP.Text = ""
+        Me.TB_S_Ville.Text = ""
         Me.TB_S_Pays.Text = ""
         Me.TB_S_Tel.Text = ""
         Me.Email_Stagiaire.Text = ""
@@ -697,6 +744,8 @@ Public Class Formation
         Me.TB_S_Nom.Enabled = True
         Me.TB_S_Prenom.Enabled = True
         Me.RTB_S_Adresse.Enabled = True
+        Me.TB_S_Ville.Enabled = True
+        Me.TB_S_CP.Enabled = True
         Me.TB_S_Pays.Enabled = True
         Me.TB_S_Tel.Enabled = True
         Me.Email_Stagiaire.Enabled = True
@@ -715,6 +764,8 @@ Public Class Formation
         Me.CB_S_Civ.Enabled = False
         Me.TB_S_Nom.Enabled = False
         Me.TB_S_Prenom.Enabled = False
+        Me.TB_S_Ville.Enabled = False
+        Me.TB_S_CP.Enabled = False
         Me.RTB_S_Adresse.Enabled = False
         Me.TB_S_Pays.Enabled = False
         Me.TB_S_Tel.Enabled = False
@@ -732,8 +783,6 @@ Public Class Formation
 
     Private Sub DG_Liste_Stagiaires_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG_Liste_Stagiaires.CellContentClick
         Init_champs_Information_stagiaires()
-        'intervenant_select = New Intervenant(bdd, o_Intervenant.Intervenants, o_Intervenant.Interventions, o_Intervenant.DonneesEntreprises, Me.DG_Liste_Intervenants.CurrentRow.Index, SessionFormation, NomFormation, utilisateur)
-        'Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
 
         Remplir_Onglet_Information_Stagiaire(Me.DG_Liste_Stagiaires, Me.DG_Liste_Stagiaires.CurrentRow.Index)
     End Sub
@@ -768,6 +817,8 @@ Public Class Formation
     Private Sub BT_S_Enregistrer_Click(sender As Object, e As EventArgs) Handles BT_S_Enregistrer.Click
         Enregistrer_infos_stagiaire()
         FermetureDesChamps_stagiaires()
+        Me.BT_Refresh_Stagiaires.PerformClick()
+
     End Sub
 
     Private Sub Enregistrer_infos_stagiaire()
@@ -795,6 +846,8 @@ Public Class Formation
 
     Private Sub BT_Supprimer_Stagiaire_Click(sender As Object, e As EventArgs) Handles BT_Supprimer_Stagiaire.Click
         Me.BindingNavigatorDeleteItem.PerformClick()
+        Me.BT_Enregistrer_stagiaires.PerformClick()
+
     End Sub
 
     Private Sub BT_Enregistrer_stagiaires_Click(sender As Object, e As EventArgs) Handles BT_Enregistrer_stagiaires.Click
@@ -1043,7 +1096,7 @@ Public Class Formation
         Dim temps As String = nb.ToString.Replace(",", ".")
         Dim req As String = "insert into TempsAgent 
             values ('" & idSession & "','" & utilisateur.user & "','" & NomFormation & "','" & SessionFormation & "',
-            '" & Type_projet & "','" & Type_Formation & "','" & Me.LB_Taches.SelectedItem.ToString.Replace("'", "''") & "'," & temps & ",'" & Me.DTP_Periode.Value & "')"
+            '" & Type_projet & "','" & Type_Formation & "','" & Me.LB_Taches.SelectedItem.ToString.Replace("'", "''") & "'," & temps & ",'" & Me.DTP_Periode.Value.ToString("yyyy-MM-dd") & "')"
         Dim cmd As New SqlCommand(req, bdd.connect)
         Dim res As Integer
         Try
@@ -1061,6 +1114,7 @@ Public Class Formation
         Dim max As Date = trouve_date_max()
         'MsgBox(max)
         Dim MaDate As Date = Me.DTP_Periode.Value
+        'MsgBox(MaDate)
         If MaDate > max.AddDays(7) Then
             'MsgBox("Go")
             ajoute_temps()
@@ -1091,7 +1145,6 @@ Public Class Formation
 
         Return res
     End Function
-
 
 
 #End Region
@@ -1268,16 +1321,6 @@ Public Class Formation
         TableVac.Show()
     End Sub
 
-    'Private Sub NouvelleFormationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouvelleFormationToolStripMenuItem.Click
-    '    Dim Modif_formation As New Edit_Formation(bdd)
-    '    Modif_formation.Show()
-    'End Sub
-
-    'Private Sub NouvelleSessionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NouvelleSessionToolStripMenuItem.Click
-    '    Dim Nvelle_session As New Edit_Session(utilisateur, bdd)
-    '    Nvelle_session.Show()
-
-    'End Sub
 
     Private Sub SupprimerUtilisateurToolStripMenu_Click(sender As Object, e As EventArgs) Handles SupprimerUtilisateurToolStripMenu.Click
         Dim suppr_utilisateur As New SupprimerUtilisateur(bdd)

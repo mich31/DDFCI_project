@@ -70,11 +70,6 @@ DDFCI_project
  Créé une instance Utilisateur
  </summary>
 </member>
-<member name="M:DDFCI_project.Formation.Creation_DG">
- <summary>
- Ajoute des cases à cocher sur tous les datagridview 
- </summary>
-</member>
 <member name="M:DDFCI_project.Formation.CreerArborescence">
  <summary>
  Crée l'arborescence des formations et sessions de formations sur lesquelles l'utilisateur travaille

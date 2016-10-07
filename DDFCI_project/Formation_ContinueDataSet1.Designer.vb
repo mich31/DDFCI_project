@@ -9936,6 +9936,7 @@ Partial Public Class Formation_ContinueDataSet1
             Me.columnNom.MaxLength = 50
             Me.columnTache.AllowDBNull = false
             Me.columnTache.MaxLength = 50
+            Me.columnDate.DateTimeMode = Global.System.Data.DataSetDateTime.Local
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -18441,7 +18442,7 @@ Namespace Formation_ContinueDataSet1TableAdapters
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT        idPersonne, CiviliteP, NomP, NomJeuneFille, PrenomP, NationaliteP, "& _ 
                 "AdresseP, CP, VilleP, PaysP, NumTelP, MailP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Personne"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
-                "    (NomP = @NomP) AND (PrenomP = @PrenomP)"
+                "    (NomP LIKE @NomP) AND (PrenomP LIKE @PrenomP)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomP", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrenomP", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PrenomP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -24093,8 +24094,8 @@ Namespace Formation_ContinueDataSet1TableAdapters
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        idSessionFormation, Login, Formation, Session, TypeProjet, Nom, Tac"& _ 
-                "he, Temps, Date"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            TempsAgent"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Login = @Login) AND ("& _ 
-                "Formation = @Formation) AND (Session = @Session)"
+                "he, Temps, Date"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            TempsAgent"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Login LIKE @Login) AN"& _ 
+                "D (Formation LIKE @Formation) AND (Session LIKE @Session)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Login", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Login", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Formation", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Formation", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
