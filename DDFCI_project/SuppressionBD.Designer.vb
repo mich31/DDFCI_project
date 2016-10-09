@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class NouveauStagiaire
+Partial Class SuppressionBD
     Inherits System.Windows.Forms.Form
 
     'Form remplace la méthode Dispose pour nettoyer la liste des composants.
@@ -23,32 +23,31 @@ Partial Class NouveauStagiaire
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.CB_civ = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TB_Mail = New System.Windows.Forms.TextBox()
-        Me.TB_Tel = New System.Windows.Forms.TextBox()
-        Me.TB_Nationalite = New System.Windows.Forms.TextBox()
-        Me.TB_Prenom = New System.Windows.Forms.TextBox()
-        Me.TB_Nom = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.BT_Ajouter = New System.Windows.Forms.Button()
-        Me.BT_Annuler = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SuppressionBD))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DG_Liste_personne = New System.Windows.Forms.DataGridView()
+        Me.PersonneBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
         Me.BT_rechercher = New System.Windows.Forms.Button()
         Me.TB_Prenom_R = New System.Windows.Forms.TextBox()
         Me.TB_Nom_R = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.BT_R_Ajouter = New System.Windows.Forms.Button()
-        Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
-        Me.PersonneBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BT_Suppr = New System.Windows.Forms.Button()
+        Me.BT_Annuler = New System.Windows.Forms.Button()
         Me.PersonneTableAdapter = New DDFCI_project.Formation_ContinueDataSet1TableAdapters.PersonneTableAdapter()
+        Me.BindingNavigator1 = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
+        Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.IdPersonneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CivilitePDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -61,155 +60,13 @@ Partial Class NouveauStagiaire
         Me.PaysPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NumTelPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MailPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DG_Liste_personne, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PersonneBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BindingNavigator1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Panel1
-        '
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.CB_civ)
-        Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.TB_Mail)
-        Me.Panel1.Controls.Add(Me.TB_Tel)
-        Me.Panel1.Controls.Add(Me.TB_Nationalite)
-        Me.Panel1.Controls.Add(Me.TB_Prenom)
-        Me.Panel1.Controls.Add(Me.TB_Nom)
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(16, 31)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(288, 234)
-        Me.Panel1.TabIndex = 1
-        '
-        'CB_civ
-        '
-        Me.CB_civ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CB_civ.FormattingEnabled = True
-        Me.CB_civ.Items.AddRange(New Object() {"Mme.", "M."})
-        Me.CB_civ.Location = New System.Drawing.Point(117, 6)
-        Me.CB_civ.Name = "CB_civ"
-        Me.CB_civ.Size = New System.Drawing.Size(55, 21)
-        Me.CB_civ.TabIndex = 11
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(68, 9)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(47, 14)
-        Me.Label6.TabIndex = 10
-        Me.Label6.Text = "Civilité:"
-        '
-        'TB_Mail
-        '
-        Me.TB_Mail.Location = New System.Drawing.Point(117, 173)
-        Me.TB_Mail.Name = "TB_Mail"
-        Me.TB_Mail.Size = New System.Drawing.Size(154, 20)
-        Me.TB_Mail.TabIndex = 9
-        '
-        'TB_Tel
-        '
-        Me.TB_Tel.Location = New System.Drawing.Point(117, 137)
-        Me.TB_Tel.Name = "TB_Tel"
-        Me.TB_Tel.Size = New System.Drawing.Size(154, 20)
-        Me.TB_Tel.TabIndex = 8
-        '
-        'TB_Nationalite
-        '
-        Me.TB_Nationalite.Location = New System.Drawing.Point(117, 102)
-        Me.TB_Nationalite.Name = "TB_Nationalite"
-        Me.TB_Nationalite.Size = New System.Drawing.Size(154, 20)
-        Me.TB_Nationalite.TabIndex = 7
-        '
-        'TB_Prenom
-        '
-        Me.TB_Prenom.Location = New System.Drawing.Point(117, 66)
-        Me.TB_Prenom.Name = "TB_Prenom"
-        Me.TB_Prenom.Size = New System.Drawing.Size(154, 20)
-        Me.TB_Prenom.TabIndex = 6
-        '
-        'TB_Nom
-        '
-        Me.TB_Nom.Location = New System.Drawing.Point(117, 33)
-        Me.TB_Nom.Name = "TB_Nom"
-        Me.TB_Nom.Size = New System.Drawing.Size(154, 20)
-        Me.TB_Nom.TabIndex = 5
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(72, 176)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(43, 14)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "E-mail:"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(46, 140)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(69, 14)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Téléphone:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(48, 105)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(67, 14)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Nationalité:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(46, 69)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(69, 14)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Prénom(s):"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(80, 36)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(35, 14)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Nom:"
-        '
-        'BT_Ajouter
-        '
-        Me.BT_Ajouter.Location = New System.Drawing.Point(66, 288)
-        Me.BT_Ajouter.Name = "BT_Ajouter"
-        Me.BT_Ajouter.Size = New System.Drawing.Size(75, 23)
-        Me.BT_Ajouter.TabIndex = 2
-        Me.BT_Ajouter.Text = "Ajouter"
-        Me.BT_Ajouter.UseVisualStyleBackColor = True
-        '
-        'BT_Annuler
-        '
-        Me.BT_Annuler.Location = New System.Drawing.Point(165, 288)
-        Me.BT_Annuler.Name = "BT_Annuler"
-        Me.BT_Annuler.Size = New System.Drawing.Size(75, 23)
-        Me.BT_Annuler.TabIndex = 3
-        Me.BT_Annuler.Text = "Annuler"
-        Me.BT_Annuler.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -220,7 +77,7 @@ Partial Class NouveauStagiaire
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.GroupBox1.Location = New System.Drawing.Point(338, 22)
+        Me.GroupBox1.Location = New System.Drawing.Point(22, 26)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(345, 243)
         Me.GroupBox1.TabIndex = 4
@@ -234,14 +91,24 @@ Partial Class NouveauStagiaire
         Me.DG_Liste_personne.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DG_Liste_personne.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdPersonneDataGridViewTextBoxColumn, Me.CivilitePDataGridViewTextBoxColumn, Me.NomPDataGridViewTextBoxColumn, Me.NomJeuneFilleDataGridViewTextBoxColumn, Me.PrenomPDataGridViewTextBoxColumn, Me.NationalitePDataGridViewTextBoxColumn, Me.AdressePDataGridViewTextBoxColumn, Me.CPDataGridViewTextBoxColumn, Me.VillePDataGridViewTextBoxColumn, Me.PaysPDataGridViewTextBoxColumn, Me.NumTelPDataGridViewTextBoxColumn, Me.MailPDataGridViewTextBoxColumn})
         Me.DG_Liste_personne.DataSource = Me.PersonneBindingSource
-        Me.DG_Liste_personne.Location = New System.Drawing.Point(19, 99)
+        Me.DG_Liste_personne.Location = New System.Drawing.Point(30, 99)
         Me.DG_Liste_personne.Name = "DG_Liste_personne"
-        Me.DG_Liste_personne.Size = New System.Drawing.Size(305, 131)
+        Me.DG_Liste_personne.Size = New System.Drawing.Size(272, 131)
         Me.DG_Liste_personne.TabIndex = 5
+        '
+        'PersonneBindingSource
+        '
+        Me.PersonneBindingSource.DataMember = "Personne"
+        Me.PersonneBindingSource.DataSource = Me.Formation_ContinueDataSet1
+        '
+        'Formation_ContinueDataSet1
+        '
+        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
+        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BT_rechercher
         '
-        Me.BT_rechercher.Location = New System.Drawing.Point(135, 70)
+        Me.BT_rechercher.Location = New System.Drawing.Point(131, 70)
         Me.BT_rechercher.Name = "BT_rechercher"
         Me.BT_rechercher.Size = New System.Drawing.Size(75, 23)
         Me.BT_rechercher.TabIndex = 4
@@ -250,9 +117,9 @@ Partial Class NouveauStagiaire
         '
         'TB_Prenom_R
         '
-        Me.TB_Prenom_R.Location = New System.Drawing.Point(210, 40)
+        Me.TB_Prenom_R.Location = New System.Drawing.Point(203, 40)
         Me.TB_Prenom_R.Name = "TB_Prenom_R"
-        Me.TB_Prenom_R.Size = New System.Drawing.Size(102, 20)
+        Me.TB_Prenom_R.Size = New System.Drawing.Size(99, 20)
         Me.TB_Prenom_R.TabIndex = 3
         '
         'TB_Nom_R
@@ -266,7 +133,7 @@ Partial Class NouveauStagiaire
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(235, 23)
+        Me.Label9.Location = New System.Drawing.Point(216, 23)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(51, 14)
         Me.Label9.TabIndex = 1
@@ -282,28 +149,131 @@ Partial Class NouveauStagiaire
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Nom"
         '
-        'BT_R_Ajouter
+        'BT_Suppr
         '
-        Me.BT_R_Ajouter.Location = New System.Drawing.Point(483, 288)
-        Me.BT_R_Ajouter.Name = "BT_R_Ajouter"
-        Me.BT_R_Ajouter.Size = New System.Drawing.Size(75, 23)
-        Me.BT_R_Ajouter.TabIndex = 5
-        Me.BT_R_Ajouter.Text = "Ajouter"
-        Me.BT_R_Ajouter.UseVisualStyleBackColor = True
+        Me.BT_Suppr.Location = New System.Drawing.Point(97, 286)
+        Me.BT_Suppr.Name = "BT_Suppr"
+        Me.BT_Suppr.Size = New System.Drawing.Size(75, 23)
+        Me.BT_Suppr.TabIndex = 5
+        Me.BT_Suppr.Text = "Supprimer"
+        Me.BT_Suppr.UseVisualStyleBackColor = True
         '
-        'Formation_ContinueDataSet1
+        'BT_Annuler
         '
-        Me.Formation_ContinueDataSet1.DataSetName = "Formation_ContinueDataSet1"
-        Me.Formation_ContinueDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PersonneBindingSource
-        '
-        Me.PersonneBindingSource.DataMember = "Personne"
-        Me.PersonneBindingSource.DataSource = Me.Formation_ContinueDataSet1
+        Me.BT_Annuler.Location = New System.Drawing.Point(214, 286)
+        Me.BT_Annuler.Name = "BT_Annuler"
+        Me.BT_Annuler.Size = New System.Drawing.Size(75, 23)
+        Me.BT_Annuler.TabIndex = 6
+        Me.BT_Annuler.Text = "Annuler"
+        Me.BT_Annuler.UseVisualStyleBackColor = True
         '
         'PersonneTableAdapter
         '
         Me.PersonneTableAdapter.ClearBeforeFill = True
+        '
+        'BindingNavigator1
+        '
+        Me.BindingNavigator1.AddNewItem = Me.BindingNavigatorAddNewItem
+        Me.BindingNavigator1.BindingSource = Me.PersonneBindingSource
+        Me.BindingNavigator1.CountItem = Me.BindingNavigatorCountItem
+        Me.BindingNavigator1.DeleteItem = Me.BindingNavigatorDeleteItem
+        Me.BindingNavigator1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem})
+        Me.BindingNavigator1.Location = New System.Drawing.Point(0, 0)
+        Me.BindingNavigator1.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
+        Me.BindingNavigator1.MoveLastItem = Me.BindingNavigatorMoveLastItem
+        Me.BindingNavigator1.MoveNextItem = Me.BindingNavigatorMoveNextItem
+        Me.BindingNavigator1.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
+        Me.BindingNavigator1.Name = "BindingNavigator1"
+        Me.BindingNavigator1.PositionItem = Me.BindingNavigatorPositionItem
+        Me.BindingNavigator1.Size = New System.Drawing.Size(391, 25)
+        Me.BindingNavigator1.TabIndex = 7
+        Me.BindingNavigator1.Text = "BindingNavigator1"
+        Me.BindingNavigator1.Visible = False
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Ajouter nouveau"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(37, 22)
+        Me.BindingNavigatorCountItem.Text = "de {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Nombre total d'éléments"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Supprimer"
+        '
+        'BindingNavigatorMoveFirstItem
+        '
+        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
+        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem.Text = "Placer en premier"
+        '
+        'BindingNavigatorMovePreviousItem
+        '
+        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
+        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem.Text = "Déplacer vers le haut"
+        '
+        'BindingNavigatorSeparator
+        '
+        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorPositionItem
+        '
+        Me.BindingNavigatorPositionItem.AccessibleName = "Position"
+        Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
+        Me.BindingNavigatorPositionItem.Text = "0"
+        Me.BindingNavigatorPositionItem.ToolTipText = "Position actuelle"
+        '
+        'BindingNavigatorSeparator1
+        '
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'BindingNavigatorMoveNextItem
+        '
+        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
+        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem.Text = "Déplacer vers le bas"
+        '
+        'BindingNavigatorMoveLastItem
+        '
+        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
+        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem.Text = "Placer en dernier"
+        '
+        'BindingNavigatorSeparator2
+        '
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'IdPersonneDataGridViewTextBoxColumn
         '
@@ -388,44 +358,30 @@ Partial Class NouveauStagiaire
         Me.MailPDataGridViewTextBoxColumn.Name = "MailPDataGridViewTextBoxColumn"
         Me.MailPDataGridViewTextBoxColumn.Visible = False
         '
-        'NouveauStagiaire
+        'SuppressionBD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(711, 332)
-        Me.Controls.Add(Me.BT_R_Ajouter)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.ClientSize = New System.Drawing.Size(391, 348)
+        Me.Controls.Add(Me.BindingNavigator1)
         Me.Controls.Add(Me.BT_Annuler)
-        Me.Controls.Add(Me.BT_Ajouter)
-        Me.Controls.Add(Me.Panel1)
-        Me.Name = "NouveauStagiaire"
-        Me.Text = "Ajouter un(e) stagiaire"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.Controls.Add(Me.BT_Suppr)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Name = "SuppressionBD"
+        Me.Text = "Supprimer intervenant(e)/stagiaire"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DG_Liste_personne, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PersonneBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Formation_ContinueDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.BindingNavigator1.ResumeLayout(False)
+        Me.BindingNavigator1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents CB_civ As ComboBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents TB_Mail As TextBox
-    Friend WithEvents TB_Tel As TextBox
-    Friend WithEvents TB_Nationalite As TextBox
-    Friend WithEvents TB_Prenom As TextBox
-    Friend WithEvents TB_Nom As TextBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents BT_Ajouter As Button
-    Friend WithEvents BT_Annuler As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents DG_Liste_personne As DataGridView
     Friend WithEvents BT_rechercher As Button
@@ -433,10 +389,23 @@ Partial Class NouveauStagiaire
     Friend WithEvents TB_Nom_R As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents BT_R_Ajouter As Button
+    Friend WithEvents BT_Suppr As Button
+    Friend WithEvents BT_Annuler As Button
     Friend WithEvents Formation_ContinueDataSet1 As Formation_ContinueDataSet1
     Friend WithEvents PersonneBindingSource As BindingSource
     Friend WithEvents PersonneTableAdapter As Formation_ContinueDataSet1TableAdapters.PersonneTableAdapter
+    Friend WithEvents BindingNavigator1 As BindingNavigator
+    Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
+    Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
+    Friend WithEvents BindingNavigatorDeleteItem As ToolStripButton
+    Friend WithEvents BindingNavigatorMoveFirstItem As ToolStripButton
+    Friend WithEvents BindingNavigatorMovePreviousItem As ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator As ToolStripSeparator
+    Friend WithEvents BindingNavigatorPositionItem As ToolStripTextBox
+    Friend WithEvents BindingNavigatorSeparator1 As ToolStripSeparator
+    Friend WithEvents BindingNavigatorMoveNextItem As ToolStripButton
+    Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
+    Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents IdPersonneDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CivilitePDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NomPDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

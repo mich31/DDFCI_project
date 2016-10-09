@@ -1229,8 +1229,8 @@ Public Class Formation
     End Sub
 
     Private Sub BT_Export_Interventions_Click(sender As Object, e As EventArgs) Handles BT_Export_Interventions.Click
-        'ExportExcel("S:\Outil FC\Exports\Vacations\" & NomFormation & "_" & SessionFormation & "_" & bdd.username & "_" & Me.Param_Nom.Text & "_" & Me.Param_Prenom.Text & ".xls", Me.DG_Liste_Interventions)
-        ExportExcel("C:\Test\Vacations\" & NomFormation & "_" & SessionFormation & "_" & bdd.username & "_" & Me.Param_Nom.Text & "_" & Me.Param_Prenom.Text & ".xls", Me.DG_Liste_Interventions)
+        ExportExcel("S:\Outil FC\Exports\Vacations\" & NomFormation & "_" & SessionFormation & "_" & bdd.username & "_" & Me.Param_Nom.Text & "_" & Me.Param_Prenom.Text & ".xls", Me.DG_Liste_Interventions)
+        'ExportInterventions("C:\Test\Vacations\" & NomFormation & "_" & SessionFormation & "_" & bdd.username & "_" & Me.Param_Nom.Text & "_" & Me.Param_Prenom.Text & ".xls", Me.DG_Liste_Interventions)
     End Sub
 
     Private Sub BT_Export_stagiaires_Click(sender As Object, e As EventArgs) Handles BT_Export_stagiaires.Click
@@ -1258,6 +1258,50 @@ Public Class Formation
             For j = 0 To DG.ColumnCount - 1
                 xlWorkSheet.Cells(i + 1, j + 1) = DG(j, i).Value.ToString()
             Next
+        Next
+
+        xlWorkBook.SaveAs(Filename,
+                          Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue,
+                          Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue)
+        xlWorkBook.Close(True, misValue, misValue)
+        xlApp.Quit()
+
+        releaseObject(xlWorkSheet)
+        releaseObject(xlWorkBook)
+        releaseObject(xlApp)
+
+        MessageBox.Show("Tableau exporté")
+    End Sub
+
+    Sub ExportInterventions(ByVal Filename As String, ByRef DG As DataGridView)
+        Dim xlApp As Excel.Application
+        Dim xlWorkBook As Excel.Workbook
+        Dim xlWorkSheet As Excel.Worksheet
+        Dim misValue As Object = System.Reflection.Missing.Value
+
+        Dim i, j As Integer
+
+        xlApp = New Excel.Application
+        xlWorkBook = xlApp.Workbooks.Add(misValue)
+        xlWorkSheet = xlWorkBook.Sheets("Feuil1")
+
+        'Entête du fichier excel
+        xlWorkSheet.Cells(1, 1) = "Formation"
+        xlWorkSheet.Cells(1, 2) = "Type d'intervention"
+        xlWorkSheet.Cells(1, 3) = "Date"
+        xlWorkSheet.Cells(1, 4) = "Nombre"
+        xlWorkSheet.Cells(1, 5) = "Quantification HETD"
+        xlWorkSheet.Cells(1, 6) = "Total HETD"
+        xlWorkSheet.Cells(1, 7) = "Total en euros"
+
+        For i = 0 To DG.RowCount - 2
+            xlWorkSheet.Cells(i + 2, 1) = DG(3, i).Value.ToString()
+            xlWorkSheet.Cells(i + 2, 2) = DG(7, i).Value.ToString() 'Type d'intervention
+            xlWorkSheet.Cells(i + 2, 3) = DG(8, i).Value.ToString() 'Date
+            xlWorkSheet.Cells(i + 2, 4) = DG(11, i).Value.ToString() 'Nb d'heure
+            xlWorkSheet.Cells(i + 2, 5) = DG(16, i).Value.ToString() 'Taux
+
+            xlWorkSheet.Cells(i + 2, 7) = DG(14, i).Value.ToString() 'Cout
         Next
 
         xlWorkBook.SaveAs(Filename,
@@ -1342,4 +1386,8 @@ Public Class Formation
         Modif_formation.Show()
     End Sub
 
+    Private Sub SuppressionBDToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuppressionBDToolStripMenuItem.Click
+        Dim suppr As New SuppressionBD(bdd)
+        suppr.Show()
+    End Sub
 End Class

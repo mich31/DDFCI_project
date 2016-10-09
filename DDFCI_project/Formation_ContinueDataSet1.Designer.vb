@@ -7260,6 +7260,8 @@ Partial Public Class Formation_ContinueDataSet1
         
         Private columnCommentaire As Global.System.Data.DataColumn
         
+        Private columnTaux As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -7424,6 +7426,14 @@ Partial Public Class Formation_ContinueDataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TauxColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTaux
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -7476,9 +7486,10 @@ Partial Public Class Formation_ContinueDataSet1
                     ByVal Salle As String,  _
                     ByVal StatutPaiement As String,  _
                     ByVal Cout As Double,  _
-                    ByVal Commentaire As String) As liste_interventionsRow
+                    ByVal Commentaire As String,  _
+                    ByVal Taux As Double) As liste_interventionsRow
             Dim rowliste_interventionsRow As liste_interventionsRow = CType(Me.NewRow,liste_interventionsRow)
-            Dim columnValuesArray() As Object = New Object() {NomP, PrenomP, idIntervenant, NomF, idSeance, idSessionFormation, AnneeSession, TypeIntervention, _Date, HeureDebut, HeureFin, NbHeure, Salle, StatutPaiement, Cout, Commentaire}
+            Dim columnValuesArray() As Object = New Object() {NomP, PrenomP, idIntervenant, NomF, idSeance, idSessionFormation, AnneeSession, TypeIntervention, _Date, HeureDebut, HeureFin, NbHeure, Salle, StatutPaiement, Cout, Commentaire, Taux}
             rowliste_interventionsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowliste_interventionsRow)
             Return rowliste_interventionsRow
@@ -7517,6 +7528,7 @@ Partial Public Class Formation_ContinueDataSet1
             Me.columnStatutPaiement = MyBase.Columns("StatutPaiement")
             Me.columnCout = MyBase.Columns("Cout")
             Me.columnCommentaire = MyBase.Columns("Commentaire")
+            Me.columnTaux = MyBase.Columns("Taux")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7557,6 +7569,8 @@ Partial Public Class Formation_ContinueDataSet1
             MyBase.Columns.Add(Me.columnCout)
             Me.columnCommentaire = New Global.System.Data.DataColumn("Commentaire", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCommentaire)
+            Me.columnTaux = New Global.System.Data.DataColumn("Taux", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTaux)
             Me.columnNomP.AllowDBNull = false
             Me.columnNomP.MaxLength = 50
             Me.columnPrenomP.MaxLength = 50
@@ -7569,6 +7583,7 @@ Partial Public Class Formation_ContinueDataSet1
             Me.columnSalle.MaxLength = 50
             Me.columnStatutPaiement.MaxLength = 50
             Me.columnCommentaire.MaxLength = 255
+            Me.columnTaux.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13158,6 +13173,17 @@ Partial Public Class Formation_ContinueDataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Taux() As Double
+            Get
+                Return CType(Me(Me.tableliste_interventions.TauxColumn),Double)
+            End Get
+            Set
+                Me(Me.tableliste_interventions.TauxColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsPrenomPNull() As Boolean
             Return Me.IsNull(Me.tableliste_interventions.PrenomPColumn)
         End Function
@@ -18317,38 +18343,10 @@ Namespace Formation_ContinueDataSet1TableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Personne] WHERE (([idPersonne] = @Original_idPersonne) AND ([C"& _ 
-                "iviliteP] = @Original_CiviliteP) AND ([NomP] = @Original_NomP) AND ((@IsNull_Nom"& _ 
-                "JeuneFille = 1 AND [NomJeuneFille] IS NULL) OR ([NomJeuneFille] = @Original_NomJ"& _ 
-                "euneFille)) AND ((@IsNull_PrenomP = 1 AND [PrenomP] IS NULL) OR ([PrenomP] = @Or"& _ 
-                "iginal_PrenomP)) AND ([NationaliteP] = @Original_NationaliteP) AND ((@IsNull_Adr"& _ 
-                "esseP = 1 AND [AdresseP] IS NULL) OR ([AdresseP] = @Original_AdresseP)) AND ((@I"& _ 
-                "sNull_CP = 1 AND [CP] IS NULL) OR ([CP] = @Original_CP)) AND ((@IsNull_VilleP = "& _ 
-                "1 AND [VilleP] IS NULL) OR ([VilleP] = @Original_VilleP)) AND ((@IsNull_PaysP = "& _ 
-                "1 AND [PaysP] IS NULL) OR ([PaysP] = @Original_PaysP)) AND ((@IsNull_NumTelP = 1"& _ 
-                " AND [NumTelP] IS NULL) OR ([NumTelP] = @Original_NumTelP)) AND ((@IsNull_MailP "& _ 
-                "= 1 AND [MailP] IS NULL) OR ([MailP] = @Original_MailP)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM Personne"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NomP LIKE @NomP) AND (PrenomP LIKE @PrenomP)"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_idPersonne", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "idPersonne", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CiviliteP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CiviliteP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NomP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_NomJeuneFille", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomJeuneFille", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NomJeuneFille", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NomJeuneFille", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PrenomP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrenomP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PrenomP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrenomP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NationaliteP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NationaliteP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AdresseP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AdresseP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AdresseP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AdresseP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_VilleP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VilleP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VilleP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VilleP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PaysP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaysP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PaysP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PaysP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_NumTelP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NumTelP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NumTelP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NumTelP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MailP", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MailP", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MailP", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MailP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomP", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrenomP", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PrenomP", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Personne] ([CiviliteP], [NomP], [NomJeuneFille], [PrenomP], [N"& _ 
@@ -18548,78 +18546,16 @@ Namespace Formation_ContinueDataSet1TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_idPersonne As Integer, ByVal Original_CiviliteP As String, ByVal Original_NomP As String, ByVal Original_NomJeuneFille As String, ByVal Original_PrenomP As String, ByVal Original_NationaliteP As String, ByVal Original_AdresseP As String, ByVal Original_CP As String, ByVal Original_VilleP As String, ByVal Original_PaysP As String, ByVal Original_NumTelP As String, ByVal Original_MailP As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_idPersonne,Integer)
-            If (Original_CiviliteP Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CiviliteP")
+        Public Overloads Overridable Function Delete(ByVal NomP As String, ByVal PrenomP As String) As Integer
+            If (NomP Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NomP")
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_CiviliteP,String)
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(NomP,String)
             End If
-            If (Original_NomP Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_NomP")
+            If (PrenomP Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_NomP,String)
-            End If
-            If (Original_NomJeuneFille Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_NomJeuneFille,String)
-            End If
-            If (Original_PrenomP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_PrenomP,String)
-            End If
-            If (Original_NationaliteP Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_NationaliteP")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_NationaliteP,String)
-            End If
-            If (Original_AdresseP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_AdresseP,String)
-            End If
-            If (Original_CP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_CP,String)
-            End If
-            If (Original_VilleP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_VilleP,String)
-            End If
-            If (Original_PaysP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_PaysP,String)
-            End If
-            If (Original_NumTelP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(17).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(Original_NumTelP,String)
-            End If
-            If (Original_MailP Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(19).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(Original_MailP,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(PrenomP,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -22688,6 +22624,7 @@ Namespace Formation_ContinueDataSet1TableAdapters
             tableMapping.ColumnMappings.Add("StatutPaiement", "StatutPaiement")
             tableMapping.ColumnMappings.Add("Cout", "Cout")
             tableMapping.ColumnMappings.Add("Commentaire", "Commentaire")
+            tableMapping.ColumnMappings.Add("Taux", "Taux")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -22704,18 +22641,30 @@ Namespace Formation_ContinueDataSet1TableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        NomP, PrenomP, idIntervenant, NomF, idSeance, idSessionFormation, A"& _ 
-                "nneeSession, TypeIntervention, Date, HeureDebut, HeureFin, NbHeure, Salle, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
-                "                      StatutPaiement, Cout, Commentaire"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_i"& _ 
-                "nterventions"
+            Me._commandCollection(0).CommandText = "SELECT        liste_interventions.NomP, liste_interventions.PrenomP, liste_interv"& _ 
+                "entions.idIntervenant, liste_interventions.NomF, liste_interventions.idSeance, l"& _ 
+                "iste_interventions.idSessionFormation, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         liste_interven"& _ 
+                "tions.AnneeSession, liste_interventions.TypeIntervention, liste_interventions.Da"& _ 
+                "te, liste_interventions.HeureDebut, liste_interventions.HeureFin, liste_interven"& _ 
+                "tions.NbHeure, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         liste_interventions.Salle, liste_inter"& _ 
+                "ventions.StatutPaiement, liste_interventions.Cout, liste_interventions.Commentai"& _ 
+                "re, V.Taux"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_interventions INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     Vacation AS V ON liste_interventions.TypeIntervention = V.Libelle"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        AnneeSession, Commentaire, Cout, Date, HeureDebut, HeureFin, NbHeur"& _ 
-                "e, NomF, NomP, PrenomP, Salle, StatutPaiement, TypeIntervention, idIntervenant, "& _ 
-                "idSeance, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         idSessionFormation"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_i"& _ 
-                "nterventions"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NomF = @NomFormation) AND (AnneeSession = @Session) "& _ 
-                "AND (NomP = @Nom) AND (PrenomP = @Prenom)"
+            Me._commandCollection(1).CommandText = "SELECT        liste_interventions.AnneeSession, liste_interventions.Commentaire, "& _ 
+                "liste_interventions.Cout, liste_interventions.Date, liste_interventions.HeureDeb"& _ 
+                "ut, liste_interventions.HeureFin, liste_interventions.NbHeure, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
+                "          liste_interventions.NomF, liste_interventions.NomP, liste_intervention"& _ 
+                "s.PrenomP, liste_interventions.Salle, liste_interventions.StatutPaiement, liste_"& _ 
+                "interventions.TypeIntervention, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         liste_interventions.i"& _ 
+                "dIntervenant, liste_interventions.idSeance, liste_interventions.idSessionFormati"& _ 
+                "on, V.Taux"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            liste_interventions INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     Vacation AS V ON liste_interventions.TypeIntervention = V.Libelle"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE   "& _ 
+                "     (liste_interventions.NomF = @NomFormation) AND (liste_interventions.AnneeSe"& _ 
+                "ssion = @Session) AND (liste_interventions.NomP = @Nom) AND (liste_interventions"& _ 
+                ".PrenomP = @Prenom)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomFormation", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "NomF", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Session", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "AnneeSession", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

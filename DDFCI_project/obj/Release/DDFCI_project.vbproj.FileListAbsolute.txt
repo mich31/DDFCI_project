@@ -54,3 +54,4 @@ C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_projec
 C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.SupprimerUtilisateur.resources
 C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.Vacation.resources
 C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.vbproj.GenerateResource.Cache
+C:\Users\michel\Documents\Visual Studio 2015\Projects\DDFCI_project\DDFCI_project\obj\Release\DDFCI_project.SuppressionBD.resources

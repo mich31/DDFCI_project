@@ -212,6 +212,12 @@
     </Compile>
     <Compile Include="SessionFormation.vb" />
     <Compile Include="Stagiaire.vb" />
+    <Compile Include="SuppressionBD.Designer.vb">
+      <DependentUpon>SuppressionBD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SuppressionBD.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SupprimerUtilisateur.Designer.vb">
       <DependentUpon>SupprimerUtilisateur.vb</DependentUpon>
     </Compile>
@@ -279,6 +285,9 @@
       <DependentUpon>PageConnexion.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="SuppressionBD.resx">
+      <DependentUpon>SuppressionBD.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SupprimerUtilisateur.resx">
       <DependentUpon>SupprimerUtilisateur.vb</DependentUpon>
     </EmbeddedResource>
@@ -331,7 +340,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxMicrosoft.Office.Interop.OutlookViewCtl">
