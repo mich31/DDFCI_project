@@ -114,13 +114,17 @@ Public Class Formation
     End Sub
 
     Sub OrdonneOnglets()
+
         Dim Temp As TabPage
         Temp = Me.TabPage7
-        Me.TabControl2.TabPages.Item(1) = Me.TabPage8
-        Me.TabControl2.TabPages.Item(2) = Me.TabPage9
+        Me.TabControl2.TabPages.Item(1) = Me.TabPage1
+        Me.TabControl2.TabPages.Item(3) = Me.TabPage9
 
-        Me.TabControl2.TabPages.Item(3) = Temp
+        Me.TabControl2.TabPages.Item(4) = Temp
 
+        ' Suppression de l'onglet Paiement(s) à l'affichage
+        Me.TabControl2.TabPages.Remove(Me.TabPage9)
+        Me.TabControl1.TabPages.Remove(Me.TabPage6)
     End Sub
 
     Sub GestionDesDroits()
@@ -505,12 +509,7 @@ Public Class Formation
         'Me.DG_Liste_Interventions.DataSource = intervenant_select.interventions
 
         Me.Param_Nom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
-        'Me.Param_Nom1_P.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
-        'Me.Param_Nom_NP.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(2).Value
-
         Me.Param_Prenom.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
-        'Me.Param_Prenom1_P.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
-        'Me.Param_Prenom_NP.Text = Me.DG_Liste_Intervenants.CurrentRow.Cells(4).Value
 
         Remplir_DG_Liste_Interventions()
 
@@ -549,7 +548,7 @@ Public Class Formation
         Try
             res = cmd.ExecuteNonQuery()
             If res = 1 Then
-                MsgBox("Séance supprimée!")
+                MsgBox("Intervention supprimée!")
             End If
         Catch ex As Exception
             Console.WriteLine(ex.Message)
@@ -671,6 +670,7 @@ Public Class Formation
             Console.WriteLine(ex.Message)
             MsgBox(ex.Message)
         End Try
+        Me.BT_Actualiser_paiement.PerformClick()
 
     End Sub
 
@@ -920,15 +920,15 @@ Public Class Formation
 
     Private Sub BT_Ajouter_seance_Click(sender As Object, e As EventArgs) Handles BT_Ajouter_seance.Click
         Ajoute_seance()
+        Me.BT_Actualiser.PerformClick()
     End Sub
 
     Private Sub Ajoute_seance()
         Dim MaDate As Date = Me.DTP_Seance.Value.Date
         Dim req As String = "insert into Seance (idSessionFormation,Module,Date,HeureDebut,HeureFin) 
-            values ('" & idSession & "','" & Me.TB_Module.Text & "','" & MaDate & "','" & Me.TB_Heure_DebutSeance.Text & "','" & Me.TB_Heure_FinSeance.Text & "')"
+            values ('" & idSession & "','" & Me.TB_Module.Text & "','" & MaDate.ToString("yyyy-MM-dd") & "','" & Me.TB_Heure_DebutSeance.Text & "','" & Me.TB_Heure_FinSeance.Text & "')"
         Dim cmd As New SqlCommand(req, bdd.connect)
         Dim res As Integer = 0
-        MsgBox(MaDate)
         Try
             res = cmd.ExecuteNonQuery()
             If res = 1 Then
@@ -952,6 +952,7 @@ Public Class Formation
 
     Private Sub BT_supprimer_seance_Click(sender As Object, e As EventArgs) Handles BT_supprimer_seance.Click
         supprime_seance()
+        Me.BT_Actualiser.PerformClick()
     End Sub
 
     Private Sub supprime_seance()
@@ -1227,6 +1228,11 @@ Public Class Formation
         ExportExcel("S:\Outil FC\Exports\Liste_intervenants_" & NomFormation & "_" & SessionFormation & "_" & bdd.username & ".xls", Me.DG_Liste_Intervenants)
     End Sub
 
+    Private Sub BT_Export_Interventions_Click(sender As Object, e As EventArgs) Handles BT_Export_Interventions.Click
+        'ExportExcel("S:\Outil FC\Exports\Vacations\" & NomFormation & "_" & SessionFormation & "_" & bdd.username & "_" & Me.Param_Nom.Text & "_" & Me.Param_Prenom.Text & ".xls", Me.DG_Liste_Interventions)
+        ExportExcel("C:\Test\Vacations\" & NomFormation & "_" & SessionFormation & "_" & bdd.username & "_" & Me.Param_Nom.Text & "_" & Me.Param_Prenom.Text & ".xls", Me.DG_Liste_Interventions)
+    End Sub
+
     Private Sub BT_Export_stagiaires_Click(sender As Object, e As EventArgs) Handles BT_Export_stagiaires.Click
         ExportExcel("S:\Outil FC\Exports\Liste_" & NomFormation & "_" & SessionFormation & "_" & bdd.username & ".xls", Me.DG_Liste_Stagiaires)
     End Sub
@@ -1249,7 +1255,7 @@ Public Class Formation
 
 
         For i = 0 To DG.RowCount - 2
-            For j = 1 To DG.ColumnCount - 1
+            For j = 0 To DG.ColumnCount - 1
                 xlWorkSheet.Cells(i + 1, j + 1) = DG(j, i).Value.ToString()
             Next
         Next
@@ -1291,7 +1297,6 @@ Public Class Formation
         Me.Dispose()
         PageConnexion.Show()
     End Sub
-
 
 
     Private Sub BT_FichePerso_Click(sender As Object, e As EventArgs)
@@ -1336,4 +1341,5 @@ Public Class Formation
         Dim Modif_formation As New Edit_Formation(bdd)
         Modif_formation.Show()
     End Sub
+
 End Class

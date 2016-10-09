@@ -3344,6 +3344,7 @@ Partial Public Class Formation_ContinueDataSet2
             Me.columnidSeance.AllowDBNull = false
             Me.columnidSeance.Unique = true
             Me.columnSalle.MaxLength = 50
+            Me.columnDate.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columnAnneeSession.MaxLength = 50
             Me.columnNomF.AllowDBNull = false
             Me.columnNomF.MaxLength = 50

@@ -36,7 +36,7 @@ Public Class Ajout_intervention
         Dim prix As Double = Calcul_cout(Math.Round(nbh.TotalHours, 2), Me.CB_Type.Text)
         Dim cout As String = Replace(prix, ",", ".")
 
-        Dim req As String = "insert into intervient 
+        Dim req As String = "insert into intervient (idIntervenant,idSeance,TypeIntervention,StatutPaiement,Cout,EtatDossier,NbHeure,HeureDebut,HeureFin,Commentaire)
         values ('" & idIntervenant & "','" & idSeance & "','" & Me.CB_Type.Text & "','Non payé'," & cout & ",'Incomplet'," & nb & ",'" & Debut & "','" & Fin & "','')"
         Dim cmd As New SqlCommand(req, bdd.connect)
         Dim res As Integer = 0
@@ -69,7 +69,7 @@ Public Class Ajout_intervention
             Console.WriteLine()
         End Try
         cout = nb * taux * 41.17
-        Return cout
+        Return Math.Round(cout, 2)
     End Function
 
     Private Sub BT_Annuler_Click(sender As Object, e As EventArgs) Handles BT_Annuler.Click
