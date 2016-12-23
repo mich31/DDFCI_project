@@ -65,10 +65,41 @@ DDFCI_project
  </summary>
  <returns></returns>
 </member>
+<member name="M:DDFCI_project.Formation.Formation_Load(System.Object,System.EventArgs)">
+ <summary>
+ Initialise la fenêtre en chargeant les tables de la base de données
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:DDFCI_project.Formation.OrdonneOnglets">
+ <summary>
+ Gère l'ordre des onglets de la fenêtre
+ </summary>
+</member>
+<member name="M:DDFCI_project.Formation.GestionDesDroits">
+ <summary>
+ Allocation des droits à certains utilisateurs en activant certains boutons
+ </summary>
+</member>
 <member name="M:DDFCI_project.Formation.CreerUtilisateur">
  <summary>
  Créé une instance Utilisateur
  </summary>
+</member>
+<member name="M:DDFCI_project.Formation.BT_Actualiser_TV_Click(System.Object,System.EventArgs)">
+ <summary>
+ Actualise l'arborescence
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:DDFCI_project.Formation.TV_Menu_AfterSelect(System.Object,System.Windows.Forms.TreeViewEventArgs)">
+ <summary>
+ Charge les données en fonction de la session de formation selectionnée
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
 </member>
 <member name="M:DDFCI_project.Formation.CreerArborescence">
  <summary>

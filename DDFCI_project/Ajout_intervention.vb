@@ -48,6 +48,7 @@ Public Class Ajout_intervention
                 MsgBox("Intervention ajoutée!")
             End If
         Catch ex As Exception
+            MsgBox(ex.Message)
             Console.WriteLine(ex.Message)
         End Try
     End Sub

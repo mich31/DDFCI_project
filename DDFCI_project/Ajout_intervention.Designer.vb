@@ -28,11 +28,11 @@ Partial Class Ajout_intervention
         Me.DTP_Debut = New System.Windows.Forms.DateTimePicker()
         Me.DTP_Fin = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.TB_NB_Heures = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DTP_Date = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.CB_Type = New System.Windows.Forms.ComboBox()
         Me.VacationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Formation_ContinueDataSet1 = New DDFCI_project.Formation_ContinueDataSet1()
@@ -109,6 +109,15 @@ Partial Class Ajout_intervention
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Début:"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(125, 22)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(24, 13)
+        Me.Label5.TabIndex = 1
+        Me.Label5.Text = "Fin:"
+        '
         'TB_NB_Heures
         '
         Me.TB_NB_Heures.Enabled = False
@@ -143,24 +152,15 @@ Partial Class Ajout_intervention
         Me.Label6.TabIndex = 3
         Me.Label6.Text = "Date:"
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(125, 22)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(24, 13)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "Fin:"
-        '
         'CB_Type
         '
         Me.CB_Type.DataSource = Me.VacationBindingSource
         Me.CB_Type.DisplayMember = "Libelle"
         Me.CB_Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CB_Type.FormattingEnabled = True
-        Me.CB_Type.Location = New System.Drawing.Point(57, 100)
+        Me.CB_Type.Location = New System.Drawing.Point(24, 100)
         Me.CB_Type.Name = "CB_Type"
-        Me.CB_Type.Size = New System.Drawing.Size(136, 21)
+        Me.CB_Type.Size = New System.Drawing.Size(199, 21)
         Me.CB_Type.TabIndex = 2
         '
         'VacationBindingSource
@@ -185,7 +185,7 @@ Partial Class Ajout_intervention
         'TB_Prenom
         '
         Me.TB_Prenom.Enabled = False
-        Me.TB_Prenom.Location = New System.Drawing.Point(57, 42)
+        Me.TB_Prenom.Location = New System.Drawing.Point(73, 42)
         Me.TB_Prenom.Name = "TB_Prenom"
         Me.TB_Prenom.Size = New System.Drawing.Size(100, 20)
         Me.TB_Prenom.TabIndex = 1
@@ -193,7 +193,7 @@ Partial Class Ajout_intervention
         'TB_Nom
         '
         Me.TB_Nom.Enabled = False
-        Me.TB_Nom.Location = New System.Drawing.Point(57, 13)
+        Me.TB_Nom.Location = New System.Drawing.Point(73, 13)
         Me.TB_Nom.Name = "TB_Nom"
         Me.TB_Nom.Size = New System.Drawing.Size(100, 20)
         Me.TB_Nom.TabIndex = 1
@@ -201,7 +201,7 @@ Partial Class Ajout_intervention
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(5, 42)
+        Me.Label2.Location = New System.Drawing.Point(12, 45)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 13)
         Me.Label2.TabIndex = 1
@@ -210,7 +210,7 @@ Partial Class Ajout_intervention
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(19, 16)
+        Me.Label1.Location = New System.Drawing.Point(26, 16)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 1

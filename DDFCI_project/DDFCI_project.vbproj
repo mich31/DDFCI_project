@@ -73,8 +73,9 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Forms.Calendar">
-      <HintPath>..\..\..\..\Outils de gestion\Agenda\CAL\System.Windows.Forms.Calendar.dll</HintPath>
+    <Reference Include="System.Windows.Forms.Calendar, Version=1.0.3526.15150, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar\bin\Debug\System.Windows.Forms.Calendar.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />

@@ -86,7 +86,11 @@ Public Class Formation
     End Property
 #End Region
 
-
+    ''' <summary>
+    ''' Initialise la fenêtre en chargeant les tables de la base de données
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub Formation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.TempsAgent'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         'Me.TempsAgentTableAdapter.Fill(Me.Formation_ContinueDataSet1.TempsAgent)
@@ -106,13 +110,16 @@ Public Class Formation
         'TODO: cette ligne de code charge les données dans la table 'Formation_ContinueDataSet1.profils_intervenant'. Vous pouvez la déplacer ou la supprimer selon les besoins.
         Me.Profils_intervenantTableAdapter.Fill(Me.Formation_ContinueDataSet1.profils_intervenant)
 
-        Me.TV_Menu.TopNode = Me.TV_Menu.Nodes.Add(bdd.username)
+        Me.TV_Menu.TopNode = Me.TV_Menu.Nodes.Add(bdd.username) 'Crée le noeud principal de l'arborescence
         CreerUtilisateur()
         CreerArborescence()
         GestionDesDroits()
         OrdonneOnglets()
     End Sub
 
+    ''' <summary>
+    ''' Gère l'ordre des onglets de la fenêtre
+    ''' </summary>
     Sub OrdonneOnglets()
 
         Dim Temp As TabPage
@@ -127,6 +134,9 @@ Public Class Formation
         Me.TabControl1.TabPages.Remove(Me.TabPage6)
     End Sub
 
+    ''' <summary>
+    ''' Allocation des droits à certains utilisateurs en activant certains boutons
+    ''' </summary>
     Sub GestionDesDroits()
         If utilisateur.fonction = "Admin" Or utilisateur.fonction = "Direction" Then
             Me.CréerUnUtilisateurToolStripMenuItem.Enabled = True
@@ -172,12 +182,42 @@ Public Class Formation
 
 #Region "Arborescence Formations"
 
+    ''' <summary>
+    ''' Actualise l'arborescence
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub BT_Actualiser_TV_Click(sender As Object, e As EventArgs) Handles BT_Actualiser_TV.Click
         Me.TV_Menu.Nodes.Clear()
         Me.TV_Menu.TopNode = Me.TV_Menu.Nodes.Add(bdd.username)
         ActualiserArborescence()
     End Sub
 
+    Sub ActualiserArborescence()
+        Dim Req As String = "select distinct NomF from travaille_sur_formation where Login='" & bdd.username & "'"
+        Dim cmd As New SqlCommand(Req, bdd.connect)
+        Dim MonAdaptateur As New SqlDataAdapter(cmd)
+        MonDataSet.Tables("travaille_sur_formation").Clear()
+
+        Try
+            MonAdaptateur.Fill(MonDataSet, "travaille_sur_formation")
+            'Analyse du dataset
+            For Each Ligne As DataRow In MonDataSet.Tables("travaille_sur_formation").Rows()
+                Me.TV_Menu.TopNode.Nodes.Add(Ligne("NomF").ToString, Ligne("NomF").ToString)
+                CreerArborescenceFormation(Ligne("NomF").ToString, Me.TV_Menu.TopNode)
+            Next
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cmd.Dispose()
+    End Sub
+
+
+    ''' <summary>
+    ''' Charge les données en fonction de la session de formation selectionnée
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub TV_Menu_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TV_Menu.AfterSelect
         'Si le noeud sélectionné est une session de formation
         If Me.TV_Menu.SelectedNode.Level = 2 Then
@@ -290,24 +330,6 @@ Public Class Formation
         End If
     End Sub
 
-    Sub ActualiserArborescence()
-        Dim Req As String = "select distinct NomF from travaille_sur_formation where Login='" & bdd.username & "'"
-        Dim cmd As New SqlCommand(Req, bdd.connect)
-        Dim MonAdaptateur As New SqlDataAdapter(cmd)
-        MonDataSet.Tables("travaille_sur_formation").Clear()
-
-        Try
-            MonAdaptateur.Fill(MonDataSet, "travaille_sur_formation")
-            'Analyse du dataset
-            For Each Ligne As DataRow In MonDataSet.Tables("travaille_sur_formation").Rows()
-                Me.TV_Menu.TopNode.Nodes.Add(Ligne("NomF").ToString, Ligne("NomF").ToString)
-                CreerArborescenceFormation(Ligne("NomF").ToString, Me.TV_Menu.TopNode)
-            Next
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
-        cmd.Dispose()
-    End Sub
 
     ''' <summary>
     ''' Crée l'arborescence des sessions de formations par utilisateur
@@ -1229,7 +1251,7 @@ Public Class Formation
     End Sub
 
     Private Sub BT_Export_Interventions_Click(sender As Object, e As EventArgs) Handles BT_Export_Interventions.Click
-        ExportExcel("S:\Outil FC\Exports\Vacations\" & NomFormation & "_" & SessionFormation & "_" & bdd.username & "_" & Me.Param_Nom.Text & "_" & Me.Param_Prenom.Text & ".xls", Me.DG_Liste_Interventions)
+        ExportInterventions("S:\Outil FC\Exports\Vacations\" & NomFormation & "_" & SessionFormation & "_" & bdd.username & "_" & Me.Param_Nom.Text & "_" & Me.Param_Prenom.Text & ".xls", Me.DG_Liste_Interventions)
         'ExportInterventions("C:\Test\Vacations\" & NomFormation & "_" & SessionFormation & "_" & bdd.username & "_" & Me.Param_Nom.Text & "_" & Me.Param_Prenom.Text & ".xls", Me.DG_Liste_Interventions)
     End Sub
 
@@ -1293,6 +1315,7 @@ Public Class Formation
         xlWorkSheet.Cells(1, 5) = "Quantification HETD"
         xlWorkSheet.Cells(1, 6) = "Total HETD"
         xlWorkSheet.Cells(1, 7) = "Total en euros"
+        xlWorkSheet.Cells(1, 8) = "Paiement"
 
         For i = 0 To DG.RowCount - 2
             xlWorkSheet.Cells(i + 2, 1) = DG(3, i).Value.ToString()
@@ -1302,6 +1325,7 @@ Public Class Formation
             xlWorkSheet.Cells(i + 2, 5) = DG(16, i).Value.ToString() 'Taux
 
             xlWorkSheet.Cells(i + 2, 7) = DG(14, i).Value.ToString() 'Cout
+            xlWorkSheet.Cells(i + 2, 8) = DG(13, i).Value.ToString() 'Statut
         Next
 
         xlWorkBook.SaveAs(Filename,
